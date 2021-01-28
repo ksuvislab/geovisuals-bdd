@@ -17,8 +17,8 @@ export function map_initialize(container_id)
         container: container_id,
         style: 'mapbox://styles/mapbox/dark-v10',
         center: [-74.5, 40],
-        zoom: 11,
-        minZoom:  9,
+        zoom: 10,
+        minZoom:  10,
         maxZoom: 15,
     });
 }
@@ -51,6 +51,7 @@ export function map_events()
     map_main.on('zoomend', function(e) {
         let bbox_polygon = map_get_bbox_polygon();
         console.log(bbox_polygon);
+        console.log(map_main.getZoom());
     });
 }
 

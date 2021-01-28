@@ -17,4 +17,5 @@ map_main.on('load', function() {
     // Initialize all map components
     map_add_draw_controls();
     map_events();
+
 });
