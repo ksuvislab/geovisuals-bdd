@@ -11,13 +11,15 @@ let access_token = 'pk.eyJ1IjoiZGlnaXRhbGtpIiwiYSI6ImNqNXh1MDdibTA4bTMycnAweDBxY
 export function map_initialize(container_id)
 {
     // Add access token
-    MapboxGL.accessToken = access_token;
+    mapboxgl.accessToken = access_token;
     // Initialize map
-    map_main = new MapboxGL.Map({
+    map_main = new mapboxgl.Map({
         container: container_id,
         style: 'mapbox://styles/mapbox/dark-v10',
         center: [-74.5, 40],
-        zoom: 9
+        zoom: 11,
+        minZoom:  9,
+        maxZoom: 15,
     });
 }
 
@@ -56,8 +58,8 @@ export function map_events()
 export function map_get_bbox_polygon()
 {
     let bounds = map_main.getBounds();
-    var corner_coordinatees = Turf.multiPoint([[bounds._ne.lng, bounds._ne.lat], [bounds._sw.lng, bounds._sw.lat]]);
-    var bbox = Turf.bbox(corner_coordinatees);
-    var bbox_polygon = Turf.bboxPolygon(bbox);
+    var corner_coordinatees = turf.multiPoint([[bounds._ne.lng, bounds._ne.lat], [bounds._sw.lng, bounds._sw.lat]]);
+    var bbox = turf.bbox(corner_coordinatees);
+    var bbox_polygon = turf.bboxPolygon(bbox);
     return bbox_polygon;
 }

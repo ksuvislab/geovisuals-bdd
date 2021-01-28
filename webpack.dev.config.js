@@ -60,10 +60,10 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
-            D3: 'd3',
-            Turf: '@turf/turf',
-            MapboxGL: 'mapbox-gl',
-            Axios: 'axios',
+            d3: 'd3',
+            turf: '@turf/turf',
+            mapboxgl: 'mapbox-gl',
+            axios: 'axios',
         }),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
