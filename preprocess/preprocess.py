@@ -115,15 +115,41 @@ if __name__ == '__main__':
     mode = 'train'
     # Connect to mongodb
     db_name = 'geovisuals_bdd'
-    #colllection = connect_db(mode, db_name)
+    colllection = connect_db(mode, db_name)
 
     labels = get_labels(mode)
     infos = get_infos(mode)
 
     # Print total trips
-    print('Done collecting ' + str(len(trips)) + ' trips')
-    progress_bar = Bar('Adding image data: ', suffix='%(percent)d%%', max=len(trips))
+    print('Done collecting ' + str(len(infos)) + ' infos')
+    progress_bar = Bar('Adding record data: ', suffix='%(percent)d%%', max=len(infos))
 
-    for trip in trips:
-        label_data = next((x for x in labels if x['video_name'] == trip['trip_id']), None)
-        print(label_data)
+    for info in infos:
+        label_data = next((x for x in labels if x['video_name'] == info['trip_id']), None)
+
+        info['time_of_day'] = None
+        info['weather'] = None
+        info['scene'] = None
+        info['image'] = None
+        info['segments'] = None
+        info['frame_index'] = None
+
+        if label_data is not None:
+            info['time_of_day'] = label_data['time_of_day']
+            info['weather'] = label_data['weather']
+            info['scene'] = label_data['scene']
+            info['image'] = label_data['image']
+            info['segments'] = label_data['segments']
+            info['frame_index'] = label_data['index']
+
+        # Insert trip to mongodb
+        try:
+            collection.insert_one(info)
+        except Exception as e:
+            print(e)
+
+        progress_bar.next()
+    progress_bar.finish()
+
+
+
