@@ -4,6 +4,8 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import config from '../../webpack.dev.config';
 
+// Mongodb
+import mongoose from 'mongoose';
 // express routers
 import routes from './routes/router';
 import bodyParser from 'body-parser';
@@ -15,6 +17,15 @@ const app = express(),
             DIST_DIR = __dirname,
             HTML_FILE = path.join(DIST_DIR, 'index.html'),
             compiler = webpack(config);
+
+// Connect to mongodb
+mongoose.connect('mongodb://localhost/geovisuals_bdd');
+var db = mongoose.connection;
+// Handle mongo error
+db.on('error', console.error.bind(console, 'Connection error: '));
+db.once('open', function () {
+    console.log('Connected to mongodb ...');
+});
 
 // parse to json attached from request body
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,7 +54,7 @@ app.get('*', (req, res, next) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
     console.log(`App listening to ${PORT} ...`);
 });

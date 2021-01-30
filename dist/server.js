@@ -86,6 +86,42 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/server/data-models/train.js":
+/*!*****************************************!*\
+  !*** ./src/server/data-models/train.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar schema = new mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema({\n\n    trip_id: String,\n    start_timestamp: Number,\n    end_timestamp: Number,\n    video_file: String,\n    locations: mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema.Types.Mixed,\n    speeds: mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema.Types.Array,\n    timestamps: mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema.Types.Array,\n    time_of_day: String,\n    weather: String,\n    scene: String,\n    image: String,\n    segments: mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema.Types.Mixed,\n    frame_index: Number\n\n}, { collection: 'train' });\n\nschema.index({ locations: '2dsphere' });\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.model('Train', schema));\n\n//# sourceURL=webpack:///./src/server/data-models/train.js?");
+
+/***/ }),
+
+/***/ "./src/server/data-models/val.js":
+/*!***************************************!*\
+  !*** ./src/server/data-models/val.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar schema = new mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema({\n\n    trip_id: String,\n    start_timestamp: Number,\n    end_timestamp: Number,\n    video_file: String,\n    locations: mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema.Types.Mixed,\n    speeds: mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema.Types.Array,\n    timestamps: mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema.Types.Array,\n    time_of_day: String,\n    weather: String,\n    scene: String,\n    image: String,\n    segments: mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema.Types.Mixed,\n    frame_index: Number\n\n}, { collection: 'val' });\n\nschema.index({ locations: '2dsphere' });\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.model('Val', schema));\n\n//# sourceURL=webpack:///./src/server/data-models/val.js?");
+
+/***/ }),
+
+/***/ "./src/server/routes/query.js":
+/*!************************************!*\
+  !*** ./src/server/routes/query.js ***!
+  \************************************/
+/*! exports provided: query_find_intersection */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"query_find_intersection\", function() { return query_find_intersection; });\n/* harmony import */ var _data_models_train__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../data-models/train */ \"./src/server/data-models/train.js\");\n/* harmony import */ var _data_models_val__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data-models/val */ \"./src/server/data-models/val.js\");\n\n\n\n// Find any trip that intersect inside the bounding box\nfunction query_find_intersection(req, res, err) {\n\n    let query = req.query;\n    let model = query.model_type == 'train' ? _data_models_train__WEBPACK_IMPORTED_MODULE_0__[\"default\"] : _data_models_val__WEBPACK_IMPORTED_MODULE_1__[\"default\"];\n    let bounding_box = JSON.parse(query.bbox);\n\n    model.find({\n        locations: {\n            $geoIntersects: {\n                $geometry: bounding_box\n            }\n        }\n    }).exec(function (err, result) {\n        if (err) return res.end(err);\n        res.json(result);\n    });\n}\n\n//# sourceURL=webpack:///./src/server/routes/query.js?");
+
+/***/ }),
+
 /***/ "./src/server/routes/router.js":
 /*!*************************************!*\
   !*** ./src/server/routes/router.js ***!
@@ -94,7 +130,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst router = express__WEBPACK_IMPORTED_MODULE_0___default.a.Router();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (router);\n\n//# sourceURL=webpack:///./src/server/routes/router.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./query */ \"./src/server/routes/query.js\");\n\n\n\nconst router = express__WEBPACK_IMPORTED_MODULE_0___default.a.Router();\nrouter.route('/queryFindIntersection').get(_query__WEBPACK_IMPORTED_MODULE_1__[\"query_find_intersection\"]);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (router);\n\n//# sourceURL=webpack:///./src/server/routes/router.js?");
 
 /***/ }),
 
@@ -106,7 +142,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var expr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var webpack__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! webpack */ \"webpack\");\n/* harmony import */ var webpack__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(webpack__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! webpack-dev-middleware */ \"webpack-dev-middleware\");\n/* harmony import */ var webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _webpack_dev_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../webpack.dev.config */ \"./webpack.dev.config.js\");\n/* harmony import */ var _webpack_dev_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_webpack_dev_config__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _routes_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes/router */ \"./src/server/routes/router.js\");\n/* harmony import */ var body_parser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! body-parser */ \"body-parser\");\n/* harmony import */ var body_parser__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(body_parser__WEBPACK_IMPORTED_MODULE_6__);\n\n\n\n\n\n\n// express routers\n\n\n\n/**\n * webpack initialize\n */\nconst app = express__WEBPACK_IMPORTED_MODULE_1___default()(),\n      DIST_DIR = __dirname,\n      HTML_FILE = path__WEBPACK_IMPORTED_MODULE_0___default.a.join(DIST_DIR, 'index.html'),\n      compiler = webpack__WEBPACK_IMPORTED_MODULE_2___default()(_webpack_dev_config__WEBPACK_IMPORTED_MODULE_4___default.a);\n\n// parse to json attached from request body\napp.use(body_parser__WEBPACK_IMPORTED_MODULE_6___default.a.urlencoded({ extended: false }));\napp.use(body_parser__WEBPACK_IMPORTED_MODULE_6___default.a.json());\n\n// assets\napp.use(express__WEBPACK_IMPORTED_MODULE_1___default.a.static('data'));\napp.use(express__WEBPACK_IMPORTED_MODULE_1___default.a.static('resources'));\n// express router\napp.use('/', _routes_router__WEBPACK_IMPORTED_MODULE_5__[\"default\"]);\n\napp.use(webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_3___default()(compiler, {\n    publicPath: _webpack_dev_config__WEBPACK_IMPORTED_MODULE_4___default.a.output.publicPath\n}));\n\napp.get('*', (req, res, next) => {\n    compiler.outputFileSystem.readFile(HTML_FILE, (err, result) => {\n\n        if (err) {\n            return next(err);\n        }\n\n        res.set('content-type', 'text/html');\n        res.send(result), res.end();\n    });\n});\n\nconst PORT = process.env.PORT || 3000;\napp.listen(PORT, () => {\n    console.log(`App listening to ${PORT} ...`);\n});\n\n//# sourceURL=webpack:///./src/server/server-dev.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var webpack__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! webpack */ \"webpack\");\n/* harmony import */ var webpack__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(webpack__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! webpack-dev-middleware */ \"webpack-dev-middleware\");\n/* harmony import */ var webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _webpack_dev_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../webpack.dev.config */ \"./webpack.dev.config.js\");\n/* harmony import */ var _webpack_dev_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_webpack_dev_config__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _routes_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./routes/router */ \"./src/server/routes/router.js\");\n/* harmony import */ var body_parser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! body-parser */ \"body-parser\");\n/* harmony import */ var body_parser__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(body_parser__WEBPACK_IMPORTED_MODULE_7__);\n\n\n\n\n\n\n// Mongodb\n\n// express routers\n\n\n\n/**\n * webpack initialize\n */\nconst app = express__WEBPACK_IMPORTED_MODULE_1___default()(),\n      DIST_DIR = __dirname,\n      HTML_FILE = path__WEBPACK_IMPORTED_MODULE_0___default.a.join(DIST_DIR, 'index.html'),\n      compiler = webpack__WEBPACK_IMPORTED_MODULE_2___default()(_webpack_dev_config__WEBPACK_IMPORTED_MODULE_4___default.a);\n\n// Connect to mongodb\nmongoose__WEBPACK_IMPORTED_MODULE_5___default.a.connect('mongodb://localhost/geovisuals_bdd');\nvar db = mongoose__WEBPACK_IMPORTED_MODULE_5___default.a.connection;\n// Handle mongo error\ndb.on('error', console.error.bind(console, 'Connection error: '));\ndb.once('open', function () {\n    console.log('Connected to mongodb ...');\n});\n\n// parse to json attached from request body\napp.use(body_parser__WEBPACK_IMPORTED_MODULE_7___default.a.urlencoded({ extended: false }));\napp.use(body_parser__WEBPACK_IMPORTED_MODULE_7___default.a.json());\n\n// assets\napp.use(express__WEBPACK_IMPORTED_MODULE_1___default.a.static('data'));\napp.use(express__WEBPACK_IMPORTED_MODULE_1___default.a.static('resources'));\n// express router\napp.use('/', _routes_router__WEBPACK_IMPORTED_MODULE_6__[\"default\"]);\n\napp.use(webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_3___default()(compiler, {\n    publicPath: _webpack_dev_config__WEBPACK_IMPORTED_MODULE_4___default.a.output.publicPath\n}));\n\napp.get('*', (req, res, next) => {\n    compiler.outputFileSystem.readFile(HTML_FILE, (err, result) => {\n\n        if (err) {\n            return next(err);\n        }\n\n        res.set('content-type', 'text/html');\n        res.send(result), res.end();\n    });\n});\n\nconst PORT = process.env.PORT || 80;\napp.listen(PORT, () => {\n    console.log(`App listening to ${PORT} ...`);\n});\n\n//# sourceURL=webpack:///./src/server/server-dev.js?");
 
 /***/ }),
 
@@ -151,6 +187,17 @@ eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///externa
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"html-webpack-plugin\");\n\n//# sourceURL=webpack:///external_%22html-webpack-plugin%22?");
+
+/***/ }),
+
+/***/ "mongoose":
+/*!***************************!*\
+  !*** external "mongoose" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"mongoose\");\n\n//# sourceURL=webpack:///external_%22mongoose%22?");
 
 /***/ }),
 

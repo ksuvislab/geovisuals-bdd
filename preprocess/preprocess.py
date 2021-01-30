@@ -1,7 +1,7 @@
 from os import listdir
 from os.path import isfile, join
 import json
-from pymongo import MongoClient
+from pymongo import MongoClient, GEOSPHERE
 from progress.bar import Bar
 from datetime import datetime
 from geojson import LineString, Feature
@@ -100,12 +100,10 @@ def extract_gps(gps_data, data, gps_type):
         speeds.append(point['speed'])
         timestamps.append(point['timestamp'])
 
-    geo_json = Feature(geometry=LineString(points), properties={
-        'speeds': speeds,
-        'timestamps': timestamps,
-    })
+    gps_data['locations'] = LineString(points)
+    gps_data['speeds'] = speeds
+    gps_data['timestamps'] = timestamps
 
-    gps_data['locations'] = geo_json
     return gps_data
 
 
@@ -115,7 +113,7 @@ if __name__ == '__main__':
     mode = 'train'
     # Connect to mongodb
     db_name = 'geovisuals_bdd'
-    colllection = connect_db(mode, db_name)
+    collection = connect_db(mode, db_name)
 
     labels = get_labels(mode)
     infos = get_infos(mode)
@@ -145,6 +143,8 @@ if __name__ == '__main__':
         # Insert trip to mongodb
         try:
             collection.insert_one(info)
+            res = collection.create_index([('locations', GEOSPHERE)])
+            print('index response:', res)
         except Exception as e:
             print(e)
 

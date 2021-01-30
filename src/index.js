@@ -9,6 +9,9 @@ import {
     map_add_draw_controls,
     map_events
 } from './js/map';
+import {
+    util_axios_interceptors
+} from './js/utils';
 
 // Initialize map
 map_initialize('map');
@@ -17,5 +20,5 @@ map_main.on('load', function() {
     // Initialize all map components
     map_add_draw_controls();
     map_events();
-
+    util_axios_interceptors();
 });

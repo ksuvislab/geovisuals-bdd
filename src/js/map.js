@@ -1,4 +1,7 @@
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
+import {
+    query_find_intersection
+} from "./query";
 
 // Public variables
 export let map_main = undefined;
@@ -44,15 +47,66 @@ export function map_events()
     // On drag ended
     map_main.on('dragend', function(e) {
         let bbox_polygon = map_get_bbox_polygon();
-        console.log(bbox_polygon);
+
+        query_find_intersection(bbox_polygon).then( function(result) {
+            console.log(result);
+
+
+            let trajectories = [];
+            for (var i = 0; i < result.length; ++i) {
+                trajectories.push(turf.feature(result[i].locations));
+            }
+
+            let feature_collection = turf.featureCollection(trajectories);
+
+            map_remove_layer('trip-trajectory');
+            map_main.addSource('trip-trajectory', {
+                type: 'geojson',
+                data: feature_collection
+            });
+
+            console.log(feature_collection);
+
+            let trajectory_layer = {
+                id: 'trip-trajectory',
+                type: 'line',
+                source: 'trip-trajectory',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#ebcb8b',
+                    'line-width': 4,
+                    'line-opacity': 1
+                }
+            }
+
+            map_main.addLayer(trajectory_layer);
+
+        });
+
     });
 
     // On zoom ended
     map_main.on('zoomend', function(e) {
         let bbox_polygon = map_get_bbox_polygon();
         console.log(bbox_polygon);
-        console.log(map_main.getZoom());
     });
+}
+
+// Remove map layer by ids
+export function map_remove_layer(id)
+{
+    if (map_main.getLayer(id)) {
+        map_main.removeLayer(id);
+    }
+
+    if (map_main.getSource(id)) {
+        map_main.removeSource(id);
+    }
+
+    return;
 }
 
 // Get map viewport bounding box
