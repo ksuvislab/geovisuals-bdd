@@ -48,7 +48,7 @@ export function map_events()
     map_main.on('dragend', function(e) {
         let bbox_polygon = map_get_bbox_polygon();
 
-        query_find_intersection(bbox_polygon).then( function(result) {
+        query_find_intersection(bbox_polygon, 'train', 'none', 'none', 'none').then( function(result) {
             console.log(result);
 
 
