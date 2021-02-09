@@ -1,7 +1,9 @@
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
+import { rgb } from "d3";
 import {
     query_find_intersection
 } from "./query";
+import { util_generate_accuracy } from "./utils";
 
 // Public variables
 export let map_main = undefined;
@@ -9,6 +11,12 @@ export let map_draw = undefined;
 
 // Private Variables
 let access_token = 'pk.eyJ1IjoiZGlnaXRhbGtpIiwiYSI6ImNqNXh1MDdibTA4bTMycnAweDBxYXBpYncifQ.daSatfva2eG-95QHWC9Mig';
+export var map_model_colors = {
+    //train: 'rgb(255, 89, 143)',
+    //val: 'rgb(21, 178, 211)'
+    train: 'rgb(202,0,42)',
+    val: 'rgb(0,43,198)'
+}
 
 // Initialize map
 export function map_initialize(container_id)
@@ -18,8 +26,8 @@ export function map_initialize(container_id)
     // Initialize map
     map_main = new mapboxgl.Map({
         container: container_id,
-        style: 'mapbox://styles/mapbox/dark-v10',
-        center: [-74.5, 40],
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-74.0060, 40.7128],
         zoom: 10,
         minZoom:  10,
         maxZoom: 15,
@@ -41,58 +49,68 @@ export function map_add_draw_controls()
     map_main.addControl(map_draw, 'top-left');
 }
 
-// Set map events
-export function map_events()
+export function map_show_all_trips (data) {
+    let trajectory = [];
+
+    for (var i = 0; i < data.length; ++i) {
+        let feature = turf.feature(data[i].locations, {
+            color: map_model_colors[data[i].model_type],
+            opacity: (data[i].model_type == 'train')? 0.2 : 0.4,
+            model: data[i].model_type,
+            time_of_day: data[i].time_of_day,
+            scene: data[i].scene,
+            weather: data[i].weather
+        });
+        trajectory.push(feature);
+    }
+
+    let feature_collection = turf.featureCollection(trajectory);
+
+    map_remove_layer('trip-trajectory');
+    map_main.addSource('trip-trajectory', {
+        type: 'geojson',
+        data: feature_collection
+    });
+
+    let trajectory_layer = {
+        id: 'trip-trajectory',
+        type: 'line',
+        source: 'trip-trajectory',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        paint: {
+            'line-color': ['get', 'color'],
+            'line-width': 1.5,
+            'line-opacity': ['get', 'opacity']
+        }
+    }
+
+    return map_main.addLayer(trajectory_layer);
+}
+
+export function map_filter_all_trips(models)
 {
-    // On drag ended
-    map_main.on('dragend', function(e) {
-        let bbox_polygon = map_get_bbox_polygon();
+    var features = map_main.queryRenderedFeatures({ layers: ['trip-trajectory'] });
+    /*
+    if (features) {
+        var uniqueFeatures = getUniqueFeatures(features, models);
+    }
 
-        query_find_intersection(bbox_polygon, 'train', 'none', 'none', 'none').then( function(result) {
-            console.log(result);
+    function getUniqueFeatures(array, comparatorProperty) {
 
-
-            let trajectories = [];
-            for (var i = 0; i < result.length; ++i) {
-                trajectories.push(turf.feature(result[i].locations));
-            }
-
-            let feature_collection = turf.featureCollection(trajectories);
-
-            map_remove_layer('trip-trajectory');
-            map_main.addSource('trip-trajectory', {
-                type: 'geojson',
-                data: feature_collection
-            });
-
-            console.log(feature_collection);
-
-            let trajectory_layer = {
-                id: 'trip-trajectory',
-                type: 'line',
-                source: 'trip-trajectory',
-                layout: {
-                    'line-join': 'round',
-                    'line-cap': 'round'
-                },
-                paint: {
-                    'line-color': '#ebcb8b',
-                    'line-width': 4,
-                    'line-opacity': 1
-                }
-            }
-
-            map_main.addLayer(trajectory_layer);
-
+        var uniqueFeatures = array.filter(function (el) {
+        if (existingFeatureKeys[el.properties[comparatorProperty]]) {
+            return false;
+        } else {
+            existingFeatureKeys[el.properties[comparatorProperty]] = true;
+            return true;
+        }
         });
 
-    });
-
-    // On zoom ended
-    map_main.on('zoomend', function(e) {
-        let bbox_polygon = map_get_bbox_polygon();
-        console.log(bbox_polygon);
-    });
+        return uniqueFeatures;
+    }*/
 }
 
 // Remove map layer by ids
@@ -117,4 +135,61 @@ export function map_get_bbox_polygon()
     var bbox = turf.bbox(corner_coordinatees);
     var bbox_polygon = turf.bboxPolygon(bbox);
     return bbox_polygon;
+}
+
+export function map_draw_trajectory(data)
+{
+    let model = $('#filter-models').val();
+    let action = $('#filter-actions').val();
+    let accuracy = $('#filter-accuracy').val();
+
+    util_generate_accuracy(data, model, action, accuracy);
+
+    let trajectories = []; let all_accuracy = [];
+
+    for (var i = 0; i < data.length; ++i) {
+        if ('accuracy' in data[i]) {
+            all_accuracy.push(data[i].accuracy);
+        }
+    }
+
+    let line_color = d3.scaleSequential()
+        .interpolator(d3.interpolateRdYlGn)
+        .domain([0, 1]);
+
+    for (var i = 0; i < data.length; ++i) {
+        if ('accuracy' in data[i]) {
+            let trip_feature = turf.feature(data[i].locations, {
+                color: line_color(data[i].accuracy)
+            });
+            trajectories.push(trip_feature);
+        }
+    }
+
+    console.log(trajectories);
+
+    let feature_collection = turf.featureCollection(trajectories);
+
+    map_remove_layer('trip-trajectory');
+    map_main.addSource('trip-trajectory', {
+        type: 'geojson',
+        data: feature_collection
+    });
+
+    let trajectory_layer = {
+        id: 'trip-trajectory',
+        type: 'line',
+        source: 'trip-trajectory',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        paint: {
+            'line-color': ['get', 'color'],
+            'line-width': 4,
+            'line-opacity': 1
+        }
+    }
+
+    map_main.addLayer(trajectory_layer);
 }
