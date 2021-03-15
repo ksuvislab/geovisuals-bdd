@@ -26,3 +26,12 @@ Accuracy: Precision, Recall, F1
 
 Points
 
+Scene, Time_Of_day, Weather
+
+Accuracy
+Precision
+Recall
+F1
+Entropy
+
+Weather tcnn1 cnn_lstm fcn_lstm

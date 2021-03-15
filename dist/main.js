@@ -8330,7 +8330,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "#left {\n    width: 350px;\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n}\n\n#summary {\n    width: 100%;\n    height: 35%;\n    box-sizing: border-box;\n    color: var(--main-txt);\n    border: 5px solid #d9d9d9;\n    border-top: 2.5px solid #d9d9d9;\n    border-bottom: 2.5px solid #d9d9d9;\n}\n\n.axis {\n    color: var(--main-txt);\n}\n\n.axis .domain {\n    display: none;\n}\n\n#filter {\n    width: 100%;\n    height: 65%;\n    box-sizing: border-box;\n    color: var(--main-txt);\n    border: 5px solid #d9d9d9;\n    border-top: 2.5px solid #d9d9d9;\n    border-bottom: 2.5px solid #d9d9d9;\n}\n\n.background path {\n    fill: none;\n    stroke: #ddd;\n    stroke-opacity: 0.2;\n    shape-rendering: crispEdges;\n}\n\n.foreground path {\n    fill: none;\n    stroke: 'red';\n    stroke-opacity: 0.2;\n}\n\n.axis line,\n.axis path {\n    fill: none;\n    stroke: #000;\n    shape-rendering: crispEdges;\n}", ""]);
+exports.push([module.i, "#left {\n    width: 400px;\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n}\n\n#globalview {\n    width: 100%;\n    height: 55%;\n    box-sizing: border-box;\n    color: var(--main-text);\n    /*\n    border: 5px solid #C9D2D3;\n    border-top: 2.5px solid #C9D2D3;\n    border-bottom: 2.5px soli #C9D2D3;*/\n}\n\n#globalview-title {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#globalview-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n}\n\n#dataview {\n    width: 100%;\n    height: 45%;\n    box-sizing: border-box;\n    color: var(--main-txt);\n    /*\n    border: 5px solid #C9D2D3;\n    border-top: 2.5px solid #C9D2D3;\n    border-bottom: 2.5px solid #C9D2D3;*/\n}\n\n#dataview-title {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n\n#dataview-table {\n    width: 100%;\n    height: 200px;\n    box-sizing: border-box;\n    /*border: 1px solid #C9D2D3;*/\n}\n\ntd, th {\n    /*border: 1px solid #C9D2D3;*/\n    border: none;\n    text-align: center;\n}\n\n#dataview-parallelsets {\n    width: 100%;\n    height: 100%;\n    position: relative;\n    box-sizing: border-box;\n}", ""]);
 
 // exports
 
@@ -8349,7 +8349,64 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Barlow|Oxygen|Bellota&display=swap);", ""]);
 
 // module
-exports.push([module.i, "/* Base 16 Ocean Color Palette\n#eff1f5,#c0c5ce,#2A303C,#222831,#1B1F27,#b48ead,#8fa1b3,#96b5b4\n#a3be8c,#ebcb8b,#bf616a\n*/\n\n:root {\n    --header-bg: #d9d9d9;\n    --header-txt: #1B1F27;\n    --title-txt: #1B1F27;\n    --header-filter-txt: #96b5b4;\n\n    --main-bg: #d9d9d9;\n    --sub-bg: #f0f0f0;\n    --main-txt: #1B1F27;\n}\n\n*:focus { outline: none; }\n\nhtml, body {\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    font-family: 'Barlow', sans-serif;\n    overflow: hidden;\n}\n\n#loading {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background: var(--main-bg);\n    top: 0;\n    left: 0;\n    z-index: 9999;\n    display: none;\n    opacity: 0.7;\n}\n\n#loading-icon {\n    margin: auto;\n    pointer-events: none;\n    width: 100px;\n    height: 100px;\n}\n\n#main {\n    width: 100%;\n    height: 100%;\n    box-sizing: border-box;\n    background: var(--main-bg);\n    color:  var(--main-txt);\n}\n\n#map {\n    width: calc(100% - 350px);\n    height: calc(600px - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    border: none;\n    outline: none;\n}\n\n#header {\n    width: 100%;\n    height: 30px;\n    box-sizing: border-box;\n}\n\n#header-title {\n    width: 150px;\n    height: 100%;\n    box-sizing: border-box;\n    color: var(--title-txt);\n    line-height: 30px;\n    font-weight: bold;\n    float: left;\n    padding-left: 5px;\n}", ""]);
+exports.push([module.i, "/* Base 16 Ocean Color Palette\n#eff1f5,#c0c5ce,#2A303C,#222831,#1B1F27,#b48ead,#8fa1b3,#96b5b4\n#a3be8c,#ebcb8b,#bf616a\n*/\n\n:root {\n    --header-bg: #C9D2D3;\n    --header-txt: #1B1F27;\n    --title-txt: #1B1F27;\n    --header-filter-txt: #96b5b4;\n\n    --main-bg: #C9D2D3;\n    --sub-bg: #f0f0f0;\n    --main-txt: #1B1F27;\n}\n\n*:focus { outline: none; }\n\nhtml, body {\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    font-family: 'Barlow', sans-serif;\n    overflow: hidden;\n}\n\n#loading {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background: var(--main-bg);\n    top: 0;\n    left: 0;\n    z-index: 9999;\n    display: none;\n    opacity: 0.7;\n}\n\n#loading-icon {\n    margin: auto;\n    pointer-events: none;\n    width: 100px;\n    height: 100px;\n}\n\n#main {\n    width: 100%;\n    height: 100%;\n    box-sizing: border-box;\n    background: var(--main-bg);\n    color:  var(--main-txt);\n}\n\n#header {\n    width: 100%;\n    height: 30px;\n    box-sizing: border-box;\n}\n\n#header-title {\n    width: 150px;\n    height: 100%;\n    box-sizing: border-box;\n    font-size: 24px;\n    color: var(--title-txt);\n    line-height: 30px;\n    font-weight: bold;\n    float: left;\n    padding-left: 5px;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./src/css/middle.css":
+/*!******************************************************!*\
+  !*** ./node_modules/css-loader!./src/css/middle.css ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "#middle {\n    width: calc(100% - 700px);\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    position: relative;\n}\n\n#tripview {\n    width: 100%;\n    max-height: 0px; /* calc(100% - 600px) */\n    box-sizing: border-box;\n    /*border-top: 2.5px solid #C9D2D3;*/\n    /*border-bottom: 5px solid #C9D2D3;*/\n    transition: max-height 0.15s linear;\n    position: relative;\n    overflow: hidden;\n}\n\n#tripview-title {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    padding-left: 5px;\n    padding-right: 5px;\n}\n\n#tripview-dropdown-container {\n    width: auto;\n    height: 20px;\n    line-height: 20px;\n    font-size: 16px;\n    float: right;\n}\n\n#tripview-dropdown {\n    height: 100%;\n    border: none;\n    border-bottom: 1px solid #000;\n    background-color: #f0f0f0;\n    float: left;\n}\n\n#tripview-legends {\n    width: auto;\n    height: 20px;\n    line-height: 20px;\n    font-size: 16px;\n    float: left;\n}\n\n#tripview-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n    overflow: auto;\n}\n\n#map {\n    width: 100%;\n    height: 100%; /* 600px */\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    border: none;\n    outline: none;\n    cursor: crosshair;\n    position: relative;\n}\n\n.mapboxgl-canvas-container {\n    cursor: crosshair, auto !important\n}\n\n.line-tcnn1 {\n    fill: none;\n    stroke: #e41a1c;\n    stroke-width: 2px;\n    stroke-opacity: 0.8;\n}\n\n.line-cnn_lstm {\n    fill: none;\n    stroke: #377eb8;\n    stroke-width: 2px;\n    stroke-opacity: 0.8;\n}\n\n.line-fcn_lstm {\n    fill: none;\n    stroke: #4daf4a;\n    stroke-width: 2px;\n    stroke-opacity: 0.8;\n}\n\n.line-tcnn1-1 {\n    fill: #e41a1c;\n    fill-opacity: 0.2;\n    stroke: #e41a1c;\n    stroke-width: 0px;\n    stroke-opacity: 0.8;\n}\n\n.line-cnn_lstm-1 {\n    fill: #377eb8;\n    fill-opacity: 0.2;\n    stroke: #377eb8;\n    stroke-width: 0px;\n    stroke-opacity: 0.8;\n}\n\n.line-fcn_lstm-1 {\n    fill: #4daf4a;\n    fill-opacity: 0.2;\n    stroke: #4daf4a;\n    stroke-width: 0px;\n    stroke-opacity: 0.8;\n}\n\n.custom-slider {\n    -webkit-appearance: none;\n    width: 100%;\n    height: 4px;\n    background: #d9d9d9;\n    outline: none;\n    opacity: 1;\n}\n.custom-slider::-webkit-slider-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    width: 15px;\n    height: 15px;\n    border-radius: 50%;\n    background: #252525;\n    cursor: pointer;\n}\n.custom-slider::-moz-range-thumb {\n    width: 15px;\n    height: 15px;\n    border-radius: 50%;\n    background: #252525;\n    cursor: pointer;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./src/css/parsets.css":
+/*!*******************************************************!*\
+  !*** ./node_modules/css-loader!./src/css/parsets.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".dimension { cursor: ew-resize; }\n.category { cursor: ns-resize; }\n.dimension tspan.name { font-size: 1em; fill: #333; font-weight: bold; }\n.dimension tspan.sort { fill: #000; cursor: pointer; opacity: 0; }\n.dimension tspan.sort:hover { fill: #333; }\n.dimension:hover tspan.name { fill: #000; }\n.dimension:hover tspan.sort { opacity: 1; }\n.dimension line { stroke: #000; }\n.dimension rect { stroke: none; fill-opacity: 0; }\n.dimension > rect, .category-background { fill: #fff; }\n.dimension > rect { display: none; }\n.category:hover rect { fill-opacity: .3; }\n.dimension:hover > rect { fill-opacity: .3; }\n.ribbon path {\n  fill: #A9B1B2;\n  stroke-opacity: .1;\n  fill-opacity: .4;\n}\n\n.ribbon path.active {\n  fill: #f4a582;\n  stroke-opacity: .1;\n  fill-opacity: .6;\n}\n\n.ribbon-mouse path {\n  fill-opacity: .0;\n}\n\n.ribbon path.selected {\n  fill: #f4a582;\n  stroke-opacity: .1;\n  fill-opacity: .6;\n}\n\n.category-0 { fill: #C9D2D3; stroke: #67000d; }\n.category-1 { fill: #C9D2D3; stroke: #67000d; }\n.category-2 { fill: #C9D2D3; stroke: #67000d; }\n.category-3 { fill: #C9D2D3; stroke: #67000d; }\n.category-4 { fill: #C9D2D3; stroke: #67000d; }\n.category-5 { fill: #C9D2D3; stroke: #67000d; }\n.category-6 { fill: #C9D2D3; stroke: #67000d; }\n.category-7 { fill: #C9D2D3; stroke: #67000d; }\n.category-8 { fill: #C9D2D3; stroke: #67000d; }\n.category-9 { fill: #C9D2D3; stroke: #67000d; }\n\n.tooltip {\n  font-size: 12px;\n  background-color: rgba(242, 242, 242, .6);\n  position: absolute;\n  padding: 5px;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./src/css/right.css":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader!./src/css/right.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "#right {\n    width: 300px;\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n}\n\n#model-cases {\n    width: 100%;\n    height: calc(100% - 600px);\n    box-sizing: border-box;\n    /*\n    border: 5px solid #BCCFD3;\n    border-top: 2.5px solid #BCCFD3;\n    border-bottom: 2.5px soli #BCCFD3;*/\n}\n\n#model-cases-header {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#model-cases-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n}\n\n#streetview {\n    width: 100%;\n    height: 600px;\n    box-sizing: border-box;\n    /*\n    border: 5px solid #BCCFD3;\n    border-top: 2.5px solid #BCCFD3;\n    border-bottom: 2.5px solid #BCCFD3;*/\n}\n\n#streetview-header {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#streetview-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n\n/*\n#map {\n    width: 100%;\n    height: 600px;\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    border: none;\n    outline: none;\n}*/\n\n#streetview-drawer {\n    position: absolute;\n    right: 0;\n    top: 0;\n    height: 600px;\n    overflow-x: hidden; /* Needed for initial hidden state */\n    z-index: 9999;\n}\n\n#streetview-drawer-content {\n    width:         500px;\n    margin-right: -500px; /* -width */\n    background-color: rgba(255, 255,255, 0.8);\n    float: left;\n    padding: 5px;\n    box-sizing: border-box;\n}\n\n#streetview-drawer-pano {\n    width: 500px;\n    height: 300px;\n}\n\n#streetview-drawer-image {\n    width: 500px;\n    height: 300px;\n}\n\n/*\n#bottom {\n    width: 100%;\n    height: calc(100% - 600px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n}\n\n#model-performance {\n    width: 700px;\n    height: 100%;\n    box-sizing: border-box;\n    float: left;\n    border-right: 2.5px solid #C9D2D3;\n}\n\n#model-performance-header {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#model-performance-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n}\n\n/*\n#model-relation {\n    width: 400px;\n    height: 100%;\n    box-sizing: border-box;\n    float: left;\n    border-right: 2.5px solid #C9D2D3;\n}\n\n#model-relation-header {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#model-relation-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n}\n*/\n\n.axis .domain {\n    display: none;\n}", ""]);
 
 // exports
 
@@ -23893,6 +23950,2659 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/array.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/array.js ***!
+  \*******************************************************************/
+/*! exports provided: slice, map */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "slice", function() { return slice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map", function() { return map; });
+var array = Array.prototype;
+
+var slice = array.slice;
+var map = array.map;
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function(a, b) {
+  return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/bin.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/bin.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _array_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./array.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/array.js");
+/* harmony import */ var _bisect_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bisect.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bisect.js");
+/* harmony import */ var _constant_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constant.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/constant.js");
+/* harmony import */ var _extent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./extent.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/extent.js");
+/* harmony import */ var _identity_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./identity.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/identity.js");
+/* harmony import */ var _nice_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./nice.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/nice.js");
+/* harmony import */ var _ticks_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ticks.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js");
+/* harmony import */ var _threshold_sturges_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./threshold/sturges.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/sturges.js");
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function() {
+  var value = _identity_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+      domain = _extent_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+      threshold = _threshold_sturges_js__WEBPACK_IMPORTED_MODULE_7__["default"];
+
+  function histogram(data) {
+    if (!Array.isArray(data)) data = Array.from(data);
+
+    var i,
+        n = data.length,
+        x,
+        values = new Array(n);
+
+    for (i = 0; i < n; ++i) {
+      values[i] = value(data[i], i, data);
+    }
+
+    var xz = domain(values),
+        x0 = xz[0],
+        x1 = xz[1],
+        tz = threshold(values, x0, x1);
+
+    // Convert number of thresholds into uniform thresholds, and nice the
+    // default domain accordingly.
+    if (!Array.isArray(tz)) {
+      const max = x1, tn = +tz;
+      if (domain === _extent_js__WEBPACK_IMPORTED_MODULE_3__["default"]) [x0, x1] = Object(_nice_js__WEBPACK_IMPORTED_MODULE_5__["default"])(x0, x1, tn);
+      tz = Object(_ticks_js__WEBPACK_IMPORTED_MODULE_6__["default"])(x0, x1, tn);
+
+      // If the last threshold is coincident with the domain’s upper bound, the
+      // last bin will be zero-width. If the default domain is used, and this
+      // last threshold is coincident with the maximum input value, we can
+      // extend the niced upper bound by one tick to ensure uniform bin widths;
+      // otherwise, we simply remove the last threshold. Note that we don’t
+      // coerce values or the domain to numbers, and thus must be careful to
+      // compare order (>=) rather than strict equality (===)!
+      if (tz[tz.length - 1] >= x1) {
+        if (max >= x1 && domain === _extent_js__WEBPACK_IMPORTED_MODULE_3__["default"]) {
+          const step = Object(_ticks_js__WEBPACK_IMPORTED_MODULE_6__["tickIncrement"])(x0, x1, tn);
+          if (isFinite(step)) {
+            if (step > 0) {
+              x1 = (Math.floor(x1 / step) + 1) * step;
+            } else if (step < 0) {
+              x1 = (Math.ceil(x1 * -step) + 1) / -step;
+            }
+          }
+        } else {
+          tz.pop();
+        }
+      }
+    }
+
+    // Remove any thresholds outside the domain.
+    var m = tz.length;
+    while (tz[0] <= x0) tz.shift(), --m;
+    while (tz[m - 1] > x1) tz.pop(), --m;
+
+    var bins = new Array(m + 1),
+        bin;
+
+    // Initialize bins.
+    for (i = 0; i <= m; ++i) {
+      bin = bins[i] = [];
+      bin.x0 = i > 0 ? tz[i - 1] : x0;
+      bin.x1 = i < m ? tz[i] : x1;
+    }
+
+    // Assign data to bins by value, ignoring any outside the domain.
+    for (i = 0; i < n; ++i) {
+      x = values[i];
+      if (x0 <= x && x <= x1) {
+        bins[Object(_bisect_js__WEBPACK_IMPORTED_MODULE_1__["default"])(tz, x, 0, m)].push(data[i]);
+      }
+    }
+
+    return bins;
+  }
+
+  histogram.value = function(_) {
+    return arguments.length ? (value = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), histogram) : value;
+  };
+
+  histogram.domain = function(_) {
+    return arguments.length ? (domain = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])([_[0], _[1]]), histogram) : domain;
+  };
+
+  histogram.thresholds = function(_) {
+    return arguments.length ? (threshold = typeof _ === "function" ? _ : Array.isArray(_) ? Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_array_js__WEBPACK_IMPORTED_MODULE_0__["slice"].call(_)) : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), histogram) : threshold;
+  };
+
+  return histogram;
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/bisect.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/bisect.js ***!
+  \********************************************************************/
+/*! exports provided: bisectRight, bisectLeft, bisectCenter, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bisectRight", function() { return bisectRight; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bisectLeft", function() { return bisectLeft; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bisectCenter", function() { return bisectCenter; });
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+/* harmony import */ var _bisector_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bisector.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bisector.js");
+/* harmony import */ var _number_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./number.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/number.js");
+
+
+
+
+const ascendingBisect = Object(_bisector_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+const bisectRight = ascendingBisect.right;
+const bisectLeft = ascendingBisect.left;
+const bisectCenter = Object(_bisector_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_number_js__WEBPACK_IMPORTED_MODULE_2__["default"]).center;
+/* harmony default export */ __webpack_exports__["default"] = (bisectRight);
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/bisector.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/bisector.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function(f) {
+  let delta = f;
+  let compare = f;
+
+  if (f.length === 1) {
+    delta = (d, x) => f(d) - x;
+    compare = ascendingComparator(f);
+  }
+
+  function left(a, x, lo, hi) {
+    if (lo == null) lo = 0;
+    if (hi == null) hi = a.length;
+    while (lo < hi) {
+      const mid = (lo + hi) >>> 1;
+      if (compare(a[mid], x) < 0) lo = mid + 1;
+      else hi = mid;
+    }
+    return lo;
+  }
+
+  function right(a, x, lo, hi) {
+    if (lo == null) lo = 0;
+    if (hi == null) hi = a.length;
+    while (lo < hi) {
+      const mid = (lo + hi) >>> 1;
+      if (compare(a[mid], x) > 0) hi = mid;
+      else lo = mid + 1;
+    }
+    return lo;
+  }
+
+  function center(a, x, lo, hi) {
+    if (lo == null) lo = 0;
+    if (hi == null) hi = a.length;
+    const i = left(a, x, lo, hi - 1);
+    return i > lo && delta(a[i - 1], x) > -delta(a[i], x) ? i - 1 : i;
+  }
+
+  return {left, center, right};
+});
+
+function ascendingComparator(f) {
+  return (d, x) => Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(f(d), x);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/constant.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/constant.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function(x) {
+  return function() {
+    return x;
+  };
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/count.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return count; });
+function count(values, valueof) {
+  let count = 0;
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value != null && (value = +value) >= value) {
+        ++count;
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
+        ++count;
+      }
+    }
+  }
+  return count;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/cross.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/cross.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return cross; });
+function length(array) {
+  return array.length | 0;
+}
+
+function empty(length) {
+  return !(length > 0);
+}
+
+function arrayify(values) {
+  return typeof values !== "object" || "length" in values ? values : Array.from(values);
+}
+
+function reducer(reduce) {
+  return values => reduce(...values);
+}
+
+function cross(...values) {
+  const reduce = typeof values[values.length - 1] === "function" && reducer(values.pop());
+  values = values.map(arrayify);
+  const lengths = values.map(length);
+  const j = values.length - 1;
+  const index = new Array(j + 1).fill(0);
+  const product = [];
+  if (j < 0 || lengths.some(empty)) return product;
+  while (true) {
+    product.push(index.map((j, i) => values[i][j]));
+    let i = j;
+    while (++index[i] === lengths[i]) {
+      if (i === 0) return reduce ? product.map(reduce) : product;
+      index[i--] = 0;
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/cumsum.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/cumsum.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return cumsum; });
+function cumsum(values, valueof) {
+  var sum = 0, index = 0;
+  return Float64Array.from(values, valueof === undefined
+    ? v => (sum += +v || 0)
+    : v => (sum += +valueof(v, index++, values) || 0));
+}
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/descending.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/descending.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function(a, b) {
+  return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/deviation.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/deviation.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return deviation; });
+/* harmony import */ var _variance_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./variance.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/variance.js");
+
+
+function deviation(values, valueof) {
+  const v = Object(_variance_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values, valueof);
+  return v ? Math.sqrt(v) : v;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/difference.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/difference.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return difference; });
+function difference(values, ...others) {
+  values = new Set(values);
+  for (const other of others) {
+    for (const value of other) {
+      values.delete(value);
+    }
+  }
+  return values;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/disjoint.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/disjoint.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return disjoint; });
+function disjoint(values, other) {
+  const iterator = other[Symbol.iterator](), set = new Set();
+  for (const v of values) {
+    if (set.has(v)) return false;
+    let value, done;
+    while (({value, done} = iterator.next())) {
+      if (done) break;
+      if (Object.is(v, value)) return false;
+      set.add(value);
+    }
+  }
+  return true;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/every.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/every.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return every; });
+function every(values, test) {
+  if (typeof test !== "function") throw new TypeError("test is not a function");
+  let index = -1;
+  for (const value of values) {
+    if (!test(value, ++index, values)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/extent.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/extent.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function(values, valueof) {
+  let min;
+  let max;
+  if (valueof === undefined) {
+    for (const value of values) {
+      if (value != null) {
+        if (min === undefined) {
+          if (value >= value) min = max = value;
+        } else {
+          if (min > value) min = value;
+          if (max < value) max = value;
+        }
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null) {
+        if (min === undefined) {
+          if (value >= value) min = max = value;
+        } else {
+          if (min > value) min = value;
+          if (max < value) max = value;
+        }
+      }
+    }
+  }
+  return [min, max];
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/filter.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/filter.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return filter; });
+function filter(values, test) {
+  if (typeof test !== "function") throw new TypeError("test is not a function");
+  const array = [];
+  let index = -1;
+  for (const value of values) {
+    if (test(value, ++index, values)) {
+      array.push(value);
+    }
+  }
+  return array;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/fsum.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/fsum.js ***!
+  \******************************************************************/
+/*! exports provided: Adder, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Adder", function() { return Adder; });
+// https://github.com/python/cpython/blob/a74eea238f5baba15797e2e8b570d153bc8690a7/Modules/mathmodule.c#L1423
+class Adder {
+  constructor() {
+    this._partials = new Float64Array(32);
+    this._n = 0;
+  }
+  add(x) {
+    const p = this._partials;
+    let i = 0;
+    for (let j = 0; j < this._n && j < 32; j++) {
+      const y = p[j],
+        hi = x + y,
+        lo = Math.abs(x) < Math.abs(y) ? x - (hi - y) : y - (hi - x);
+      if (lo) p[i++] = lo;
+      x = hi;
+    }
+    p[i] = x;
+    this._n = i + 1;
+    return this;
+  }
+  valueOf() {
+    const p = this._partials;
+    let n = this._n, x, y, lo, hi = 0;
+    if (n > 0) {
+      hi = p[--n];
+      while (n > 0) {
+        x = hi;
+        y = p[--n];
+        hi = x + y;
+        lo = y - (hi - x);
+        if (lo) break;
+      }
+      if (n > 0 && ((lo < 0 && p[n - 1] < 0) || (lo > 0 && p[n - 1] > 0))) {
+        y = lo * 2;
+        x = hi + y;
+        if (y == x - hi) hi = x;
+      }
+    }
+    return hi;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (function(values, valueof) {
+  const adder = new Adder();
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value = +value) {
+        adder.add(value);
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if (value = +valueof(value, ++index, values)) {
+        adder.add(value);
+      }
+    }
+  }
+  return +adder;
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/greatest.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/greatest.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return greatest; });
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+
+
+function greatest(values, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
+  let max;
+  let defined = false;
+  if (compare.length === 1) {
+    let maxValue;
+    for (const element of values) {
+      const value = compare(element);
+      if (defined
+          ? Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value, maxValue) > 0
+          : Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value, value) === 0) {
+        max = element;
+        maxValue = value;
+        defined = true;
+      }
+    }
+  } else {
+    for (const value of values) {
+      if (defined
+          ? compare(value, max) > 0
+          : compare(value, value) === 0) {
+        max = value;
+        defined = true;
+      }
+    }
+  }
+  return max;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/greatestIndex.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/greatestIndex.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return greatestIndex; });
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+/* harmony import */ var _maxIndex_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./maxIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/maxIndex.js");
+
+
+
+function greatestIndex(values, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
+  if (compare.length === 1) return Object(_maxIndex_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, compare);
+  let maxValue;
+  let max = -1;
+  let index = -1;
+  for (const value of values) {
+    ++index;
+    if (max < 0
+        ? compare(value, value) === 0
+        : compare(value, maxValue) > 0) {
+      maxValue = value;
+      max = index;
+    }
+  }
+  return max;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/group.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/group.js ***!
+  \*******************************************************************/
+/*! exports provided: default, groups, rollup, rollups, index, indexes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return group; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "groups", function() { return groups; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rollup", function() { return rollup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rollups", function() { return rollups; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "index", function() { return index; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "indexes", function() { return indexes; });
+/* harmony import */ var internmap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! internmap */ "./node_modules/internmap/src/index.js");
+/* harmony import */ var _identity_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./identity.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/identity.js");
+
+
+
+function group(values, ...keys) {
+  return nest(values, _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], keys);
+}
+
+function groups(values, ...keys) {
+  return nest(values, Array.from, _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], keys);
+}
+
+function rollup(values, reduce, ...keys) {
+  return nest(values, _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], reduce, keys);
+}
+
+function rollups(values, reduce, ...keys) {
+  return nest(values, Array.from, reduce, keys);
+}
+
+function index(values, ...keys) {
+  return nest(values, _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], unique, keys);
+}
+
+function indexes(values, ...keys) {
+  return nest(values, Array.from, unique, keys);
+}
+
+function unique(values) {
+  if (values.length !== 1) throw new Error("duplicate key");
+  return values[0];
+}
+
+function nest(values, map, reduce, keys) {
+  return (function regroup(values, i) {
+    if (i >= keys.length) return reduce(values);
+    const groups = new internmap__WEBPACK_IMPORTED_MODULE_0__["InternMap"]();
+    const keyof = keys[i++];
+    let index = -1;
+    for (const value of values) {
+      const key = keyof(value, ++index, values);
+      const group = groups.get(key);
+      if (group) group.push(value);
+      else groups.set(key, [value]);
+    }
+    for (const [key, values] of groups) {
+      groups.set(key, regroup(values, i));
+    }
+    return map(groups);
+  })(values, 0);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/groupSort.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/groupSort.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return groupSort; });
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+/* harmony import */ var _group_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./group.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/group.js");
+/* harmony import */ var _sort_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sort.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/sort.js");
+
+
+
+
+function groupSort(values, reduce, key) {
+  return (reduce.length === 1
+    ? Object(_sort_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_group_js__WEBPACK_IMPORTED_MODULE_1__["rollup"])(values, reduce, key), (([ak, av], [bk, bv]) => Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(av, bv) || Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(ak, bk)))
+    : Object(_sort_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_group_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, key), (([ak, av], [bk, bv]) => reduce(av, bv) || Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(ak, bk))))
+    .map(([key]) => key);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/identity.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/identity.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function(x) {
+  return x;
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/index.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/index.js ***!
+  \*******************************************************************/
+/*! exports provided: bisect, bisectRight, bisectLeft, bisectCenter, ascending, bisector, count, cross, cumsum, descending, deviation, extent, fsum, Adder, group, groups, index, indexes, rollup, rollups, groupSort, bin, histogram, thresholdFreedmanDiaconis, thresholdScott, thresholdSturges, max, maxIndex, mean, median, merge, min, minIndex, nice, pairs, permute, quantile, quantileSorted, quickselect, range, least, leastIndex, greatest, greatestIndex, scan, shuffle, shuffler, sum, ticks, tickIncrement, tickStep, transpose, variance, zip, every, some, filter, map, reduce, reverse, sort, difference, disjoint, intersection, subset, superset, union, InternMap, InternSet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bisect_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bisect.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bisect.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisect", function() { return _bisect_js__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisectRight", function() { return _bisect_js__WEBPACK_IMPORTED_MODULE_0__["bisectRight"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisectLeft", function() { return _bisect_js__WEBPACK_IMPORTED_MODULE_0__["bisectLeft"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisectCenter", function() { return _bisect_js__WEBPACK_IMPORTED_MODULE_0__["bisectCenter"]; });
+
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ascending", function() { return _ascending_js__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _bisector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bisector.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bisector.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisector", function() { return _bisector_js__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _count_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./count.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "count", function() { return _count_js__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* harmony import */ var _cross_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cross.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/cross.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cross", function() { return _cross_js__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony import */ var _cumsum_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cumsum.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/cumsum.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cumsum", function() { return _cumsum_js__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
+/* harmony import */ var _descending_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./descending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/descending.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "descending", function() { return _descending_js__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+
+/* harmony import */ var _deviation_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./deviation.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/deviation.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "deviation", function() { return _deviation_js__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+
+/* harmony import */ var _extent_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./extent.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/extent.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "extent", function() { return _extent_js__WEBPACK_IMPORTED_MODULE_8__["default"]; });
+
+/* harmony import */ var _fsum_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./fsum.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/fsum.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fsum", function() { return _fsum_js__WEBPACK_IMPORTED_MODULE_9__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Adder", function() { return _fsum_js__WEBPACK_IMPORTED_MODULE_9__["Adder"]; });
+
+/* harmony import */ var _group_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./group.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/group.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "group", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "groups", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["groups"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "index", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["index"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "indexes", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["indexes"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rollup", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["rollup"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rollups", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["rollups"]; });
+
+/* harmony import */ var _groupSort_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./groupSort.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/groupSort.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "groupSort", function() { return _groupSort_js__WEBPACK_IMPORTED_MODULE_11__["default"]; });
+
+/* harmony import */ var _bin_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./bin.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bin.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bin", function() { return _bin_js__WEBPACK_IMPORTED_MODULE_12__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "histogram", function() { return _bin_js__WEBPACK_IMPORTED_MODULE_12__["default"]; });
+
+/* harmony import */ var _threshold_freedmanDiaconis_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./threshold/freedmanDiaconis.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/freedmanDiaconis.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "thresholdFreedmanDiaconis", function() { return _threshold_freedmanDiaconis_js__WEBPACK_IMPORTED_MODULE_13__["default"]; });
+
+/* harmony import */ var _threshold_scott_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./threshold/scott.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/scott.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "thresholdScott", function() { return _threshold_scott_js__WEBPACK_IMPORTED_MODULE_14__["default"]; });
+
+/* harmony import */ var _threshold_sturges_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./threshold/sturges.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/sturges.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "thresholdSturges", function() { return _threshold_sturges_js__WEBPACK_IMPORTED_MODULE_15__["default"]; });
+
+/* harmony import */ var _max_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./max.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/max.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "max", function() { return _max_js__WEBPACK_IMPORTED_MODULE_16__["default"]; });
+
+/* harmony import */ var _maxIndex_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./maxIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/maxIndex.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "maxIndex", function() { return _maxIndex_js__WEBPACK_IMPORTED_MODULE_17__["default"]; });
+
+/* harmony import */ var _mean_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mean.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/mean.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "mean", function() { return _mean_js__WEBPACK_IMPORTED_MODULE_18__["default"]; });
+
+/* harmony import */ var _median_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./median.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/median.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "median", function() { return _median_js__WEBPACK_IMPORTED_MODULE_19__["default"]; });
+
+/* harmony import */ var _merge_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./merge.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/merge.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "merge", function() { return _merge_js__WEBPACK_IMPORTED_MODULE_20__["default"]; });
+
+/* harmony import */ var _min_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./min.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/min.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "min", function() { return _min_js__WEBPACK_IMPORTED_MODULE_21__["default"]; });
+
+/* harmony import */ var _minIndex_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./minIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/minIndex.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "minIndex", function() { return _minIndex_js__WEBPACK_IMPORTED_MODULE_22__["default"]; });
+
+/* harmony import */ var _nice_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./nice.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/nice.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "nice", function() { return _nice_js__WEBPACK_IMPORTED_MODULE_23__["default"]; });
+
+/* harmony import */ var _pairs_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./pairs.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/pairs.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pairs", function() { return _pairs_js__WEBPACK_IMPORTED_MODULE_24__["default"]; });
+
+/* harmony import */ var _permute_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./permute.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/permute.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "permute", function() { return _permute_js__WEBPACK_IMPORTED_MODULE_25__["default"]; });
+
+/* harmony import */ var _quantile_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./quantile.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "quantile", function() { return _quantile_js__WEBPACK_IMPORTED_MODULE_26__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "quantileSorted", function() { return _quantile_js__WEBPACK_IMPORTED_MODULE_26__["quantileSorted"]; });
+
+/* harmony import */ var _quickselect_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./quickselect.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quickselect.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "quickselect", function() { return _quickselect_js__WEBPACK_IMPORTED_MODULE_27__["default"]; });
+
+/* harmony import */ var _range_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./range.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/range.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "range", function() { return _range_js__WEBPACK_IMPORTED_MODULE_28__["default"]; });
+
+/* harmony import */ var _least_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./least.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/least.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "least", function() { return _least_js__WEBPACK_IMPORTED_MODULE_29__["default"]; });
+
+/* harmony import */ var _leastIndex_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./leastIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/leastIndex.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "leastIndex", function() { return _leastIndex_js__WEBPACK_IMPORTED_MODULE_30__["default"]; });
+
+/* harmony import */ var _greatest_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./greatest.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/greatest.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "greatest", function() { return _greatest_js__WEBPACK_IMPORTED_MODULE_31__["default"]; });
+
+/* harmony import */ var _greatestIndex_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./greatestIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/greatestIndex.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "greatestIndex", function() { return _greatestIndex_js__WEBPACK_IMPORTED_MODULE_32__["default"]; });
+
+/* harmony import */ var _scan_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./scan.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/scan.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "scan", function() { return _scan_js__WEBPACK_IMPORTED_MODULE_33__["default"]; });
+
+/* harmony import */ var _shuffle_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./shuffle.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/shuffle.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "shuffle", function() { return _shuffle_js__WEBPACK_IMPORTED_MODULE_34__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "shuffler", function() { return _shuffle_js__WEBPACK_IMPORTED_MODULE_34__["shuffler"]; });
+
+/* harmony import */ var _sum_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./sum.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/sum.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sum", function() { return _sum_js__WEBPACK_IMPORTED_MODULE_35__["default"]; });
+
+/* harmony import */ var _ticks_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./ticks.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ticks", function() { return _ticks_js__WEBPACK_IMPORTED_MODULE_36__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "tickIncrement", function() { return _ticks_js__WEBPACK_IMPORTED_MODULE_36__["tickIncrement"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "tickStep", function() { return _ticks_js__WEBPACK_IMPORTED_MODULE_36__["tickStep"]; });
+
+/* harmony import */ var _transpose_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./transpose.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/transpose.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "transpose", function() { return _transpose_js__WEBPACK_IMPORTED_MODULE_37__["default"]; });
+
+/* harmony import */ var _variance_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./variance.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/variance.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "variance", function() { return _variance_js__WEBPACK_IMPORTED_MODULE_38__["default"]; });
+
+/* harmony import */ var _zip_js__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./zip.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/zip.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "zip", function() { return _zip_js__WEBPACK_IMPORTED_MODULE_39__["default"]; });
+
+/* harmony import */ var _every_js__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./every.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/every.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "every", function() { return _every_js__WEBPACK_IMPORTED_MODULE_40__["default"]; });
+
+/* harmony import */ var _some_js__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./some.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/some.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "some", function() { return _some_js__WEBPACK_IMPORTED_MODULE_41__["default"]; });
+
+/* harmony import */ var _filter_js__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./filter.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/filter.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "filter", function() { return _filter_js__WEBPACK_IMPORTED_MODULE_42__["default"]; });
+
+/* harmony import */ var _map_js__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./map.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/map.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "map", function() { return _map_js__WEBPACK_IMPORTED_MODULE_43__["default"]; });
+
+/* harmony import */ var _reduce_js__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./reduce.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/reduce.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reduce", function() { return _reduce_js__WEBPACK_IMPORTED_MODULE_44__["default"]; });
+
+/* harmony import */ var _reverse_js__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./reverse.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/reverse.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reverse", function() { return _reverse_js__WEBPACK_IMPORTED_MODULE_45__["default"]; });
+
+/* harmony import */ var _sort_js__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./sort.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/sort.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sort", function() { return _sort_js__WEBPACK_IMPORTED_MODULE_46__["default"]; });
+
+/* harmony import */ var _difference_js__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./difference.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/difference.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "difference", function() { return _difference_js__WEBPACK_IMPORTED_MODULE_47__["default"]; });
+
+/* harmony import */ var _disjoint_js__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./disjoint.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/disjoint.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "disjoint", function() { return _disjoint_js__WEBPACK_IMPORTED_MODULE_48__["default"]; });
+
+/* harmony import */ var _intersection_js__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./intersection.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/intersection.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "intersection", function() { return _intersection_js__WEBPACK_IMPORTED_MODULE_49__["default"]; });
+
+/* harmony import */ var _subset_js__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./subset.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/subset.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subset", function() { return _subset_js__WEBPACK_IMPORTED_MODULE_50__["default"]; });
+
+/* harmony import */ var _superset_js__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./superset.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/superset.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "superset", function() { return _superset_js__WEBPACK_IMPORTED_MODULE_51__["default"]; });
+
+/* harmony import */ var _union_js__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./union.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/union.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "union", function() { return _union_js__WEBPACK_IMPORTED_MODULE_52__["default"]; });
+
+/* harmony import */ var internmap__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! internmap */ "./node_modules/internmap/src/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InternMap", function() { return internmap__WEBPACK_IMPORTED_MODULE_53__["InternMap"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InternSet", function() { return internmap__WEBPACK_IMPORTED_MODULE_53__["InternSet"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // Deprecated; use bin.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // Deprecated; use leastIndex.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/intersection.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/intersection.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return intersection; });
+/* harmony import */ var _set_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./set.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/set.js");
+
+
+function intersection(values, ...others) {
+  values = new Set(values);
+  others = others.map(_set_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  out: for (const value of values) {
+    for (const other of others) {
+      if (!other.has(value)) {
+        values.delete(value);
+        continue out;
+      }
+    }
+  }
+  return values;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/least.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/least.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return least; });
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+
+
+function least(values, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
+  let min;
+  let defined = false;
+  if (compare.length === 1) {
+    let minValue;
+    for (const element of values) {
+      const value = compare(element);
+      if (defined
+          ? Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value, minValue) < 0
+          : Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value, value) === 0) {
+        min = element;
+        minValue = value;
+        defined = true;
+      }
+    }
+  } else {
+    for (const value of values) {
+      if (defined
+          ? compare(value, min) < 0
+          : compare(value, value) === 0) {
+        min = value;
+        defined = true;
+      }
+    }
+  }
+  return min;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/leastIndex.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/leastIndex.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return leastIndex; });
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+/* harmony import */ var _minIndex_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./minIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/minIndex.js");
+
+
+
+function leastIndex(values, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
+  if (compare.length === 1) return Object(_minIndex_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, compare);
+  let minValue;
+  let min = -1;
+  let index = -1;
+  for (const value of values) {
+    ++index;
+    if (min < 0
+        ? compare(value, value) === 0
+        : compare(value, minValue) < 0) {
+      minValue = value;
+      min = index;
+    }
+  }
+  return min;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/map.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/map.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return map; });
+function map(values, mapper) {
+  if (typeof values[Symbol.iterator] !== "function") throw new TypeError("values is not iterable");
+  if (typeof mapper !== "function") throw new TypeError("mapper is not a function");
+  return Array.from(values, (value, index) => mapper(value, index, values));
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/max.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/max.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return max; });
+function max(values, valueof) {
+  let max;
+  if (valueof === undefined) {
+    for (const value of values) {
+      if (value != null
+          && (max < value || (max === undefined && value >= value))) {
+        max = value;
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null
+          && (max < value || (max === undefined && value >= value))) {
+        max = value;
+      }
+    }
+  }
+  return max;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/maxIndex.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/maxIndex.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return maxIndex; });
+function maxIndex(values, valueof) {
+  let max;
+  let maxIndex = -1;
+  let index = -1;
+  if (valueof === undefined) {
+    for (const value of values) {
+      ++index;
+      if (value != null
+          && (max < value || (max === undefined && value >= value))) {
+        max = value, maxIndex = index;
+      }
+    }
+  } else {
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null
+          && (max < value || (max === undefined && value >= value))) {
+        max = value, maxIndex = index;
+      }
+    }
+  }
+  return maxIndex;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/mean.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/mean.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return mean; });
+function mean(values, valueof) {
+  let count = 0;
+  let sum = 0;
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value != null && (value = +value) >= value) {
+        ++count, sum += value;
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
+        ++count, sum += value;
+      }
+    }
+  }
+  if (count) return sum / count;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/median.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/median.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _quantile_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./quantile.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function(values, valueof) {
+  return Object(_quantile_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values, 0.5, valueof);
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/merge.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/merge.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return merge; });
+function* flatten(arrays) {
+  for (const array of arrays) {
+    yield* array;
+  }
+}
+
+function merge(arrays) {
+  return Array.from(flatten(arrays));
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/min.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/min.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return min; });
+function min(values, valueof) {
+  let min;
+  if (valueof === undefined) {
+    for (const value of values) {
+      if (value != null
+          && (min > value || (min === undefined && value >= value))) {
+        min = value;
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null
+          && (min > value || (min === undefined && value >= value))) {
+        min = value;
+      }
+    }
+  }
+  return min;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/minIndex.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/minIndex.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return minIndex; });
+function minIndex(values, valueof) {
+  let min;
+  let minIndex = -1;
+  let index = -1;
+  if (valueof === undefined) {
+    for (const value of values) {
+      ++index;
+      if (value != null
+          && (min > value || (min === undefined && value >= value))) {
+        min = value, minIndex = index;
+      }
+    }
+  } else {
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null
+          && (min > value || (min === undefined && value >= value))) {
+        min = value, minIndex = index;
+      }
+    }
+  }
+  return minIndex;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/nice.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/nice.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return nice; });
+/* harmony import */ var _ticks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ticks.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js");
+
+
+function nice(start, stop, count) {
+  let prestep;
+  while (true) {
+    const step = Object(_ticks_js__WEBPACK_IMPORTED_MODULE_0__["tickIncrement"])(start, stop, count);
+    if (step === prestep || step === 0 || !isFinite(step)) {
+      return [start, stop];
+    } else if (step > 0) {
+      start = Math.floor(start / step) * step;
+      stop = Math.ceil(stop / step) * step;
+    } else if (step < 0) {
+      start = Math.ceil(start * step) / step;
+      stop = Math.floor(stop * step) / step;
+    }
+    prestep = step;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/number.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/number.js ***!
+  \********************************************************************/
+/*! exports provided: default, numbers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "numbers", function() { return numbers; });
+/* harmony default export */ __webpack_exports__["default"] = (function(x) {
+  return x === null ? NaN : +x;
+});
+
+function* numbers(values, valueof) {
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value != null && (value = +value) >= value) {
+        yield value;
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
+        yield value;
+      }
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/pairs.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/pairs.js ***!
+  \*******************************************************************/
+/*! exports provided: default, pair */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return pairs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pair", function() { return pair; });
+function pairs(values, pairof = pair) {
+  const pairs = [];
+  let previous;
+  let first = false;
+  for (const value of values) {
+    if (first) pairs.push(pairof(previous, value));
+    previous = value;
+    first = true;
+  }
+  return pairs;
+}
+
+function pair(a, b) {
+  return [a, b];
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/permute.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/permute.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function(source, keys) {
+  return Array.from(keys, key => source[key]);
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js ***!
+  \**********************************************************************/
+/*! exports provided: default, quantileSorted */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return quantile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "quantileSorted", function() { return quantileSorted; });
+/* harmony import */ var _max_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./max.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/max.js");
+/* harmony import */ var _min_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./min.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/min.js");
+/* harmony import */ var _quickselect_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./quickselect.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quickselect.js");
+/* harmony import */ var _number_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./number.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/number.js");
+
+
+
+
+
+function quantile(values, p, valueof) {
+  values = Float64Array.from(Object(_number_js__WEBPACK_IMPORTED_MODULE_3__["numbers"])(values, valueof));
+  if (!(n = values.length)) return;
+  if ((p = +p) <= 0 || n < 2) return Object(_min_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values);
+  if (p >= 1) return Object(_max_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values);
+  var n,
+      i = (n - 1) * p,
+      i0 = Math.floor(i),
+      value0 = Object(_max_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_quickselect_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values, i0).subarray(0, i0 + 1)),
+      value1 = Object(_min_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values.subarray(i0 + 1));
+  return value0 + (value1 - value0) * (i - i0);
+}
+
+function quantileSorted(values, p, valueof = _number_js__WEBPACK_IMPORTED_MODULE_3__["default"]) {
+  if (!(n = values.length)) return;
+  if ((p = +p) <= 0 || n < 2) return +valueof(values[0], 0, values);
+  if (p >= 1) return +valueof(values[n - 1], n - 1, values);
+  var n,
+      i = (n - 1) * p,
+      i0 = Math.floor(i),
+      value0 = +valueof(values[i0], i0, values),
+      value1 = +valueof(values[i0 + 1], i0 + 1, values);
+  return value0 + (value1 - value0) * (i - i0);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/quickselect.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/quickselect.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return quickselect; });
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+
+
+// Based on https://github.com/mourner/quickselect
+// ISC license, Copyright 2018 Vladimir Agafonkin.
+function quickselect(array, k, left = 0, right = array.length - 1, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
+  while (right > left) {
+    if (right - left > 600) {
+      const n = right - left + 1;
+      const m = k - left + 1;
+      const z = Math.log(n);
+      const s = 0.5 * Math.exp(2 * z / 3);
+      const sd = 0.5 * Math.sqrt(z * s * (n - s) / n) * (m - n / 2 < 0 ? -1 : 1);
+      const newLeft = Math.max(left, Math.floor(k - m * s / n + sd));
+      const newRight = Math.min(right, Math.floor(k + (n - m) * s / n + sd));
+      quickselect(array, k, newLeft, newRight, compare);
+    }
+
+    const t = array[k];
+    let i = left;
+    let j = right;
+
+    swap(array, left, k);
+    if (compare(array[right], t) > 0) swap(array, left, right);
+
+    while (i < j) {
+      swap(array, i, j), ++i, --j;
+      while (compare(array[i], t) < 0) ++i;
+      while (compare(array[j], t) > 0) --j;
+    }
+
+    if (compare(array[left], t) === 0) swap(array, left, j);
+    else ++j, swap(array, j, right);
+
+    if (j <= k) left = j + 1;
+    if (k <= j) right = j - 1;
+  }
+  return array;
+}
+
+function swap(array, i, j) {
+  const t = array[i];
+  array[i] = array[j];
+  array[j] = t;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/range.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/range.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function(start, stop, step) {
+  start = +start, stop = +stop, step = (n = arguments.length) < 2 ? (stop = start, start = 0, 1) : n < 3 ? 1 : +step;
+
+  var i = -1,
+      n = Math.max(0, Math.ceil((stop - start) / step)) | 0,
+      range = new Array(n);
+
+  while (++i < n) {
+    range[i] = start + i * step;
+  }
+
+  return range;
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/reduce.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/reduce.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return reduce; });
+function reduce(values, reducer, value) {
+  if (typeof reducer !== "function") throw new TypeError("reducer is not a function");
+  const iterator = values[Symbol.iterator]();
+  let done, next, index = -1;
+  if (arguments.length < 3) {
+    ({done, value} = iterator.next());
+    if (done) return;
+    ++index;
+  }
+  while (({done, value: next} = iterator.next()), !done) {
+    value = reducer(value, next, ++index, values);
+  }
+  return value;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/reverse.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/reverse.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return reverse; });
+function reverse(values) {
+  if (typeof values[Symbol.iterator] !== "function") throw new TypeError("values is not iterable");
+  return Array.from(values).reverse();
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/scan.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/scan.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return scan; });
+/* harmony import */ var _leastIndex_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./leastIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/leastIndex.js");
+
+
+function scan(values, compare) {
+  const index = Object(_leastIndex_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values, compare);
+  return index < 0 ? undefined : index;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/set.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/set.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return set; });
+function set(values) {
+  return values instanceof Set ? values : new Set(values);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/shuffle.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/shuffle.js ***!
+  \*********************************************************************/
+/*! exports provided: default, shuffler */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shuffler", function() { return shuffler; });
+/* harmony default export */ __webpack_exports__["default"] = (shuffler(Math.random));
+
+function shuffler(random) {
+  return function shuffle(array, i0 = 0, i1 = array.length) {
+    let m = i1 - (i0 = +i0);
+    while (m) {
+      const i = random() * m-- | 0, t = array[m + i0];
+      array[m + i0] = array[i + i0];
+      array[i + i0] = t;
+    }
+    return array;
+  };
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/some.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/some.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return some; });
+function some(values, test) {
+  if (typeof test !== "function") throw new TypeError("test is not a function");
+  let index = -1;
+  for (const value of values) {
+    if (test(value, ++index, values)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/sort.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/sort.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sort; });
+/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
+/* harmony import */ var _permute_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./permute.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/permute.js");
+
+
+
+function sort(values, ...F) {
+  if (typeof values[Symbol.iterator] !== "function") throw new TypeError("values is not iterable");
+  values = Array.from(values);
+  let [f = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]] = F;
+  if (f.length === 1 || F.length > 1) {
+    const index = Uint32Array.from(values, (d, i) => i);
+    if (F.length > 1) {
+      F = F.map(f => values.map(f));
+      index.sort((i, j) => {
+        for (const f of F) {
+          const c = Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(f[i], f[j]);
+          if (c) return c;
+        }
+      });
+    } else {
+      f = values.map(f);
+      index.sort((i, j) => Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(f[i], f[j]));
+    }
+    return Object(_permute_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, index);
+  }
+  return values.sort(f);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/subset.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/subset.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return subset; });
+/* harmony import */ var _superset_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./superset.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/superset.js");
+
+
+function subset(values, other) {
+  return Object(_superset_js__WEBPACK_IMPORTED_MODULE_0__["default"])(other, values);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/sum.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/sum.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sum; });
+function sum(values, valueof) {
+  let sum = 0;
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value = +value) {
+        sum += value;
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if (value = +valueof(value, ++index, values)) {
+        sum += value;
+      }
+    }
+  }
+  return sum;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/superset.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/superset.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return superset; });
+function superset(values, other) {
+  const iterator = values[Symbol.iterator](), set = new Set();
+  for (const o of other) {
+    if (set.has(o)) continue;
+    let value, done;
+    while (({value, done} = iterator.next())) {
+      if (done) return false;
+      set.add(value);
+      if (Object.is(o, value)) break;
+    }
+  }
+  return true;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/freedmanDiaconis.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/threshold/freedmanDiaconis.js ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _count_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../count.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js");
+/* harmony import */ var _quantile_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../quantile.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function(values, min, max) {
+  return Math.ceil((max - min) / (2 * (Object(_quantile_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, 0.75) - Object(_quantile_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, 0.25)) * Math.pow(Object(_count_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values), -1 / 3)));
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/scott.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/threshold/scott.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _count_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../count.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js");
+/* harmony import */ var _deviation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../deviation.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/deviation.js");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function(values, min, max) {
+  return Math.ceil((max - min) / (3.5 * Object(_deviation_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values) * Math.pow(Object(_count_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values), -1 / 3)));
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/sturges.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/threshold/sturges.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _count_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../count.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function(values) {
+  return Math.ceil(Math.log(Object(_count_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values)) / Math.LN2) + 1;
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js ***!
+  \*******************************************************************/
+/*! exports provided: default, tickIncrement, tickStep */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tickIncrement", function() { return tickIncrement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tickStep", function() { return tickStep; });
+var e10 = Math.sqrt(50),
+    e5 = Math.sqrt(10),
+    e2 = Math.sqrt(2);
+
+/* harmony default export */ __webpack_exports__["default"] = (function(start, stop, count) {
+  var reverse,
+      i = -1,
+      n,
+      ticks,
+      step;
+
+  stop = +stop, start = +start, count = +count;
+  if (start === stop && count > 0) return [start];
+  if (reverse = stop < start) n = start, start = stop, stop = n;
+  if ((step = tickIncrement(start, stop, count)) === 0 || !isFinite(step)) return [];
+
+  if (step > 0) {
+    start = Math.ceil(start / step);
+    stop = Math.floor(stop / step);
+    ticks = new Array(n = Math.ceil(stop - start + 1));
+    while (++i < n) ticks[i] = (start + i) * step;
+  } else {
+    step = -step;
+    start = Math.ceil(start * step);
+    stop = Math.floor(stop * step);
+    ticks = new Array(n = Math.ceil(stop - start + 1));
+    while (++i < n) ticks[i] = (start + i) / step;
+  }
+
+  if (reverse) ticks.reverse();
+
+  return ticks;
+});
+
+function tickIncrement(start, stop, count) {
+  var step = (stop - start) / Math.max(0, count),
+      power = Math.floor(Math.log(step) / Math.LN10),
+      error = step / Math.pow(10, power);
+  return power >= 0
+      ? (error >= e10 ? 10 : error >= e5 ? 5 : error >= e2 ? 2 : 1) * Math.pow(10, power)
+      : -Math.pow(10, -power) / (error >= e10 ? 10 : error >= e5 ? 5 : error >= e2 ? 2 : 1);
+}
+
+function tickStep(start, stop, count) {
+  var step0 = Math.abs(stop - start) / Math.max(0, count),
+      step1 = Math.pow(10, Math.floor(Math.log(step0) / Math.LN10)),
+      error = step0 / step1;
+  if (error >= e10) step1 *= 10;
+  else if (error >= e5) step1 *= 5;
+  else if (error >= e2) step1 *= 2;
+  return stop < start ? -step1 : step1;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/transpose.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/transpose.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _min_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./min.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/min.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function(matrix) {
+  if (!(n = matrix.length)) return [];
+  for (var i = -1, m = Object(_min_js__WEBPACK_IMPORTED_MODULE_0__["default"])(matrix, length), transpose = new Array(m); ++i < m;) {
+    for (var j = -1, n, row = transpose[i] = new Array(n); ++j < n;) {
+      row[j] = matrix[j][i];
+    }
+  }
+  return transpose;
+});
+
+function length(d) {
+  return d.length;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/union.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/union.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return union; });
+function union(...others) {
+  const set = new Set();
+  for (const other of others) {
+    for (const o of other) {
+      set.add(o);
+    }
+  }
+  return set;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/variance.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/variance.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return variance; });
+function variance(values, valueof) {
+  let count = 0;
+  let delta;
+  let mean = 0;
+  let sum = 0;
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value != null && (value = +value) >= value) {
+        delta = value - mean;
+        mean += delta / ++count;
+        sum += delta * (value - mean);
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
+        delta = value - mean;
+        mean += delta / ++count;
+        sum += delta * (value - mean);
+      }
+    }
+  }
+  if (count > 1) return sum / (count - 1);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/zip.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/zip.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _transpose_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./transpose.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/transpose.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function() {
+  return Object(_transpose_js__WEBPACK_IMPORTED_MODULE_0__["default"])(arguments);
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/src/align.js":
+/*!*********************************************!*\
+  !*** ./node_modules/d3-sankey/src/align.js ***!
+  \*********************************************/
+/*! exports provided: left, right, justify, center */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "left", function() { return left; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "right", function() { return right; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "justify", function() { return justify; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "center", function() { return center; });
+/* harmony import */ var d3_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3-array */ "./node_modules/d3-sankey/node_modules/d3-array/src/index.js");
+
+
+function targetDepth(d) {
+  return d.target.depth;
+}
+
+function left(node) {
+  return node.depth;
+}
+
+function right(node, n) {
+  return n - 1 - node.height;
+}
+
+function justify(node, n) {
+  return node.sourceLinks.length ? node.depth : n - 1;
+}
+
+function center(node) {
+  return node.targetLinks.length ? node.depth
+      : node.sourceLinks.length ? Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["min"])(node.sourceLinks, targetDepth) - 1
+      : 0;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/src/constant.js":
+/*!************************************************!*\
+  !*** ./node_modules/d3-sankey/src/constant.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return constant; });
+function constant(x) {
+  return function() {
+    return x;
+  };
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/src/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/d3-sankey/src/index.js ***!
+  \*********************************************/
+/*! exports provided: sankey, sankeyCenter, sankeyLeft, sankeyRight, sankeyJustify, sankeyLinkHorizontal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _sankey_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sankey.js */ "./node_modules/d3-sankey/src/sankey.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankey", function() { return _sankey_js__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _align_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./align.js */ "./node_modules/d3-sankey/src/align.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyCenter", function() { return _align_js__WEBPACK_IMPORTED_MODULE_1__["center"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyLeft", function() { return _align_js__WEBPACK_IMPORTED_MODULE_1__["left"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyRight", function() { return _align_js__WEBPACK_IMPORTED_MODULE_1__["right"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyJustify", function() { return _align_js__WEBPACK_IMPORTED_MODULE_1__["justify"]; });
+
+/* harmony import */ var _sankeyLinkHorizontal_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sankeyLinkHorizontal.js */ "./node_modules/d3-sankey/src/sankeyLinkHorizontal.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyLinkHorizontal", function() { return _sankeyLinkHorizontal_js__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/src/sankey.js":
+/*!**********************************************!*\
+  !*** ./node_modules/d3-sankey/src/sankey.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Sankey; });
+/* harmony import */ var d3_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3-array */ "./node_modules/d3-sankey/node_modules/d3-array/src/index.js");
+/* harmony import */ var _align_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./align.js */ "./node_modules/d3-sankey/src/align.js");
+/* harmony import */ var _constant_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constant.js */ "./node_modules/d3-sankey/src/constant.js");
+
+
+
+
+function ascendingSourceBreadth(a, b) {
+  return ascendingBreadth(a.source, b.source) || a.index - b.index;
+}
+
+function ascendingTargetBreadth(a, b) {
+  return ascendingBreadth(a.target, b.target) || a.index - b.index;
+}
+
+function ascendingBreadth(a, b) {
+  return a.y0 - b.y0;
+}
+
+function value(d) {
+  return d.value;
+}
+
+function defaultId(d) {
+  return d.index;
+}
+
+function defaultNodes(graph) {
+  return graph.nodes;
+}
+
+function defaultLinks(graph) {
+  return graph.links;
+}
+
+function find(nodeById, id) {
+  const node = nodeById.get(id);
+  if (!node) throw new Error("missing: " + id);
+  return node;
+}
+
+function computeLinkBreadths({nodes}) {
+  for (const node of nodes) {
+    let y0 = node.y0;
+    let y1 = y0;
+    for (const link of node.sourceLinks) {
+      link.y0 = y0 + link.width / 2;
+      y0 += link.width;
+    }
+    for (const link of node.targetLinks) {
+      link.y1 = y1 + link.width / 2;
+      y1 += link.width;
+    }
+  }
+}
+
+function Sankey() {
+  let x0 = 0, y0 = 0, x1 = 1, y1 = 1; // extent
+  let dx = 24; // nodeWidth
+  let dy = 8, py; // nodePadding
+  let id = defaultId;
+  let align = _align_js__WEBPACK_IMPORTED_MODULE_1__["justify"];
+  let sort;
+  let linkSort;
+  let nodes = defaultNodes;
+  let links = defaultLinks;
+  let iterations = 6;
+
+  function sankey() {
+    const graph = {nodes: nodes.apply(null, arguments), links: links.apply(null, arguments)};
+    computeNodeLinks(graph);
+    computeNodeValues(graph);
+    computeNodeDepths(graph);
+    computeNodeHeights(graph);
+    computeNodeBreadths(graph);
+    computeLinkBreadths(graph);
+    return graph;
+  }
+
+  sankey.update = function(graph) {
+    computeLinkBreadths(graph);
+    return graph;
+  };
+
+  sankey.nodeId = function(_) {
+    return arguments.length ? (id = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), sankey) : id;
+  };
+
+  sankey.nodeAlign = function(_) {
+    return arguments.length ? (align = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), sankey) : align;
+  };
+
+  sankey.nodeSort = function(_) {
+    return arguments.length ? (sort = _, sankey) : sort;
+  };
+
+  sankey.nodeWidth = function(_) {
+    return arguments.length ? (dx = +_, sankey) : dx;
+  };
+
+  sankey.nodePadding = function(_) {
+    return arguments.length ? (dy = py = +_, sankey) : dy;
+  };
+
+  sankey.nodes = function(_) {
+    return arguments.length ? (nodes = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), sankey) : nodes;
+  };
+
+  sankey.links = function(_) {
+    return arguments.length ? (links = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), sankey) : links;
+  };
+
+  sankey.linkSort = function(_) {
+    return arguments.length ? (linkSort = _, sankey) : linkSort;
+  };
+
+  sankey.size = function(_) {
+    return arguments.length ? (x0 = y0 = 0, x1 = +_[0], y1 = +_[1], sankey) : [x1 - x0, y1 - y0];
+  };
+
+  sankey.extent = function(_) {
+    return arguments.length ? (x0 = +_[0][0], x1 = +_[1][0], y0 = +_[0][1], y1 = +_[1][1], sankey) : [[x0, y0], [x1, y1]];
+  };
+
+  sankey.iterations = function(_) {
+    return arguments.length ? (iterations = +_, sankey) : iterations;
+  };
+
+  function computeNodeLinks({nodes, links}) {
+    for (const [i, node] of nodes.entries()) {
+      node.index = i;
+      node.sourceLinks = [];
+      node.targetLinks = [];
+    }
+    const nodeById = new Map(nodes.map((d, i) => [id(d, i, nodes), d]));
+    for (const [i, link] of links.entries()) {
+      link.index = i;
+      let {source, target} = link;
+      if (typeof source !== "object") source = link.source = find(nodeById, source);
+      if (typeof target !== "object") target = link.target = find(nodeById, target);
+      source.sourceLinks.push(link);
+      target.targetLinks.push(link);
+    }
+    if (linkSort != null) {
+      for (const {sourceLinks, targetLinks} of nodes) {
+        sourceLinks.sort(linkSort);
+        targetLinks.sort(linkSort);
+      }
+    }
+  }
+
+  function computeNodeValues({nodes}) {
+    for (const node of nodes) {
+      node.value = node.fixedValue === undefined
+          ? Math.max(Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["sum"])(node.sourceLinks, value), Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["sum"])(node.targetLinks, value))
+          : node.fixedValue;
+    }
+  }
+
+  function computeNodeDepths({nodes}) {
+    const n = nodes.length;
+    let current = new Set(nodes);
+    let next = new Set;
+    let x = 0;
+    while (current.size) {
+      for (const node of current) {
+        node.depth = x;
+        for (const {target} of node.sourceLinks) {
+          next.add(target);
+        }
+      }
+      if (++x > n) throw new Error("circular link");
+      current = next;
+      next = new Set;
+    }
+  }
+
+  function computeNodeHeights({nodes}) {
+    const n = nodes.length;
+    let current = new Set(nodes);
+    let next = new Set;
+    let x = 0;
+    while (current.size) {
+      for (const node of current) {
+        node.height = x;
+        for (const {source} of node.targetLinks) {
+          next.add(source);
+        }
+      }
+      if (++x > n) throw new Error("circular link");
+      current = next;
+      next = new Set;
+    }
+  }
+
+  function computeNodeLayers({nodes}) {
+    const x = Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["max"])(nodes, d => d.depth) + 1;
+    const kx = (x1 - x0 - dx) / (x - 1);
+    const columns = new Array(x);
+    for (const node of nodes) {
+      const i = Math.max(0, Math.min(x - 1, Math.floor(align.call(null, node, x))));
+      node.layer = i;
+      node.x0 = x0 + i * kx;
+      node.x1 = node.x0 + dx;
+      if (columns[i]) columns[i].push(node);
+      else columns[i] = [node];
+    }
+    if (sort) for (const column of columns) {
+      column.sort(sort);
+    }
+    return columns;
+  }
+
+  function initializeNodeBreadths(columns) {
+    const ky = Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["min"])(columns, c => (y1 - y0 - (c.length - 1) * py) / Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["sum"])(c, value));
+    for (const nodes of columns) {
+      let y = y0;
+      for (const node of nodes) {
+        node.y0 = y;
+        node.y1 = y + node.value * ky;
+        y = node.y1 + py;
+        for (const link of node.sourceLinks) {
+          link.width = link.value * ky;
+        }
+      }
+      y = (y1 - y + py) / (nodes.length + 1);
+      for (let i = 0; i < nodes.length; ++i) {
+        const node = nodes[i];
+        node.y0 += y * (i + 1);
+        node.y1 += y * (i + 1);
+      }
+      reorderLinks(nodes);
+    }
+  }
+
+  function computeNodeBreadths(graph) {
+    const columns = computeNodeLayers(graph);
+    py = Math.min(dy, (y1 - y0) / (Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["max"])(columns, c => c.length) - 1));
+    initializeNodeBreadths(columns);
+    for (let i = 0; i < iterations; ++i) {
+      const alpha = Math.pow(0.99, i);
+      const beta = Math.max(1 - alpha, (i + 1) / iterations);
+      relaxRightToLeft(columns, alpha, beta);
+      relaxLeftToRight(columns, alpha, beta);
+    }
+  }
+
+  // Reposition each node based on its incoming (target) links.
+  function relaxLeftToRight(columns, alpha, beta) {
+    for (let i = 1, n = columns.length; i < n; ++i) {
+      const column = columns[i];
+      for (const target of column) {
+        let y = 0;
+        let w = 0;
+        for (const {source, value} of target.targetLinks) {
+          let v = value * (target.layer - source.layer);
+          y += targetTop(source, target) * v;
+          w += v;
+        }
+        if (!(w > 0)) continue;
+        let dy = (y / w - target.y0) * alpha;
+        target.y0 += dy;
+        target.y1 += dy;
+        reorderNodeLinks(target);
+      }
+      if (sort === undefined) column.sort(ascendingBreadth);
+      resolveCollisions(column, beta);
+    }
+  }
+
+  // Reposition each node based on its outgoing (source) links.
+  function relaxRightToLeft(columns, alpha, beta) {
+    for (let n = columns.length, i = n - 2; i >= 0; --i) {
+      const column = columns[i];
+      for (const source of column) {
+        let y = 0;
+        let w = 0;
+        for (const {target, value} of source.sourceLinks) {
+          let v = value * (target.layer - source.layer);
+          y += sourceTop(source, target) * v;
+          w += v;
+        }
+        if (!(w > 0)) continue;
+        let dy = (y / w - source.y0) * alpha;
+        source.y0 += dy;
+        source.y1 += dy;
+        reorderNodeLinks(source);
+      }
+      if (sort === undefined) column.sort(ascendingBreadth);
+      resolveCollisions(column, beta);
+    }
+  }
+
+  function resolveCollisions(nodes, alpha) {
+    const i = nodes.length >> 1;
+    const subject = nodes[i];
+    resolveCollisionsBottomToTop(nodes, subject.y0 - py, i - 1, alpha);
+    resolveCollisionsTopToBottom(nodes, subject.y1 + py, i + 1, alpha);
+    resolveCollisionsBottomToTop(nodes, y1, nodes.length - 1, alpha);
+    resolveCollisionsTopToBottom(nodes, y0, 0, alpha);
+  }
+
+  // Push any overlapping nodes down.
+  function resolveCollisionsTopToBottom(nodes, y, i, alpha) {
+    for (; i < nodes.length; ++i) {
+      const node = nodes[i];
+      const dy = (y - node.y0) * alpha;
+      if (dy > 1e-6) node.y0 += dy, node.y1 += dy;
+      y = node.y1 + py;
+    }
+  }
+
+  // Push any overlapping nodes up.
+  function resolveCollisionsBottomToTop(nodes, y, i, alpha) {
+    for (; i >= 0; --i) {
+      const node = nodes[i];
+      const dy = (node.y1 - y) * alpha;
+      if (dy > 1e-6) node.y0 -= dy, node.y1 -= dy;
+      y = node.y0 - py;
+    }
+  }
+
+  function reorderNodeLinks({sourceLinks, targetLinks}) {
+    if (linkSort === undefined) {
+      for (const {source: {sourceLinks}} of targetLinks) {
+        sourceLinks.sort(ascendingTargetBreadth);
+      }
+      for (const {target: {targetLinks}} of sourceLinks) {
+        targetLinks.sort(ascendingSourceBreadth);
+      }
+    }
+  }
+
+  function reorderLinks(nodes) {
+    if (linkSort === undefined) {
+      for (const {sourceLinks, targetLinks} of nodes) {
+        sourceLinks.sort(ascendingTargetBreadth);
+        targetLinks.sort(ascendingSourceBreadth);
+      }
+    }
+  }
+
+  // Returns the target.y0 that would produce an ideal link from source to target.
+  function targetTop(source, target) {
+    let y = source.y0 - (source.sourceLinks.length - 1) * py / 2;
+    for (const {target: node, width} of source.sourceLinks) {
+      if (node === target) break;
+      y += width + py;
+    }
+    for (const {source: node, width} of target.targetLinks) {
+      if (node === source) break;
+      y -= width;
+    }
+    return y;
+  }
+
+  // Returns the source.y0 that would produce an ideal link from source to target.
+  function sourceTop(source, target) {
+    let y = target.y0 - (target.targetLinks.length - 1) * py / 2;
+    for (const {source: node, width} of target.targetLinks) {
+      if (node === source) break;
+      y += width + py;
+    }
+    for (const {target: node, width} of source.sourceLinks) {
+      if (node === target) break;
+      y -= width;
+    }
+    return y;
+  }
+
+  return sankey;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/d3-sankey/src/sankeyLinkHorizontal.js":
+/*!************************************************************!*\
+  !*** ./node_modules/d3-sankey/src/sankeyLinkHorizontal.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var d3_shape__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3-shape */ "./node_modules/d3-shape/src/index.js");
+
+
+function horizontalSource(d) {
+  return [d.source.x1, d.y0];
+}
+
+function horizontalTarget(d) {
+  return [d.target.x0, d.y1];
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (function() {
+  return Object(d3_shape__WEBPACK_IMPORTED_MODULE_0__["linkHorizontal"])()
+      .source(horizontalSource)
+      .target(horizontalTarget);
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/d3-scale-chromatic/src/categorical/Accent.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/d3-scale-chromatic/src/categorical/Accent.js ***!
@@ -37954,6 +40664,236 @@ hat.rack = function (bits, base, expandBy) {
     fn.base = base || 16;
     return fn;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/image-ssim/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/image-ssim/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @preserve
+ * Copyright 2015 Igor Bezkrovny
+ * All rights reserved. (MIT Licensed)
+ *
+ * ssim.ts - part of Image Quantization Library
+ */
+/**
+ * - Original TypeScript implementation:
+ *   https://github.com/igor-bezkrovny/image-quantization/blob/9f62764ac047c3e53accdf1d7e4e424b0ef2fb60/src/quality/ssim.ts
+ * - Based on Java implementation: https://github.com/rhys-e/structural-similarity
+ * - For more information see: http://en.wikipedia.org/wiki/Structural_similarity
+ */
+var ImageSSIM;
+(function (ImageSSIM) {
+    'use strict';
+    /**
+     * Grey = 1, GreyAlpha = 2, RGB = 3, RGBAlpha = 4
+     */
+    (function (Channels) {
+        Channels[Channels["Grey"] = 1] = "Grey";
+        Channels[Channels["GreyAlpha"] = 2] = "GreyAlpha";
+        Channels[Channels["RGB"] = 3] = "RGB";
+        Channels[Channels["RGBAlpha"] = 4] = "RGBAlpha";
+    })(ImageSSIM.Channels || (ImageSSIM.Channels = {}));
+    var Channels = ImageSSIM.Channels;
+    /**
+     * Entry point.
+     * @throws new Error('Images have different sizes!')
+     */
+    function compare(image1, image2, windowSize, K1, K2, luminance, bitsPerComponent) {
+        if (windowSize === void 0) { windowSize = 8; }
+        if (K1 === void 0) { K1 = 0.01; }
+        if (K2 === void 0) { K2 = 0.03; }
+        if (luminance === void 0) { luminance = true; }
+        if (bitsPerComponent === void 0) { bitsPerComponent = 8; }
+        if (image1.width !== image2.width || image1.height !== image2.height) {
+            throw new Error('Images have different sizes!');
+        }
+        /* tslint:disable:no-bitwise */
+        var L = (1 << bitsPerComponent) - 1;
+        /* tslint:enable:no-bitwise */
+        var c1 = Math.pow((K1 * L), 2), c2 = Math.pow((K2 * L), 2), numWindows = 0, mssim = 0.0;
+        var mcs = 0.0;
+        function iteration(lumaValues1, lumaValues2, averageLumaValue1, averageLumaValue2) {
+            // calculate variance and covariance
+            var sigxy, sigsqx, sigsqy;
+            sigxy = sigsqx = sigsqy = 0.0;
+            for (var i = 0; i < lumaValues1.length; i++) {
+                sigsqx += Math.pow((lumaValues1[i] - averageLumaValue1), 2);
+                sigsqy += Math.pow((lumaValues2[i] - averageLumaValue2), 2);
+                sigxy += (lumaValues1[i] - averageLumaValue1) * (lumaValues2[i] - averageLumaValue2);
+            }
+            var numPixelsInWin = lumaValues1.length - 1;
+            sigsqx /= numPixelsInWin;
+            sigsqy /= numPixelsInWin;
+            sigxy /= numPixelsInWin;
+            // perform ssim calculation on window
+            var numerator = (2 * averageLumaValue1 * averageLumaValue2 + c1) * (2 * sigxy + c2);
+            var denominator = (Math.pow(averageLumaValue1, 2) + Math.pow(averageLumaValue2, 2) + c1) * (sigsqx + sigsqy + c2);
+            mssim += numerator / denominator;
+            mcs += (2 * sigxy + c2) / (sigsqx + sigsqy + c2);
+            numWindows++;
+        }
+        // calculate SSIM for each window
+        Internals._iterate(image1, image2, windowSize, luminance, iteration);
+        return { ssim: mssim / numWindows, mcs: mcs / numWindows };
+    }
+    ImageSSIM.compare = compare;
+    /**
+     * Internal functions.
+     */
+    var Internals;
+    (function (Internals) {
+        function _iterate(image1, image2, windowSize, luminance, callback) {
+            var width = image1.width, height = image1.height;
+            for (var y = 0; y < height; y += windowSize) {
+                for (var x = 0; x < width; x += windowSize) {
+                    // avoid out-of-width/height
+                    var windowWidth = Math.min(windowSize, width - x), windowHeight = Math.min(windowSize, height - y);
+                    var lumaValues1 = _lumaValuesForWindow(image1, x, y, windowWidth, windowHeight, luminance), lumaValues2 = _lumaValuesForWindow(image2, x, y, windowWidth, windowHeight, luminance), averageLuma1 = _averageLuma(lumaValues1), averageLuma2 = _averageLuma(lumaValues2);
+                    callback(lumaValues1, lumaValues2, averageLuma1, averageLuma2);
+                }
+            }
+        }
+        Internals._iterate = _iterate;
+        function _lumaValuesForWindow(image, x, y, width, height, luminance) {
+            var array = image.data, lumaValues = new Float32Array(new ArrayBuffer(width * height * 4)), counter = 0;
+            var maxj = y + height;
+            for (var j = y; j < maxj; j++) {
+                var offset = j * image.width;
+                var i = (offset + x) * image.channels;
+                var maxi = (offset + x + width) * image.channels;
+                switch (image.channels) {
+                    case 1 /* Grey */:
+                        while (i < maxi) {
+                            // (0.212655 +  0.715158 + 0.072187) === 1
+                            lumaValues[counter++] = array[i++];
+                        }
+                        break;
+                    case 2 /* GreyAlpha */:
+                        while (i < maxi) {
+                            lumaValues[counter++] = array[i++] * (array[i++] / 255);
+                        }
+                        break;
+                    case 3 /* RGB */:
+                        if (luminance) {
+                            while (i < maxi) {
+                                lumaValues[counter++] = (array[i++] * 0.212655 + array[i++] * 0.715158 + array[i++] * 0.072187);
+                            }
+                        }
+                        else {
+                            while (i < maxi) {
+                                lumaValues[counter++] = (array[i++] + array[i++] + array[i++]);
+                            }
+                        }
+                        break;
+                    case 4 /* RGBAlpha */:
+                        if (luminance) {
+                            while (i < maxi) {
+                                lumaValues[counter++] = (array[i++] * 0.212655 + array[i++] * 0.715158 + array[i++] * 0.072187) * (array[i++] / 255);
+                            }
+                        }
+                        else {
+                            while (i < maxi) {
+                                lumaValues[counter++] = (array[i++] + array[i++] + array[i++]) * (array[i++] / 255);
+                            }
+                        }
+                        break;
+                }
+            }
+            return lumaValues;
+        }
+        function _averageLuma(lumaValues) {
+            var sumLuma = 0.0;
+            for (var i = 0; i < lumaValues.length; i++) {
+                sumLuma += lumaValues[i];
+            }
+            return sumLuma / lumaValues.length;
+        }
+    })(Internals || (Internals = {}));
+})(ImageSSIM || (ImageSSIM = {}));
+module.exports = ImageSSIM;
+
+
+/***/ }),
+
+/***/ "./node_modules/internmap/src/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/internmap/src/index.js ***!
+  \*********************************************/
+/*! exports provided: InternMap, InternSet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InternMap", function() { return InternMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InternSet", function() { return InternSet; });
+class InternMap extends Map {
+  constructor(entries = [], key = keyof) {
+    super();
+    Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
+    for (const [key, value] of entries) this.set(key, value);
+  }
+  get(key) {
+    return super.get(intern_get(this, key));
+  }
+  has(key) {
+    return super.has(intern_get(this, key));
+  }
+  set(key, value) {
+    return super.set(intern_set(this, key), value);
+  }
+  delete(key) {
+    return super.delete(intern_delete(this, key));
+  }
+}
+
+class InternSet extends Set {
+  constructor(values = [], key = keyof) {
+    super();
+    Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
+    for (const value of values) this.add(value);
+  }
+  has(value) {
+    return super.has(intern_get(this, value));
+  }
+  add(value) {
+    return super.add(intern_set(this, value));
+  }
+  delete(value) {
+    return super.delete(intern_delete(this, value));
+  }
+}
+
+function intern_get({_intern, _key}, value) {
+  const key = _key(value);
+  return _intern.has(key) ? _intern.get(key) : value;
+}
+
+function intern_set({_intern, _key}, value) {
+  const key = _key(value);
+  if (_intern.has(key)) return _intern.get(key);
+  _intern.set(key, value);
+  return value;
+}
+
+function intern_delete({_intern, _key}, value) {
+  const key = _key(value);
+  if (_intern.has(key)) {
+    value = _intern.get(value);
+    _intern.delete(key);
+  }
+  return value;
+}
+
+function keyof(value) {
+  return value !== null && typeof value === "object" ? value.valueOf() : value;
+}
 
 
 /***/ }),
@@ -53013,15 +55953,116 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./src/css/middle.css":
+/*!****************************!*\
+  !*** ./src/css/middle.css ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader!./middle.css */ "./node_modules/css-loader/index.js!./src/css/middle.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./src/css/parsets.css":
+/*!*****************************!*\
+  !*** ./src/css/parsets.css ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader!./parsets.css */ "./node_modules/css-loader/index.js!./src/css/parsets.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./src/css/right.css":
+/*!***************************!*\
+  !*** ./src/css/right.css ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader!./right.css */ "./node_modules/css-loader/index.js!./src/css/right.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no exports provided */
+/*! exports provided: main_regions, main_all_trips, main_all_streets, main_predicted_trips, main_mouse_coord, main_states, main_init, main_redraw_map, main_set_maplayer_index, main_trip_study, main_trip_study_init */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(turf, d3, $) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_regions", function() { return main_regions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_all_trips", function() { return main_all_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_all_streets", function() { return main_all_streets; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_predicted_trips", function() { return main_predicted_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_mouse_coord", function() { return main_mouse_coord; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_states", function() { return main_states; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_init", function() { return main_init; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_redraw_map", function() { return main_redraw_map; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_set_maplayer_index", function() { return main_set_maplayer_index; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_trip_study", function() { return main_trip_study; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_trip_study_init", function() { return main_trip_study_init; });
 /* harmony import */ var _node_modules_mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/mapbox-gl/dist/mapbox-gl.css */ "./node_modules/mapbox-gl/dist/mapbox-gl.css");
 /* harmony import */ var _node_modules_mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@fortawesome/fontawesome-free/css/all.min.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.min.css");
@@ -53032,11 +56073,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_css_main_css__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _css_left_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./css/left.css */ "./src/css/left.css");
 /* harmony import */ var _css_left_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_left_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _js_map__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/map */ "./src/js/map.js");
-/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/utils */ "./src/js/utils.js");
-/* harmony import */ var _js_view__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/view */ "./src/js/view.js");
-/* harmony import */ var _js_query__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/query */ "./src/js/query.js");
-/* harmony import */ var _js_vis__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/vis */ "./src/js/vis.js");
+/* harmony import */ var _css_middle_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./css/middle.css */ "./src/css/middle.css");
+/* harmony import */ var _css_middle_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_css_middle_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _css_right_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./css/right.css */ "./src/css/right.css");
+/* harmony import */ var _css_right_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_css_right_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _css_parsets_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./css/parsets.css */ "./src/css/parsets.css");
+/* harmony import */ var _css_parsets_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_css_parsets_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _js_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/map */ "./src/js/map.js");
+/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/utils */ "./src/js/utils.js");
+/* harmony import */ var _js_view__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/view */ "./src/js/view.js");
+/* harmony import */ var _js_query__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./js/query */ "./src/js/query.js");
+/* harmony import */ var _js_vis__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./js/vis */ "./src/js/vis.js");
+/* harmony import */ var _js_filter__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./js/filter */ "./src/js/filter.js");
 
 
 
@@ -53051,77 +56099,534 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// Initialize map
-Object(_js_map__WEBPACK_IMPORTED_MODULE_5__["map_initialize"])('map');
+
+
+
+
+
+
+
+var main_regions = undefined;
+var main_all_trips = undefined;
+var main_all_streets = undefined;
+var main_predicted_trips = undefined;
+var main_mouse_coord = undefined;
+
+var main_states = {
+    global: true,
+    trip: false
+};
+
+Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_initialize"])('map');
+
 // Fire when map finished loading
-_js_map__WEBPACK_IMPORTED_MODULE_5__["map_main"].on('load', function () {
-    // Initialize all map components
-    Object(_js_map__WEBPACK_IMPORTED_MODULE_5__["map_add_draw_controls"])();
-    // Set axios interceptors
-    Object(_js_utils__WEBPACK_IMPORTED_MODULE_6__["util_axios_interceptors"])();
-
-    main_get_dataset().then(function (data) {
-        // Test drawing trajectory
-        Object(_js_utils__WEBPACK_IMPORTED_MODULE_6__["util_preprocess_data"])(data).then(function (result) {
-            // Draw all trips
-            Object(_js_map__WEBPACK_IMPORTED_MODULE_5__["map_show_all_trips"])(result);
-            Object(_js_vis__WEBPACK_IMPORTED_MODULE_9__["vis_summary"])(result, 'summary');
-
-            main_get_bboxdata().then(function (bbox_data) {
-                Object(_js_utils__WEBPACK_IMPORTED_MODULE_6__["util_preprocess_data"])(bbox_data).then(function (process_data) {
-                    Object(_js_vis__WEBPACK_IMPORTED_MODULE_9__["vis_filter"])(process_data, 'filter');
-                });
-            });
-        });
-    });
-
-    // On drag
-    _js_map__WEBPACK_IMPORTED_MODULE_5__["map_main"].on('dragend', function (e) {
-        main_get_bboxdata().then(function (bbox_data) {
-            Object(_js_utils__WEBPACK_IMPORTED_MODULE_6__["util_preprocess_data"])(bbox_data).then(function (process_data) {
-                Object(_js_vis__WEBPACK_IMPORTED_MODULE_9__["vis_filter"])(process_data, 'filter');
-            });
-        });
-    });
-
-    // On zoom
-    _js_map__WEBPACK_IMPORTED_MODULE_5__["map_main"].on('zoomend', function (e) {
-        main_get_bboxdata().then(function (bbox_data) {
-            Object(_js_utils__WEBPACK_IMPORTED_MODULE_6__["util_preprocess_data"])(bbox_data).then(function (process_data) {
-                Object(_js_vis__WEBPACK_IMPORTED_MODULE_9__["vis_filter"])(process_data, 'filter');
-            });
-        });
-    });
+_js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('load', function () {
+    main_init();
 });
 
+function main_init() {
+
+    // Initialize all map components
+    Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_add_draw_controls"])();
+    Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_add_minimap"])();
+
+    // Set axios interceptors
+    Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_axios_interceptors"])();
+
+    // Query road network
+    Object(_js_query__WEBPACK_IMPORTED_MODULE_11__["query_find_roadnetwork_intersection"])().then(function (data) {
+
+        // find contains
+        let bbox = Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_get_bbox_polygon"])();
+        let filtered_road_network = [];
+        let features = [];
+
+        for (let i = 0; i < data.length; ++i) {
+
+            let has = false;
+            let multi_line_string = [];
+            data[i].features.forEach(function (feature) {
+                if (turf.booleanContains(bbox, feature)) {
+                    has = true;
+                }
+                multi_line_string.push(feature.geometry.coordinates);
+            });
+
+            if (has) {
+                filtered_road_network.push(data[i]);
+                features.push({
+                    name: data[i].name,
+                    multiLineString: turf.multiLineString(multi_line_string)
+                });
+            }
+        }
+
+        main_get_streets().then(function (street_data) {
+            main_all_streets = Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_compute_street_data"])(street_data);
+            let selected_streets = [];
+            let trip_counts = [];
+            for (let i = 0; i < main_all_streets.length; ++i) {
+                let name = main_all_streets[i].name;
+                let pos = features.map(function (x) {
+                    return x.name;
+                }).indexOf(name);
+                if (pos >= 0) {
+                    trip_counts.push(main_all_streets[i]['trip_ids'].length);
+                    features[pos]['count'] = main_all_streets[i]['trip_ids'].length;
+                    selected_streets.push(features[pos]);
+                }
+            }
+
+            let color = d3.scaleLinear().domain([0, d3.mean(trip_counts), d3.max(trip_counts)]).range(['#14717F', '#F5C677', '#C13224']); //0D6D54
+
+            // 1. ['#2E2E2E','#fdae61','#981328']
+
+            let opacity = d3.scaleLinear().domain([0, d3.mean(trip_counts), d3.max(trip_counts)]).range([0.4, 0.5, 1]);
+
+            let display_features = [];
+            selected_streets.forEach(function (street) {
+                street.multiLineString.properties.color = color(street['count']);
+                street.multiLineString.properties.opacity = opacity(street['count']);
+                display_features.push(street.multiLineString);
+            });
+
+            let feature_collection = turf.featureCollection(display_features);
+
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('roads-highlight');
+            _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].addSource('roads-highlight', {
+                type: 'geojson',
+                data: feature_collection
+            });
+            let trajectory_layer = {
+                id: 'roads-highlight',
+                type: 'line',
+                source: 'roads-highlight',
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'butt'
+                },
+                paint: {
+                    'line-color': ['get', 'color'],
+                    'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1, 15, 4],
+                    'line-opacity': ['get', 'opacity']
+                }
+            };
+            _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].addLayer(trajectory_layer);
+        });
+    });
+
+    // Get all trips from database
+
+    main_get_dataset().then(function (trip_data) {
+        Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_preprocess_data"])(trip_data).then(function (processed_data) {
+
+            // Set global of all trips
+            main_all_trips = processed_data;
+
+            main_get_streets().then(function (street_data) {
+                main_all_streets = Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_compute_street_data"])(street_data);
+                console.log(main_all_streets);
+                let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(processed_data);
+                //map_draw_outter_trips('outter-trips', trips);
+                main_predicted_trips = main_preprocess(trips);
+                //console.log(main_predicted_trips);
+
+                Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_show_filtered_trips"])(main_predicted_trips);
+                main_update_dataview(main_predicted_trips);
+            });
+        });
+    });
+    // On map drag
+    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('dragend', function (e) {
+        if (main_states.global) {
+            if (main_all_trips) {
+                // Filter all trips inside bounding box
+                let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_all_trips);
+                main_redraw_map(trips);
+            }
+        }
+    });
+
+    // On map zoom
+
+    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('zoomend', function (e) {
+        if (main_states.global) {
+            if (main_all_trips) {
+                // Filter all trips inside bounding box
+                let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_all_trips);
+                main_redraw_map(trips);
+            }
+        }
+
+        if (main_states.trip) {
+            if (main_predicted_trips) {
+                //main_trip_study_init(main_predicted_trips[0]);
+            }
+        }
+    });
+
+    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('draw.create', function (e) {
+
+        let polygon = e.features[0];
+        // Need to remove and set new data
+        let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_by_polygon"])(polygon, main_all_trips);
+
+        if (main_regions) {
+            // Remove previous selection area
+            _js_map__WEBPACK_IMPORTED_MODULE_8__["map_draw"].delete([main_regions.id]);
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('inner-trips');
+            main_regions = undefined;
+        }
+
+        // Draw new trips
+        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_draw_inner_trips"])('inner-trips', trips);
+        // Change outter trajectory
+        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_set_paint_property"])('outter-trips', 'line-color', '#525252');
+        // Assign new polygon area
+        main_regions = polygon;
+
+        main_predicted_trips = main_preprocess(trips);
+        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_show_filtered_trips"])(main_predicted_trips);
+        main_update_dataview(main_predicted_trips);
+    });
+
+    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('draw.delete', function () {
+        if (main_regions) {
+            // Remove previous selection area
+            _js_map__WEBPACK_IMPORTED_MODULE_8__["map_draw"].delete([main_regions.id]);
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('inner-trips');
+            main_regions = undefined;
+            // Re preprocessing trip and visualize it
+            let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_all_trips);
+            main_redraw_map(trips);
+        }
+    });
+
+    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('click', function (e) {
+        let coords = e.lngLat.wrap();
+        main_mouse_coord = [coords.lng, coords.lat];
+    });
+
+    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('click', 'trip-points', function (e) {
+
+        var coordinates = e.features[0].geometry.coordinates.slice();
+
+        let target_point = turf.point(main_mouse_coord);
+        let coords = [];
+
+        for (let i = 0; i < coordinates.length; ++i) {
+            coords.push(turf.point(coordinates[i]));
+        }
+
+        let points = turf.featureCollection(coords);
+        let nearest_point = turf.nearestPoint(target_point, points);
+        let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_point_on_trips"])(main_predicted_trips, nearest_point);
+
+        // Start trip states
+        // some to layer
+        main_states.global = false;
+        main_states.trip = true;
+        main_trip_study(trips);
+    });
+}
+
+function main_redraw_map(trips) {
+
+    //map_draw_outter_trips('outter-trips', trips);
+    //map_draw_background(trips, main_all_streets);
+
+    // Draw all trips
+    if (main_regions) {
+        let filtered_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_by_polygon"])(main_regions, trips);
+        // Draw new trips
+        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_draw_inner_trips"])('inner-trips', filtered_trips);
+        // Change outter trajectory
+        //map_set_paint_property('outter-trips', 'line-color' ,'#525252');
+
+        // Draw filtered trips
+        main_predicted_trips = main_preprocess(filtered_trips);
+        if (_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_selected_nodes"].length > 0) {
+            main_predicted_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_by_nodes"])(main_predicted_trips, _js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_selected_nodes"]);
+        }
+        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_show_filtered_trips"])(main_predicted_trips);
+    } else {
+        main_predicted_trips = main_preprocess(trips);
+        main_update_dataview(main_predicted_trips);
+        // Draw filtered trips
+        if (_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_selected_nodes"].length > 0) {
+            main_predicted_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_by_nodes"])(main_predicted_trips, _js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_selected_nodes"]);
+        }
+        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_show_filtered_trips"])(main_predicted_trips);
+    }
+
+    main_set_maplayer_index();
+    return;
+}
+
+// Move z-position of map layers
+function main_set_maplayer_index() {
+    /*
+    map_main.moveLayer('trip-points-border', 'trip-points');
+    map_main.moveLayer('trip-filtered-trajectory', 'trip-points-border');
+     if (main_regions) {
+        map_main.moveLayer('inner-trips', 'trip-filtered-trajectory');
+        //map_main.moveLayer('outter-trips', 'inner-trips');
+        map_main.moveLayer('roads-highlight', 'inner-trips');
+    } else {
+        //map_main.moveLayer('outter-trips', 'trip-filtered-trajectory');
+        map_main.moveLayer('roads-highlight', 'inner-trips');
+    }*/
+
+    return;
+}
+
+// Get data from database
 function main_get_dataset() {
     return new Promise(function (resolve, reject) {
         var data = {};
-        Object(_js_query__WEBPACK_IMPORTED_MODULE_8__["query_all"])('train').then(function (train_data) {
+        Object(_js_query__WEBPACK_IMPORTED_MODULE_11__["query_all"])('train').then(function (train_data) {
             data['train'] = train_data;
-            Object(_js_query__WEBPACK_IMPORTED_MODULE_8__["query_all"])('val').then(function (val_data) {
-                data['val'] = val_data;
-                resolve(data);
-            });
+            resolve(data);
         });
     });
 }
 
-function main_get_bboxdata() {
-
+function main_get_streets() {
     return new Promise(function (resolve, reject) {
-        var data = {};
-        // Draw vis_filter
-        let bbox = Object(_js_map__WEBPACK_IMPORTED_MODULE_5__["map_get_bbox_polygon"])();
-        Object(_js_query__WEBPACK_IMPORTED_MODULE_8__["query_find_intersection"])(bbox, 'train', 'all', 'all', 'all').then(function (train_data) {
-            data['train'] = train_data;
-            Object(_js_query__WEBPACK_IMPORTED_MODULE_8__["query_find_intersection"])(bbox, 'val', 'all', 'all', 'all').then(function (val_data) {
-                data['val'] = val_data;
-                resolve(data);
-            });
+        //var data = {};
+        Object(_js_query__WEBPACK_IMPORTED_MODULE_11__["query_all_streets"])().then(function (data) {
+            resolve(data);
         });
     });
 }
+
+function main_preprocess(trips) {
+
+    //let roads = map_query_rendered_features('road');
+    //util_map_matching(trips[0]);
+
+    let preprocessed_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_predicted_trips"])(trips);
+    console.log(preprocessed_trips);
+    // main_all_streets
+
+    Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_compute_cases"])(preprocessed_trips);
+    Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_compute_entropy"])(preprocessed_trips);
+    return preprocessed_trips;
+}
+
+// Update dataview
+function main_update_dataview(trips) {
+
+    if (_js_map__WEBPACK_IMPORTED_MODULE_8__["map_minimap"]) {
+        $('#mapboxgl-minimap').css({ opacity: 0 });
+        $('#mapboxgl-minimap').off('click');
+    }
+
+    //console.log(trips);
+
+    Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-point');
+    Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-points');
+
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_global_view"])(trips, 'globalview-body');
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_parallelsets"])(trips, 'dataview-parallelsets');
+    //vis_area_study(trips,'tripview-body');
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_model_cases"])(trips, 'model-cases-body');
+    //vis_representative_images(trips, undefined, 'streetview-body');
+
+    return;
+}
+
+// Create trip study view
+function main_trip_study(trips) {
+    // Show minimap
+    if (_js_map__WEBPACK_IMPORTED_MODULE_8__["map_minimap"]) {
+        $('#mapboxgl-minimap').css({ opacity: 1 });
+    }
+
+    //map_remove_layer('trip-points');
+    //map_remove_layer('trip-points-border');
+    //map_remove_layer('trip-filtered-trajectory');
+    //map_remove_layer('inner-trips');
+    //map_remove_layer('outter-trips');
+
+    // let create polygon
+    //let circle_polygon = map_create_circle_radius(trips[0]);
+
+    main_trip_study_init(trips[0]);
+
+    // Set on click listener
+    $('#mapboxgl-minimap').off().on('click', function () {
+        // Go back to main-strip view
+        if (main_all_trips) {
+            // Filter all trips inside bounding box
+            main_states.global = true;
+            main_states.trip = false;
+
+            $('#trip-list').remove();
+            $('#radius-control').remove();
+            //map_remove_layer('trip-radius');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-unselected-line');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-unselected-start');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-unselected-end');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-selected-arrow');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-selected-line');
+            // Reset middle view
+            d3.select('#map').style('height', 'calc(100% - ' + 0 + 'px)');
+            d3.select('#tripview').style('max-height', 0 + 'px');
+            _js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_marker"].remove();
+
+            let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_all_trips);
+            main_redraw_map(trips);
+        }
+    });
+}
+
+function main_trip_study_init(selected_trip) {
+    //let filtered_trips = filter_trip_in_radius(main_predicted_trips, circle_polygon);
+    // Need to draw trip for more selected points
+    let filtered_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_predicted_trips);
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_model_cases"])(filtered_trips, 'model-cases-body');
+
+    // Remove that selected_trip
+    let pos = filtered_trips.map(function (x) {
+        return x.trip_id;
+    }).indexOf(selected_trip.trip_id);
+    filtered_trips.splice(pos, 1);
+    filtered_trips.unshift(selected_trip);
+
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_trip_list"])(filtered_trips);
+    return;
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./src/js/filter.js":
+/*!**************************!*\
+  !*** ./src/js/filter.js ***!
+  \**************************/
+/*! exports provided: filter_bbox_trips, filter_by_polygon, filter_predicted_trips, filter_by_nodes, filter_point_on_trips, filter_trip_in_radius */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(turf) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_bbox_trips", function() { return filter_bbox_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_by_polygon", function() { return filter_by_polygon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_predicted_trips", function() { return filter_predicted_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_by_nodes", function() { return filter_by_nodes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_point_on_trips", function() { return filter_point_on_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_trip_in_radius", function() { return filter_trip_in_radius; });
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
+
+
+function filter_bbox_trips(trips) {
+    let bbox = Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_get_bbox_polygon"])();
+    let filtered_trips = [];
+    for (let i = 0; i < trips.length; ++i) {
+        let trip = trips[i];
+        let trajectory = trip.locations;
+        if (turf.booleanContains(bbox, trajectory)) {
+            filtered_trips.push(trip);
+        }
+    }
+    return filtered_trips;
+}
+
+/**
+ * Filter trips by polygon
+ * @param {*} polygon
+ * @param {*} trips
+ */
+function filter_by_polygon(polygon, trips) {
+
+    let filtered_trips = [];
+
+    for (let i = 0; i < trips.length; ++i) {
+        let trajectory_geometry = trips[i].locations;
+        if (turf.booleanContains(polygon, trajectory_geometry)) {
+            filtered_trips.push(trips[i]);
+        }
+    }
+
+    return filtered_trips;
+}
+
+// Get trip that have all these 3 predictions
+function filter_predicted_trips(trips) {
+    let filtered_trips = [];
+    for (var i = 0; i < trips.length; ++i) {
+        // Get prediction action
+        if (trips[i].actual && trips[i].predict && Object.keys(trips[i].predict).length === 3 && trips[i].actual.no_slight) {
+            filtered_trips.push(trips[i]);
+        }
+    }
+
+    return filtered_trips;
+}
+
+function filter_by_nodes(trips, selected_nodes) {
+    let filter = {};
+    selected_nodes.forEach(function (node) {
+        let key = node.dimension;
+        let value = node.parent;
+        if (!(key in filter)) {
+            filter[key] = [];
+        }
+
+        if (filter[key].indexOf(value) < 0) {
+            filter[key].push(value);
+        }
+    });
+
+    let filtered_trips = [];
+    for (let i = 0; i < trips.length; ++i) {
+
+        let trip = trips[i];
+
+        let meet = true;
+        Object.keys(filter).forEach(function (key) {
+            if (filter[key].indexOf(trip[key]) < 0) {
+                meet = false;
+            }
+        });
+
+        if (meet) {
+            filtered_trips.push(trip);
+        }
+    }
+
+    return filtered_trips;
+}
+
+function filter_point_on_trips(trips, point) {
+
+    let filtered_trips = [];
+
+    for (let i = 0; i < trips.length; ++i) {
+
+        let trajectory = trips[i].locations.coordinates;
+        let line = turf.lineString(trajectory);
+        let distance = turf.pointToLineDistance(point, line, { units: 'miles' });
+        if (distance >= 0 && distance < 0.05) {
+            filtered_trips.push(trips[i]);
+        }
+    }
+
+    return filtered_trips;
+}
+
+function filter_trip_in_radius(trips, polygon) {
+    let filtered_trips = [];
+    for (let i = 0; i < trips.length; ++i) {
+        let trip = trips[i];
+        let trajectory = trip.locations;
+        if (turf.booleanContains(polygon, trajectory)) {
+            filtered_trips.push(trip);
+        }
+    }
+    return filtered_trips;
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js")))
 
 /***/ }),
 
@@ -53129,24 +56634,45 @@ function main_get_bboxdata() {
 /*!***********************!*\
   !*** ./src/js/map.js ***!
   \***********************/
-/*! exports provided: map_main, map_draw, map_model_colors, map_initialize, map_add_draw_controls, map_show_all_trips, map_remove_layer, map_get_bbox_polygon, map_draw_trajectory */
+/*! exports provided: map_main, map_draw, map_minimap, map_circle_polygon, map_selected_line, map_access_token, map_model_colors, map_initialize, map_add_draw_controls, map_add_minimap, map_draw_outter_trips, map_draw_inner_trips, map_set_paint_property, map_show_all_trips, map_show_filtered_trips, map_filter_all_trips, map_remove_layer, map_get_bbox_polygon, map_draw_trajectory, map_draw_point, map_draw_all_points, map_create_circle_radius, map_draw_selected_trips, map_draw_trip_in_radius, map_draw_background, map_query_rendered_features */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(mapboxgl, turf, $, d3) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_main", function() { return map_main; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw", function() { return map_draw; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_minimap", function() { return map_minimap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_circle_polygon", function() { return map_circle_polygon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_selected_line", function() { return map_selected_line; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_access_token", function() { return map_access_token; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_model_colors", function() { return map_model_colors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_initialize", function() { return map_initialize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_add_draw_controls", function() { return map_add_draw_controls; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_add_minimap", function() { return map_add_minimap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_outter_trips", function() { return map_draw_outter_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_inner_trips", function() { return map_draw_inner_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_set_paint_property", function() { return map_set_paint_property; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_show_all_trips", function() { return map_show_all_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_show_filtered_trips", function() { return map_show_filtered_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_filter_all_trips", function() { return map_filter_all_trips; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_remove_layer", function() { return map_remove_layer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_get_bbox_polygon", function() { return map_get_bbox_polygon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_trajectory", function() { return map_draw_trajectory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_point", function() { return map_draw_point; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_all_points", function() { return map_draw_all_points; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_create_circle_radius", function() { return map_create_circle_radius; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_selected_trips", function() { return map_draw_selected_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_trip_in_radius", function() { return map_draw_trip_in_radius; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_background", function() { return map_draw_background; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_query_rendered_features", function() { return map_query_rendered_features; });
 /* harmony import */ var _mapbox_mapbox_gl_draw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mapbox/mapbox-gl-draw */ "./node_modules/@mapbox/mapbox-gl-draw/index.js");
-/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
-/* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./query */ "./src/js/query.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! .. */ "./src/index.js");
+/* harmony import */ var _plugin_mapboxgl_minimap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugin/mapboxgl-minimap */ "./src/js/plugin/mapboxgl-minimap.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
+/* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./query */ "./src/js/query.js");
+
+
+
 
 
 
@@ -53155,9 +56681,12 @@ __webpack_require__.r(__webpack_exports__);
 // Public variables
 let map_main = undefined;
 let map_draw = undefined;
+let map_minimap = undefined;
+let map_circle_polygon = undefined;
+let map_selected_line = undefined;
 
 // Private Variables
-let access_token = 'pk.eyJ1IjoiZGlnaXRhbGtpIiwiYSI6ImNqNXh1MDdibTA4bTMycnAweDBxYXBpYncifQ.daSatfva2eG-95QHWC9Mig';
+var map_access_token = 'pk.eyJ1IjoiZGlnaXRhbGtpIiwiYSI6ImNqNXh1MDdibTA4bTMycnAweDBxYXBpYncifQ.daSatfva2eG-95QHWC9Mig';
 var map_model_colors = {
     //train: 'rgb(255, 89, 143)',
     //val: 'rgb(21, 178, 211)'
@@ -53167,7 +56696,7 @@ var map_model_colors = {
     // Initialize map
 };function map_initialize(container_id) {
     // Add access token
-    mapboxgl.accessToken = access_token;
+    mapboxgl.accessToken = map_access_token;
     // Initialize map
     map_main = new mapboxgl.Map({
         container: container_id,
@@ -53193,41 +56722,197 @@ function map_add_draw_controls() {
     map_main.addControl(map_draw, 'top-left');
 }
 
-function map_show_all_trips(data) {
-    let trajectory = [];
+function map_add_minimap() {
+    map_minimap = new _plugin_mapboxgl_minimap__WEBPACK_IMPORTED_MODULE_2__["default"]();
+    map_main.addControl(map_minimap, 'top-right');
+    return;
+}
 
+function map_draw_outter_trips(id, data) {
+    let color = ['#ffffcc', '#c2e699', '#78c679', '#31a354', '#006837'];
+    let trajectory = [];
+    // Set all feature property
     for (var i = 0; i < data.length; ++i) {
         let feature = turf.feature(data[i].locations, {
-            color: map_model_colors[data[i].model_type],
-            opacity: data[i].model_type == 'train' ? 0.2 : 0.4
+            color: color[Object(_utils__WEBPACK_IMPORTED_MODULE_3__["util_random_number_interval"])(0, 4)],
+            opacity: 0.1,
+            model: data[i].model_type,
+            time_of_day: data[i].time_of_day,
+            scene: data[i].scene,
+            weather: data[i].weather
         });
         trajectory.push(feature);
     }
-
+    // Remove outter trips
+    map_remove_layer(id);
+    // Create feature collection and add to source
     let feature_collection = turf.featureCollection(trajectory);
-
-    map_remove_layer('trip-trajectory');
-    map_main.addSource('trip-trajectory', {
+    map_main.addSource(id, {
         type: 'geojson',
         data: feature_collection
     });
 
+    // Create trajectory layer
     let trajectory_layer = {
-        id: 'trip-trajectory',
+        id: id,
         type: 'line',
-        source: 'trip-trajectory',
+        source: id,
         layout: {
             'line-join': 'round',
             'line-cap': 'round'
         },
         paint: {
             'line-color': ['get', 'color'],
-            'line-width': 1.5,
+            'line-width': 4,
+            'line-opacity': ['get', 'opacity']
+        }
+        // Add new layer
+    };map_main.addLayer(trajectory_layer);
+    return;
+}
+
+function map_draw_inner_trips(id, data) {
+    let trajectory = [];
+    // Set all feature property
+    for (var i = 0; i < data.length; ++i) {
+        let feature = turf.feature(data[i].locations, {
+            color: '#252525',
+            opacity: 0.2,
+            model: data[i].model_type,
+            time_of_day: data[i].time_of_day,
+            scene: data[i].scene,
+            weather: data[i].weather
+        });
+        trajectory.push(feature);
+    }
+    // Remove outter trips
+    map_remove_layer(id);
+    // Create feature collection and add to source
+    let feature_collection = turf.featureCollection(trajectory);
+    map_main.addSource(id, {
+        type: 'geojson',
+        data: feature_collection
+    });
+    // Create trajectory layer
+    let trajectory_layer = {
+        id: id,
+        type: 'line',
+        source: id,
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        paint: {
+            'line-color': ['get', 'color'],
+            'line-width': 1,
+            'line-opacity': ['get', 'opacity']
+        }
+        // Add new layer
+    };return map_main.addLayer(trajectory_layer);
+}
+
+function map_set_paint_property(id, property, value) {
+    return map_main.setPaintProperty(id, property, value);
+}
+
+function map_show_all_trips(id, data) {
+    let trajectory = [];
+
+    for (var i = 0; i < data.length; ++i) {
+        let feature = turf.feature(data[i].locations, {
+            color: map_model_colors[data[i].model_type],
+            opacity: data[i].model_type == 'train' ? 0.1 : 0.1,
+            model: data[i].model_type,
+            time_of_day: data[i].time_of_day,
+            scene: data[i].scene,
+            weather: data[i].weather
+        });
+        trajectory.push(feature);
+    }
+
+    let feature_collection = turf.featureCollection(trajectory);
+
+    map_remove_layer(id);
+    map_main.addSource(id, {
+        type: 'geojson',
+        data: feature_collection
+    });
+
+    let trajectory_layer = {
+        id: id,
+        type: 'line',
+        source: id,
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        paint: {
+            'line-color': 'rgb(202,0,42)',
+            'line-width': 1,
             'line-opacity': ['get', 'opacity']
         }
     };
 
     return map_main.addLayer(trajectory_layer);
+}
+
+function map_show_filtered_trips(data) {
+
+    // Draw filtered trajectory
+    let trajectory = [];
+
+    for (var i = 0; i < data.length; ++i) {
+        let feature = turf.feature(data[i].locations, {
+            time_of_day: data[i].time_of_day,
+            scene: data[i].scene,
+            weather: data[i].weather
+        });
+        trajectory.push(feature);
+    }
+
+    let feature_collection = turf.featureCollection(trajectory);
+
+    map_remove_layer('trip-filtered-trajectory');
+    map_main.addSource('trip-filtered-trajectory', {
+        type: 'geojson',
+        data: feature_collection
+    });
+
+    let trajectory_layer = {
+        id: 'trip-filtered-trajectory',
+        type: 'line',
+        source: 'trip-filtered-trajectory',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        paint: {
+            'line-color': '#D482A6',
+            'line-width': 2.5,
+            'line-opacity': 1
+        }
+    };
+
+    return map_main.addLayer(trajectory_layer);
+}
+
+function map_filter_all_trips(models) {
+    var features = map_main.queryRenderedFeatures({ layers: ['trip-trajectory'] });
+    /*
+    if (features) {
+        var uniqueFeatures = getUniqueFeatures(features, models);
+    }
+     function getUniqueFeatures(array, comparatorProperty) {
+         var uniqueFeatures = array.filter(function (el) {
+        if (existingFeatureKeys[el.properties[comparatorProperty]]) {
+            return false;
+        } else {
+            existingFeatureKeys[el.properties[comparatorProperty]] = true;
+            return true;
+        }
+        });
+         return uniqueFeatures;
+    }*/
 }
 
 // Remove map layer by ids
@@ -53298,14 +56983,1446 @@ function map_draw_trajectory(data) {
         },
         paint: {
             'line-color': ['get', 'color'],
-            'line-width': 4,
+            'line-width': 8,
             'line-opacity': 1
         }
     };
 
     map_main.addLayer(trajectory_layer);
 }
+
+function map_draw_point(coord) {
+
+    let point = turf.point(coord);
+
+    map_remove_layer('trip-point');
+
+    map_main.addSource('trip-point', {
+        type: 'geojson',
+        data: point
+    });
+
+    // Create point
+    let point_layer = {
+        id: 'trip-point',
+        type: 'circle',
+        source: 'trip-point',
+        paint: {
+            'circle-radius': 12,
+            'circle-color': '#D482A6',
+            'circle-opacity': 0.8
+        }
+    };
+
+    return map_main.addLayer(point_layer);
+}
+
+function map_draw_all_points(coords) {
+
+    let point = turf.multiPoint(coords);
+
+    map_remove_layer('trip-points');
+    map_remove_layer('trip-points-border');
+
+    map_main.addSource('trip-points', {
+        type: 'geojson',
+        data: point
+    });
+
+    map_main.addSource('trip-points-border', {
+        type: 'geojson',
+        data: point
+    });
+
+    // Create point
+    let point_border_layer = {
+        id: 'trip-points-border',
+        type: 'circle',
+        source: 'trip-points-border',
+        paint: {
+            'circle-color': '#000',
+            'circle-opacity': 0,
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 3, 15, 7]
+        }
+
+        // Create point
+    };let point_layer = {
+        id: 'trip-points',
+        type: 'circle',
+        source: 'trip-points',
+        paint: {
+            'circle-color': '#D482A6',
+            'circle-opacity': 1,
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 2, 15, 6]
+        }
+    };
+
+    map_main.addLayer(point_border_layer);
+    map_main.addLayer(point_layer);
+    return;
+}
+
+function map_create_circle_radius(selected_trip) {
+    $('#radius-control').remove();
+
+    let center = selected_trip.locations.coordinates[0];
+    let options = {
+        steps: 50,
+        units: 'kilometers',
+        options: {}
+    };
+    let radius = 2;
+    let circle_polygon = turf.circle(center, radius, options);
+    let area = turf.area(circle_polygon);
+
+    map_remove_layer('trip-radius');
+    map_main.addSource('trip-radius', {
+        type: 'geojson',
+        data: circle_polygon
+    });
+
+    map_main.addLayer({
+        'id': 'trip-radius',
+        'type': 'line',
+        "feature_type": "fill",
+        'source': 'trip-radius',
+        'layout': {},
+        'paint': {
+            'line-color': '#000',
+            'line-opacity': 1,
+            'line-width': 2
+        }
+    });
+
+    fit_bounds(circle_polygon);
+    add_radius_control();
+    map_circle_polygon = circle_polygon;
+    return circle_polygon;
+
+    function add_radius_control() {
+        let radius_control = d3.select('#map').append('div').attr('id', 'radius-control').style('width', '200px').style('height', '30px').style('line-height', '30px').style('position', 'absolute').style('top', '180px').style('right', '15px').style('z-index', '9999');
+
+        let radius_text = radius_control.append('label').attr('id', 'radius-text').style('width', '100%').style('height', '15px').style('font-size', '14px').html('Radius Area: ' + (area / 1000000).toFixed(2) + ' square km');
+
+        let radius_slider = radius_control.append('input').attr('id', 'radius-slider').attr('class', 'custom-slider').attr('type', 'range').attr('min', 2).attr('max', '10').attr('step', '1').attr('val', 0).style('width', '100%').style('height', '1px').style('margin-top', '20px').style('background', '#252525');
+
+        d3.select('#radius-slider').property("value", 2);
+        radius_slider.on('input', function () {
+            let circle_polygon = turf.circle(center, this.value, options);
+            map_main.getSource('trip-radius').setData(circle_polygon);
+            fit_bounds(circle_polygon);
+            let area = turf.area(circle_polygon);
+            radius_text.html('Radius Area: ' + (area / 1000000).toFixed(2) + ' square km');
+            Object(___WEBPACK_IMPORTED_MODULE_1__["main_trip_study_init"])(selected_trip, circle_polygon);
+        });
+    }
+
+    function fit_bounds(geojson) {
+        var coordinates = geojson.geometry.coordinates[0];
+        var bounds = coordinates.reduce(function (bounds, coord) {
+            return bounds.extend(coord);
+        }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
+
+        map_main.fitBounds(bounds, {
+            padding: 20
+        });
+    }
+}
+
+function map_draw_selected_trips(trip) {
+    // Draw trip here
+    let feature_collection = turf.feature(trip.locations);
+
+    map_remove_layer('trip-selected-arrow');
+    map_remove_layer('trip-selected-line');
+
+    map_main.addSource('trip-selected-arrow', {
+        type: 'geojson',
+        data: feature_collection
+    });
+    map_main.addSource('trip-selected-line', {
+        type: 'geojson',
+        data: feature_collection
+    });
+
+    let trajectory_layer = {
+        id: 'trip-selected-line',
+        type: 'line',
+        source: 'trip-selected-line',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'butt'
+        },
+        paint: {
+            'line-color': '#252525',
+            'line-width': 4,
+            'line-opacity': 0.7
+        }
+    };
+
+    let arrow_layer = {
+        id: 'trip-selected-arrow',
+        type: 'symbol',
+        source: 'trip-selected-arrow',
+        layout: {
+            'symbol-placement': 'line',
+            'text-field': '▶',
+            'text-size': ['interpolate', ['linear'], ['zoom'], 10, 7, 15, 14],
+            'symbol-spacing': ['interpolate', ['linear'], ['zoom'], 10, 7, 15, 20],
+            'text-keep-upright': false
+        },
+        paint: {
+            'text-color': '#000',
+            'text-halo-color': '#000',
+            'text-halo-width': 2
+        }
+    };
+
+    map_main.addLayer(trajectory_layer);
+    map_main.addLayer(arrow_layer);
+
+    map_main.moveLayer('trip-selected-arrow', 'trip-points-border');
+    map_main.moveLayer('trip-selected-line', 'trip-points-border');
+
+    map_selected_line = feature_collection;
+    var coordinates = map_selected_line.geometry.coordinates;
+    var bounds = coordinates.reduce(function (bounds, coord) {
+        return bounds.extend(coord);
+    }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
+
+    map_main.fitBounds(bounds, {
+        zoom: 20
+    });
+    return;
+}
+
+function map_draw_trip_in_radius(trips, index) {
+    let start_points = [],
+        end_points = [];
+    let trajectory = [];
+    for (let i = 0; i < trips.length; ++i) {
+        if (i !== index) {
+            let feature = trips[i].locations;
+            let start = feature.coordinates[0];
+            let end = feature.coordinates[feature.coordinates.length - 1];
+            trajectory.push(turf.feature(feature));
+            start_points.push(start);
+            end_points.push(end);
+        }
+    }
+
+    let feature_collection = turf.featureCollection(trajectory);
+    let start_point = turf.multiPoint(start_points);
+    let end_point = turf.multiPoint(end_points);
+
+    map_remove_layer('trip-unselected-line');
+    map_remove_layer('trip-unselected-start');
+    map_remove_layer('trip-unselected-end');
+
+    map_main.addSource('trip-unselected-line', {
+        type: 'geojson',
+        data: feature_collection
+    });
+
+    map_main.addSource('trip-unselected-start', {
+        type: 'geojson',
+        data: start_point
+    });
+
+    map_main.addSource('trip-unselected-end', {
+        type: 'geojson',
+        data: end_point
+    });
+
+    let trajectory_layer = {
+        id: 'trip-unselected-line',
+        type: 'line',
+        source: 'trip-unselected-line',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'butt'
+        },
+        paint: {
+            'line-color': '#252525',
+            'line-width': 2,
+            'line-opacity': 0.7
+        }
+    };
+
+    let start_layer = {
+        id: 'trip-unselected-start',
+        type: 'circle',
+        source: 'trip-unselected-start',
+        paint: {
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 2, 15, 6],
+            'circle-color': '#a6d96a',
+            'circle-opacity': 0.7
+        }
+    };
+
+    let end_layer = {
+        id: 'trip-unselected-end',
+        type: 'circle',
+        source: 'trip-unselected-end',
+        paint: {
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 2, 15, 6],
+            'circle-color': '#fdae61',
+            'circle-opacity': 0.7
+        }
+    };
+
+    map_main.addLayer(trajectory_layer);
+    map_main.addLayer(start_layer);
+    map_main.addLayer(end_layer);
+
+    map_main.moveLayer('trip-unselected-start', 'trip-points-border');
+    map_main.moveLayer('trip-unselected-end', 'trip-points-border');
+    map_main.moveLayer('trip-unselected-line', 'trip-unselected-end');
+    return;
+}
+
+function map_draw_background(trips, streets) {
+    /*
+    let s = map_main.querySourceFeatures('composite', {
+        'sourceLayer': 'road'
+    });
+     console.log(s);*/
+
+    let bounds = map_main.getBounds();
+    let features = map_main.queryRenderedFeatures(bounds);
+    let roads = [];
+    for (let i = 0; i < features.length; ++i) {
+        let feature = features[i];
+        if (feature.sourceLayer === 'road') {
+            let road_name = feature.properties.name ? feature.properties.name : 'unknown';
+            let road_geometry = feature.geometry;
+            roads.push(turf.feature(road_geometry, {
+                name: road_name,
+                trip_count: 0
+            }));
+        }
+    }
+
+    //console.log(roads)
+
+    let values = [];
+    for (let i = 0; i < roads.length; ++i) {
+        let pos = streets.map(function (x) {
+            return x.name;
+        }).indexOf(roads[i].properties.name);
+        if (pos >= 0) {
+            if (streets[pos]['trip_ids'].length > 0) {
+                roads[i].properties['trip_count'] = streets[pos]['trip_ids'].length;
+                values.push(streets[pos]['trip_ids'].length);
+            }
+        }
+    }
+    console.log(values);
+    let color = d3.scaleLinear().domain([0, d3.max(values) ? d3.max(values) : 0]).range(['transparent', '#fee5d9', '#fcae91', '#fb6a4a', '#de2d26', '#a50f15']);
+
+    let color_road = ['#a50026', '#d73027', '#f46d43', '#fdae61', '#fee08b', '#ffffbf', '#d9ef8b', '#a6d96a', '#66bd63', '#1a9850', '#006837'];
+
+    for (let i = 0; i < roads.length; ++i) {
+        let index = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["util_random_number_interval"])(0, 10);
+        roads[i].properties['line_color'] = color_road[index];
+        //roads[i].properties['line_color'] = color(roads[i].properties['trip_count'])
+    }
+
+    //console.log(roads);
+    let feature_collection = turf.featureCollection(roads);
+
+    map_remove_layer('roads-highlight');
+    if (map_minimap._miniMap.getLayer('roads-highlight')) {
+        map_minimap._miniMap.removeLayer('roads-highlight');
+    }
+
+    if (map_minimap._miniMap.getSource('roads-highlight')) {
+        map_minimap._miniMap.removeSource('roads-highlight');
+    }
+
+    map_main.addSource('roads-highlight', {
+        type: 'geojson',
+        data: feature_collection
+    });
+    map_minimap._miniMap.addSource('roads-highlight', {
+        type: 'geojson',
+        data: feature_collection
+    });
+
+    let trajectory_layer = {
+        id: 'roads-highlight',
+        type: 'line',
+        source: 'roads-highlight',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'butt'
+        },
+        paint: {
+            'line-color': ['get', 'line_color'],
+            'line-width': 1,
+            'line-opacity': 0.5
+        }
+    };
+
+    map_main.addLayer(trajectory_layer);
+    map_minimap._miniMap.addLayer(trajectory_layer);
+    return;
+}
+
+function map_query_rendered_features(feature_layer) {
+    let bounds = map_main.getBounds();
+    let features = map_main.queryRenderedFeatures(bounds);
+    console.log(features);
+
+    let roads = [];
+
+    for (let i = 0; i < features.length; ++i) {
+        let feature = features[i];
+        if (feature.sourceLayer === feature_layer) {
+            let road_name = feature.properties.name ? feature.properties.name : 'unknown';
+            let road_geometry = feature.geometry;
+            roads.push({
+                name: road_name,
+                geometry: road_geometry,
+                trip_index: []
+            });
+        }
+    }
+
+    return roads;
+    //console.log(trip_features_collection);
+
+    /*
+    let feature_collection = turf.featureCollection(roads);
+     map_remove_layer('roads-highlight');
+     map_main.addSource('roads-highlight', {
+        type: 'geojson',
+        data: feature_collection
+    });
+     let trajectory_layer = {
+        id: 'roads-highlight',
+        type: 'line',
+        source: 'roads-highlight',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'butt'
+        },
+        paint: {
+            'line-color': 'green',
+            'line-width': 1,
+            'line-opacity': 0.5
+        }
+    }
+     map_main.addLayer(trajectory_layer);
+    return;*/
+}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! mapbox-gl */ "./node_modules/mapbox-gl/dist/mapbox-gl.js"), __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js")))
+
+/***/ }),
+
+/***/ "./src/js/plugin/d3-parsets.js":
+/*!*************************************!*\
+  !*** ./src/js/plugin/d3-parsets.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(d3) {// Parallel Sets by Jason Davies, http://www.jasondavies.com/
+// Functionality based on http://eagereyes.org/parallel-sets
+/* global d3 */
+/* eslint indent: "off" */
+(function () {
+  d3.parsets = function () {
+    var event = d3.dispatch("sortDimensions", "sortCategories"),
+        dimensions_ = autoDimensions,
+        dimensionFormat = String,
+        tooltip_ = defaultTooltip,
+        categoryTooltip = defaultCategoryTooltip,
+        value_,
+        spacing = 20,
+        width,
+        height,
+        tension = 1,
+        tension0,
+        duration = 500;
+
+    // https://stackoverflow.com/questions/47844765/d3-rebind-in-d3-v4
+    // Copies a variable number of methods from source to target.
+    d3.rebind = function (target, source) {
+      var i = 1,
+          n = arguments.length,
+          method;
+      while (++i < n) target[method = arguments[i]] = d3_rebind(target, source, source[method]);
+      return target;
+    };
+
+    // Method is assumed to be a standard D3 getter-setter:
+    // If passed with no arguments, gets the value.
+    // If passed with arguments, sets the value and returns the target.
+    function d3_rebind(target, source, method) {
+      return function () {
+        var value = method.apply(source, arguments);
+        return value === source ? target : value;
+      };
+    }
+
+    function d3_functor(v) {
+      return typeof v === "function" ? v : function () {
+        return v;
+      };
+    }
+
+    function parsets(selection) {
+      selection.each(function (data, i) {
+        //console.log("parsets ", data);
+        var g = d3.select(this),
+            ordinal = d3.scaleOrdinal(),
+            dragging = false,
+            dimensionNames = dimensions_.call(this, data, i),
+            dimensions = [],
+            tree = { children: {}, count: 0 },
+            nodes,
+            total,
+            ribbon,
+            ribbonEnter;
+
+        d3.select(window).on("mousemove.parsets." + ++parsetsId, unhighlight);
+
+        if (tension0 == null) tension0 = tension;
+        g.selectAll(".ribbon, .ribbon-mouse").data(["ribbon", "ribbon-mouse"], String).enter().append("g").attr("class", String);
+
+        updateDimensions();
+        if (tension != tension0) {
+          var t = d3.transition(g);
+          if (t.tween) t.tween("ribbon", tensionTween);else tensionTween()(1);
+        }
+
+        function tensionTween() {
+          var i = d3.interpolateNumber(tension0, tension);
+          return function (t) {
+            tension0 = i(t);
+            ribbon.merge(ribbonEnter).attr("d", ribbonPath);
+          };
+        }
+
+        function updateDimensions() {
+          // Cache existing bound dimensions to preserve sort order.
+          var dimension = g.selectAll("g.dimension"),
+              cache = {};
+          dimension.each(function (d) {
+            cache[d.name] = d;
+          });
+          dimensionNames.forEach(function (d) {
+            if (!cache.hasOwnProperty(d)) {
+              cache[d] = { name: d, categories: [] };
+            }
+            dimensions.push(cache[d]);
+          });
+          dimensions.sort(compareY);
+          // Populate tree with existing nodes.
+          g.select(".ribbon").selectAll("path").each(function (d) {
+            var path = d.path.split("\0"),
+                node = tree,
+                n = path.length - 1;
+            for (var i = 0; i < n; i++) {
+              var p = path[i];
+              node = node.children.hasOwnProperty(p) ? node.children[p] : node.children[p] = { children: {}, count: 0 };
+            }
+            node.children[d.name] = d;
+          });
+          tree = buildTree(tree, data, dimensions.map(dimensionName), value_);
+          cache = dimensions.map(function (d) {
+            var t = {};
+            d.categories.forEach(function (c) {
+              t[c.name] = c;
+            });
+            return t;
+          });
+          (function categories(d, i) {
+            if (!d.children) return;
+            var dim = dimensions[i],
+                t = cache[i];
+            for (var k in d.children) {
+              if (!t.hasOwnProperty(k)) {
+                dim.categories.push(t[k] = { name: k });
+              }
+              categories(d.children[k], i + 1);
+            }
+          })(tree, 0);
+          ordinal.domain([]).range(d3.range(dimensions[0].categories.length));
+          nodes = layout(tree, dimensions, ordinal);
+          total = getTotal(dimensions);
+          dimensions.forEach(function (d) {
+            d.count = total;
+          });
+          dimension = dimension.data(dimensions, dimensionName);
+
+          var dEnter = dimension.enter().append("g").attr("class", "dimension").attr("transform", function (d) {
+            return "translate(0," + d.y + ")";
+          }).on("mousedown.parsets", cancelEvent);
+          dimension.merge(dEnter).each(function (d) {
+            d.y0 = d.y;
+            d.categories.forEach(function (d) {
+              d.x0 = d.x;
+            });
+          });
+          dEnter.append("rect").attr("width", width).attr("y", -45).attr("height", 45);
+          var textEnter = dEnter.append("text").attr("class", "dimension").attr("transform", "translate(0,-25)");
+          textEnter.append("tspan").attr("class", "name").text(dimensionFormatName);
+          textEnter.append("tspan").attr("class", "sort alpha").attr("dx", "2em").text("alpha »").on("mousedown.parsets", cancelEvent);
+          textEnter.append("tspan").attr("class", "sort size").attr("dx", "2em").text("size »").on("mousedown.parsets", cancelEvent);
+          dimension.merge(dEnter).call(d3.drag()
+          // .origin(identity)
+          .on("start", function (d) {
+            dragging = true;
+            d.y0 = d.y;
+          }).on("drag", function (d) {
+            d.y0 = d.y = d3.event.y;
+            for (var i = 1; i < dimensions.length; i++) {
+              if (height * dimensions[i].y < height * dimensions[i - 1].y) {
+                dimensions.sort(compareY);
+                dimensionNames = dimensions.map(dimensionName);
+                ordinal.domain([]).range(d3.range(dimensions[0].categories.length));
+                nodes = layout(tree = buildTree({ children: {}, count: 0 }, data, dimensionNames, value_), dimensions, ordinal);
+                total = getTotal(dimensions);
+                g.selectAll(".ribbon, .ribbon-mouse").selectAll("path").remove();
+                updateCategories(dimension.merge(dEnter));
+                updateRibbons();
+                dimension.merge(dEnter).transition().duration(duration).attr("transform", translateY).tween("ribbon", ribbonTweenY);
+
+                // This isn't really doing anything...
+                event.call("sortDimensions");
+                break;
+              }
+            }
+            d3.select(this).attr("transform", "translate(0," + d.y + ")").transition();
+            ribbon.filter(function (r) {
+              return r.source.dimension === d || r.target.dimension === d;
+            }).attr("d", ribbonPath);
+          }).on("end", function (d) {
+            dragging = false;
+            unhighlight();
+            var y0 = 45,
+                dy = (height - y0 - 2) / (dimensions.length - 1);
+            dimensions.forEach(function (d, i) {
+              d.y = y0 + i * dy;
+            });
+            transition(d3.select(this)).attr("transform", "translate(0," + d.y + ")").tween("ribbon", ribbonTweenY);
+          }));
+          dimension.merge(dEnter).select("text").select("tspan.sort.alpha").on("click.parsets", sortBy("alpha", function (a, b) {
+            return a.name < b.name ? 1 : -1;
+          }, dimension));
+          dimension.merge(dEnter).select("text").select("tspan.sort.size").on("click.parsets", sortBy("size", function (a, b) {
+            return a.count - b.count;
+          }, dimension));
+          dimension.merge(dEnter).transition().duration(duration).attr("transform", function (d) {
+            return "translate(0," + d.y + ")";
+          }).tween("ribbon", ribbonTweenY);
+          dimension.exit().remove();
+
+          updateCategories(dimension.merge(dEnter));
+          updateRibbons();
+        }
+
+        function sortBy(type, f, dimension) {
+          return function (d) {
+            var direction = this.__direction = -(this.__direction || 1);
+            d3.select(this).text(direction > 0 ? type + " »" : "« " + type);
+            d.categories.sort(function () {
+              return direction * f.apply(this, arguments);
+            });
+            nodes = layout(tree, dimensions, ordinal);
+            updateCategories(dimension.merge(dimension.enter()));
+            updateRibbons();
+
+            // This isn't really doing anything...
+            event.call("sortCategories");
+          };
+        }
+
+        function updateRibbons() {
+          ribbon = g.select(".ribbon").selectAll("path").data(nodes, function (d) {
+            return d.path;
+          });
+          ribbonEnter = ribbon.enter().append("path").each(function (d) {
+            d.source.x0 = d.source.x;
+            d.target.x0 = d.target.x;
+          });
+
+          ribbonEnter.merge(ribbon).attr("class", function (d) {
+            return "category-" + d.major;
+          }).attr("d", ribbonPath);
+          ribbonEnter.merge(ribbon).sort(function (a, b) {
+            return b.count - a.count;
+          });
+          ribbon.exit().remove();
+
+          var mouse = g.select(".ribbon-mouse").selectAll("path").data(nodes, function (d) {
+            return d.path;
+          });
+          var mouseEnter = mouse.enter().append("path");
+
+          mouseEnter.merge(mouse).on("mousemove.parsets", function (d) {
+            ribbon.classed("active", false);
+            if (dragging) return;
+            highlight(d = d.node, true);
+            showTooltip(tooltip_.call(this, d));
+            d3.event.stopPropagation();
+          });
+          mouse.merge(mouseEnter).sort(function (a, b) {
+            return b.count - a.count;
+          }).attr("d", ribbonPathStatic);
+          mouse.exit().remove();
+        }
+
+        // Animates the x-coordinates only of the relevant ribbon paths.
+        function ribbonTweenX(d) {
+          var nodes = [d],
+              r = ribbon.merge(ribbonEnter).filter(function (r) {
+            var s, t;
+            if (r.source.node === d) nodes.push(s = r.source);
+            if (r.target.node === d) nodes.push(t = r.target);
+            return s || t;
+          }),
+              i = nodes.map(function (d) {
+            return d3.interpolateNumber(d.x0, d.x);
+          }),
+              n = nodes.length;
+          return function (t) {
+            for (var j = 0; j < n; j++) nodes[j].x0 = i[j](t);
+            r.attr("d", ribbonPath);
+          };
+        }
+
+        // Animates the y-coordinates only of the relevant ribbon paths.
+        function ribbonTweenY(d) {
+          var r = ribbon.merge(ribbonEnter).filter(function (r) {
+            return r.source.dimension.name == d.name || r.target.dimension.name == d.name;
+          }),
+              i = d3.interpolateNumber(d.y0, d.y);
+          return function (t) {
+            d.y0 = i(t);
+            r.attr("d", ribbonPath);
+          };
+        }
+
+        // Highlight a node and its descendants, and optionally its ancestors.
+        function highlight(d, ancestors) {
+          if (dragging) return;
+          var highlight = [];
+          (function recurse(d) {
+            highlight.push(d);
+            for (var k in d.children) recurse(d.children[k]);
+          })(d);
+          highlight.shift();
+          if (ancestors) while (d) highlight.push(d), d = d.parent;
+          ribbon.filter(function (d) {
+            var active = highlight.indexOf(d.node) >= 0;
+            if (active) this.parentNode.appendChild(this);
+            return active;
+          }).classed("active", true);
+        }
+
+        // Unhighlight all nodes.
+        function unhighlight() {
+          if (dragging) return;
+          ribbon.classed("active", false);
+          hideTooltip();
+        }
+
+        function updateCategories(g) {
+          var category = g.selectAll("g.category").data(function (d) {
+            return d.categories;
+          }, function (d) {
+            return d.name;
+          });
+
+          var categoryEnter = category.enter().append("g").attr("class", "category");
+
+          categoryEnter.merge(category).attr("transform", function (d) {
+            return "translate(" + d.x + ")";
+          });
+
+          // TODO: Don't really understand why I had to comment this one out
+          // category.exit().remove();
+          category.merge(categoryEnter).on("mousemove.parsets", function (d) {
+            ribbon.classed("active", false);
+            if (dragging) return;
+            d.nodes.forEach(function (d) {
+              highlight(d);
+            });
+            showTooltip(categoryTooltip.call(this, d));
+            d3.event.stopPropagation();
+          }).on("mouseout.parsets", unhighlight).on("mousedown.parsets", cancelEvent).call(d3.drag()
+          // .origin(identity)
+          .on("start", function (d) {
+            dragging = true;
+            d.x0 = d.x;
+          }).on("drag", function (d) {
+            d.x = d3.event.x;
+            var categories = d.dimension.categories;
+            for (var i = 0, c = categories[0]; ++i < categories.length;) {
+              if (c.x + c.dx / 2 > (c = categories[i]).x + c.dx / 2) {
+                categories.sort(function (a, b) {
+                  return a.x + a.dx / 2 - b.x - b.dx / 2;
+                });
+                nodes = layout(tree, dimensions, ordinal);
+                updateRibbons();
+                updateCategories(g);
+                highlight(d.node);
+                event.call("sortCategories");
+                break;
+              }
+            }
+            var x = 0,
+                p = spacing / (categories.length - 1);
+            categories.forEach(function (e) {
+              if (d === e) e.x0 = d3.event.x;
+              e.x = x;
+              x += e.count / total * (width - spacing) + p;
+            });
+            d3.select(this).attr("transform", function (d) {
+              return "translate(" + d.x0 + ")";
+            }).transition();
+            ribbon.filter(function (r) {
+              return r.source.node === d || r.target.node === d;
+            }).attr("d", ribbonPath);
+          }).on("end", function (d) {
+            dragging = false;
+            unhighlight();
+            updateRibbons();
+            transition(d3.select(this)).attr("transform", "translate(" + d.x + ")").tween("ribbon", ribbonTweenX);
+          }));
+          category.merge(categoryEnter).transition().duration(duration).attr("transform", function (d) {
+            return "translate(" + d.x + ")";
+          }).tween("ribbon", ribbonTweenX);
+
+          categoryEnter.append("rect").attr("width", function (d) {
+            return d.dx;
+          }).attr("y", -20).attr("height", 20);
+          categoryEnter.append("line").style("stroke-width", 2);
+          categoryEnter.append("text").attr("dy", "-.3em");
+          category.merge(categoryEnter).select("rect").attr("width", function (d) {
+            return d.dx;
+          }).attr("class", function (d) {
+            return "category-" + (d.dimension === dimensions[0] ? ordinal(d.name) : "background");
+          });
+          category.merge(categoryEnter).select("line").attr("x2", function (d) {
+            return d.dx;
+          });
+          // Parn edit this
+          category.merge(categoryEnter).select("text").text(function (d) {
+            return d.name + ': ' + d.count;
+          }); //truncateText(function(d) { return d.name; }, function(d) { return d.dx; }));
+        }
+      });
+    }
+
+    parsets.dimensionFormat = function (_) {
+      if (!arguments.length) return dimensionFormat;
+      dimensionFormat = _;
+      return parsets;
+    };
+
+    parsets.dimensions = function (_) {
+      if (!arguments.length) return dimensions_;
+      dimensions_ = d3_functor(_);
+      return parsets;
+    };
+
+    parsets.value = function (_) {
+      if (!arguments.length) return value_;
+      value_ = d3_functor(_);
+      return parsets;
+    };
+
+    parsets.width = function (_) {
+      if (!arguments.length) return width;
+      width = +_;
+      return parsets;
+    };
+
+    parsets.height = function (_) {
+      if (!arguments.length) return height;
+      height = +_;
+      return parsets;
+    };
+
+    parsets.spacing = function (_) {
+      if (!arguments.length) return spacing;
+      spacing = +_;
+      return parsets;
+    };
+
+    parsets.tension = function (_) {
+      if (!arguments.length) return tension;
+      tension = +_;
+      return parsets;
+    };
+
+    parsets.duration = function (_) {
+      if (!arguments.length) return duration;
+      duration = +_;
+      return parsets;
+    };
+
+    parsets.tooltip = function (_) {
+      if (!arguments.length) return tooltip;
+      tooltip_ = _ == null ? defaultTooltip : _;
+      return parsets;
+    };
+
+    parsets.categoryTooltip = function (_) {
+      if (!arguments.length) return categoryTooltip;
+      categoryTooltip = _ == null ? defaultCategoryTooltip : _;
+      return parsets;
+    };
+
+    var body = d3.select("body");
+    var tooltip = body.append("div").style("display", "none").attr("class", "parsets tooltip");
+
+    return d3.rebind(parsets, event, "on").value(1).width(960).height(600);
+
+    function dimensionFormatName(d, i) {
+      return dimensionFormat.call(this, d.name, i);
+    }
+
+    function showTooltip(html) {
+      var m = d3.mouse(body.node());
+      tooltip.style("display", null).style("left", m[0] + 30 + "px").style("top", m[1] - 20 + "px").html(html);
+    }
+
+    function hideTooltip() {
+      tooltip.style("display", "none");
+    }
+
+    function transition(g) {
+      return duration ? g.transition().duration(duration).ease(parsetsEase) : g;
+    }
+
+    function layout(tree, dimensions, ordinal) {
+      var nodes = [],
+          nd = dimensions.length,
+          y0 = 45,
+          dy = (height - y0 - 2) / (nd - 1);
+      dimensions.forEach(function (d, i) {
+        d.categories.forEach(function (c) {
+          c.dimension = d;
+          c.count = 0;
+          c.nodes = [];
+        });
+        d.y = y0 + i * dy;
+      });
+
+      // Compute per-category counts.
+      var total = function rollup(d, i) {
+        if (!d.children) return d.count;
+        var dim = dimensions[i],
+            total = 0;
+        dim.categories.forEach(function (c) {
+          var child = d.children[c.name];
+          if (!child) return;
+          c.nodes.push(child);
+          var count = rollup(child, i + 1);
+          c.count += count;
+          total += count;
+        });
+        return total;
+      }(tree, 0);
+
+      // Stack the counts.
+      dimensions.forEach(function (d) {
+        d.categories = d.categories.filter(function (d) {
+          return d.count;
+        });
+        var x = 0,
+            p = spacing / (d.categories.length - 1);
+        d.categories.forEach(function (c) {
+          c.x = x;
+          c.dx = c.count / total * (width - spacing);
+          c.in = { dx: 0 };
+          c.out = { dx: 0 };
+          x += c.dx + p;
+        });
+      });
+
+      var dim = dimensions[0];
+      dim.categories.forEach(function (c) {
+        var k = c.name;
+        if (tree.children.hasOwnProperty(k)) {
+          recurse(c, { node: tree.children[k], path: k }, 1, ordinal(k));
+        }
+      });
+
+      function recurse(p, d, depth, major) {
+        var node = d.node,
+            dimension = dimensions[depth];
+        dimension.categories.forEach(function (c) {
+          var k = c.name;
+          if (!node.children.hasOwnProperty(k)) return;
+          var child = node.children[k];
+          child.path = d.path + "\0" + k;
+          var target = child.target || { node: c, dimension: dimension };
+          target.x = c.in.dx;
+          target.dx = child.count / total * (width - spacing);
+          c.in.dx += target.dx;
+          var source = child.source || { node: p, dimension: dimensions[depth - 1] };
+          source.x = p.out.dx;
+          source.dx = target.dx;
+          p.out.dx += source.dx;
+
+          child.node = child;
+          child.source = source;
+          child.target = target;
+          child.major = major;
+          nodes.push(child);
+          if (depth + 1 < dimensions.length) recurse(c, child, depth + 1, major);
+        });
+      }
+      return nodes;
+    }
+
+    // Dynamic path string for transitions.
+    function ribbonPath(d) {
+      var s = d.source,
+          t = d.target;
+      return ribbonPathString(s.node.x0 + s.x0, s.dimension.y0, s.dx, t.node.x0 + t.x0, t.dimension.y0, t.dx, tension0);
+    }
+
+    // Static path string for mouse handlers.
+    function ribbonPathStatic(d) {
+      var s = d.source,
+          t = d.target;
+      return ribbonPathString(s.node.x + s.x, s.dimension.y, s.dx, t.node.x + t.x, t.dimension.y, t.dx, tension);
+    }
+
+    function ribbonPathString(sx, sy, sdx, tx, ty, tdx, tension) {
+      var m0, m1;
+      return (tension === 1 ? ["M", [sx, sy], "L", [tx, ty], "h", tdx, "L", [sx + sdx, sy], "Z"] : ["M", [sx, sy], "C", [sx, m0 = tension * sy + (1 - tension) * ty], " ", [tx, m1 = tension * ty + (1 - tension) * sy], " ", [tx, ty], "h", tdx, "C", [tx + tdx, m1], " ", [sx + sdx, m0], " ", [sx + sdx, sy], "Z"]).join("");
+    }
+
+    function compareY(a, b) {
+      a = height * a.y, b = height * b.y;
+      return a < b ? -1 : a > b ? 1 : a >= b ? 0 : a <= a ? -1 : b <= b ? 1 : NaN;
+    }
+  };
+  d3.parsets.tree = buildTree;
+
+  function autoDimensions(d) {
+    return d.length ? d3.keys(d[0]).sort() : [];
+  }
+
+  function cancelEvent() {
+    d3.event.stopPropagation();
+    d3.event.preventDefault();
+  }
+
+  function dimensionName(d) {
+    return d.name;
+  }
+
+  function getTotal(dimensions) {
+    return dimensions[0].categories.reduce(function (a, d) {
+      return a + d.count;
+    }, 0);
+  }
+
+  // Given a text function and width function, truncates the text if necessary to
+  // fit within the given width.
+  function truncateText(text, width) {
+    return function (d, i) {
+      var t = this.textContent = text(d, i),
+          w = width(d, i);
+      if (this.getComputedTextLength() < w) return t;
+      this.textContent = "…" + t;
+      var lo = 0,
+          hi = t.length + 1,
+          x;
+      while (lo < hi) {
+        var mid = lo + hi >> 1;
+        if ((x = this.getSubStringLength(0, mid)) < w) lo = mid + 1;else hi = mid;
+      }
+      return lo > 1 ? t.substr(0, lo - 2) + "…" : "";
+    };
+  }
+
+  // Parn edit here:
+  var percent = d3.format(",.2%"),
+      comma = d3.format(","),
+      parsetsEase = d3.easeElastic,
+      parsetsId = 0;
+
+  // Construct tree of all category counts for a given ordered list of
+  // dimensions.  Similar to d3.nest, except we also set the parent.
+  function buildTree(root, data, dimensions, value) {
+    zeroCounts(root);
+    var n = data.length,
+        nd = dimensions.length;
+    for (var i = 0; i < n; i++) {
+      var d = data[i],
+          v = +value(d, i),
+          node = root;
+      for (var j = 0; j < nd; j++) {
+        var dimension = dimensions[j],
+            category = d[dimension],
+            children = node.children;
+        node.count += v;
+        node = children.hasOwnProperty(category) ? children[category] : children[category] = {
+          children: j === nd - 1 ? null : {},
+          count: 0,
+          parent: node,
+          dimension: dimension,
+          name: category
+        };
+      }
+      node.count += v;
+    }
+    return root;
+  }
+
+  function zeroCounts(d) {
+    d.count = 0;
+    if (d.children) {
+      for (var k in d.children) zeroCounts(d.children[k]);
+    }
+  }
+
+  function identity(d) {
+    return d;
+  }
+
+  function translateY(d) {
+    return "translate(0," + d.y + ")";
+  }
+
+  function defaultTooltip(d) {
+    var count = d.count,
+        path = [];
+    while (d.parent) {
+      if (d.name) path.unshift(d.name);
+      d = d.parent;
+    }
+    return path.join(" → ") + "<br>" + comma(count) + " (" + percent(count / d.count) + ")";
+  }
+
+  function defaultCategoryTooltip(d) {
+    return d.name + "<br>" + comma(d.count) + " (" + percent(d.count / d.dimension.count) + ")";
+  }
+})();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! d3 */ "./node_modules/d3/index.js")))
+
+/***/ }),
+
+/***/ "./src/js/plugin/mapboxgl-minimap.js":
+/*!*******************************************!*\
+  !*** ./src/js/plugin/mapboxgl-minimap.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(mapboxgl) {let defaultOptions = {
+	id: "mapboxgl-minimap",
+	width: "200px",
+	height: "150px",
+	style: "mapbox://styles/mapbox/light-v10",
+	center: [0, 0],
+	zoom: 6,
+
+	// should be a function; will be bound to Minimap
+	zoomAdjust: null,
+
+	// if parent map zoom >= 18 and minimap zoom >= 14, set minimap zoom to 16
+	zoomLevels: [[18, 14, 16], [16, 12, 14], [14, 10, 12], [12, 8, 10], [10, 6, 8]],
+
+	lineColor: "#252525",
+	lineWidth: 1,
+	lineOpacity: 1,
+
+	fillColor: "#9d9d9d",
+	fillOpacity: 0.25,
+
+	dragPan: false,
+	scrollZoom: false,
+	boxZoom: false,
+	dragRotate: false,
+	keyboard: false,
+	doubleClickZoom: false,
+	touchZoomRotate: false
+};
+
+//class Minimap extends mapboxgl.NavigationControl {
+class Minimap {
+	constructor(_options) {
+		// super();
+		this.options = defaultOptions;
+		Object.assign(this.options, _options);
+
+		this._ticking = false;
+		this._lastMouseMoveEvent = null;
+		this._parentMap = null;
+		this._isDragging = false;
+		this._isCursorOverFeature = false;
+		this._previousPoint = [0, 0];
+		this._currentPoint = [0, 0];
+		this._trackingRectCoordinates = [[[], [], [], [], []]];
+	}
+
+	onAdd(parentMap) {
+		this._parentMap = parentMap;
+
+		var opts = this.options;
+		var container = this._container = this._createContainer(parentMap);
+
+		var miniMap = this._miniMap = new mapboxgl.Map({
+			attributionControl: false,
+			container: container,
+			style: opts.style,
+			zoom: opts.zoom,
+			center: opts.center
+		});
+
+		if (opts.maxBounds) miniMap.setMaxBounds(opts.maxBounds);
+
+		miniMap.on("load", this._load.bind(this));
+
+		return this._container;
+	}
+
+	_load() {
+		var opts = this.options;
+		var parentMap = this._parentMap;
+		var miniMap = this._miniMap;
+		var interactions = ["dragPan", "scrollZoom", "boxZoom", "dragRotate", "keyboard", "doubleClickZoom", "touchZoomRotate"];
+
+		interactions.forEach(function (i) {
+			if (opts[i] !== true) {
+				miniMap[i].disable();
+			}
+		});
+
+		if (typeof opts.zoomAdjust === "function") {
+			this.options.zoomAdjust = opts.zoomAdjust.bind(this);
+		} else if (opts.zoomAdjust === null) {
+			this.options.zoomAdjust = this._zoomAdjust.bind(this);
+		}
+
+		var bounds = miniMap.getBounds();
+
+		this._convertBoundsToPoints(bounds);
+
+		miniMap.addSource("trackingRect", {
+			"type": "geojson",
+			"data": {
+				"type": "Feature",
+				"properties": {
+					"name": "trackingRect"
+				},
+				"geometry": {
+					"type": "Polygon",
+					"coordinates": this._trackingRectCoordinates
+				}
+			}
+		});
+
+		miniMap.addLayer({
+			"id": "trackingRectOutline",
+			"type": "line",
+			"source": "trackingRect",
+			"layout": {},
+			"paint": {
+				"line-color": opts.lineColor,
+				"line-width": opts.lineWidth,
+				"line-opacity": opts.lineOpacity
+			}
+		});
+
+		// needed for dragging
+		miniMap.addLayer({
+			"id": "trackingRectFill",
+			"type": "fill",
+			"source": "trackingRect",
+			"layout": {},
+			"paint": {
+				"fill-color": opts.fillColor,
+				"fill-opacity": opts.fillOpacity
+			}
+		});
+
+		this._trackingRect = this._miniMap.getSource("trackingRect");
+
+		this._update();
+
+		parentMap.on("move", this._update.bind(this));
+
+		//miniMap.on("mousemove", this._mouseMove.bind(this));
+		//miniMap.on("mousedown", this._mouseDown.bind(this));
+		//miniMap.on("mouseup", this._mouseUp.bind(this));
+
+		//miniMap.on("touchmove", this._mouseMove.bind(this));
+		//miniMap.on("touchstart", this._mouseDown.bind(this));
+		//miniMap.on("touchend", this._mouseUp.bind(this));
+
+		//this._miniMapCanvas = miniMap.getCanvasContainer();
+		//this._miniMapCanvas.addEventListener("wheel", this._preventDefault);
+		//this._miniMapCanvas.addEventListener("mousewheel", this._preventDefault);
+	}
+
+	_mouseDown(e) {
+		if (this._isCursorOverFeature) {
+			this._isDragging = true;
+			this._previousPoint = this._currentPoint;
+			this._currentPoint = [e.lngLat.lng, e.lngLat.lat];
+		}
+	}
+
+	_mouseMove(e) {
+		this._ticking = false;
+
+		var miniMap = this._miniMap;
+		var features = miniMap.queryRenderedFeatures(e.point, {
+			layers: ["trackingRectFill"]
+		});
+
+		// don't update if we're still hovering the area
+		if (!(this._isCursorOverFeature && features.length > 0)) {
+			this._isCursorOverFeature = features.length > 0;
+			this._miniMapCanvas.style.cursor = this._isCursorOverFeature ? "move" : "";
+		}
+
+		if (this._isDragging) {
+			this._previousPoint = this._currentPoint;
+			this._currentPoint = [e.lngLat.lng, e.lngLat.lat];
+
+			var offset = [this._previousPoint[0] - this._currentPoint[0], this._previousPoint[1] - this._currentPoint[1]];
+
+			var newBounds = this._moveTrackingRect(offset);
+
+			this._parentMap.fitBounds(newBounds, {
+				duration: 80,
+				noMoveStart: true
+			});
+		}
+	}
+
+	_mouseUp() {
+		this._isDragging = false;
+		this._ticking = false;
+	}
+
+	_moveTrackingRect(offset) {
+		var source = this._trackingRect;
+		var data = source._data;
+		var bounds = data.properties.bounds;
+
+		bounds._ne.lat -= offset[1];
+		bounds._ne.lng -= offset[0];
+		bounds._sw.lat -= offset[1];
+		bounds._sw.lng -= offset[0];
+
+		this._convertBoundsToPoints(bounds);
+		source.setData(data);
+
+		return bounds;
+	}
+
+	_setTrackingRectBounds(bounds) {
+		var source = this._trackingRect;
+		var data = source._data;
+
+		data.properties.bounds = bounds;
+		this._convertBoundsToPoints(bounds);
+		source.setData(data);
+	}
+
+	_convertBoundsToPoints(bounds) {
+		var ne = bounds._ne;
+		var sw = bounds._sw;
+		var trc = this._trackingRectCoordinates;
+
+		trc[0][0][0] = ne.lng;
+		trc[0][0][1] = ne.lat;
+		trc[0][1][0] = sw.lng;
+		trc[0][1][1] = ne.lat;
+		trc[0][2][0] = sw.lng;
+		trc[0][2][1] = sw.lat;
+		trc[0][3][0] = ne.lng;
+		trc[0][3][1] = sw.lat;
+		trc[0][4][0] = ne.lng;
+		trc[0][4][1] = ne.lat;
+	}
+
+	_update() {
+		if (this._isDragging) {
+			return;
+		}
+
+		var parentBounds = this._parentMap.getBounds();
+
+		this._setTrackingRectBounds(parentBounds);
+
+		if (typeof this.options.zoomAdjust === "function") {
+			this.options.zoomAdjust();
+		}
+	}
+
+	_zoomAdjust() {
+		var miniMap = this._miniMap;
+		var parentMap = this._parentMap;
+		var miniZoom = parseInt(miniMap.getZoom(), 10);
+		var parentZoom = parseInt(parentMap.getZoom(), 10);
+		var levels = this.options.zoomLevels;
+		var found = false;
+
+		levels.forEach(function (zoom) {
+			if (!found && parentZoom >= zoom[0]) {
+				if (miniZoom >= zoom[1]) {
+					miniMap.setZoom(zoom[2]);
+				}
+
+				miniMap.setCenter(parentMap.getCenter());
+				found = true;
+			}
+		});
+
+		if (!found && miniZoom !== this.options.zoom) {
+			if (typeof this.options.bounds === "object") {
+				miniMap.fitBounds(this.options.bounds, { duration: 50 });
+			}
+
+			miniMap.setZoom(this.options.zoom);
+		}
+	}
+
+	_createContainer(parentMap) {
+		var opts = this.options;
+		var container = document.createElement("div");
+		container.id = 'mapboxgl-minimap';
+		container.className = "mapboxgl-ctrl-minimap mapboxgl-ctrl";
+
+		container.setAttribute('style', 'width: ' + opts.width + '; height: ' + opts.height + ';');
+		container.addEventListener("contextmenu", this._preventDefault);
+
+		parentMap.getContainer().appendChild(container);
+
+		if (opts.id !== "") {
+			container.id = opts.id;
+		}
+
+		container.style.border = "5px solid #C9D2D3";
+		container.style.borderRadius = "5px";
+
+		return container;
+	}
+
+	_preventDefault(e) {
+		e.preventDefault();
+	}
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Minimap);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! mapbox-gl */ "./node_modules/mapbox-gl/dist/mapbox-gl.js")))
 
 /***/ }),
 
@@ -53313,14 +58430,16 @@ function map_draw_trajectory(data) {
 /*!*************************!*\
   !*** ./src/js/query.js ***!
   \*************************/
-/*! exports provided: query_all, query_count, query_find_intersection */
+/*! exports provided: query_all, query_all_streets, query_count, query_find_intersection, query_find_roadnetwork_intersection */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_all", function() { return query_all; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_all_streets", function() { return query_all_streets; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_count", function() { return query_count; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_find_intersection", function() { return query_find_intersection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_find_roadnetwork_intersection", function() { return query_find_roadnetwork_intersection; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -53332,6 +58451,16 @@ function query_all(model) {
                 model_type: model
             }
         }).then(function (response) {
+            resolve(response.data);
+        }).catch(function (error) {
+            reject(error);
+        });
+    });
+}
+
+function query_all_streets() {
+    return new Promise(function (resolve, reject) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryAllStreets', {}).then(function (response) {
             resolve(response.data);
         }).catch(function (error) {
             reject(error);
@@ -53355,18 +58484,28 @@ function query_count(model, key, value) {
     });
 }
 
-function query_find_intersection(bounding_box, model, weather, scene, time_of_day) {
+function query_find_intersection(bounding_box, model) {
     return new Promise(function (resolve, reject) {
 
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryFindIntersection', {
             params: {
                 bbox: bounding_box.geometry,
-                model_type: model,
-                weather: weather,
-                scene: scene,
-                time_of_day: time_of_day
+                model_type: model
+                //weather: weather,
+                //scene: scene,
+                //time_of_day: time_of_day
             }
         }).then(function (response) {
+            resolve(response.data);
+        }).catch(function (error) {
+            reject(error);
+        });
+    });
+}
+
+function query_find_roadnetwork_intersection() {
+    return new Promise(function (resolve, reject) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryRoadnetwork', {}).then(function (response) {
             resolve(response.data);
         }).catch(function (error) {
             reject(error);
@@ -53380,21 +58519,30 @@ function query_find_intersection(bounding_box, model, weather, scene, time_of_da
 /*!*************************!*\
   !*** ./src/js/utils.js ***!
   \*************************/
-/*! exports provided: util_axios_interceptors, util_preprocess_data, util_generate_accuracy */
+/*! exports provided: util_axios_interceptors, util_read_geojson, util_random_number_interval, util_preprocess_data, util_generate_accuracy, util_compute_cases, util_compute_entropy, util_normalize, util_compute_performance, util_compute_street_data */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(axios, d3) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_axios_interceptors", function() { return util_axios_interceptors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_read_geojson", function() { return util_read_geojson; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_random_number_interval", function() { return util_random_number_interval; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_preprocess_data", function() { return util_preprocess_data; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_generate_accuracy", function() { return util_generate_accuracy; });
-/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view */ "./src/js/view.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_cases", function() { return util_compute_cases; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_entropy", function() { return util_compute_entropy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_normalize", function() { return util_normalize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_performance", function() { return util_compute_performance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_street_data", function() { return util_compute_street_data; });
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
+/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view */ "./src/js/view.js");
+
 
 
 function util_axios_interceptors() {
     axios.interceptors.request.use(function (config) {
         // Show loading screen
-        Object(_view__WEBPACK_IMPORTED_MODULE_0__["view_show_loading"])();
+        Object(_view__WEBPACK_IMPORTED_MODULE_1__["view_show_loading"])();
         return config;
     }, function (error) {
         return error;
@@ -53402,11 +58550,22 @@ function util_axios_interceptors() {
 
     axios.interceptors.response.use(function (response) {
         // Close loading screen
-        Object(_view__WEBPACK_IMPORTED_MODULE_0__["view_close_loading"])();
+        Object(_view__WEBPACK_IMPORTED_MODULE_1__["view_close_loading"])();
         return response;
     }, function (error) {
         return error;
     });
+}
+
+function util_read_geojson(geojson_filepath) {
+    d3.json(geojson_filepath).then(function (data) {
+        return data;
+    });
+}
+
+function util_random_number_interval(min, max) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function util_preprocess_data(data) {
@@ -53415,23 +58574,17 @@ function util_preprocess_data(data) {
 
     return new Promise(function (resolve, reject) {
 
-        for (var i = 0; i < data.train.length; ++i) {
-            let trip = data.train[i];
-            // Check exist location
-            if (trip.locations) {
-                trip.model_type = 'train';
-                result.push(trip);
+        Object.keys(data).forEach(function (model_type) {
+            let model_data = data[model_type];
+            for (let i = 0; i < model_data.length; ++i) {
+                let trip = model_data[i];
+                // Check exist location
+                if (trip.locations) {
+                    trip.model_type = model_type;
+                    result.push(trip);
+                }
             }
-        }
-
-        for (var i = 0; i < data.val.length; ++i) {
-            let trip = data.val[i];
-            // Check exist location
-            if (trip.locations) {
-                trip.model_type = 'val';
-                result.push(trip);
-            }
-        }
+        });
 
         resolve(result);
     });
@@ -53497,6 +58650,294 @@ function util_generate_accuracy(data, model, action, accuracy) {
     }
 
     return;
+}
+
+// Compute boolean cases expression
+function util_compute_cases(data) {
+    for (let i = 0; i < data.length; ++i) {
+
+        let trip = data[i];
+
+        trip.cases = {};
+        trip.cases['0000'] = []; // not sure
+        trip.cases['1000'] = [];
+        trip.cases['1001'] = [];
+        trip.cases['1010'] = [];
+        trip.cases['1011'] = [];
+        trip.cases['1100'] = [];
+        trip.cases['1101'] = [];
+        trip.cases['1110'] = [];
+        trip.cases['1111'] = [];
+
+        for (let j = 0; j < trip.actual.no_slight.length; ++j) {
+            let actual = trip.actual.no_slight[j]; // A
+            let tcnn1 = trip.predict.tcnn1[j].indexOf(d3.max(trip.predict.tcnn1[j])); // B
+            let fcn_lstm = trip.predict.fcn_lstm[j].indexOf(d3.max(trip.predict.fcn_lstm[j])); // C
+            let cnn_lstm = trip.predict.cnn_lstm[j].indexOf(d3.max(trip.predict.cnn_lstm[j])); // D
+
+            //console.log(actual + " " + tcnn1 + " " + fcn_lstm + " " + cnn_lstm);
+            if (actual !== tcnn1 && actual !== fcn_lstm && actual !== cnn_lstm) {
+                trip.cases['1000'].push(j);
+            } else if (actual !== tcnn1 && actual !== fcn_lstm && actual === cnn_lstm) {
+                trip.cases['1001'].push(j);
+            } else if (actual !== tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
+                trip.cases['1010'].push(j);
+            } else if (actual !== tcnn1 && actual === fcn_lstm && actual === cnn_lstm) {
+                trip.cases['1011'].push(j);
+            } else if (actual === tcnn1 && actual !== fcn_lstm && actual !== cnn_lstm) {
+                trip.cases['1100'].push(j);
+            } else if (actual === tcnn1 && actual !== fcn_lstm && actual === cnn_lstm) {
+                trip.cases['1101'].push(j);
+            } else if (actual === tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
+                trip.cases['1110'].push(j);
+            } else if (actual === tcnn1 && actual === fcn_lstm && actual === cnn_lstm) {
+                trip.cases['1111'].push(j);
+            }
+        }
+    }
+}
+
+function util_compute_entropy(data) {
+
+    for (let i = 0; i < data.length; ++i) {
+        let trip = data[i];
+
+        let true_labels = trip.actual.slight;
+        let tcnn1_probs = trip.predict.tcnn1;
+        let cnn_lstm_probs = trip.predict.cnn_lstm;
+        let fcn_lstm_probs = trip.predict.fcn_lstm;
+
+        let tcnn1_entropy = [];
+        let cnn_lstm_entropy = [];
+        let fcn_lstm_entropy = [];
+
+        for (let j = 0; j < true_labels.length; ++j) {
+
+            let true_label = [1e-14, 1e-14, 1e-14, 1e-14, 1e-14, 1e-14];
+            true_label[true_labels[j]] = 1;
+
+            tcnn1_probs[j] = util_normalize(tcnn1_probs[j], [1e-14, 1]);
+            cnn_lstm_probs[j] = util_normalize(cnn_lstm_probs[j], [1e-14, 1]);
+            fcn_lstm_probs[j] = util_normalize(fcn_lstm_probs[j], [1e-14, 1]);
+
+            tcnn1_entropy.push(tcnn1_probs[j].reduce(function (sum, prob, index) {
+                let p = true_label[index];
+                let q = isFinite(Math.log(prob) / Math.log(2)) ? Math.log(prob) / Math.log(2) : 0;
+                return sum - p * q;
+            }, 0));
+
+            cnn_lstm_entropy.push(cnn_lstm_probs[j].reduce(function (sum, prob, index) {
+                let p = true_label[index];
+                let q = isFinite(Math.log(prob) / Math.log(2)) ? Math.log(prob) / Math.log(2) : 0;
+                return sum - p * q;
+            }, 0));
+
+            fcn_lstm_entropy.push(fcn_lstm_probs[j].reduce(function (sum, prob, index) {
+                let p = true_label[index];
+                let q = isFinite(Math.log(prob) / Math.log(2)) ? Math.log(prob) / Math.log(2) : 0;
+                return sum - p * q;
+            }, 0));
+        }
+
+        trip.entropy = {
+            tcnn1: tcnn1_entropy.map(function (value, index) {
+                let min = d3.min(tcnn1_entropy);
+                let max = d3.max(tcnn1_entropy);
+                let normalize = d3.scaleLinear().domain([min, max]).range([0, 1]);
+                return normalize(value);
+            }),
+            cnn_lstm: cnn_lstm_entropy.map(function (value, index) {
+                let min = d3.min(cnn_lstm_entropy);
+                let max = d3.max(cnn_lstm_entropy);
+                let normalize = d3.scaleLinear().domain([min, max]).range([0, 1]);
+                return normalize(value);
+            }),
+            fcn_lstm: fcn_lstm_entropy.map(function (value, index) {
+                let min = d3.min(fcn_lstm_entropy);
+                let max = d3.max(fcn_lstm_entropy);
+                let normalize = d3.scaleLinear().domain([min, max]).range([0, 1]);
+                return normalize(value);
+            })
+        };
+    }
+}
+
+function util_normalize(vectors, range) {
+
+    let min = d3.min(vectors);
+    let max = d3.max(vectors);
+
+    let normalize = d3.scaleLinear().domain([min, max]).range(range);
+
+    return vectors.map(function (value, index) {
+        let shift_value = value - min;
+        return normalize(shift_value);
+    });
+}
+
+function util_compute_performance(data) {
+
+    let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+    let model_performance = {};
+    let confusion_matrix = {};
+    let entropy_by_actions = {};
+
+    for (let i = 0; i < data.length; ++i) {
+
+        let true_label = data[i].actual.no_slight;
+        let predicts = data[i].predict;
+        let entropies = data[i].entropy;
+
+        Object.keys(predicts).forEach(function (key) {
+            let predict_label = predicts[key];
+            // Add compute entropy
+            let entropy_label = entropies[key];
+
+            if (!(key in confusion_matrix)) {
+                confusion_matrix[key] = {};
+            }
+
+            for (let j = 0; j < predict_label.length; ++j) {
+
+                let true_action = car_actions[true_label[j]];
+                let predict_action = car_actions[predict_label[j].indexOf(d3.max(predict_label[j]))];
+
+                if (!(true_action in confusion_matrix[key])) {
+                    confusion_matrix[key][true_action] = {
+                        'straight': 0,
+                        'slow_or_stop': 0,
+                        'turn_left': 0,
+                        'turn_right': 0
+                    };
+                }
+
+                confusion_matrix[key][true_action][predict_action] += 1;
+
+                if (!(key in entropy_by_actions)) {
+                    entropy_by_actions[key] = {};
+                }
+
+                if (!(true_action in entropy_by_actions[key])) {
+                    entropy_by_actions[key][true_action] = [];
+                }
+
+                entropy_by_actions[key][true_action].push(entropy_label[j]);
+            }
+        });
+    }
+
+    // Debugging
+    //console.log(confusion_matrix);
+    //console.log(entropy_by_actions);
+
+    Object.keys(confusion_matrix).forEach(function (model) {
+
+        model_performance[model] = {};
+        delete confusion_matrix[model][undefined];
+
+        Object.keys(confusion_matrix[model]).forEach(function (main_class) {
+
+            let tp = 0;let tn = 0;let fp = 0;let fn = 0;
+
+            Object.keys(confusion_matrix[model][main_class]).forEach(function (predict_class) {
+                if (predict_class !== main_class) {
+                    fn += confusion_matrix[model][main_class][predict_class];
+                } else {
+                    tp = confusion_matrix[model][main_class][predict_class];
+                }
+            });
+
+            Object.keys(confusion_matrix[model]).forEach(function (sub_class) {
+                if (main_class !== sub_class) {
+                    Object.keys(confusion_matrix[model][sub_class]).forEach(function (predict_class) {
+                        if (predict_class === main_class) {
+                            fp += confusion_matrix[model][sub_class][predict_class];
+                        } else {
+                            tn += confusion_matrix[model][sub_class][predict_class];
+                        }
+                    });
+                }
+            });
+
+            /*
+            console.log('tp: ' + tp);
+            console.log('tn: ' + tn);
+            console.log('fp: ' + fp);
+            console.log('fn: ' + fn);*/
+
+            model_performance[model][main_class] = {};
+
+            let accuracy = (tp + tn) / (tp + tn + fp + fn);
+            let precision = tp / (tp + fp);
+            let recall = tp / (tp + fn);
+            let f1 = 2 * tp / (2 * tp + fp + fn);
+
+            model_performance[model][main_class]['accuracy'] = isNaN(accuracy) ? 0 : accuracy;
+            model_performance[model][main_class]['precision'] = isNaN(precision) ? 0 : precision;
+            model_performance[model][main_class]['recall'] = isNaN(recall) ? 0 : recall;
+            model_performance[model][main_class]['f1'] = isNaN(f1) ? 0 : f1;
+            // Compute average entropy
+            model_performance[model][main_class]['entropy'] = d3.mean(entropy_by_actions[model][main_class]);
+        });
+    });
+
+    return model_performance;
+}
+
+/*
+export function util_map_matching(trip)
+{
+    var profile = "driving";
+    var coords = trip.locations.coordinates;
+    var newCoords = coords.join(';')
+    var radius = [];
+    coords.forEach(element => {
+      radius.push(25);
+    });
+    getMatch(newCoords, radius, profile);
+
+    function getMatch(coordinates, radius, profile) {
+
+        var radiuses = radius.join(';')
+        // Create the query
+        var query = 'https://api.mapbox.com/matching/v5/mapbox/' + profile + '/' + coordinates + '?geometries=geojson&radiuses=' + radiuses + '&steps=true&access_token=' + map_access_token;
+
+        $.ajax({
+            method: 'GET',
+            url: query
+        }).done(function(data) {
+            console.log(data);
+            // Get the coordinates from the response
+            //var coords = data.matchings[0].geometry;
+            //console.log(coords);
+        });
+    }
+}*/
+
+function util_compute_street_data(data) {
+
+    let street_group = [];
+    for (let i = 0; i < data.length; ++i) {
+        let trip_id = data[i].trip_id;
+        let matchings = data[i]['matchings'];
+        for (let j = 0; j < matchings.length; ++j) {
+            matchings[j]['street_names'].forEach(function (name) {
+                let pos = street_group.map(function (x) {
+                    return x.name;
+                }).indexOf(name);
+                if (pos >= 0) {
+                    street_group[pos]['trip_ids'].push(trip_id);
+                } else {
+                    street_group.push({
+                        name: name,
+                        trip_ids: [trip_id]
+                    });
+                }
+            });
+        }
+    }
+
+    return street_group;
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! axios */ "./node_modules/axios/index.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js")))
 
@@ -53588,15 +59029,1323 @@ function view_create_filter_dropdown(container_id, filter_type, filter_lists) {
 /*!***********************!*\
   !*** ./src/js/vis.js ***!
   \***********************/
-/*! exports provided: vis_summary, vis_filter */
+/*! exports provided: vis_is_parallelsets_filter, vis_selected_nodes, vis_marker, vis_global_view, vis_parallelsets, vis_model_performance, vis_model_relation, vis_summary, vis_filter, vis_parallelsets_filter, vis_model_cases, vis_representative_images, vis_streetview_cases, vis_show_streetview, vis_area_study, vis_trip_list, vis_trip_viewer, vis_trips_study, vis_draw_action, vis_create_trip_info */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(d3, $) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_summary", function() { return vis_summary; });
+/* WEBPACK VAR INJECTION */(function($, d3, mapboxgl) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_is_parallelsets_filter", function() { return vis_is_parallelsets_filter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_selected_nodes", function() { return vis_selected_nodes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_marker", function() { return vis_marker; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_global_view", function() { return vis_global_view; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_parallelsets", function() { return vis_parallelsets; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_model_performance", function() { return vis_model_performance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_model_relation", function() { return vis_model_relation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_summary", function() { return vis_summary; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_filter", function() { return vis_filter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_parallelsets_filter", function() { return vis_parallelsets_filter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_model_cases", function() { return vis_model_cases; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_representative_images", function() { return vis_representative_images; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_streetview_cases", function() { return vis_streetview_cases; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_show_streetview", function() { return vis_show_streetview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_area_study", function() { return vis_area_study; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_trip_list", function() { return vis_trip_list; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_trip_viewer", function() { return vis_trip_viewer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_trips_study", function() { return vis_trips_study; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_draw_action", function() { return vis_draw_action; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_create_trip_info", function() { return vis_create_trip_info; });
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
+/* harmony import */ var _plugin_d3_parsets__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugin/d3-parsets */ "./src/js/plugin/d3-parsets.js");
+/* harmony import */ var _plugin_d3_parsets__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_plugin_d3_parsets__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var d3_sankey__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! d3-sankey */ "./node_modules/d3-sankey/src/index.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! .. */ "./src/index.js");
+/* harmony import */ var image_ssim__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! image-ssim */ "./node_modules/image-ssim/index.js");
+/* harmony import */ var image_ssim__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(image_ssim__WEBPACK_IMPORTED_MODULE_5__);
 
+
+
+
+
+
+
+
+
+
+var vis_is_parallelsets_filter = false;
+let CAR_ACTIONS = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
+var vis_selected_nodes = [];
+let model_colors = {
+    actual: '#9d9d9d',
+    tcnn1: '#e41a1c',
+    fcn_lstm: '#377eb8',
+    cnn_lstm: '#4daf4a'
+};
+
+var vis_marker = undefined;
+
+function vis_global_view(trips, container_id) {
+    // Clear current view
+    $('#' + container_id).empty();
+
+    let selection_div = create_selection_div(container_id);
+    let performance_colors = ['#fb6a4a', '#ef3b2c', '#cb181d', '#a50f15', '#67000d'];
+    let width = 0;
+    let height = 0;
+    let margin = { top: 20, right: 40, bottom: 10, left: 20 };
+    let selection = {
+        parameter: 'action',
+        performances: ['accuracy', 'precision', 'recall', 'f1', 'entropy']
+
+        // TODO: Need to have default one
+    };add_trip_number(selection_div, trips);
+    add_parameter_legend(selection_div);
+    add_performance_legend(selection_div);
+    init_chart(container_id);
+    update_chart(selection);
+
+    // Create drop down list
+    function create_selection_div(container_id) {
+        let div = d3.select('#' + container_id).append('div').style('width', '100%').style('height', '60px').style('position', 'relative').style('box-sizing', 'border-box');
+        return div;
+    }
+
+    function add_trip_number(div, trips) {
+        div.append('div').style('width', 'auto').style('height', 'auto').style('position', 'absolute').style('top', 0).style('right', '5px').style('background-color', '#C9D2D3').style('box-sizing', 'border-box').style('font-size', '14px').html('<strong>' + trips.length + ' Trips</strong>');
+    }
+
+    // Add select option to dropdown list
+    function add_dropdown(div) {
+
+        let parameters_str = ['Time Of Day', 'Scene', 'Weather', 'Action'];
+        let parameters_value = ['time_of_day', 'scene', 'weather', 'action'];
+        let actions_str = ['Straight', 'Slow Or Stop', 'Turn Left', 'Turn Right'];
+        let actions_value = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+
+        let dropdown_div = div.append('div').style('width', '100%').style('height', '20px').style('box-sizing', 'border-box').style('font-size', '14px');
+
+        let dropdown_label = dropdown_div.append('label').style('width', 'auto').style('height', '100%').style('float', 'left').html('Attributes:&nbsp;&nbsp;');
+
+        let dropdown_select = dropdown_div.append('select').attr('id', 'parameter-dropdown').style('width', '100px').style('height', '100%').style('border', 'none').style('border-bottom', '1px solid #000').style('background-color', '#f0f0f0').style('float', 'left');
+
+        for (let i = 0; i < parameters_value.length; ++i) {
+            dropdown_select.append('option').attr('value', parameters_value[i]).html(parameters_str[i]);
+        }
+
+        dropdown_select.on('change', function () {
+            let parameter = $('#parameter-dropdown').val();
+            selection.parameter = parameter;
+            // Redraw barchart
+            update_chart(selection);
+        });
+
+        // Set default value
+        dropdown_select.node().value = 'action';
+    }
+
+    // Add performance legends
+    function add_parameter_legend(div) {
+
+        let parameters_str = ['Time Of Day', 'Scene', 'Weather', 'Action'];
+        let parameters_value = ['time_of_day', 'scene', 'weather', 'action'];
+
+        let parameter_div = div.append('div').style('width', '100%').style('height', '20px').style('line-height', '20px').style('box-sizing', 'border-box').style('font-size', '14px').style('text-align', 'center');
+
+        for (let i = 0; i < parameters_value.length; ++i) {
+
+            let legend_div = parameter_div.append('div').style('width', 'auto').style('height', '20px').style('line-height', '20px').style('cursor', 'pointer').style('float', 'left').style('font-size', '14px');
+
+            let legend_icon = legend_div.append('i').attr('id', 'parameter-checkbox-' + i).attr('class', 'fas fa-square').style('cursor', 'pointer').style('color', '#7f0000');
+
+            let legend_text = legend_div.append('label').style('cursor', 'pointer').html('&nbsp;' + parameters_str[i] + '&nbsp;&nbsp;');
+
+            legend_div.on('click', function () {
+
+                for (let i = 0; i < parameters_value.length; ++i) {
+                    d3.select('#parameter-checkbox-' + i).attr('class', 'fas fa-square');
+                }
+
+                selection.parameter = parameters_value[i];
+                legend_icon.attr('class', 'fas fa-check-square');
+
+                update_chart(selection);
+            });
+        }
+
+        // Select action as default
+        d3.select('#parameter-checkbox-' + parameters_value.indexOf('action')).attr('class', 'fas fa-check-square');
+
+        return;
+    }
+
+    // Add performance legends
+    function add_performance_legend(div) {
+
+        let performace_str = ['Accuracy', 'Precision', 'Recall', 'F1', 'Perplexity'];
+        let performance_value = ['accuracy', 'precision', 'recall', 'f1', 'entropy'];
+
+        let performance_div = div.append('div').style('width', '100%').style('height', '40px').style('line-height', '40px').style('box-sizing', 'border-box').style('font-size', '14px').style('text-align', 'center');
+
+        for (let i = 0; i < performance_value.length; ++i) {
+
+            let legend_div = performance_div.append('div').attr('class', 'active').style('width', 'auto').style('height', '40px').style('line-height', '40px').style('cursor', 'pointer').style('float', 'left').style('font-size', '14px');
+
+            let legend_icon = legend_div.append('i').attr('class', 'fas fa-check-square').style('cursor', 'pointer').style('color', performance_colors[i]);
+
+            let legend_text = legend_div.append('label').style('cursor', 'pointer').html('&nbsp;' + performace_str[i] + '&nbsp;&nbsp;');
+
+            legend_div.on('click', function () {
+
+                if (legend_div.classed('active')) {
+                    let pos = selection.performances.indexOf(performance_value[i]);
+                    selection.performances.splice(pos, 1);
+                    legend_icon.attr('class', 'fas fa-square');
+                    legend_div.classed('active', false);
+                } else {
+                    selection.performances.push(performance_value[i]);
+                    legend_icon.attr('class', 'fas fa-check-square');
+                    legend_div.classed('active', true);
+                }
+
+                // Redraw
+                update_chart(selection);
+            });
+        }
+
+        return;
+    }
+
+    function init_chart(container_id) {
+
+        let div_height = $('#' + container_id).height() - 100;
+
+        d3.select('#' + container_id).append('div').attr('id', 'global-chart').style('width', 'calc(100% - 40px)').style('height', div_height + 'px').style('box-sizing', 'border-box');
+
+        return;
+    }
+
+    function update_chart(filter) {
+
+        let result = get_performances(filter, trips);
+        //console.log(result);
+
+        let keys = Object.keys(result);
+        let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+
+        width = $('#global-chart').width();-margin.left - margin.right;
+        height = $('#global-chart').height();-margin.top - margin.bottom;
+
+        $('#global-chart').empty();
+
+        let svg = d3.select('#global-chart').append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        let x0_scale = d3.scaleBand().range([0, width]).paddingInner(0.1);
+
+        let x1_scale = d3.scaleLinear();
+
+        let y0_scale = d3.scaleBand().range([0, height]).paddingInner(0.2);
+
+        let y1_scale = d3.scaleBand().padding(0.2);
+
+        let color_scale = d3.scaleOrdinal().domain(['accuracy', 'precision', 'recall', 'f1', 'entropy']).range(performance_colors);
+
+        x0_scale.domain(models);
+        x1_scale.domain([0, 1]).range([0, x0_scale.bandwidth()]);
+        y0_scale.domain(keys);
+        y1_scale.domain(filter.performances).range([0, y0_scale.bandwidth()]);
+
+        // Draw Y axis
+        svg.append("g").attr("class", "axis").call(d3.axisLeft(y0_scale)).selectAll('text').attr("text-anchor", "middle").attr('transform', function (d) {
+            return 'translate(-13, -8) rotate(270)';
+        });
+
+        // Draw X axis
+        svg.append("g").attr("class", "axis").call(d3.axisTop(x0_scale));
+
+        for (let i = 0; i < keys.length; ++i) {
+            for (let j = 0; j < models.length; ++j) {
+
+                let g = svg.append("g").style('opacity', 1).attr('transform', "translate(" + x0_scale(models[j]) + "," + y0_scale(keys[i]) + ")");
+
+                for (let k = 0; k < filter.performances.length; ++k) {
+
+                    let value = result[keys[i]][models[j]][[filter.performances[k]]];
+
+                    g.append('rect').attr('x', 0).attr('y', y1_scale(filter.performances[k])).attr('width', x1_scale(1)).attr('height', y1_scale.bandwidth()).attr('fill', '#C9D2D3').style("stroke", '#C9D2D3').style("stroke-width", "0.5px").attr('fill-opacity', '0.8').style("stroke-opacity", 1);
+
+                    g.append('rect').attr('x', 0).attr('y', y1_scale(filter.performances[k])).attr('height', y1_scale.bandwidth()).transition().duration(500).attr('width', value ? x1_scale(value) : x1_scale(0)).attr('fill', color_scale(filter.performances[k])).style("stroke", color_scale(filter.performances[k])).style("stroke-width", "0.5px").attr('fill-opacity', '0.8').style("stroke-opacity", 1);
+
+                    g.append('text').attr("y", y1_scale(filter.performances[k]) + y1_scale.bandwidth() / 2).transition().duration(500).attr("x", x1_scale(value) - 2).attr("dy", "0.32em").attr("fill", '#fff').attr('font-size', '9px').attr("text-anchor", "end").text(value ? value.toFixed(2) : 0);
+                }
+            }
+        }
+
+        return;
+    }
+
+    function get_performances(filter, data) {
+
+        let group_data = {};
+        let parameter = filter.parameter;
+
+        for (let i = 0; i < data.length; ++i) {
+            let trip = data[i];
+
+            if (parameter === 'action') {
+                if (!('all_trips' in group_data)) {
+                    group_data['all_trips'] = [];
+                    group_data['all_trips'].push(trip);
+                } else {
+                    group_data['all_trips'].push(trip);
+                }
+            } else {
+                if (!(trip[parameter] in group_data)) {
+                    group_data[trip[parameter]] = [];
+                    group_data[trip[parameter]].push(trip);
+                } else {
+                    group_data[trip[parameter]].push(trip);
+                }
+            }
+        }
+
+        let result = {};
+
+        Object.keys(group_data).forEach(function (group) {
+            // Compute entropy
+            let performances = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["util_compute_performance"])(group_data[group]);
+
+            if (parameter !== 'action') {
+                result[group] = {};
+            } else {
+                result = {
+                    'straight': {},
+                    'slow_or_stop': {},
+                    'turn_left': {},
+                    'turn_right': {}
+                };
+            }
+
+            Object.keys(performances).forEach(function (model) {
+
+                let accuracy = [],
+                    precision = [],
+                    recall = [],
+                    f1 = [],
+                    entropy = [];
+
+                Object.keys(performances[model]).forEach(function (action) {
+                    if (action) {
+                        if (parameter === 'action') {
+                            result[action][model] = {
+                                accuracy: performances[model][action].accuracy,
+                                precision: performances[model][action].precision,
+                                recall: performances[model][action].recall,
+                                f1: performances[model][action].f1,
+                                entropy: performances[model][action].entropy
+                            };
+                        } else {
+                            accuracy.push(performances[model][action].accuracy);
+                            precision.push(performances[model][action].precision);
+                            recall.push(performances[model][action].recall);
+                            f1.push(performances[model][action].f1);
+                            entropy.push(performances[model][action].entropy);
+                        }
+                    }
+                });
+
+                if (parameter !== 'action') {
+                    result[group][model] = {
+                        accuracy: d3.mean(accuracy),
+                        precision: d3.mean(precision),
+                        recall: d3.mean(recall),
+                        f1: d3.mean(f1),
+                        entropy: d3.mean(entropy)
+                    };
+                }
+            });
+        });
+
+        return result;
+    }
+}
+
+/*
+export function vis_draw_model_table(trips, container_id) {
+
+
+    let trip_count = 0;
+    let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+    let action_symbols = ['GO', 'SS', 'TL', 'TR'];
+
+    // Create table data
+    let preprocessed_data = preprocess(trips);
+    let data = preprocessed_data[0];
+    let filtered_data = preprocessed_data[1];
+
+    if (vis_is_parallelsets_filter) {
+
+        let summary = preprocessed_data[0];
+
+        Object.keys(summary).forEach(function (model) {
+            Object.keys(summary[model]).forEach(function (action) {
+
+                let filter_total = summary[model][action];
+                let total = $('#column-' + model + '-' + action).html();
+                let html_str = "";
+
+                if (total) {
+                    if (total.indexOf('/') > -1) {
+                        total = total.split('/')[2];
+                        html_str = '<font color="#a50f15">' + filter_total + '</font>' + ' /' + total;
+                        d3.select('#column-' + model + '-' + action)
+                            .style('font-size', '12px')
+                            .html(html_str);
+                    } else {
+                        html_str = '<font color="#a50f15">' + filter_total + '</font>' + ' /' + total;
+                        d3.select('#column-' + model + '-' + action)
+                            .style('font-size', '12px')
+                            .html(html_str);
+                    }
+                }
+            });
+        });
+        return;
+    }
+
+    // Clear current container
+    $('#' + container_id).empty();
+    // Start drawing table here
+    let table = d3.select('#' + container_id)
+        .append('table')
+        .style('width', '100%')
+        .style('height', '100%');
+
+    let header_row = table.append('tr');
+    header_row.append('th').html(trip_count + ' Trips');
+    header_row.append('th').html('actual')
+    header_row.append('th').html('tcnn1')
+    header_row.append('th').html('cnn_lstm')
+    header_row.append('th').html('fcn_lstm');
+
+    for (let i = 0; i <  car_actions.length; ++i) {
+        let body_row = table.append('tr')
+            .attr('class', 'dataview-rows')
+            .style('cursor', 'pointer');
+        body_row.append('td').html(action_symbols[i]);
+        Object.keys(data).forEach(function (model) {
+            if (car_actions[i] in data[model]) {
+                body_row.append('td')
+                    .attr('id', 'column-' + model + '-' + car_actions[i])
+                    .html(data[model][car_actions[i]]);
+            } else {
+                body_row.append('td')
+                    .html(0);
+            }
+        });
+
+        body_row.on('click', function() {
+
+            d3.selectAll('.dataview-rows').style('opacity', 0.1);
+
+            if (body_row.classed('active')) {
+
+                //body_row.style('opacity', 1);
+                d3.selectAll('.dataview-rows').style('opacity', 1);
+
+                d3.selectAll('.performance-bar').style('opacity', 1);
+                body_row.classed('active', false);
+            } else {
+
+                d3.selectAll('.dataview-rows').classed('active', false);
+                body_row.style('opacity', 1);
+
+                let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+
+                d3.selectAll('.performance-bar').style('opacity', 0.2);
+
+                models.forEach(function (model) {
+                    d3.select('#' + model + '-' + car_actions[i]).style('opacity', 1);
+                });
+                body_row.classed('active', true);
+            }
+
+        });
+    }
+
+    function preprocess (data) {
+        let filtered_trips = [];
+        let result = {};
+        for (var i = 0; i < data.length; ++i) {
+            // Get prediction action
+            if (data[i].actual && data[i].predict && Object.keys(data[i].predict).length === 3 && data[i].actual.no_slight) {
+                if (!('actual' in result)) { result['actual'] = {}; }
+                // Get actual label actions
+                for (var j = 0; j < data[i].actual.no_slight.length; ++j) {
+                    let action = data[i].actual.no_slight[j];
+                    if (car_actions[action] in result['actual']) {
+                        result['actual'][car_actions[action]] += 1;
+                    } else {
+                        result['actual'][car_actions[action]] = 1;
+                    }
+                }
+                // Get other model actions
+                Object.keys(data[i].predict).forEach(function (model) {
+                    if (model in result) {
+                        for (var j = 0; j < data[i].predict[model].length; ++j) {
+                            let prediction = data[i].predict[model][j];
+                            let action = prediction.indexOf(d3.max(prediction));
+                            if (car_actions[action] in result[model]) {
+                                result[model][car_actions[action]] += 1;
+                            } else {
+                                result[model][car_actions[action]] = 1;
+                            }
+                        }
+                    } else {
+                        result[model] = {};
+                        for (var j = 0; j < data[i].predict[model].length; ++j) {
+                            let prediction = data[i].predict[model][j];
+                            let action = prediction.indexOf(d3.max(prediction));
+                            if (car_actions[action] in result[model]) {
+                                result[model][car_actions[action]] += 1;
+                            } else {
+                                result[model][car_actions[action]] = 1;
+                            }
+                        }
+                    }
+                });
+
+                trip_count += 1;
+                filtered_trips.push(data[i]);
+            }
+        }
+
+        return [result, filtered_trips];
+    }
+
+    return filtered_data;
+}*/
+
+function vis_parallelsets(trips, container_id) {
+
+    // need to preprocess this
+    let data = preprocess(trips);
+    vis_selected_nodes = [];
+
+    // 'accuracy', 'perplexity'
+
+    // Select keys
+    let provide_keys = ['time_of_day', 'scene', 'weather', 'accuracy', 'entropy'];
+    let keys = ['time_of_day', 'scene', 'weather'];
+
+    let color = d3.scaleOrdinal(d3.schemeCategory10).domain(['daytime', 'night', 'dawn/dusk']).unknown('#C9D2D3');
+
+    /*
+    let graph = get_graph(keys, data);
+    //console.log(graph);
+     let sankey = d3Sankey()
+        .nodeSort(null)
+        .linkSort(null)
+        .nodeWidth(4)
+        .nodePadding(20)
+        .nodeSort(null)
+        .extent([[0, 5], [width, height - 5]]);
+     const {nodes, links} = sankey({
+        nodes: graph.nodes.map(d => Object.assign({}, d)),
+        links: graph.links.map(d => Object.assign({}, d))
+    });*/
+
+    //console.log(nodes);
+    //console.log(links);
+
+    // Remove current svg;
+    d3.select('#' + container_id).empty();
+
+    // Add dimension selector
+    add_dimension_list(data, keys, container_id);
+    update_chart(data, keys);
+
+    function add_dimension_list(data, dimensions, container_id) {
+        let dimension_div = d3.select('#' + container_id).append('div').style('width', 'auto').style('height', 'auto').style('cursor', 'pointer').style('position', 'absolute').style('top', '-20px').style('left', '0px').style('background-color', '#C9D2D3').style('box-sizing', 'border-box').style('line-height', '14px').style('font-size', '14px').style('padding', '2px').html('Dimensions').on('click', function () {
+
+            if (dimension_div.classed('active')) {
+                console.log('removed');
+                d3.select('#dimension-selector').remove();
+                dimension_div.classed('active', false);
+                return;
+            }
+
+            let selector_div = d3.select('#' + container_id).append('div').attr('id', 'dimension-selector').style('width', 'auto').style('height', 'auto').style('cursor', 'pointer').style('position', 'absolute').style('top', '-20px').style('right', '0px').style('background-color', '#C9D2D3').style('box-sizing', 'border-box').style('line-height', '14px').style('font-size', '14px').style('padding', '2px');
+
+            for (let i = 0; i < provide_keys.length; ++i) {
+                let select_div = selector_div.append('div').attr('class', dimensions.indexOf(provide_keys[i]) >= 0 ? 'active' : '').style('width', 'auto').style('height', '14px').style('line-height', '14px').style('cursor', 'pointer').style('font-size', '14px');
+
+                let select_icon = select_div.append('i').attr('class', dimensions.indexOf(provide_keys[i]) >= 0 ? 'fas fa-check-square' : 'fas fa-square').style('cursor', 'pointer').style('color', '#000');
+
+                let select_text = select_div.append('label').style('cursor', 'pointer').html('&nbsp;' + provide_keys[i]);
+
+                select_div.on('click', function () {
+
+                    if (select_div.classed('active')) {
+                        keys.splice(keys.indexOf(provide_keys[i]), 1);
+                        select_icon.attr('class', 'fas fa-square');
+                        select_div.classed('active', false);
+                    } else {
+                        keys.push(provide_keys[i]);
+                        select_icon.attr('class', 'fas fa-check-square');
+                        select_div.classed('active', true);
+                    }
+
+                    update_chart(data, keys);
+                });
+
+                dimension_div.classed('active', true);
+            }
+        });
+    }
+
+    function update_chart(data, dimensions) {
+
+        vis_selected_nodes = [];
+
+        //console.log(dimensions);
+        let margin = { top: 0, right: -30, bottom: 50, left: 0 };
+        let width = $('#' + container_id).width() - margin.left - margin.right;
+        let height = $('#' + container_id).height() - margin.top - margin.bottom;
+
+        var chart = d3.parsets().width(height).height(width).dimensions(dimensions).tension(0.7);
+
+        d3.select('#' + container_id).select('svg').remove();
+
+        let svg = d3.select('#' + container_id).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(-40, ' + height + ')rotate(-90)');
+
+        svg.datum(data).call(chart);
+
+        chart.on('sortDimensions', function () {
+            change_dimensions();
+        });
+
+        chart.on('sortCategories', function () {
+            change_categories();
+        });
+
+        svg.selectAll(".category text").attr('font-size', '10px').attr("dy", "0.7em").attr("transform", "rotate(90)").attr("dx", function (d) {
+            return d.dimension.name === keys[keys.length - 1] ? -5 : 5;
+        }).attr('text-anchor', function (d) {
+            return d.dimension.name === keys[keys.length - 1] ? 'end' : 'start';
+        });
+
+        svg.selectAll(".category rect").attr("y", 0);
+        svg.selectAll("text.dimension").attr("dy", "2em").attr('font-size', '12px').attr("transform", "rotate(90)").attr('text-anchor', function (d) {
+            return d.name === keys[keys.length - 1] ? 'end' : 'start';
+        });
+
+        svg.selectAll("text.dimension .sort.alpha").attr("x", 0).attr("dx", 0).attr("dy", "1.5em").attr('opacity', '0');
+
+        svg.selectAll("text.dimension .sort.size").attr("dx", "1em").attr('opacity', 0);
+
+        svg.selectAll('text').on('click', function (d) {
+
+            if (d3.select(this).classed('selected-text')) {
+                d3.select(this).attr('fill', '#000').attr('font-size', '10px');
+                d3.select(this).classed('selected-text', false);
+            } else {
+                d3.select(this).attr('fill', 'rgb(202,0,42)').attr('font-size', '12px');
+                d3.select(this).classed('selected-text', true);
+            }
+
+            highlight(d, true);
+        });
+    }
+
+    function highlight(d, ancestors) {
+
+        // Check is a nodes
+        if (!d.nodes) {
+            return;
+        }
+
+        var highlight = [];
+        d.nodes.forEach(function (node) {
+            (function recurse(x) {
+                highlight.push(x);
+                for (var k in x.children) recurse(x.children[k]);
+            })(node);
+            //highlight.shift();
+            if (ancestors) while (node) highlight.push(node), node = node.parent;
+        });
+
+        let pos = vis_selected_nodes.map(function (x) {
+            return x.parent;
+        }).indexOf(d.name);
+
+        if (pos >= 0) {
+            vis_selected_nodes.splice(pos, 1);
+        } else {
+            vis_selected_nodes.push({
+                parent: d.name,
+                dimension: d.dimension.name,
+                highlight: highlight
+            });
+        }
+
+        update_selection();
+    }
+
+    function update_selection() {
+        // Reset all selection path
+        d3.select('.ribbon').selectAll('path').classed('selected', false);
+        // Highlight selection
+        d3.select('.ribbon').selectAll('path').classed('selected', function (d) {
+            const found = vis_selected_nodes.some(item => item.highlight.indexOf(d.node) >= 0);
+            return found ? true : false;
+        });
+
+        //
+        update_by_selection();
+    }
+
+    function change_categories() {
+        // Reset all selection path
+        vis_selected_nodes = [];
+        d3.selectAll('.selected-text').attr('fill', '#000').attr('font-size', '10px');
+        d3.selectAll('.selected-text').classed('selected-text', false);
+
+        // Reset filter
+        reset_filter();
+    }
+
+    function change_dimensions() {
+        // Reset all selection path
+        vis_selected_nodes = [];
+        d3.selectAll('.selected-text').attr('fill', '#000').attr('font-size', '10px');
+        d3.selectAll('.selected-text').classed('selected-text', false);
+
+        reset_filter();
+    }
+
+    function update_by_selection() {
+        //data, selected_nodes;
+        let filter = {};
+        vis_selected_nodes.forEach(function (node) {
+            let key = node.dimension;
+            let value = node.parent;
+            if (!(key in filter)) {
+                filter[key] = [];
+            }
+
+            if (filter[key].indexOf(value) < 0) {
+                filter[key].push(value);
+            }
+        });
+
+        let filtered_trips = [];
+        for (let i = 0; i < trips.length; ++i) {
+
+            let trip = trips[i];
+
+            let meet = true;
+            Object.keys(filter).forEach(function (key) {
+                if (filter[key].indexOf(trip[key]) < 0) {
+                    meet = false;
+                }
+            });
+
+            if (meet) {
+                filtered_trips.push(trip);
+            }
+        }
+
+        // Need to set filtered_trips
+
+        //vis_area_study(filtered_trips, 'tripview-body');
+        vis_model_cases(filtered_trips, 'model-cases-body');
+        vis_representative_images(filtered_trips, undefined, 'streetview-body');
+
+        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_show_filtered_trips"])(filtered_trips);
+        Object(___WEBPACK_IMPORTED_MODULE_4__["main_set_maplayer_index"])();
+    }
+
+    function reset_filter() {
+        //vis_area_study(trips, 'tripview-body');
+        vis_model_cases(trips, 'model-cases-body');
+        vis_representative_images(trips, undefined, 'streetview-body');
+
+        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_show_filtered_trips"])(trips);
+        Object(___WEBPACK_IMPORTED_MODULE_4__["main_set_maplayer_index"])();
+        return;
+    }
+
+    /*
+    svg.append("g").selectAll("rect")
+        .data(nodes)
+        .join("rect")
+        .attr("x", d => d.x0)
+        .attr("y", d => d.y0)
+        .attr("height", d => d.y1 - d.y0)
+        .attr("width", d => d.x1 - d.x0)
+        .style('cursor', 'pointer')
+        .on('click', highlight_nodes)
+    .append("title")
+        .text(d => `${d.name}\n${d.value.toLocaleString()}`);
+      svg.append("g")
+        .attr("fill", "none")
+    .selectAll("g")
+        .data(links)
+        .join("path")
+        .attr("d", sankeyLinkHorizontal())
+        .attr('class', 'link')
+        .attr("id", function(d,i){
+            d.id = i;
+            return "link-"+i;
+        })
+        .attr("stroke", '#fb6a4a')
+        .attr("stroke-width", d => d.width)
+        .attr('stroke-opacity', 0.5)
+        .style("mix-blend-mode", "multiply")
+    .append("title")
+        .text(d => `${d.names.join(" → ")}\n${d.value.toLocaleString()}`);
+     svg.append("g")
+        .style('font-weight', 'bold')
+        .style("font-size", "12px")
+      .selectAll("text")
+      .data(nodes)
+      .join("text")
+        .attr("x", d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
+        .attr("y", d => (d.y1 + d.y0) / 2)
+        .attr("dy", "0.35em")
+        .attr("text-anchor", d => d.x0 < width / 2 ? "start" : "end")
+        .text(d => d.name)
+      .append("tspan")
+        .attr("fill-opacity", 0.7)
+        .text(d => `: ${d.value.toLocaleString()}`);
+     function highlight_nodes(node, i) {
+         d3.selectAll('.link').style('stroke', '#C9D2D3');
+        d3.selectAll('.link').style('stroke-opacity', 0.5);
+         var remainingNodes=[],
+            nextNodes=[];
+         var stroke_opacity = 0.5;
+         var traverse = [{
+            linkType : "sourceLinks",
+            nodeType : "target"
+        },{
+            linkType : "targetLinks",
+            nodeType : "source"
+        }];
+         // Create parallelset filter
+        var filter = [[], [], [], [], [], []];
+         traverse.forEach(function(step){
+             if (filter[node.layer].indexOf(node.name) === -1) {
+                filter[node.layer].push(node.name);
+            }
+             node[step.linkType].forEach(function(link) {
+                remainingNodes.push(link[step.nodeType]);
+                highlight_link(link.id, stroke_opacity);
+            });
+             while (remainingNodes.length) {
+                nextNodes = [];
+                remainingNodes.forEach(function(node) {
+                     if (filter[node.layer].indexOf(node.name) === -1) {
+                        filter[node.layer].push(node.name);
+                    }
+                     node[step.linkType].forEach(function(link) {
+                    nextNodes.push(link[step.nodeType]);
+                    highlight_link(link.id, stroke_opacity);
+                    });
+                });
+                remainingNodes = nextNodes;
+            }
+        });
+         vis_parallelsets_filter(data, filter);
+    }
+     function highlight_link (id, opacity){
+        d3.select("#link-"+id)
+            .style('stroke', '#fb6a4a')
+            .style("stroke-opacity", opacity);
+    }
+     function get_graph(keys, data) {
+        let index = -1;
+        const nodes = [];
+        const nodeByKey = new Map;
+        const indexByKey = new Map;
+        const links = [];
+         for (const k of keys) {
+            for (const d of data) {
+                const key = JSON.stringify([k, d[k]]);
+                if (nodeByKey.has(key)) continue;
+                const node = {name: d[k]};
+                nodes.push(node);
+                nodeByKey.set(key, node);
+                indexByKey.set(key, ++index);
+            }
+        }
+         for (let i = 1; i < keys.length; ++i) {
+            const a = keys[i - 1];
+            const b = keys[i];
+            const prefix = keys.slice(0, i + 1);
+            const linkByKey = new Map;
+            for (const d of data) {
+                const names = prefix.map(k => d[k]);
+                const key = JSON.stringify(names);
+                const value = d.value || 1;
+                let link = linkByKey.get(key);
+                if (link) { link.value += value; continue; }
+                link = {
+                    source: indexByKey.get(JSON.stringify([a, d[a]])),
+                    target: indexByKey.get(JSON.stringify([b, d[b]])),
+                    names,
+                    value
+                };
+                links.push(link);
+                linkByKey.set(key, link);
+            }
+        }
+         return {nodes, links};
+    }*/
+
+    function preprocess(data) {
+
+        // Need to categorize entropy
+        for (let i = 0; i < data.length; ++i) {
+            let trip = data[i];
+            let performance = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["util_compute_performance"])([trip]);
+
+            let accuracy = [],
+                precision = [],
+                recall = [],
+                f1 = [],
+                entropy = [];
+
+            Object.keys(performance).forEach(function (model) {
+                Object.keys(performance[model]).forEach(function (action) {
+                    accuracy.push(performance[model][action].accuracy);
+                    precision.push(performance[model][action].precision);
+                    recall.push(performance[model][action].recall);
+                    f1.push(performance[model][action].f1);
+                    entropy.push(performance[model][action].entropy);
+                });
+            });
+
+            trip.performances = {
+                accuracy: d3.mean(accuracy),
+                precision: d3.mean(precision),
+                recall: d3.mean(recall),
+                f1: d3.mean(f1),
+                perplexity: d3.mean(entropy)
+            };
+
+            trip.accuracy = get_value_category(d3.mean(accuracy));
+            trip.precision = get_value_category(d3.mean(precision));
+            trip.recall = get_value_category(d3.mean(recall));
+            trip.f1 = get_value_category(d3.mean(f1));
+            trip.perplexity = get_value_category(d3.mean(entropy));
+        }
+
+        return data;
+    }
+
+    function get_value_category(value) {
+        let category = ['0,10', '20,30', '30,40', '30,40', '40,50', '50,60', '60,70', '70,80', '80,90', '90,100'];
+        let range = [0, .1, .2, .3, .4, .5, .6, .7, .8, .9];
+
+        for (let i = 0; i < range.length; ++i) {
+            if (value > range[i] && value <= range[i] + 0.10) {
+                return category[i];
+            }
+        }
+    }
+
+    return;
+}
+
+function vis_model_performance(data, container_id) {
+
+    let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+    let performance = preprocess(data);
+
+    if (vis_is_parallelsets_filter) {
+
+        d3.selectAll('.performance-text').style('opacity', 0.2);
+        d3.selectAll('.filter-performance-bar').remove();
+
+        for (let i = 0; i < models.length; ++i) {
+
+            let model = models[i];
+            let filter_performance = performance[model];
+
+            let svg = d3.select('#performance-' + models[i]);
+            let margin = { top: 40, right: 20, bottom: 30, left: 40 };
+            let width = +svg.attr("width") - margin.left - margin.right;
+            let height = +svg.attr("height") - margin.top - margin.bottom;
+            let g = svg.append("g").attr('class', 'filter-performance-bar').attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            let colors = ['#fee5d9', '#fcae91', '#fb6a4a', '#cb181d'];
+            let matrices = ['accuracy', 'precision', 'recall', 'f1'];
+            let x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
+
+            let x1 = d3.scaleBand().padding(0.05);
+
+            let y = d3.scaleLinear().rangeRound([height, 0]);
+
+            x0.domain(Object.keys(filter_performance));
+            x1.domain(matrices).rangeRound([0, x0.bandwidth()]);
+            y.domain([0, 1]).nice();
+
+            Object.keys(filter_performance).forEach(function (key, index) {
+
+                let bar = g.append("g").style('opacity', 1).attr('transform', "translate(" + x0(key) + ",0)");
+
+                for (let i = 0; i < matrices.length; ++i) {
+
+                    bar.append("rect").attr("x", x1(matrices[i])).attr("width", x1.bandwidth()).attr("y", y(0)).attr("height", 0).transition().duration(500).attr("y", y(filter_performance[key][matrices[i]])).attr('height', height - y(filter_performance[key][matrices[i]])).attr('fill', 'transparent').style("stroke", '#252525').style("stroke-width", "0.5px").style("stroke-opacity", 1);
+
+                    bar.append('text').attr("x", x1(matrices[i])).attr("y", y(filter_performance[key][matrices[i]]) - 5).attr("dy", "0.32em").attr("fill", '#000').attr('font-size', '9px').attr("text-anchor", "start").text(filter_performance[key][matrices[i]].toFixed(2));
+                }
+            });
+        }
+
+        return;
+    }
+
+    d3.select('#' + container_id).selectAll('svg').remove();
+    for (let i = 0; i < models.length; ++i) {
+        let svg = create_svg(container_id, models[i]);
+        draw_group_barchart(svg, performance[models[i]], models[i]);
+    }
+
+    function draw_group_barchart(svg, data, model_name) {
+
+        let matrices = ['accuracy', 'precision', 'recall', 'f1'];
+        let colors = ['#fee5d9', '#fcae91', '#fb6a4a', '#cb181d'];
+
+        let margin = { top: 40, right: 20, bottom: 30, left: 40 };
+        let width = +svg.attr("width") - margin.left - margin.right;
+        let height = +svg.attr("height") - margin.top - margin.bottom;
+        let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        let x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
+
+        let x1 = d3.scaleBand().padding(0.05);
+
+        let y = d3.scaleLinear().rangeRound([height, 0]);
+
+        x0.domain(Object.keys(data));
+        x1.domain(matrices).rangeRound([0, x0.bandwidth()]);
+        y.domain([0, 1]).nice();
+
+        // Adding circle color legend
+        if (model_name === 'tcnn1') {
+            for (let i = 0; i < matrices.length; ++i) {
+                svg.append("circle").attr("cx", i * (width / 4) + 50).attr("cy", 10).attr("r", 6).style("fill", colors[i]).attr('opacity', 1).style("stroke", '#252525').style("stroke-width", "0.5px").style("stroke-opacity", 1);
+                svg.append("text").attr("x", i * (width / 4) + 60).attr("y", 10).text(matrices[i]).style("font-size", "15px").attr("alignment-baseline", "middle");
+            }
+        }
+
+        Object.keys(data).forEach(function (key, index) {
+
+            let bar = g.append("g").attr('class', 'performance-bar').attr('id', model_name + '-' + key).attr('transform', "translate(" + x0(key) + ",0)");
+
+            for (let i = 0; i < matrices.length; ++i) {
+
+                bar.append("rect").attr("x", x1(matrices[i])).attr("y", y(data[key][matrices[i]])).attr("width", x1.bandwidth()).attr('height', height - y(data[key][matrices[i]])).attr('opacity', 1).attr('fill', colors[i]).style("stroke", '#252525').style("stroke-width", "0.5px").style("stroke-opacity", 1);
+
+                bar.append('text').attr('class', 'performance-text').attr("x", x1(matrices[i])).attr("y", y(data[key][matrices[i]]) - 5).attr("dy", "0.32em").attr("fill", "#000").attr('font-size', '9px').attr("text-anchor", "start").text(data[key][matrices[i]].toFixed(2));
+            }
+        });
+
+        g.append("g").attr("class", "axis").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x0));
+
+        g.append("g").attr("class", "y axis").call(d3.axisLeft(y).ticks(2, 's'));
+
+        /*
+        g.append("text")
+            .attr("x", width / 2)
+            .attr("y", -3)
+            .attr("dy", "0.32em")
+            .attr("fill", "#000")
+            .attr("font-weight", "bold")
+            .attr('font-size', '14px')
+            .attr("text-anchor", "middle")
+            .text(model_name);*/
+
+        return;
+    }
+
+    function create_svg(container_id, model) {
+
+        let container_width = $('#' + container_id).width();
+        let container_height = $('#' + container_id).height() / 3;
+
+        let container = d3.select('#' + container_id).append('div').style('width', container_width).style('height', container_height);
+
+        let svg = container.append('svg').attr('id', 'performance-' + model).attr('width', container_width).attr('height', container_height);
+
+        return svg;
+    }
+
+    // Calculate confuse matrix
+    function preprocess(data) {
+
+        let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+        let model_performance = {};
+        let confusion_matrix = {};
+
+        for (let i = 0; i < data.length; ++i) {
+
+            let true_label = data[i].actual.no_slight;
+            let predicts = data[i].predict;
+
+            Object.keys(predicts).forEach(function (key) {
+                let predict_label = predicts[key];
+
+                if (!(key in confusion_matrix)) {
+                    confusion_matrix[key] = {};
+                }
+
+                for (let j = 0; j < predict_label.length; ++j) {
+
+                    let true_action = car_actions[true_label[j]];
+                    let predict_action = car_actions[predict_label[j].indexOf(d3.max(predict_label[j]))];
+
+                    if (!(true_action in confusion_matrix[key])) {
+                        confusion_matrix[key][true_action] = {
+                            'straight': 0,
+                            'slow_or_stop': 0,
+                            'turn_left': 0,
+                            'turn_right': 0
+                        };
+                    }
+
+                    confusion_matrix[key][true_action][predict_action] += 1;
+                    /*
+                    if (predict_action in confusion_matrix[key][true_action]) {
+                        confusion_matrix[key][true_action][predict_action] += 1;
+                    } else {
+                        confusion_matrix[key][true_action][predict_action] = 1;
+                    }*/
+                }
+            });
+        }
+
+        Object.keys(confusion_matrix).forEach(function (model) {
+
+            model_performance[model] = {};
+            delete confusion_matrix[model][undefined];
+
+            Object.keys(confusion_matrix[model]).forEach(function (main_class) {
+
+                let tp = 0;let tn = 0;let fp = 0;let fn = 0;
+
+                Object.keys(confusion_matrix[model][main_class]).forEach(function (predict_class) {
+                    if (predict_class !== main_class) {
+                        fn += confusion_matrix[model][main_class][predict_class];
+                    } else {
+                        tp = confusion_matrix[model][main_class][predict_class];
+                    }
+                });
+
+                Object.keys(confusion_matrix[model]).forEach(function (sub_class) {
+                    if (main_class !== sub_class) {
+                        Object.keys(confusion_matrix[model][sub_class]).forEach(function (predict_class) {
+                            if (predict_class === main_class) {
+                                fp += confusion_matrix[model][sub_class][predict_class];
+                            } else {
+                                tn += confusion_matrix[model][sub_class][predict_class];
+                            }
+                        });
+                    }
+                });
+                /*
+                console.log('tp: ' + tp);
+                console.log('tn: ' + tn);
+                console.log('fp: ' + fp);
+                console.log('fn: ' + fn);*/
+
+                model_performance[model][main_class] = {};
+
+                let accuracy = (tp + tn) / (tp + tn + fp + fn);
+                let precision = tp / (tp + fp);
+                let recall = tp / (tp + fn);
+                let f1 = 2 * tp / (2 * tp + fp + fn);
+
+                model_performance[model][main_class]['accuracy'] = isNaN(accuracy) ? 0 : accuracy;
+                model_performance[model][main_class]['precision'] = isNaN(precision) ? 0 : precision;
+                model_performance[model][main_class]['recall'] = isNaN(recall) ? 0 : recall;
+                model_performance[model][main_class]['f1'] = isNaN(f1) ? 0 : f1;
+            });
+        });
+
+        return model_performance;
+    }
+}
+
+function vis_model_relation(data, container_id) {
+
+    let relation = preprocess(data);
+    console.log(relation);
+
+    d3.select('#' + container_id).selectAll('svg').remove();
+
+    Object.keys(relation).forEach(function (model) {
+        let svg = create_svg(container_id);
+        draw_pieglyph(svg, relation[model], model);
+    });
+
+    function draw_pieglyph(svg, data, model) {
+
+        let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+
+        let margin = { top: 50, right: 20, bottom: 50, left: 20 };
+        let width = +svg.attr("width") - margin.left - margin.right;
+        let height = +svg.attr("height") - margin.top - margin.bottom;
+        let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var color = ["#C9D2D3", "rgb(202,0,42)"];
+
+        let x = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
+
+        x.domain(models);
+
+        if (model === 'actual') {
+            g.append("g").attr("class", "axis").attr("transform", "translate(0," + -35 + ")").call(d3.axisTop(x));
+        }
+
+        g.append("text").attr("x", 20).attr("y", height / 2).text(model).style("font-size", "12px").attr("transform", "translate(0, 40)rotate(270)");
+
+        for (let i = 0; i < models.length; ++i) {
+
+            let pie_group = g.append("g").attr('class', 'pie').attr('transform', "translate(" + (x(models[i]) + 40) + "," + (height / 2 + 2) + ")");
+
+            if (data[models[i]]) {
+                var pie = d3.pie().value(function (d) {
+                    return d.value;
+                });
+
+                var data_ready = pie(d3.entries(data[models[i]]));
+                pie_group.selectAll('glyph').data(data_ready).enter().append('path').attr('d', d3.arc().innerRadius(0).outerRadius(25)).attr('fill', function (d, i) {
+                    return color[i];
+                }).attr("stroke", function (d, i) {
+                    return color[i];
+                }).style("stroke-width", "2px").style("stroke-opacity", 1).style("opacity", .5);
+
+                pie_group.selectAll('glyph-text').data(data_ready).enter().append('text').attr('transform', function (d) {
+                    d.innerRadius = 0;
+                    d.outerRadius = 25;
+
+                    let pos = d3.arc().innerRadius(0).outerRadius(25).centroid(d);
+
+                    return 'translate(' + pos + ')';
+                }).attr("text-anchor", "middle").attr('font-size', '9px').text(function (d) {
+                    return d.value;
+                });
+            }
+        }
+    }
+
+    function create_svg(container_id) {
+
+        let container_width = $('#' + container_id).width();
+        let container_height = $('#' + container_id).height() / 4;
+
+        let container = d3.select('#' + container_id).append('div').style('width', container_width).style('height', container_height);
+
+        let svg = container.append('svg').attr('width', container_width).attr('height', container_height);
+
+        return svg;
+    }
+
+    function preprocess(data) {
+
+        let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+
+        let relation = {};
+        for (let i = 0; i < models.length; ++i) {
+            relation[models[i]] = {};
+            for (let j = 0; j < models.length; ++j) {
+                if (models[i] !== models[j]) {
+                    relation[models[i]][models[j]] = {
+                        same: 0,
+                        different: 0
+                    };
+                }
+            }
+        }
+
+        for (let i = 0; i < data.length; ++i) {
+            let predicts = data[i].predict;
+            let actual = data[i].actual.no_slight;
+
+            Object.keys(predicts).forEach(function (model) {
+                for (let i = 0; i < predicts[model].length; ++i) {
+                    if (predicts[model][i].indexOf(d3.max(predicts[model][i])) !== actual[i]) {
+                        relation['actual'][model].different += 1;
+                    } else {
+                        relation['actual'][model].same += 1;
+                    }
+                }
+            });
+
+            Object.keys(predicts).forEach(function (main_model) {
+
+                for (let i = 0; i < predicts[main_model].length; ++i) {
+                    if (predicts[main_model][i].indexOf(d3.max(predicts[main_model][i])) !== actual[i]) {
+                        relation[main_model]['actual'].different += 1;
+                    } else {
+                        relation[main_model]['actual'].same += 1;
+                    }
+                }
+
+                Object.keys(predicts).forEach(function (sub_model) {
+                    if (sub_model !== main_model) {
+                        for (let i = 0; i < predicts[sub_model].length; ++i) {
+                            if (predicts[main_model][i].indexOf(d3.max(predicts[main_model][i])) !== predicts[sub_model][i].indexOf(d3.max(predicts[sub_model][i]))) {
+                                relation[main_model][sub_model].different += 1;
+                            } else {
+                                relation[main_model][sub_model].same += 1;
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        return relation;
+    }
+}
+
+/*s
+export function vis_streetview (data, container_id) {
+
+    $('#' + container_id).empty();
+    let width = $('#' + container_id).width();
+    let height = $('#' + container_id).height();
+
+    // Create trip containers
+    for (let i = 0; i < data.length; ++i) {
+        let div = d3.select('#' + container_id)
+            .append('div')
+            .style('width', width)
+            .style('height', '100')
+            .style('border', '1px solid #C9D2D3')
+            .style('overflow-x', 'auto')
+            .style('overflow-y', 'hidden')
+            .style('white-space', 'nowrap');
+
+        // Random and put images
+        let random_count = 0;
+
+        while (random_count < 15) {
+            let random_index = Math.floor(Math.random() * data[i].actual.no_slight.length);
+            div.append('img')
+                .attr('alt', '')
+                .attr('src', '/frames/' + data[i].trip_id + '/' + random_index + '.png')
+                .style('width', '150px')
+                .style('height', '100px')
+                .style('border', '1px solid #C9D2D3')
+                .style('display', 'inline-block');
+            random_count += 1;
+        }
+    }
+}*/
 
 function vis_summary(data, container_id) {
     let trips = data;
@@ -53737,6 +60486,8 @@ function vis_summary(data, container_id) {
                     update_group_barchart(scene_xy, model_filter, Object.keys(full_data.scene), full_data.scene, svg_scene, 'scene');
                     update_group_barchart(time_of_day_xy, model_filter, Object.keys(full_data.time_of_day), full_data.time_of_day, svg_time_of_day, 'time_of_day');
                     update_group_barchart(weather_xy, model_filter, Object.keys(full_data.weather), full_data.weather, svg_weather, 'weather');
+
+                    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_filter_all_trips"])(model_filter);
                 } else {
                     label.classed('active', true).style('color', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"][key]);
                     square.style('color', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"][key]);
@@ -53745,6 +60496,8 @@ function vis_summary(data, container_id) {
                     update_group_barchart(scene_xy, model_filter, Object.keys(full_data.scene), full_data.scene, svg_scene, 'scene');
                     update_group_barchart(time_of_day_xy, model_filter, Object.keys(full_data.time_of_day), full_data.time_of_day, svg_time_of_day, 'time_of_day');
                     update_group_barchart(weather_xy, model_filter, Object.keys(full_data.weather), full_data.weather, svg_weather, 'weather');
+
+                    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_filter_all_trips"])(model_filter);
                 }
             });
         });
@@ -53808,6 +60561,8 @@ function vis_filter(result, container_id) {
     // Preprocess and filter data
 
     let dimensions = [];
+    let brushHeight = 25;
+    const brush = d3.brushX().extent([[0, -(brushHeight / 2)], [width, brushHeight / 2]]).on("start brush end", brushed).on("end.snap", brushended);
 
     Object.keys(trips[0]).forEach(function (key) {
 
@@ -53843,6 +60598,8 @@ function vis_filter(result, container_id) {
         return d.name;
     })).range([0, height]).padding(1);
 
+    var dragging = {};
+
     var line = d3.line().defined(function (d) {
         return !isNaN(d[1]);
     }),
@@ -53870,11 +60627,29 @@ function vis_filter(result, container_id) {
     background = svg.append("g").attr("class", "background").selectAll("path").data(trips).enter().append("path").attr("d", draw);
 
     // Add blue foreground lines for focus.
-    foreground = svg.append("g").attr("class", "foreground").selectAll("path").data(trips).enter().append("path").attr('stroke', '#a3be8c').attr("d", draw);
+    foreground = svg.append("g").attr("class", "foreground").selectAll("path").data(trips).enter().append("path").attr('stroke', '#D99200').attr("d", draw);
 
-    var g = svg.selectAll(".dimension").data(dimensions).enter().append("g").each(function (d) {
+    svg.selectAll(".dimension").data(dimensions).enter().append("g").each(function (d) {
         d3.select(this).attr("transform", 'translate(0,' + y(d.name) + ')').call(axis.scale(d.scale));
-    }).call(g => g.selectAll("text").clone(true).lower().attr("fill", "none").attr("stroke-width", 5).attr("stroke-linejoin", "round").attr("stroke", "white"));
+    }).call(brush).call(g => g.selectAll("text").clone(true).lower().attr("fill", "none").attr("stroke-width", 5).attr("stroke-linejoin", "round").attr("stroke", "white"));
+
+    function brushed(d) {
+        let selection = d3.brushSelection(this);
+        const range = d.scale.domain().map(d.scale);
+        const i0 = d3.bisectRight(range, selection[0]);
+        const i1 = d3.bisectRight(range, selection[1]);
+        console.log([i0, i1]);
+    }
+
+    function brushended(d) {
+        let selection = d3.brushSelection(this);
+        const range = d.scale.domain().map(d.scale),
+              dx = d.scale.step() / 2;
+        const x0 = range[d3.bisectRight(range, selection[0])] - dx;
+        const x1 = range[d3.bisectRight(range, selection[1]) - 1] + dx;
+        console.log([x0, x1]);
+        d3.select(this).transition().call(brush.move, x1 > x0 ? [x0, x1] : null);
+    }
 
     function draw(d) {
         return line(dimensions.map(function (dimension) {
@@ -53900,7 +60675,1340 @@ function vis_filter(result, container_id) {
         return filter_data;
     }
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! d3 */ "./node_modules/d3/index.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+function vis_parallelsets_filter(data, filter) {
+
+    // Set boolean filter
+    vis_is_parallelsets_filter = true;
+
+    let trips = preprocess(data, filter);
+
+    // filter table
+    vis_draw_model_table(trips, 'dataview-table');
+    vis_model_performance(trips, 'model_performance-body');
+
+    // Set boolean back to default
+    vis_is_parallelsets_filter = false;
+
+    function preprocess(data, filter) {
+
+        let trips = [];
+        for (let i = 0; i < data.length; ++i) {
+
+            let time_of_day = data[i].time_of_day;
+            let scene = data[i].scene;
+            let weather = data[i].weather;
+
+            if (filter[0].indexOf(time_of_day) !== -1 && filter[1].indexOf(scene) !== -1 && filter[2].indexOf(weather) !== -1) {
+                trips.push(data[i]);
+            }
+        }
+
+        return trips;
+    }
+}
+
+// TODO: need to add d3 here
+function vis_model_cases(trips, container_id) {
+    // Summarize all cases
+    let cases = preprocess(trips);
+
+    $('.trip-cases').remove();
+
+    d3.select("#" + container_id).append("div").attr("class", "trip-cases").style("width", '100%').style("height", '100%');
+
+    let width = $('.trip-cases').width();
+    let height = $('.trip-cases').height();
+
+    let table = d3.select('.trip-cases').append('table').attr('width', '100%').attr('height', '100%');
+
+    let table_headers = ['actual', 'tcnn1', 'fcn_lstm', 'cnn_lstm', 'count'];
+
+    table.append('tr');
+    for (let i = 0; i < table_headers.length; ++i) {
+        table.append('th').style('color', '#000').html(table_headers[i]);
+    }
+
+    Object.keys(cases).forEach(function (item, index) {
+
+        let row = table.append('tr').attr('class', 'row-cases').style('cursor', 'pointer').style('text-align', 'center');
+
+        let boolean_expression = item.split('');
+
+        for (let i = 0; i < boolean_expression.length; ++i) {
+            row.append('td').style('color', boolean_expression[i] === '1' ? '#D482A6' : '#C9D2D3').style('font-size', '24px').style('text-align', 'center').append('div').style('height', '20px').style('width', '20px').style('margin', 'auto').style('border-radius', '50%').style('box-shadow', boolean_expression[i] === '1' ? 'none' : 'inset 0px 0px 5px #737373').style('background-color', boolean_expression[i] === '1' ? '#D482A6' : '#C9D2D3');
+        }
+
+        // Show count
+        row.append('td').html(cases[item]);
+
+        row.on('click', function () {
+            if (row.classed('active')) {
+                d3.selectAll('.row-cases').classed('active', false);
+                d3.selectAll('.row-cases').style('background-color', 'transparent');
+                //vis_streetview(trips, 'streetview-body');
+            } else {
+                // Set class
+                d3.selectAll('.row-cases').classed('active', false);
+                row.classed('active', true);
+                // Bg
+                d3.selectAll('.row-cases').style('background-color', 'transparent');
+                row.style('background-color', '#bababa');
+                // Draw new gallery
+                vis_representative_images(trips, item, 'streetview-body');
+            }
+        });
+
+        // Set first default representative images
+        if (index === 0) {
+            d3.selectAll('.row-cases').style('background-color', 'transparent');
+            row.style('background-color', '#bababa');
+            // Set style without highlight
+            row.classed('active', true);
+            // Show representative images
+            vis_representative_images(trips, item, 'streetview-body');
+        }
+    });
+
+    function preprocess(data) {
+        let cases = {};
+        for (let i = 0; i < data.length; ++i) {
+            Object.keys(data[i].cases).forEach(function (key) {
+                if (key in cases) {
+                    cases[key] += data[i].cases[key].length;
+                } else {
+                    cases[key] = data[i].cases[key].length;
+                }
+            });
+        }
+        return cases;
+    }
+}
+
+function vis_representative_images(trips, expression, container_id) {
+
+    $('#' + container_id).empty();
+
+    let coords = [];
+
+    if (expression && expression !== '0000') {
+        coords = [];
+        let prev_context = undefined;
+        for (let i = 0; i < trips.length; ++i) {
+            let trip = trips[i];
+            if (trip.cases[expression]) {
+                let indexes = trip.cases[expression];
+                for (let j = 0; j < indexes.length; ++j) {
+                    if (Math.random() < 0.3) {
+                        coords.push(trip.locations.coordinates[Math.floor(indexes[j] / 3)]);
+
+                        d3.select('#' + container_id).append('img').attr('id', 'image-' + trip.trip_id + '-' + indexes[j]).attr('class', 'case-images').attr('alt', '').attr('src', '/frames/' + trip.trip_id + '/' + indexes[j] + '.png').style('width', '140px').style('height', '90px').style('cursor', 'pointer').style('border', '1px solid #C9D2D3').style('float', 'left').on('click', function () {
+                            clicked(trip, indexes[j]);
+                        });
+                    }
+                }
+            }
+        }
+        /*
+        if ($('#image-' + trip.trip_id + '-' + indexes[j]).length >= 1) {
+            let current_img = get_image_data('image-' + trip.trip_id + '-' + indexes[j]);
+            let prev_img = get_image_data('image-' + trip.trip_id + '-' + indexes[j - 1]);
+             let res = compare(current_img, prev_img, 8, 0.01, 0.03, true);
+            let ssim = Math.round(res.ssim * 1000) / 1000;
+            //console.log(ssim);
+        }*/
+
+        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_all_points"])(coords);
+    } else {
+
+        coords = [];
+
+        for (let i = 0; i < trips.length; ++i) {
+            let trip = trips[i];
+            let actual_label = trip.actual.no_slight;
+            let temp_action = "";
+            for (let j = 0; j < actual_label.length; ++j) {
+
+                let action = actual_label[j];
+                // Math.random() < 0.1; --> 10% to getting true
+                if (action && temp_action !== action && Math.random() < 0.3) {
+                    coords.push(trip.locations.coordinates[Math.floor(j / 3)]);
+                    d3.select('#' + container_id).append('img').attr('id', 'image-' + trip.trip_id + '-' + j).attr('class', 'case-images').attr('alt', '').attr('src', '/frames/' + trip.trip_id + '/' + j + '.png').style('width', '140px').style('height', '90px').style('cursor', 'pointer').style('border', '1px solid #C9D2D3').style('float', 'left').on('click', function () {
+                        clicked(trip, j);
+                    });
+                    temp_action = action;
+                }
+            }
+        }
+
+        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_all_points"])(coords);
+    }
+
+    function clicked(trip, index) {
+        d3.selectAll('.case-images').style('opacity', 0.2);
+        d3.selectAll('.case-images').style('width', '140px').style('height', '90px');
+
+        $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
+
+        if (d3.select('#image-' + trip.trip_id + '-' + index).classed('active')) {
+            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_remove_layer"])('point-layer');
+            d3.selectAll('.case-images').style('opacity', 1);
+            d3.selectAll('.case-images').style('width', '140').style('height', '90px');
+            d3.select('#image-' + trip.trip_id + '-' + index).classed('active', false);
+
+            $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
+        } else {
+            let coord = trip.locations.coordinates[Math.floor(index / 3)];
+            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_point"])(coord, trip.trip_id + '-' + index);
+            d3.selectAll('.case-images').classed('active', false);
+            d3.select('#image-' + trip.trip_id + '-' + index).style('opacity', 1);
+            d3.select('#image-' + trip.trip_id + '-' + index).style('width', '140px').style('height', '90px');
+            d3.select('#image-' + trip.trip_id + '-' + index).classed('active', true);
+
+            vis_show_streetview(coord, '/frames/' + trip.trip_id + '/' + index + '.png');
+        }
+    }
+
+    function get_image_data(image_id) {
+
+        var canvas = document.createElement('canvas');
+        var context = canvas.getContext('2d');
+        let img = document.getElementById(image_id);
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        var new_img = new Image();
+        new_img.onload = function () {
+            context.drawImage(new_img, 0, 0);
+            var id = context.getImageData(0, 0, img.width, img.height);
+            let img_obj = { width: canvas.width, height: canvas.height, data: id.data, channels: 4, canvas: canvas };
+            console.log(img_obj);
+        };
+    }
+
+    return;
+}
+
+function vis_streetview_cases(trips, expression, container_id) {
+
+    $('#' + container_id).empty();
+
+    if (expression !== '0000') {
+
+        let coordinates = [];
+
+        for (let i = 0; i < trips.length; ++i) {
+            let trip = trips[i];
+
+            if (trip.cases[expression]) {
+                let indexes = trip.cases[expression];
+                for (let j = 0; j < indexes.length; ++j) {
+
+                    coordinates.push(trip.locations.coordinates[Math.floor(indexes[j] / 3)]);
+
+                    d3.select('#' + container_id).append('img').attr('class', 'case-images').attr('alt', '').attr('src', '/frames/' + trip.trip_id + '/' + indexes[j] + '.png').style('width', '140px').style('height', '90px').style('cursor', 'pointer').style('border', '1px solid #C9D2D3').style('float', 'left').on('click', function () {
+
+                        d3.selectAll('.case-images').style('opacity', 0.2);
+                        d3.selectAll('.case-images').style('width', '140px').style('height', '90px');
+
+                        $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
+
+                        if (d3.select(this).classed('active')) {
+                            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_remove_layer"])('point-layer');
+                            d3.selectAll('.case-images').style('opacity', 1);
+                            d3.selectAll('.case-images').style('width', '140').style('height', '90px');
+                            d3.select(this).classed('active', false);
+
+                            $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
+                        } else {
+                            let coord = trip.locations.coordinates[Math.floor(indexes[j] / 3)];
+                            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_point"])(coord, trip.trip_id + '-' + indexes[j]);
+                            d3.selectAll('.case-images').classed('active', false);
+                            d3.select(this).style('opacity', 1);
+                            d3.select(this).style('width', '140px').style('height', '90px');
+                            d3.select(this).classed('active', true);
+
+                            //vis_show_streetview(coord, '/frames/' + trip.trip_id + '/' + indexes[j] + '.png');
+                        }
+                    });
+                }
+            }
+        }
+
+        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_all_points"])(coordinates);
+    }
+}
+
+function vis_show_streetview(coord, image_source) {
+
+    $('#streetview-drawer-pano').empty();
+    $('#streetview-drawer-image').empty();
+
+    let googleServices = new google.maps.StreetViewService();
+    let panorama = new google.maps.StreetViewPanorama(document.getElementById('streetview-drawer-pano'), {
+        position: { lat: coord[1], lng: coord[0] },
+        pov: {
+            heading: 34,
+            pitch: 5
+        }
+    });
+
+    let options = {
+        scrollwheel: true,
+        disableDefaultUI: false,
+        clickToGo: true
+    };
+
+    google.maps.event.trigger(panorama, 'resize');
+    panorama.setOptions(options);
+
+    d3.select('#streetview-drawer-image').append('img').attr('alt', '').attr('src', image_source).style('width', '100%').style('height', '100%');
+
+    $("#streetview-drawer-content").animate({ "margin-right": 0 }, "fast");
+    return;
+}
+
+function vis_area_study(trips, container_id) {
+
+    console.log(trips);
+
+    $('#' + container_id).empty();
+
+    // compute segment percentages
+    let processed_data = preprocess(trips);
+
+    let data = processed_data[0];
+    let keys = processed_data[1];
+
+    // add y axis
+    let y_container = d3.select('#' + container_id).append('div').style('width', '40px').style('height', '100%').style('border', '1px solid #C9D2D3').style('font-size', '12px').style('float', 'left').html('Legend');
+
+    // add trip_container
+    let trip_container = d3.select('#' + container_id).append('div').style('width', 'calc(100% - 50px)').style('height', '100%').style('border', '1px solid #C9D2D3').style('float', 'left').style('overflow-x', 'auto').style('overflow-y', 'auto').style('white-space', 'nowrap');
+
+    for (let i = 0; i < data.length; ++i) {
+
+        let container = trip_container.append('div').attr('id', 'area-' + data[i].trip_id).style('width', '150px').style('height', '100%').style('border', '1px solid #C9D2D3').style('display', 'inline-block');
+
+        draw_chart(container, data[i], keys);
+    }
+
+    function draw_chart(container, data, keys) {
+
+        // Draw 3 line
+        let margin = { top: 20, right: 0, bottom: 10, left: 10 };
+        let width = 150 - margin.left - margin.right;
+        let height = $('#tripview-body').height() - margin.top - margin.bottom;
+
+        var x = d3.scaleLinear().range([0, width]);
+        var y = d3.scaleLinear().range([height, 0]);
+        let value_scale = d3.scaleLinear().range([0, 100]).domain([0, 1]);
+
+        var brushFn = d3.brushY().extent([[-16, 0], [width, height]]);
+
+        var line = d3.line().x(function (d) {
+            return x(d.value);
+        }).y(function (d) {
+            return y(d.index);
+        }).curve(d3.curveBasis);
+
+        let g = container.append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");;
+
+        y.domain([0, 108]);
+        x.domain([0, 100]);
+
+        g.append('g').call(brushFn);
+
+        g.append("g").attr("class", "axis axis--x").call(d3.axisTop(x).tickFormat(d3.format('.0f')));
+
+        Object.keys(data.entropy).forEach(function (model) {
+            let line_data = [];
+            for (let i = 0; i < data.entropy[model].length; ++i) {
+                line_data.push({
+                    index: i,
+                    value: value_scale(data.entropy[model][i])
+                });
+            }
+            // Draw line
+            g.append("path").datum(line_data).attr("class", "line-" + model).attr("d", line);
+        });
+    }
+
+    function preprocess(data) {
+
+        let default_dimension = 1280 * 720;
+        let keys = [];
+
+        for (let i = 0; i < data.length; ++i) {
+
+            let segments = data[i].segments;
+
+            segments.forEach(function (segment) {
+                let width = segment.box2d.x2 - segment.box2d.x1;
+                let height = segment.box2d.y2 - segment.box2d.y1;
+                let category = segment.category;
+                let dimension = width * height;
+                let percentage = dimension / default_dimension * 100;
+
+                if (!('segments_percentage' in data[i])) {
+                    data[i]['segments_percentage'] = {};
+                }
+
+                if (!(category in data[i]['segments_percentage'])) {
+                    data[i]['segments_percentage'][category] = percentage;
+                } else {
+                    data[i]['segments_percentage'][category] += percentage;
+                }
+
+                if (keys.indexOf(category) < 0) {
+                    keys.push(category);
+                }
+            });
+        }
+
+        return [data, keys];
+    }
+}
+
+/*
+export function vis_trips_study(trips) {
+
+    if (trips.length <= 0) return;
+
+    let container_height = 190; // 150
+    let max_height = 420;
+    let total_height = trips.length * container_height;
+
+    if (total_height < max_height) {
+        max_height = total_height + 20;
+    }
+
+    // Move map and set senter
+    d3.select('#map').style('height','calc(100% - ' + max_height + 'px)');
+    d3.select('#tripview').style('max-height', max_height + 'px');
+    $('#tripview-body').height('calc(' + max_height + 'px - 20px)');
+    d3.select('#tripview').style('transition','max-height 0.25s ease-in');
+
+    $('#tripview-body').empty();
+    let trip_container = d3.select('#tripview-body').append('div')
+        .style('width', '100%')
+        .style('height', total_height + 'px')
+        .style('box-sizing', 'border-box');
+
+    vis_trip_detail(trips, trip_container);
+
+
+    $('#tripview').on('transitionend', function () {
+        vis_trip_detail(trips, trip_container);
+    });
+
+    $('#tripview-dropdown').off().on('change', function() {
+        $('#tripview-body').empty();
+        let trip_container = d3.select('#tripview-body').append('div')
+            .style('width', '100%')
+            .style('height', total_height + 'px')
+            .style('box-sizing', 'border-box');
+
+        vis_trip_detail(trips, trip_container);
+    });
+}*/
+
+/*
+export function vis_trip_detail (trips, div) {
+
+    //console.log($('#tripview-dropdown').val());
+    // get mode
+    switch ($('#tripview-dropdown').val()) {
+        case 'action': draw_action(trips, div); break;
+        case 'perplexity': draw_perplexity(trips, div); break;
+        case 'combine': vis_draw_action(trips, div); break;
+        default: draw_action(trips, div); break;
+    }
+
+    function draw_action(trips, div) {
+
+        for (let i = 0; i < trips.length; ++i) {
+
+            vis_create_trip_info(trips[i], div, i);
+            let trip = trips[i];
+            let models = ['actual', 'tcnn1', 'fcn_lstm', 'cnn_lstm'];
+            let car_actions = ['straight2', 'slow_or_stop2', 'turn_left2', 'turn_right2', 'turn_left_slight2', 'turn_right_slight2'];
+
+            let width = $('#tripview-body').width();
+            let height = 150;
+
+            let container = div.append('div')
+                .style('width', '100%')
+                .style('box-sizing', 'border-box')
+                .style('border-bottom', '1px solid #d9d9d9')
+                .style('height', height + 'px');
+
+            let row_height = height / models.length;
+
+            let x = d3.scaleLinear()
+                .range([0, width - 100])
+                .domain([0, trip.actual.slight.length]);
+
+            let svg = container.append('svg')
+                .attr('class', 'trip-svg-' + i)
+                .style('width', width)
+                .style('height', height);
+
+            let img_width = x(1) - x(0);
+
+            var brushFn = d3.brushX()
+                .extent([[-16, 0], [width, height]]);
+
+            for (let i = 0; i < car_actions.length; ++i) {
+                svg.append("defs")
+                    .append("pattern")
+                    .attr("id", 'rect-bg-' + car_actions[i])
+                    .attr('patternUnits', 'objectBoundingBox')
+                    .attr('width', img_width)
+                    .attr('height', row_height)
+                    .append("image")
+                    .attr("xlink:href", 'signs/' + car_actions[i] + '.png')
+                    .attr('width', img_width)
+                    .attr('height', row_height);
+            }
+
+            for (let i = 0; i < models.length; ++i) {
+
+                let model_g = svg.append('g')
+                .attr("transform", "translate(0," + i * row_height + ")");
+
+                model_g.append('text')
+                    .attr("x", 10)
+                    .attr("y", row_height / 2)
+                    .attr("dy", ".35em")
+                    .style('stroke', model_colors[models[i]])
+                    .text(models[i]);
+
+                let model_bg = model_g.append('g')
+                    .attr("transform", "translate(100,0)");
+
+                //console.log(trip);
+
+                for (let j = 0; j < trip.actual.no_slight.length; ++j) {
+
+                    let action = (models[i] === 'actual') ? trip.actual.no_slight[j] : trip.predict[models[i]][j].indexOf(d3.max(trip.predict[models[i]][j]));
+
+                    model_bg.append('rect')
+                        .attr('x', x(j))
+                        .attr('class', 'sign-rect sign-rect-' + j)
+                        .attr('y', 10)
+                        .style('fill', model_colors[models[i]])
+                        .style('opacity', 1)
+                        .attr('width', img_width)
+                        .attr('height', row_height - 20);
+
+                    let sign = model_bg.append('rect')
+                        .attr('x', x(j))
+                        .style('fill', 'url(#rect-bg-' + car_actions[action] + ')')
+                        .style('cursor', 'pointer')
+                        .attr('width', img_width)
+                        .attr('height', row_height)
+                        .on('click', function() {
+                        })
+                        .on('mouseover', function() {
+                        })
+                        .on('mouseout', function() {
+                        });
+                }
+            }
+
+            svg.append('g').call(brushFn);
+
+            let legend_models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+            let legend_model_colors = ['#9d9d9d', '#e41a1c', '#377eb8', '#4daf4a'];
+
+            $('#tripview-legends').empty();
+
+            for (let i = 0; i < legend_models.length; ++i) {
+
+                let legend_icon = d3.select('#tripview-legends').append('i')
+                    .attr('class', 'fas fa-square')
+                    .style('cursor', 'pointer')
+                    .style('color', legend_model_colors[i]);
+
+                let legend_text = d3.select('#tripview-legends').append('label')
+                    .style('cursor', 'pointer')
+                    .html('&nbsp;' + legend_models[i] + '&nbsp;&nbsp;');
+            }
+        }
+    }
+
+    function draw_perplexity(trip, svg) {
+        // Draw perplexity
+        for (let i = 0; i < trips.length; ++i) {
+
+            vis_create_trip_info(trips[i], div);
+            let trip = trips[i];
+
+            let width = $('#tripview-body').width();
+            let height = 150;
+
+            let container = div.append('div')
+                .style('width', '100%')
+                .style('height', height + 'px');
+
+            let margin = {top: 20, right: 0, bottom: 20, left: 40};
+            width = width - margin.left - margin.right;
+            height = 150 - margin.top - margin.bottom;
+
+            var x = d3.scaleLinear().range([0, width]);
+            var y = d3.scaleLinear().range([height, 0]);
+            let value_scale = d3.scaleLinear().range([0, 100]).domain([0, 1]);
+
+            var brushFn = d3.brushX()
+                .extent([[-16, 0], [width, height]]);
+
+            var area = d3.area()
+                .x(function(d) { return x(d.index); })
+                .y0(y(0))
+                .y1(function(d) { return y(d.value); })
+
+            var line = d3.line()
+                .x(function(d) { return x(d.index); })
+                .y(function(d) { return y(d.value); })
+                .curve(d3.curveBasis);
+
+            let g = container.append('svg')
+                .attr('class', 'trip-svg-' + i)
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+                    .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            y.domain([0, 100]);
+            x.domain([0, 108]);
+
+            g.append('g').call(brushFn);
+            g.append("g")
+                .attr("class", "axis axis--y")
+                .call(d3.axisLeft(y).tickFormat(d3.format('.0f')));
+
+            Object.keys(trip.entropy).forEach(function (model) {
+                let line_data = [];
+                for (let i = 0; i < trip.entropy[model].length; ++i) {
+                    line_data.push({
+                        index: i,
+                        value: value_scale(trip.entropy[model][i])
+                    });
+                }
+                // Draw line
+                g.append("path")
+                    .datum(line_data)
+                    .attr("class", "line-" + model)
+                    .attr("d", area);
+            });
+
+            g.append('rect')
+                .attr('x', 0)
+                .attr('y', y(50))
+                .attr('width', width)
+                .attr('height', height - y(50))
+                .attr('fill', '#C9D2D3')
+                .attr('fill-opacity', 0.6);
+
+            g.append('circle')
+                .attr('cx', 0)
+                .attr('cy', y(50))
+                .attr('r', 3)
+                .attr('fill', '#252525');
+
+            let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+            let model_colors = ['#e41a1c', '#377eb8', '#4daf4a'];
+
+            $('#tripview-legends').empty();
+
+            for (let i = 0; i < models.length; ++i) {
+
+                let legend_icon = d3.select('#tripview-legends').append('i')
+                    .attr('class', 'fas fa-square')
+                    .style('cursor', 'pointer')
+                    .style('color', model_colors[i]);
+
+                let legend_text = d3.select('#tripview-legends').append('label')
+                    .style('cursor', 'pointer')
+                    .html('&nbsp;' + models[i] + '&nbsp;&nbsp;');
+            }
+
+        }
+    }
+}*/
+
+/*
+export function vis_draw_action(trips, div) {
+    // Show nearest point on other trips
+
+    let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+    let model_colors = ['#9d9d9d', '#e41a1c', '#377eb8', '#4daf4a'];
+
+    $('#tripview-legends').empty();
+
+    for (let i = 0; i < models.length; ++i) {
+
+        let legend_icon = d3.select('#tripview-legends').append('i')
+            .attr('class', 'fas fa-square')
+            .style('cursor', 'pointer')
+            .style('color', model_colors[i]);
+
+        let legend_text = d3.select('#tripview-legends').append('label')
+            .style('cursor', 'pointer')
+            .html('&nbsp;' + models[i] + '&nbsp;&nbsp;');
+    }
+
+    let car_action = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
+
+    let width = $('#tripview-body').width();
+    let height = 150;
+
+    for (let i = 0; i < trips.length; ++i) {
+
+        vis_create_trip_info(trips[i], div, i);
+        let keys = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+
+        let container = div.append('div')
+            .style('width', '100%')
+            .style('height', height + 'px');
+
+        let margin = {top: 20, right: 10, bottom: 20, left: 50}
+        let svg_width = width - margin.left - margin.right;
+        let svg_height = height - margin.top - margin.bottom;
+
+        let svg = container.append('svg')
+            .attr('class', 'trip-svg-' + i)
+            .attr('width', svg_width + margin.left + margin.right)
+            .attr('height', svg_height + margin.left + margin.right)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        let actual_action = trips[i].actual.no_slight;
+
+        let x = d3.scaleLinear()
+            .range([0, svg_width]);
+        let y = d3.scaleBand()
+            .range([0, svg_height])
+            .paddingInner(0.2);
+
+        let y1_scale = d3.scaleLinear();
+
+        x.domain([0, actual_action.length])
+        y.domain(keys);
+        y1_scale.domain([0, 1]).range([y.bandwidth(), 0]);
+
+        //console.log(trips[i]);
+
+        let data = {
+            actual: trips[i].actual.no_slight,
+            tcnn1: trips[i].predict.tcnn1,
+            cnn_lstm: trips[i].predict.cnn_lstm,
+            fcn_lstm: trips[i].predict.fcn_lstm
+        }
+
+        var brushFn = d3.brushX()
+            .extent([[0, 0], [svg_width, svg_height]]);
+
+        svg.append('g').call(brushFn);
+        svg.append("g")
+            .attr("class", "axis")
+            .call(d3.axisLeft(y));
+
+        for (let k = 0; k < keys.length; ++k) {
+
+            let g = svg.append("g")
+                .style('opacity', 1)
+                .attr('transform', "translate(" + 0 + "," + y(keys[k]) + ")");
+
+            g.append('line')
+                .style("stroke", model_colors[k])
+                .style("stroke-width", 1.5)
+                .style("stroke-dasharray", ("3, 3"))
+                .attr("x1", x(0))
+                .attr("y1", y.bandwidth() / 2)
+                .attr("x2", x(data[keys[k]].length - 1))
+                .attr("y2", y.bandwidth() / 2);
+
+            let temp_action = undefined;
+            let count = 0;
+            let pos = 0;
+
+            let predict_action = data[keys[k]];
+            let entropy = undefined;
+            if (keys[k] !== 'actual') entropy = trips[i].entropy[keys[k]]
+
+            let entropy_data = [];
+
+            // find median
+            for (let j = 0; j < predict_action.length; ++j) {
+
+                let action = (keys[k] === 'actual') ? car_action[predict_action[j]] : car_action[predict_action[j].indexOf(d3.max(predict_action[j]))];
+
+                entropy_data.push({
+                    index: j,
+                    value: (entropy) ? entropy[j] : undefined
+                });
+
+                if (action !== temp_action) {
+
+                    // Draw last line
+                    if (j == 0) {
+                        g.append('line')
+                            .style("stroke", model_colors[k])
+                            .style("stroke-width", 2)
+                            .attr("x1", x(j))
+                            .attr("y1", 4)
+                            .attr("x2", x(j))
+                            .attr("y2", y.bandwidth() - 4);
+                    } else {
+                        if (count >= 3) {
+                            g.append('line')
+                                .style("stroke", model_colors[k])
+                                .style("stroke-width", 2)
+                                .attr("x1", x(j))
+                                .attr("y1", 4)
+                                .attr("x2", x(j))
+                                .attr("y2", y.bandwidth() - 4);
+                            // Draw symbol
+                            let symbol_index = (j + pos) / 2;
+                            draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
+                        } else {
+                            draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
+
+                            //g.append('line')
+                              //  .style("stroke", model_colors[k])
+                                //.style("stroke-width", 2)
+                                //.attr("x1", x(j+1))
+                                //.attr("y1", 4)
+                                //.attr("x2", x(j+1))
+                                //.attr("y2", y.bandwidth() - 4);
+                        }
+                    }
+
+                    temp_action = action;
+                    count = 0;
+                    pos = j;
+                }
+
+                if (j == actual_action.length - 1) {
+                    if (count >= 3) {
+                        g.append('line')
+                            .style("stroke", model_colors[k])
+                            .style("stroke-width", 2)
+                            .attr("x1", x(j))
+                            .attr("y1", 4)
+                            .attr("x2", x(j))
+                            .attr("y2", y.bandwidth() - 4);
+                        // Draw symbol
+                        let symbol_index = (j + pos) / 2;
+                        draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
+                    } else {
+                        draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
+
+                        //g.append('line')
+                          //  .style("stroke", model_colors[k])
+                            //.style("stroke-width", 1)
+                            //.attr("x1", x(j+1))
+                            //.attr("y1", 4)
+                            //.attr("x2", x(j+1))
+                            //.attr("y2", y.bandwidth() - 4);
+                    }
+                }
+
+                count += 1;
+            }
+
+            var area = d3.area()
+                .x(function(d) { return x(d.index); })
+                .y0(y1_scale(0))
+                .y1(function(d) { return y1_scale(d.value); });
+
+            if (keys[k] !== 'actual') {
+                // Draw line
+                g.append("path")
+                    .datum(entropy_data)
+                    .attr("class", "line-" + keys[k] + "-1")
+                    .attr("d", area);
+            }
+        }
+    }
+
+    function draw_symbol(g, action, x, y, color) {
+
+        let symbol = undefined;
+        let rotate = 0;
+
+        if (action === 'slow_or_stop') {
+            symbol = d3.symbolCircle;
+            //color = '#fbb4ae';
+        } else {
+            symbol = d3.symbolTriangle;
+            //color = '#ccebc5';
+            if (action === 'turn_left') {
+                rotate = 270;
+                //color = '#b3cde3'
+            }
+            if (action === 'turn_right') {
+                rotate = 90;
+                //color = '#b3cde3'
+            }
+        }
+
+        g.append('path')
+            .attr('d', d3.symbol().size(40).type(symbol))
+            .attr('fill', color)
+            .attr('stroke', color)
+            .attr('stroke-width', 1)
+            .attr('transform', function(d) {
+                return "translate(" + x + "," + y + ") rotate(" + rotate + ")";
+            });
+    }
+}*/
+
+/*
+export function vis_create_trip_info(trip, div, index) {
+
+    let trip_info = div.append('div')
+        .style('width', '100%')
+        .style('height', '20px')
+        .style('font-size', '14px')
+        .style('padding-left', '5px')
+        .style('line-height', '20px');
+
+    let trip_icon = trip_info.append('i')
+        .attr('class', (index === 0) ? 'fas fa-check-square trip-checkbox' : 'fas fa-square trip-checkbox')
+        .style('cursor', 'pointer')
+        .style('color', '#000')
+        .on('click', function() {
+            d3.selectAll('.trip-checkbox').classed('fas fa-check-square', false);
+            d3.selectAll('.trip-checkbox').classed('fas fa-square', true);
+
+            d3.select(this).attr('class', 'fas fa-check-square trip-checkbox');
+            vis_trip_viewer(trip, div, index);
+        });
+
+    let trip_text = trip_info.append('label')
+        .style('cursor', 'pointer')
+        .html('&nbsp;Trip ID: ' + trip.trip_id + '&nbsp;&nbsp;');
+
+    let performances = ['accuracy', 'perplexity', 'f1'];
+    let performance_labels = ['Accuracy', 'Perplexity', 'F1'];
+    let performance_colors = ['#fb6a4a','#67000d','#a50f15'];
+
+    for (let i = 0; i < performances.length; ++i) {
+        let performance = trip[performances[i]].split(',')[0];
+        trip_info.append('label')
+            .style('margin-left', '2px')
+            .style('border-radius', '2px')
+            .style('background-color', performance_colors[i])
+            .style('color', '#fff')
+            .html('&nbsp;' + performance_labels[i] + ': ' + performance + "&nbsp;");
+    }
+
+    let others = ['time_of_day', 'scene', 'weather'];
+    let other_labels = ['Time', 'Scene', 'Weather'];
+
+    for (let i = 0; i < others.length; ++i) {
+        trip_info.append('label')
+            .style('margin-right', '2px')
+            .style('border-radius', '2px')
+            .style('float', 'right')
+            .style('background-color', '#C9D2D3')
+            .style('color', '#252525')
+            .html('&nbsp;' + other_labels[i] + ': ' + trip[others[i]] + "&nbsp;");
+    }
+
+    let trip_slider_container = div.append('div')
+        .style('width', '100%')
+        .style('height', '20px')
+        .style('font-size', '14px')
+        .style('line-height', '20px')
+
+    let trip_slider = trip_slider_container.append('input')
+        .attr('id', 'trip-slider-' + index)
+        .attr('class', 'custom-slider')
+        .attr('type', 'range')
+        .attr('min', 0)
+        .attr('max', '107')
+        .attr('step', '1')
+        .attr('val', 0)
+        .style('float', 'left')
+        .style('width', 'calc(100% - 60px)')
+        .style('height', '1px')
+        .style('margin-top', '20px')
+        .style('margin-left', '50px')
+        .style('margin-right', '10px')
+        .style('background', '#252525');
+
+    if (index == 0) {
+        vis_trip_viewer(trip, div, index);
+    }
+}*/
+
+function vis_trip_list(trips) {
+    //console.log(trips);
+
+    $('#trip-list').remove();
+    // create trip list
+    let div = d3.select('body').append('div').attr('id', 'trip-list').style('width', '400px').style('height', 'calc(100% - 30px)').style('position', 'absolute').style('top', '30px').style('left', '0px').style('z-index', '9999').style('background-color', '#f0f0f0').style('box-sizing', 'border-box');
+
+    let trip_header = div.append('div').style('width', '100%').style('height', '20px').style('font-size', '14px').style('line-height', '20px').html('TRIP LIST: ');
+
+    let trip_container = div.append('div').style('width', '100%').style('height', 'calc(100% - 20px)').style('font-size', '12px').style('overflow-x', 'hidden').style('overflow-y', 'auto');
+
+    let performances = ['accuracy', 'perplexity', 'f1'];
+    let performance_labels = ['Accuracy', 'Perplexity', 'F1'];
+    let performance_colors = ['#fb6a4a', '#67000d', '#a50f15'];
+
+    for (let i = performances.length - 1; i >= 0; --i) {
+
+        let performance_div = trip_header.append('div').style('width', 'auto').style('height', '20px').style('float', 'right');
+
+        let performance_icon = performance_div.append('i').attr('class', 'fas fa-square').style('color', performance_colors[i]);
+
+        let performance_text = performance_div.append('label').style('cursor', 'pointer').html('&nbsp;&nbsp;' + performance_labels[i] + '&nbsp;&nbsp;');
+    }
+
+    // 0 is the first one!
+    for (let i = 0; i < trips.length; ++i) {
+
+        let trip = trips[i];
+
+        let trip_info = trip_container.append('div').attr('id', 'trip-info-' + i).attr('class', 'trip-info').style('width', '100%').style('height', '20px').style('padding-left', '5px').style('padding-right', '5px').style('background-color', i == 0 ? '#C9D2D3' : '#f0f0f0').style('box-sizing', 'border-box').style('font-size', '14px').style('line-height', '20px').style('cursor', 'pointer').on('click', function () {
+            d3.selectAll('.trip-checkbox').classed('fas fa-check-square', false);
+            d3.selectAll('.trip-checkbox').classed('fas fa-square', true);
+            d3.select('#trip-checkbox-' + i).attr('class', 'fas fa-check-square trip-checkbox');
+            d3.selectAll('.trip-info').style('background-color', '#f0f0f0');
+            d3.select('#trip-info-' + i).style('background-color', '#C9D2D3');
+
+            vis_trips_study(trip, i);
+            vis_trip_viewer(trip, i);
+            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_trip_in_radius"])(trips, i);
+            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_selected_trips"])(trip);
+        });
+
+        let trip_selector = trip_info.append('div').style('width', 'calc(100% - 180px)').style('height', '20px').style('font-size', '14px').style('float', 'left').style('line-height', '20px');
+
+        let trip_icon = trip_selector.append('i').attr('id', 'trip-checkbox-' + i).attr('class', i === 0 ? 'fas fa-check-square trip-checkbox' : 'fas fa-square trip-checkbox').style('cursor', 'pointer').style('color', '#000');
+
+        let trip_text = trip_selector.append('label').style('cursor', 'pointer').html('&nbsp;Trip ID: ' + trip.trip_id);
+
+        let value_scale = d3.scaleLinear().domain([0, 1]).range([0, 100]);
+
+        let width_scale = d3.scaleLinear().domain([0, 100]).range([0, 60]);
+
+        for (let i = 0; i < performances.length; ++i) {
+
+            let value = value_scale(trip.performances[performances[i]]);
+
+            let trip_performance = trip_info.append('div').style('width', '60px').style('height', '20px').style('float', 'left').style('font-size', '12px').style('line-height', '20px');
+
+            let svg = trip_performance.append('svg').attr('width', '60').attr('height', '20');
+
+            svg.append('defs').append('pattern').attr('id', 'diagonalHatch').attr('patternUnits', 'userSpaceOnUse').attr('width', 4).attr('height', 4).append('path').attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2').attr('stroke', '#f0f0f0').attr('stroke-width', 1);
+
+            svg.append('rect').attr('x', 0).attr('y', 0).attr('height', '20').attr('fill', performance_colors[i]).attr('stroke', '#f0f0f0').attr('stroke-width', .5).transition().duration(500).attr('width', width_scale(value));
+
+            svg.append("rect").attr("x", 0).attr("width", width_scale(value)).attr("height", 20).attr('fill', 'url(#diagonalHatch)').attr('stroke', '#f0f0f0').attr('stroke-width', .5);
+        }
+    }
+
+    vis_trips_study(trips[0], 0);
+    vis_trip_viewer(trips[0], 0);
+    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_trip_in_radius"])(trips, 0);
+    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_selected_trips"])(trips[0]);
+}
+
+function vis_trip_viewer(trip, index) {
+
+    d3.select('#trip-slider-' + index).property("value", 0);
+    //d3.selectAll('.custom-slider').property("disabled", true);
+    //d3.select('#trip-slider-' + index).property("disabled", false);
+
+    if (vis_marker) {
+        vis_marker.remove();
+    }
+    vis_marker = new mapboxgl.Marker().setLngLat(trip.locations.coordinates[0]).addTo(_map__WEBPACK_IMPORTED_MODULE_0__["map_main"]);
+
+    d3.selectAll('.trip-viewer').remove();
+
+    let viewer = $('<div/>', {
+        class: 'trip-viewer'
+    }).css({
+        width: '400px',
+        height: '250px',
+        'box-sizing': 'border-box',
+        'border': '10px solid #C9D2D3'
+    });
+
+    let img = $('<img/>', {
+        id: 'trip-viwer-image',
+        alt: '',
+        src: '/frames/' + trip.trip_id + '/' + 0 + '.png'
+    }).css({
+        width: '100%',
+        height: '100%'
+    });
+
+    viewer.append(img);
+    viewer.insertAfter('#trip-info-' + index);
+
+    //map_main.flyTo({center: trip.locations.coordinates[0], essential: true, zoom:15 });
+
+    let x = d3.scaleLinear().domain([0, 108]).range([50, $('#tripview-body').width()]);
+
+    d3.select('#trip-slider-' + index).on("input", function () {
+
+        d3.select('#trip-viwer-image').attr('src', '/frames/' + trip.trip_id + '/' + this.value + '.png');
+
+        d3.selectAll('.trip-video-line').remove();
+        d3.selectAll('.trip-svg-' + index).append('line').attr('class', 'trip-video-line').style("stroke", '#9d9d9d').style("stroke-opacity", 0.8).style("stroke-width", 1).attr("x1", x(this.value)).attr("y1", 10).attr("x2", x(this.value)).attr("y2", 300);
+
+        if (vis_marker) {
+            vis_marker.remove();
+        }
+        vis_marker = new mapboxgl.Marker().setLngLat(trip.locations.coordinates[Math.floor(this.value / 3)]).addTo(_map__WEBPACK_IMPORTED_MODULE_0__["map_main"]);
+
+        //map_main.flyTo({center: trip.locations.coordinates[Math.floor(this.value / 3)], essential: true, zoom: 15 });
+    });
+    return;
+}
+
+function vis_trips_study(trip, index) {
+
+    let container_height = 300; // 150
+    let max_height = 320;
+
+    // Move map and set senter
+    d3.select('#map').style('height', 'calc(100% - ' + 250 + 'px)');
+    d3.select('#tripview').style('max-height', 250 + 'px');
+    $('#tripview-body').height('calc(' + 250 + 'px - 20px)');
+    d3.select('#tripview').style('transition', 'max-height 0.25s ease-in');
+
+    $('#tripview-body').empty();
+    let trip_container = d3.select('#tripview-body').append('div').style('width', '100%').style('height', 230 + 'px').style('box-sizing', 'border-box');
+
+    vis_draw_action(trip, trip_container, index);
+
+    $('#tripview').off('mouseenter').on('mouseover', function () {});
+
+    $('#tripview').off('mouseout').on('mouseout', function () {
+        /*
+        var coordinates = map_circle_polygon.geometry.coordinates[0];
+        var bounds = coordinates.reduce(function (bounds, coord) {
+            return bounds.extend(coord);
+        }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
+         map_main.fitBounds(bounds, {
+            zoom: 11
+        });*/
+    });
+
+    /*
+    $('#tripview').on('transitionend', function () {
+        vis_trip_detail(trips, trip_container);
+    });*/
+
+    /*
+    $('#tripview-dropdown').off().on('change', function() {
+        $('#tripview-body').empty();
+        let trip_container = d3.select('#tripview-body').append('div')
+            .style('width', '100%')
+            .style('height', total_height + 'px')
+            .style('box-sizing', 'border-box');
+         //vis_trip_detail(trips, trip_container);
+    });*/
+}
+
+function vis_draw_action(trip, div, index) {
+    // Show nearest point on other trips
+
+    let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+    let model_colors = ['#9d9d9d', '#e41a1c', '#377eb8', '#4daf4a'];
+
+    $('#tripview-legends').empty();
+
+    for (let i = 0; i < models.length; ++i) {
+
+        let legend_icon = d3.select('#tripview-legends').append('i').attr('class', 'fas fa-square').style('cursor', 'pointer').style('color', model_colors[i]);
+
+        let legend_text = d3.select('#tripview-legends').append('label').style('cursor', 'pointer').html('&nbsp;' + models[i] + '&nbsp;&nbsp;');
+    }
+
+    let car_action = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
+
+    let width = $('#tripview-body').width();
+    let height = 200;
+
+    vis_create_trip_info(trip, div, index);
+    let keys = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+
+    let container = div.append('div').style('width', '100%').style('height', height + 'px');
+
+    let margin = { top: 20, right: 10, bottom: 20, left: 50 };
+    let svg_width = width - margin.left - margin.right;
+    let svg_height = height - margin.top - margin.bottom;
+
+    let svg = container.append('svg').attr('class', 'trip-svg-' + index).attr('width', svg_width + margin.left + margin.right).attr('height', svg_height + margin.left + margin.right).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    let actual_action = trip.actual.no_slight;
+
+    let x = d3.scaleLinear().range([0, svg_width]);
+    let y = d3.scaleBand().range([0, svg_height]).paddingInner(0.2);
+
+    let y1_scale = d3.scaleLinear();
+
+    x.domain([0, actual_action.length]);
+    y.domain(keys);
+    y1_scale.domain([0, 1]).range([y.bandwidth(), 0]);
+
+    //console.log(trips[i]);
+
+    let data = {
+        actual: trip.actual.no_slight,
+        tcnn1: trip.predict.tcnn1,
+        cnn_lstm: trip.predict.cnn_lstm,
+        fcn_lstm: trip.predict.fcn_lstm
+
+        /*
+        var brushFn = d3.brushX()
+            .extent([[0, 0], [svg_width, svg_height]]);*/
+        /*
+        svg.append('g').call(brushFn);*/
+    };svg.append("g").attr("class", "axis").call(d3.axisLeft(y));
+
+    for (let k = 0; k < keys.length; ++k) {
+
+        let g = svg.append("g").style('opacity', 1).attr('transform', "translate(" + 0 + "," + y(keys[k]) + ")");
+
+        g.append('line').style("stroke", model_colors[k]).style("stroke-width", 1.5).style("stroke-dasharray", "3, 3").attr("x1", x(0)).attr("y1", y.bandwidth() / 2).attr("x2", x(data[keys[k]].length - 1)).attr("y2", y.bandwidth() / 2);
+
+        let temp_action = undefined;
+        let count = 0;
+        let pos = 0;
+
+        let predict_action = data[keys[k]];
+        let entropy = undefined;
+        if (keys[k] !== 'actual') entropy = trip.entropy[keys[k]];
+
+        let entropy_data = [];
+
+        // find median
+        for (let j = 0; j < predict_action.length; ++j) {
+
+            let action = keys[k] === 'actual' ? car_action[predict_action[j]] : car_action[predict_action[j].indexOf(d3.max(predict_action[j]))];
+
+            entropy_data.push({
+                index: j,
+                value: entropy ? entropy[j] : undefined
+            });
+
+            if (action !== temp_action) {
+
+                // Draw last line
+                if (j == 0) {
+                    g.append('line').style("stroke", model_colors[k]).style("stroke-width", 2).attr("x1", x(j)).attr("y1", 4).attr("x2", x(j)).attr("y2", y.bandwidth() - 4);
+                } else {
+                    if (count >= 3) {
+                        g.append('line').style("stroke", model_colors[k]).style("stroke-width", 2).attr("x1", x(j)).attr("y1", 4).attr("x2", x(j)).attr("y2", y.bandwidth() - 4);
+                        // Draw symbol
+                        let symbol_index = (j + pos) / 2;
+                        draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
+                    } else {
+                        draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
+                        /*
+                        g.append('line')
+                            .style("stroke", model_colors[k])
+                            .style("stroke-width", 2)
+                            .attr("x1", x(j+1))
+                            .attr("y1", 4)
+                            .attr("x2", x(j+1))
+                            .attr("y2", y.bandwidth() - 4);*/
+                    }
+                }
+
+                temp_action = action;
+                count = 0;
+                pos = j;
+            }
+
+            if (j == actual_action.length - 1) {
+                if (count >= 3) {
+                    g.append('line').style("stroke", model_colors[k]).style("stroke-width", 2).attr("x1", x(j)).attr("y1", 4).attr("x2", x(j)).attr("y2", y.bandwidth() - 4);
+                    // Draw symbol
+                    let symbol_index = (j + pos) / 2;
+                    draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
+                } else {
+                    draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
+                    /*
+                    g.append('line')
+                        .style("stroke", model_colors[k])
+                        .style("stroke-width", 1)
+                        .attr("x1", x(j+1))
+                        .attr("y1", 4)
+                        .attr("x2", x(j+1))
+                        .attr("y2", y.bandwidth() - 4);*/
+                }
+            }
+
+            count += 1;
+        }
+
+        var area = d3.area().x(function (d) {
+            return x(d.index);
+        }).y0(y1_scale(0)).y1(function (d) {
+            return y1_scale(d.value);
+        });
+
+        if (keys[k] !== 'actual') {
+            // Draw line
+            g.append("path").datum(entropy_data).attr("class", "line-" + keys[k] + "-1").attr("d", area);
+        }
+    }
+
+    function draw_symbol(g, action, x, y, color) {
+
+        let symbol = undefined;
+        let rotate = 0;
+
+        if (action === 'slow_or_stop') {
+            symbol = d3.symbolCircle;
+            //color = '#fbb4ae';
+        } else {
+            symbol = d3.symbolTriangle;
+            //color = '#ccebc5';
+            if (action === 'turn_left') {
+                rotate = 270;
+                //color = '#b3cde3'
+            }
+            if (action === 'turn_right') {
+                rotate = 90;
+                //color = '#b3cde3'
+            }
+        }
+
+        g.append('path').attr('d', d3.symbol().size(60).type(symbol)).attr('fill', color).attr('stroke', color).attr('stroke-width', 1).attr('transform', function (d) {
+            return "translate(" + x + "," + y + ") rotate(" + rotate + ")";
+        });
+    }
+}
+
+function vis_create_trip_info(trip, div, index) {
+
+    let others = ['time_of_day', 'scene', 'weather'];
+    let other_labels = ['Time', 'Scene', 'Weather'];
+
+    for (let i = 0; i < others.length; ++i) {
+        d3.select('#tripview-legends').append('label').style('margin-right', '5px').style('border-radius', '2px').style('float', 'left').style('background-color', '#C9D2D3').style('color', '#252525').html('&nbsp;' + other_labels[i] + ': ' + trip[others[i]] + "&nbsp;");
+    }
+
+    let trip_slider_container = div.append('div').style('width', '100%').style('height', '20px').style('font-size', '14px').style('line-height', '20px');
+
+    let trip_slider = trip_slider_container.append('input').attr('id', 'trip-slider-' + index).attr('class', 'custom-slider').attr('type', 'range').attr('min', 0).attr('max', '107').attr('step', '1').attr('val', 0).style('float', 'left').style('width', 'calc(100% - 60px)').style('height', '1px').style('margin-top', '19px').style('margin-left', '50px').style('margin-right', '10px').style('background', '#252525');
+
+    return;
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js"), __webpack_require__(/*! mapbox-gl */ "./node_modules/mapbox-gl/dist/mapbox-gl.js")))
 
 /***/ })
 

@@ -6,12 +6,12 @@
 */
 
 :root {
-    --header-bg: #d9d9d9;
+    --header-bg: #C9D2D3;
     --header-txt: #1B1F27;
     --title-txt: #1B1F27;
     --header-filter-txt: #96b5b4;
 
-    --main-bg: #d9d9d9;
+    --main-bg: #C9D2D3;
     --sub-bg: #f0f0f0;
     --main-txt: #1B1F27;
 }
@@ -54,16 +54,6 @@ html, body {
     color:  var(--main-txt);
 }
 
-#map {
-    width: calc(100% - 350px);
-    height: calc(600px - 30px);
-    background-color: var(--sub-bg);
-    box-sizing: border-box;
-    float: left;
-    border: none;
-    outline: none;
-}
-
 #header {
     width: 100%;
     height: 30px;
@@ -74,6 +64,7 @@ html, body {
     width: 150px;
     height: 100%;
     box-sizing: border-box;
+    font-size: 24px;
     color: var(--title-txt);
     line-height: 30px;
     font-weight: bold;

@@ -1,0 +1,18 @@
+> Add trip list and videos, etc. overlap sidepanel
+> Set default case to first one to show the point
+> Create circle just show trip inside circle, click another trip
+to subtitute another trip
+> Add minimap, click to globalview
+
+
+
+1. filter weather, scene, timeofday
+2. filter by each trips
+3. filter by models
+4. filter by actions
+
+
+street 1: 10 trips -> avg. acc, recall, ..., entropy
+street 2
+
+// Performance? accuracy, recall, f1, precision, perplexity.

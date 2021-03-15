@@ -17,6 +17,19 @@ export function query_all(model)
     });
 }
 
+export function query_all_streets()
+{
+    return new Promise(function (resolve, reject) {
+        axios.get('/queryAllStreets', {})
+        .then(function (response) {
+            resolve(response.data);
+        })
+        .catch(function (error) {
+            reject(error);
+        });
+    });
+}
+
 export function query_count(model, key, value)
 {
     return new Promise(function(resolve, reject) {
@@ -36,16 +49,16 @@ export function query_count(model, key, value)
     });
 }
 
-export function query_find_intersection(bounding_box, model, weather, scene, time_of_day) {
+export function query_find_intersection(bounding_box, model) {
     return new Promise(function(resolve, reject) {
 
         axios.get('/queryFindIntersection', {
             params: {
                 bbox: bounding_box.geometry,
-                model_type: model,
-                weather: weather,
-                scene: scene,
-                time_of_day: time_of_day
+                model_type: model
+                //weather: weather,
+                //scene: scene,
+                //time_of_day: time_of_day
             }
         })
         .then(function(response) {
@@ -53,6 +66,18 @@ export function query_find_intersection(bounding_box, model, weather, scene, tim
         })
         .catch(function(error) {
             reject(error)
+        });
+    });
+}
+
+export function query_find_roadnetwork_intersection() {
+    return new Promise(function(resolve, reject) {
+        axios.get('/queryRoadnetwork', {})
+        .then(function(response) {
+            resolve(response.data);
+        })
+        .catch(function(error) {
+            reject(error);
         });
     });
 }

@@ -1,55 +1,72 @@
 #left {
-    width: 350px;
+    width: 400px;
     height: calc(100% - 30px);
     background-color: var(--sub-bg);
     box-sizing: border-box;
     float: left;
 }
 
-#summary {
+#globalview {
     width: 100%;
-    height: 35%;
+    height: 55%;
+    box-sizing: border-box;
+    color: var(--main-text);
+    /*
+    border: 5px solid #C9D2D3;
+    border-top: 2.5px solid #C9D2D3;
+    border-bottom: 2.5px soli #C9D2D3;*/
+}
+
+#globalview-title {
+    width: 100%;
+    height: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+}
+
+#globalview-body {
+    width: 100%;
+    height: calc(100% - 20px);
+    box-sizing: border-box;
+}
+
+#dataview {
+    width: 100%;
+    height: 45%;
     box-sizing: border-box;
     color: var(--main-txt);
-    border: 5px solid #d9d9d9;
-    border-top: 2.5px solid #d9d9d9;
-    border-bottom: 2.5px solid #d9d9d9;
+    /*
+    border: 5px solid #C9D2D3;
+    border-top: 2.5px solid #C9D2D3;
+    border-bottom: 2.5px solid #C9D2D3;*/
 }
 
-.axis {
-    color: var(--main-txt);
-}
-
-.axis .domain {
-    display: none;
-}
-
-#filter {
+#dataview-title {
     width: 100%;
-    height: 65%;
+    height: 20px;
     box-sizing: border-box;
-    color: var(--main-txt);
-    border: 5px solid #d9d9d9;
-    border-top: 2.5px solid #d9d9d9;
-    border-bottom: 2.5px solid #d9d9d9;
+    font-size: 16px;
+    text-align: center;
 }
 
-.background path {
-    fill: none;
-    stroke: #ddd;
-    stroke-opacity: 0.2;
-    shape-rendering: crispEdges;
+
+#dataview-table {
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    /*border: 1px solid #C9D2D3;*/
 }
 
-.foreground path {
-    fill: none;
-    stroke: 'red';
-    stroke-opacity: 0.2;
+td, th {
+    /*border: 1px solid #C9D2D3;*/
+    border: none;
+    text-align: center;
 }
 
-.axis line,
-.axis path {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
+#dataview-parallelsets {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
 }
