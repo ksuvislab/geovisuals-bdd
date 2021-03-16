@@ -296,6 +296,7 @@ export function vis_global_view (trips, container_id) {
             .attr("class", "axis")
             .call(d3.axisLeft(y0_scale))
             .selectAll('text')
+            .style('font-size', '14px')
             .attr("text-anchor", "middle")
             .attr('transform', function(d) {
                 return 'translate(-13, -8) rotate(270)'
@@ -304,6 +305,7 @@ export function vis_global_view (trips, container_id) {
         // Draw X axis
         svg.append("g")
             .attr("class", "axis")
+            .style('font-size', '14px')
             .call(d3.axisTop(x0_scale));
 
         for (let i = 0; i < keys.length; ++i) {
@@ -348,7 +350,7 @@ export function vis_global_view (trips, container_id) {
                         .attr("x", x1_scale(value) - 2)
                         .attr("dy", "0.32em")
                         .attr("fill", '#fff')
-                        .attr('font-size', '9px')
+                        .attr('font-size', '12px')
                         .attr("text-anchor", "end")
                         .text( (value) ? value.toFixed(2) : 0);
                 }
@@ -746,7 +748,7 @@ export function vis_parallelsets (trips, container_id) {
         });
 
         svg.selectAll(".category text")
-            .attr('font-size', '10px')
+            .attr('font-size', '14px')
             .attr("dy", "0.7em")
             .attr("transform", "rotate(90)")
             .attr("dx", function (d) {
@@ -760,7 +762,7 @@ export function vis_parallelsets (trips, container_id) {
             .attr("y", 0);
         svg.selectAll("text.dimension")
             .attr("dy", "2em")
-            .attr('font-size', '12px')
+            .attr('font-size', '14px')
             .attr("transform", "rotate(90)")
             .attr('text-anchor', function (d) {
                 return (d.name === keys[keys.length - 1]) ? 'end' : 'start';
@@ -782,12 +784,12 @@ export function vis_parallelsets (trips, container_id) {
                 if (d3.select(this).classed('selected-text')) {
                     d3.select(this)
                         .attr('fill', '#000')
-                        .attr('font-size', '10px');
+                        .attr('font-size', '14px');
                     d3.select(this).classed('selected-text', false);
                 } else {
                     d3.select(this)
                         .attr('fill', 'rgb(202,0,42)')
-                        .attr('font-size', '12px');
+                        .attr('font-size', '14px');
                     d3.select(this).classed('selected-text', true);
                 }
 
@@ -846,7 +848,7 @@ export function vis_parallelsets (trips, container_id) {
         vis_selected_nodes = [];
         d3.selectAll('.selected-text')
             .attr('fill', '#000')
-            .attr('font-size', '10px');
+            .attr('font-size', '14px');
         d3.selectAll('.selected-text').classed('selected-text', false);
 
         // Reset filter
@@ -858,7 +860,7 @@ export function vis_parallelsets (trips, container_id) {
         vis_selected_nodes = [];
         d3.selectAll('.selected-text')
             .attr('fill', '#000')
-            .attr('font-size', '10px');
+            .attr('font-size', '14px');
         d3.selectAll('.selected-text').classed('selected-text', false);
 
         reset_filter();
@@ -2134,7 +2136,7 @@ export function vis_model_cases(trips, container_id)
 
         for (let i = 0; i < boolean_expression.length; ++i) {
             row.append('td')
-                .style('color', (boolean_expression[i] === '1') ? '#D482A6' : '#C9D2D3')
+                .style('color', (boolean_expression[i] === '1') ? '#FF0000' : '#C9D2D3')
                 .style('font-size', '24px')
                 .style('text-align', 'center')
                 .append('div')
@@ -2143,7 +2145,7 @@ export function vis_model_cases(trips, container_id)
                 .style('margin', 'auto')
                 .style('border-radius', '50%')
                 .style('box-shadow', (boolean_expression[i] === '1') ? 'none' : 'inset 0px 0px 5px #737373')
-                .style('background-color', (boolean_expression[i] === '1') ? '#D482A6' : '#C9D2D3');
+                .style('background-color', (boolean_expression[i] === '1') ? '#FF0000' : '#C9D2D3');
         }
 
         // Show count
@@ -2203,6 +2205,10 @@ export function vis_representative_images(trips, expression, container_id) {
 
     if (expression  && expression !== '0000') {
         coords = [];
+        let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+        let model_colors = ['#e41a1c', '#377eb8', '#4daf4a'];
+        let car_action = ['▲', '●', '◀','▶'];
+
         let prev_context = undefined;
         for (let i = 0; i < trips.length; ++i) {
             let trip = trips[i];
@@ -2212,19 +2218,48 @@ export function vis_representative_images(trips, expression, container_id) {
                     if (Math.random() < 0.3) {
                         coords.push(trip.locations.coordinates[Math.floor(indexes[j]/3)]);
 
-                        d3.select('#' + container_id).append('img')
-                            .attr('id', 'image-' + trip.trip_id + '-' + indexes[j])
-                            .attr('class', 'case-images')
-                            .attr('alt', '')
-                            .attr('src', '/frames/' + trip.trip_id + '/' + indexes[j] + '.png')
+                        let action = trip.actual.no_slight[indexes[j]];
+                        let tcnn1 = trip.predict[models[0]][indexes[j]];
+                        let cnn_lstm = trip.predict[models[1]][indexes[j]];
+                        let fcn_lstm = trip.predict[models[2]][indexes[j]];
+
+                        let actual_action = car_action[action];
+                        let tcnn1_action = car_action[tcnn1.indexOf(d3.max(tcnn1))];
+                        let cnn_lstm_action = car_action[cnn_lstm.indexOf(d3.max(cnn_lstm))];
+                        let fcn_lstm_action = car_action[fcn_lstm.indexOf(d3.max(fcn_lstm))];
+
+                        let image_container = d3.select('#' + container_id).append('div')
+                            .attr('id', 'image-container-' + trip.trip_id + '-' + indexes[j])
+                            .style('position', 'relative')
                             .style('width', '140px')
                             .style('height', '90px')
-                            .style('cursor', 'pointer')
                             .style('border', '1px solid #C9D2D3')
+                            .style('cursor', 'pointer')
                             .style('float', 'left')
                             .on('click', function () {
                                 clicked(trip, indexes[j]);
                             });
+
+                        image_container.append('img')
+                            .attr('id', 'image-' + trip.trip_id + '-' + indexes[j])
+                            .attr('class', 'case-images')
+                            .attr('alt', '')
+                            .attr('src', '/frames/' + trip.trip_id + '/' + indexes[j] + '.png')
+                            .style('width', '100%')
+                            .style('height', '100%');
+
+                        if (actual_action) {
+                            image_container.append('div')
+                                .style('position', 'absolute')
+                                .style('width', '100%')
+                                .style('height', '20px')
+                                .style('bottom', '0px')
+                                .style('background', 'rgba(255,255,255,0.9)')
+                                .style('left', '0px')
+                                .style('text-align', 'center')
+                                .html(actual_action + '&nbsp;&nbsp;<font color="#e41a1c">' + tcnn1_action + '</font>&nbsp;&nbsp;<font color="#377eb8">' +  cnn_lstm_action + '</font>&nbsp;&nbsp;<font color="#4daf4a">' + fcn_lstm_action + '</font>');
+                        }
+
                     }
                 }
             }
@@ -2252,6 +2287,7 @@ export function vis_representative_images(trips, expression, container_id) {
             for (let j = 0; j < actual_label.length; ++j) {
 
                 let action = actual_label[j];
+
                 // Math.random() < 0.1; --> 10% to getting true
                 if (action && temp_action !== action && Math.random() < 0.3) {
                     coords.push(trip.locations.coordinates[Math.floor(j/3)]);
@@ -3225,7 +3261,8 @@ export function vis_trip_list(trips)
             .style('height', '20px')
             .style('font-size', '14px')
             .style('float', 'left')
-            .style('line-height', '20px');
+            .style('line-height', '20px')
+            .style('background', '#fff');
 
         let trip_icon = trip_selector.append('i')
             .attr('id','trip-checkbox-' + i)
@@ -3254,12 +3291,14 @@ export function vis_trip_list(trips)
                 .style('height', '20px')
                 .style('float', 'left')
                 .style('font-size', '12px')
-                .style('line-height', '20px');
+                .style('line-height', '20px')
+                .style('background-color', '#fff');
 
             let svg = trip_performance.append('svg')
                 .attr('width', '60')
                 .attr('height', '20');
 
+            /*
             svg.append('defs')
                 .append('pattern')
                     .attr('id', 'diagonalHatch')
@@ -3269,26 +3308,36 @@ export function vis_trip_list(trips)
                 .append('path')
                     .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
                     .attr('stroke', '#f0f0f0')
-                    .attr('stroke-width', 1);
+                    .attr('stroke-width', 1);*/
 
             svg.append('rect')
                 .attr('x', 0)
                 .attr('y', 0)
                 .attr('height', '20')
                 .attr('fill', performance_colors[i])
-                .attr('stroke', '#f0f0f0')
+                .attr('stroke', '#fff')
                 .attr('stroke-width', .5)
                 .transition()
                 .duration(500)
                 .attr('width', width_scale(value));
 
+            svg.append('text')
+                .attr('x', 2)
+                .attr('y', 10)
+                .style('font-size', '10px')
+                .attr("text-anchor", "start")
+                .attr("dy", "0.32em")
+                .attr("fill", "#fff")
+                .text(value.toFixed(2) + '%');
+
+            /*
             svg.append("rect")
                 .attr("x", 0)
                 .attr("width", width_scale(value))
                 .attr("height", 20)
                 .attr('fill', 'url(#diagonalHatch)')
                 .attr('stroke', '#f0f0f0')
-                .attr('stroke-width', .5);
+                .attr('stroke-width', .5);*/
         }
     }
 
@@ -3317,7 +3366,7 @@ export function vis_trip_viewer(trip, index) {
         width: '400px',
         height: '250px',
         'box-sizing': 'border-box',
-        'border': '10px solid #C9D2D3'
+        'border': '10px solid #f0f0f0'
     });
 
     let img  = $('<img/>', {
@@ -3346,7 +3395,7 @@ export function vis_trip_viewer(trip, index) {
         d3.selectAll('.trip-video-line').remove();
         d3.selectAll('.trip-svg-' + index).append('line')
             .attr('class', 'trip-video-line')
-            .style("stroke", '#9d9d9d')
+            .style("stroke", '#fff')
             .style("stroke-opacity", 0.8)
             .style("stroke-width", 1)
             .attr("x1", x(this.value))
@@ -3441,7 +3490,6 @@ export function vis_draw_action(trip, div, index) {
 
     let width = $('#tripview-body').width();
     let height = 200;
-
 
     vis_create_trip_info(trip, div, index);
     let keys = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];

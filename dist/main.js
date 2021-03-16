@@ -56052,7 +56052,7 @@ if(false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(turf, d3, $) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_regions", function() { return main_regions; });
+/* WEBPACK VAR INJECTION */(function($, d3) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_regions", function() { return main_regions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_all_trips", function() { return main_all_trips; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_all_streets", function() { return main_all_streets; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_predicted_trips", function() { return main_predicted_trips; });
@@ -56134,40 +56134,17 @@ function main_init() {
     Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_axios_interceptors"])();
 
     // Query road network
-    Object(_js_query__WEBPACK_IMPORTED_MODULE_11__["query_find_roadnetwork_intersection"])().then(function (data) {
-
-        // find contains
-        let bbox = Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_get_bbox_polygon"])();
-        let filtered_road_network = [];
-        let features = [];
-
-        for (let i = 0; i < data.length; ++i) {
-
-            let has = false;
-            let multi_line_string = [];
-            data[i].features.forEach(function (feature) {
-                if (turf.booleanContains(bbox, feature)) {
-                    has = true;
-                }
-                multi_line_string.push(feature.geometry.coordinates);
-            });
-
-            if (has) {
-                filtered_road_network.push(data[i]);
-                features.push({
-                    name: data[i].name,
-                    multiLineString: turf.multiLineString(multi_line_string)
-                });
-            }
-        }
-
-        main_get_streets().then(function (street_data) {
-            main_all_streets = Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_compute_street_data"])(street_data);
+    Object(_js_query__WEBPACK_IMPORTED_MODULE_11__["query_find_roadnetwork_intersection"])().then(function (roadnetwork_data) {
+        main_roadnetwork = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_roadnetwork"])(roadnetwork_data);
+        console.log(main_roadnetwork);
+        /*
+        main_get_streets().then(function(street_data) {
+            main_all_streets = util_compute_street_data(street_data);
             let selected_streets = [];
             let trip_counts = [];
             for (let i = 0; i < main_all_streets.length; ++i) {
                 let name = main_all_streets[i].name;
-                let pos = features.map(function (x) {
+                let pos = features.map(function(x) {
                     return x.name;
                 }).indexOf(name);
                 if (pos >= 0) {
@@ -56176,24 +56153,22 @@ function main_init() {
                     selected_streets.push(features[pos]);
                 }
             }
-
-            let color = d3.scaleLinear().domain([0, d3.mean(trip_counts), d3.max(trip_counts)]).range(['#14717F', '#F5C677', '#C13224']); //0D6D54
-
-            // 1. ['#2E2E2E','#fdae61','#981328']
-
-            let opacity = d3.scaleLinear().domain([0, d3.mean(trip_counts), d3.max(trip_counts)]).range([0.4, 0.5, 1]);
-
-            let display_features = [];
+             let color = d3.scaleLinear()
+                .domain([0, d3.mean(trip_counts), d3.max(trip_counts)])
+                .range(['#14717F','#F5C677','#C13224']); //0D6D54
+                 // 1. ['#2E2E2E','#fdae61','#981328']
+             let opacity = d3.scaleLinear()
+                .domain([0, d3.mean(trip_counts), d3.max(trip_counts)])
+                .range([0.4,0.5,1]);
+             let display_features = [];
             selected_streets.forEach(function (street) {
                 street.multiLineString.properties.color = color(street['count']);
                 street.multiLineString.properties.opacity = opacity(street['count']);
                 display_features.push(street.multiLineString);
             });
-
-            let feature_collection = turf.featureCollection(display_features);
-
-            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('roads-highlight');
-            _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].addSource('roads-highlight', {
+             let feature_collection = turf.featureCollection(display_features);
+             map_remove_layer('roads-highlight');
+            map_main.addSource('roads-highlight', {
                 type: 'geojson',
                 data: feature_collection
             });
@@ -56207,127 +56182,116 @@ function main_init() {
                 },
                 paint: {
                     'line-color': ['get', 'color'],
-                    'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1, 15, 4],
+                    'line-width': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        10,
+                        1,
+                        15,
+                        4
+                    ],
                     'line-opacity': ['get', 'opacity']
                 }
-            };
-            _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].addLayer(trajectory_layer);
-        });
+            }
+            map_main.addLayer(trajectory_layer);
+        });*/
     });
 
     // Get all trips from database
-
+    /*
     main_get_dataset().then(function (trip_data) {
-        Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_preprocess_data"])(trip_data).then(function (processed_data) {
-
-            // Set global of all trips
+        util_preprocess_data(trip_data).then(function (processed_data) {
+             // Set global of all trips
             main_all_trips = processed_data;
-
-            main_get_streets().then(function (street_data) {
-                main_all_streets = Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_compute_street_data"])(street_data);
+             main_get_streets().then(function(street_data) {
+                main_all_streets = util_compute_street_data(street_data);
                 console.log(main_all_streets);
-                let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(processed_data);
+                let trips = filter_bbox_trips(processed_data);
                 //map_draw_outter_trips('outter-trips', trips);
-                main_predicted_trips = main_preprocess(trips);
+                main_predicted_trips =  main_preprocess(trips);
                 //console.log(main_predicted_trips);
-
-                Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_show_filtered_trips"])(main_predicted_trips);
+                 map_show_filtered_trips(main_predicted_trips);
                 main_update_dataview(main_predicted_trips);
-            });
+             });
         });
     });
     // On map drag
-    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('dragend', function (e) {
+    map_main.on('dragend', function(e) {
         if (main_states.global) {
             if (main_all_trips) {
                 // Filter all trips inside bounding box
-                let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_all_trips);
+                let trips = filter_bbox_trips(main_all_trips);
                 main_redraw_map(trips);
             }
         }
     });
-
-    // On map zoom
-
-    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('zoomend', function (e) {
+     // On map zoom
+     map_main.on('zoomend', function(e) {
         if (main_states.global) {
             if (main_all_trips) {
                 // Filter all trips inside bounding box
-                let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_all_trips);
+                let trips = filter_bbox_trips(main_all_trips);
                 main_redraw_map(trips);
             }
         }
-
-        if (main_states.trip) {
+         if (main_states.trip) {
             if (main_predicted_trips) {
                 //main_trip_study_init(main_predicted_trips[0]);
             }
         }
     });
-
-    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('draw.create', function (e) {
-
-        let polygon = e.features[0];
+     map_main.on('draw.create', function (e) {
+         let polygon = e.features[0];
         // Need to remove and set new data
-        let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_by_polygon"])(polygon, main_all_trips);
-
-        if (main_regions) {
+        let trips = filter_by_polygon(polygon, main_all_trips);
+         if (main_regions) {
             // Remove previous selection area
-            _js_map__WEBPACK_IMPORTED_MODULE_8__["map_draw"].delete([main_regions.id]);
-            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('inner-trips');
+            map_draw.delete([main_regions.id])
+            map_remove_layer('inner-trips');
             main_regions = undefined;
         }
-
-        // Draw new trips
-        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_draw_inner_trips"])('inner-trips', trips);
+         // Draw new trips
+        map_draw_inner_trips('inner-trips', trips);
         // Change outter trajectory
-        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_set_paint_property"])('outter-trips', 'line-color', '#525252');
+        map_set_paint_property('outter-trips', 'line-color' ,'#525252');
         // Assign new polygon area
         main_regions = polygon;
-
-        main_predicted_trips = main_preprocess(trips);
-        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_show_filtered_trips"])(main_predicted_trips);
+         main_predicted_trips =  main_preprocess(trips);
+        map_show_filtered_trips(main_predicted_trips);
         main_update_dataview(main_predicted_trips);
-    });
-
-    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('draw.delete', function () {
+     });
+     map_main.on('draw.delete', function () {
         if (main_regions) {
             // Remove previous selection area
-            _js_map__WEBPACK_IMPORTED_MODULE_8__["map_draw"].delete([main_regions.id]);
-            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('inner-trips');
+            map_draw.delete([main_regions.id])
+            map_remove_layer('inner-trips');
             main_regions = undefined;
             // Re preprocessing trip and visualize it
-            let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_all_trips);
+            let trips = filter_bbox_trips(main_all_trips);
             main_redraw_map(trips);
         }
     });
-
-    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('click', function (e) {
+     map_main.on('click', function (e) {
         let coords = e.lngLat.wrap();
         main_mouse_coord = [coords.lng, coords.lat];
     });
-
-    _js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('click', 'trip-points', function (e) {
-
-        var coordinates = e.features[0].geometry.coordinates.slice();
-
-        let target_point = turf.point(main_mouse_coord);
+     map_main.on('click', 'trip-points', function (e) {
+         var coordinates = e.features[0].geometry.coordinates.slice();
+         let target_point = turf.point(main_mouse_coord);
         let coords = [];
-
-        for (let i = 0; i < coordinates.length; ++i) {
+         for (let i = 0; i < coordinates.length; ++i) {
             coords.push(turf.point(coordinates[i]));
         }
-
-        let points = turf.featureCollection(coords);
+         let points = turf.featureCollection(coords);
         let nearest_point = turf.nearestPoint(target_point, points);
-        let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_point_on_trips"])(main_predicted_trips, nearest_point);
-
-        // Start trip states
+        let trips = filter_point_on_trips(main_predicted_trips, nearest_point);
+         // Start trip states
         // some to layer
         main_states.global = false;
         main_states.trip = true;
         main_trip_study(trips);
-    });
+    });*/
 }
 
 function main_redraw_map(trips) {
@@ -56497,7 +56461,7 @@ function main_trip_study_init(selected_trip) {
     Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_trip_list"])(filtered_trips);
     return;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js")))
 
 /***/ }),
 
@@ -56505,7 +56469,7 @@ function main_trip_study_init(selected_trip) {
 /*!**************************!*\
   !*** ./src/js/filter.js ***!
   \**************************/
-/*! exports provided: filter_bbox_trips, filter_by_polygon, filter_predicted_trips, filter_by_nodes, filter_point_on_trips, filter_trip_in_radius */
+/*! exports provided: filter_bbox_trips, filter_by_polygon, filter_predicted_trips, filter_by_nodes, filter_point_on_trips, filter_trip_in_radius, filter_bbox_roadnetwork */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56516,6 +56480,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_by_nodes", function() { return filter_by_nodes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_point_on_trips", function() { return filter_point_on_trips; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_trip_in_radius", function() { return filter_trip_in_radius; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_bbox_roadnetwork", function() { return filter_bbox_roadnetwork; });
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
 
 
@@ -56626,6 +56591,38 @@ function filter_trip_in_radius(trips, polygon) {
     }
     return filtered_trips;
 }
+
+// Filter roadnetwork inside bounding box
+// Return roads with multilinestring geometry
+function filter_bbox_roadnetwork(roadnetwork) {
+    //let bbox = map_get_bbox_polygon();
+    //let filtered_road_network = [];
+    let features = [];
+
+    for (let i = 0; i < roadnetwork.length; ++i) {
+
+        //let has = false;
+        let multi_line_string = [];
+        // Get all linestring coordinates
+        roadnetwork[i].features.forEach(function (feature) {
+
+            //if (turf.booleanContains(bbox, feature)) {
+            //    has = true;
+            //}
+            multi_line_string.push(feature.geometry.coordinates);
+        });
+
+        //if (has) {
+        //filtered_road_network.push(data[i]);
+        features.push({
+            name: roadnetwork[i].name,
+            multiLineString: turf.multiLineString(multi_line_string)
+        });
+        // }
+    }
+
+    return features;
+}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js")))
 
 /***/ }),
@@ -56634,7 +56631,7 @@ function filter_trip_in_radius(trips, polygon) {
 /*!***********************!*\
   !*** ./src/js/map.js ***!
   \***********************/
-/*! exports provided: map_main, map_draw, map_minimap, map_circle_polygon, map_selected_line, map_access_token, map_model_colors, map_initialize, map_add_draw_controls, map_add_minimap, map_draw_outter_trips, map_draw_inner_trips, map_set_paint_property, map_show_all_trips, map_show_filtered_trips, map_filter_all_trips, map_remove_layer, map_get_bbox_polygon, map_draw_trajectory, map_draw_point, map_draw_all_points, map_create_circle_radius, map_draw_selected_trips, map_draw_trip_in_radius, map_draw_background, map_query_rendered_features */
+/*! exports provided: map_main, map_draw, map_minimap, map_circle_polygon, map_selected_line, map_access_token, map_model_colors, map_initialize, map_add_draw_controls, map_add_minimap, map_draw_outter_trips, map_draw_inner_trips, map_set_paint_property, map_show_all_trips, map_show_filtered_trips, map_filter_all_trips, map_remove_layer, map_get_bbox_polygon, map_draw_point, map_draw_all_points, map_create_circle_radius, map_draw_selected_trips, map_draw_trip_in_radius, map_draw_background, map_query_rendered_features */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56657,7 +56654,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_filter_all_trips", function() { return map_filter_all_trips; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_remove_layer", function() { return map_remove_layer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_get_bbox_polygon", function() { return map_get_bbox_polygon; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_trajectory", function() { return map_draw_trajectory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_point", function() { return map_draw_point; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_all_points", function() { return map_draw_all_points; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_create_circle_radius", function() { return map_create_circle_radius; });
@@ -56676,7 +56672,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+//import { util_generate_accuracy } from "./utils";
 
 // Public variables
 let map_main = undefined;
@@ -56937,14 +56933,16 @@ function map_get_bbox_polygon() {
     return bbox_polygon;
 }
 
-function map_draw_trajectory(data) {
+/*
+export function map_draw_trajectory(data)
+{
     let model = $('#filter-models').val();
     let action = $('#filter-actions').val();
     let accuracy = $('#filter-accuracy').val();
 
-    Object(_utils__WEBPACK_IMPORTED_MODULE_3__["util_generate_accuracy"])(data, model, action, accuracy);
+    util_generate_accuracy(data, model, action, accuracy);
 
-    let trajectories = [];let all_accuracy = [];
+    let trajectories = []; let all_accuracy = [];
 
     for (var i = 0; i < data.length; ++i) {
         if ('accuracy' in data[i]) {
@@ -56952,7 +56950,9 @@ function map_draw_trajectory(data) {
         }
     }
 
-    let line_color = d3.scaleSequential().interpolator(d3.interpolateRdYlGn).domain([0, 1]);
+    let line_color = d3.scaleSequential()
+        .interpolator(d3.interpolateRdYlGn)
+        .domain([0, 1]);
 
     for (var i = 0; i < data.length; ++i) {
         if ('accuracy' in data[i]) {
@@ -56986,10 +56986,10 @@ function map_draw_trajectory(data) {
             'line-width': 8,
             'line-opacity': 1
         }
-    };
+    }
 
     map_main.addLayer(trajectory_layer);
-}
+}*/
 
 function map_draw_point(coord) {
 
@@ -58519,16 +58519,14 @@ function query_find_roadnetwork_intersection() {
 /*!*************************!*\
   !*** ./src/js/utils.js ***!
   \*************************/
-/*! exports provided: util_axios_interceptors, util_read_geojson, util_random_number_interval, util_preprocess_data, util_generate_accuracy, util_compute_cases, util_compute_entropy, util_normalize, util_compute_performance, util_compute_street_data */
+/*! exports provided: util_axios_interceptors, util_random_number_interval, util_preprocess_data, util_compute_cases, util_compute_entropy, util_normalize, util_compute_performance, util_compute_street_data */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(axios, d3) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_axios_interceptors", function() { return util_axios_interceptors; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_read_geojson", function() { return util_read_geojson; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_random_number_interval", function() { return util_random_number_interval; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_preprocess_data", function() { return util_preprocess_data; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_generate_accuracy", function() { return util_generate_accuracy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_cases", function() { return util_compute_cases; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_entropy", function() { return util_compute_entropy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_normalize", function() { return util_normalize; });
@@ -58539,6 +58537,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// Set axios interceptor when query from MongoDB
 function util_axios_interceptors() {
     axios.interceptors.request.use(function (config) {
         // Show loading screen
@@ -58557,17 +58556,13 @@ function util_axios_interceptors() {
     });
 }
 
-function util_read_geojson(geojson_filepath) {
-    d3.json(geojson_filepath).then(function (data) {
-        return data;
-    });
-}
-
+// Random generator from the interval
 function util_random_number_interval(min, max) {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+// Preprocess only training datasets
 function util_preprocess_data(data) {
 
     let result = [];
@@ -58588,68 +58583,6 @@ function util_preprocess_data(data) {
 
         resolve(result);
     });
-}
-
-function util_generate_accuracy(data, model, action, accuracy) {
-    let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
-
-    let parameters = {};
-    for (let i = 0; i < car_actions.length; ++i) {
-        parameters[car_actions[i]] = {};
-        parameters[car_actions[i]].tp = 0;
-        parameters[car_actions[i]].tn = 0;
-        parameters[car_actions[i]].fp = 0;
-        parameters[car_actions[i]].fn = 0;
-    }
-
-    for (let i = 0; i < data.length; ++i) {
-        let actual = data[i].actual['no_slight'];
-        let predict = data[i].predict[model];
-        if (predict) {
-            //console.log(predict);
-            for (let j = 0; j < predict.length; ++j) {
-                let actual_action = car_actions[actual[j]];
-                let predict_action = car_actions[predict[j].indexOf(d3.max(predict[j]))];
-
-                if (actual_action && predict_action) {
-                    if (actual_action !== predict_action) {
-                        parameters[predict_action].fp += 1;
-                        parameters[actual_action].fn += 1;
-
-                        Object.keys(parameters).forEach(function (key) {
-                            if (key !== actual_action && key !== predict_action) {
-                                parameters[key].tn += 1;
-                            }
-                        });
-                    } else {
-                        parameters[actual_action].tp += 1;
-                        Object.keys(parameters).forEach(function (key) {
-                            if (key !== actual_action) {
-                                parameters[key].tn += 1;
-                            }
-                        });
-                    }
-                }
-            }
-
-            // Calculate precision and recall
-            let precision = parameters[action].tp / (parameters[action].tp + parameters[action].fp);
-            let recall = parameters[action].tp / (parameters[action].tp + parameters[action].fn);
-            let f1 = 2 * (precision * recall / (precision + recall));
-
-            if (accuracy === 'precision') {
-                data[i].accuracy = isNaN(precision) ? 0 : precision;
-            }
-            if (accuracy === 'recall') {
-                data[i].accuracy = isNaN(recall) ? 0 : recall;
-            }
-            if (accuracy === 'f1') {
-                data[i].accuracy = isNaN(f1) ? 0 : f1;
-            }
-        }
-    }
-
-    return;
 }
 
 // Compute boolean cases expression
@@ -58762,6 +58695,7 @@ function util_compute_entropy(data) {
     }
 }
 
+// Normalize vector in a set of interval
 function util_normalize(vectors, range) {
 
     let min = d3.min(vectors);
@@ -58775,6 +58709,7 @@ function util_normalize(vectors, range) {
     });
 }
 
+// Compute performances of all trip data
 function util_compute_performance(data) {
 
     let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
@@ -58782,6 +58717,7 @@ function util_compute_performance(data) {
     let confusion_matrix = {};
     let entropy_by_actions = {};
 
+    // Create confusion matrix
     for (let i = 0; i < data.length; ++i) {
 
         let true_label = data[i].actual.no_slight;
@@ -58789,6 +58725,7 @@ function util_compute_performance(data) {
         let entropies = data[i].entropy;
 
         Object.keys(predicts).forEach(function (key) {
+            // Get prediction label
             let predict_label = predicts[key];
             // Add compute entropy
             let entropy_label = entropies[key];
@@ -58830,6 +58767,7 @@ function util_compute_performance(data) {
     //console.log(confusion_matrix);
     //console.log(entropy_by_actions);
 
+    // Calculate all performance metrices
     Object.keys(confusion_matrix).forEach(function (model) {
 
         model_performance[model] = {};
@@ -58884,6 +58822,33 @@ function util_compute_performance(data) {
     return model_performance;
 }
 
+// Group street data into a datasets
+function util_compute_street_data(data) {
+
+    let street_group = [];
+    for (let i = 0; i < data.length; ++i) {
+        let trip_id = data[i].trip_id;
+        let matchings = data[i]['matchings'];
+        for (let j = 0; j < matchings.length; ++j) {
+            matchings[j]['street_names'].forEach(function (name) {
+                let pos = street_group.map(function (x) {
+                    return x.name;
+                }).indexOf(name);
+                if (pos >= 0) {
+                    street_group[pos]['trip_ids'].push(trip_id);
+                } else {
+                    street_group.push({
+                        name: name,
+                        trip_ids: [trip_id]
+                    });
+                }
+            });
+        }
+    }
+
+    return street_group;
+}
+
 /*
 export function util_map_matching(trip)
 {
@@ -58913,32 +58878,6 @@ export function util_map_matching(trip)
         });
     }
 }*/
-
-function util_compute_street_data(data) {
-
-    let street_group = [];
-    for (let i = 0; i < data.length; ++i) {
-        let trip_id = data[i].trip_id;
-        let matchings = data[i]['matchings'];
-        for (let j = 0; j < matchings.length; ++j) {
-            matchings[j]['street_names'].forEach(function (name) {
-                let pos = street_group.map(function (x) {
-                    return x.name;
-                }).indexOf(name);
-                if (pos >= 0) {
-                    street_group[pos]['trip_ids'].push(trip_id);
-                } else {
-                    street_group.push({
-                        name: name,
-                        trip_ids: [trip_id]
-                    });
-                }
-            });
-        }
-    }
-
-    return street_group;
-}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! axios */ "./node_modules/axios/index.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js")))
 
 /***/ }),

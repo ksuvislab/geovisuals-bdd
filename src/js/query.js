@@ -30,6 +30,18 @@ export function query_all_streets()
     });
 }
 
+export function query_all_roadnetworks() {
+    return new Promise(function(resolve, reject) {
+        axios.get('/queryRoadnetwork', {})
+        .then(function(response) {
+            resolve(response.data);
+        })
+        .catch(function(error) {
+            reject(error);
+        });
+    });
+}
+
 export function query_count(model, key, value)
 {
     return new Promise(function(resolve, reject) {
@@ -66,18 +78,6 @@ export function query_find_intersection(bounding_box, model) {
         })
         .catch(function(error) {
             reject(error)
-        });
-    });
-}
-
-export function query_find_roadnetwork_intersection() {
-    return new Promise(function(resolve, reject) {
-        axios.get('/queryRoadnetwork', {})
-        .then(function(response) {
-            resolve(response.data);
-        })
-        .catch(function(error) {
-            reject(error);
         });
     });
 }

@@ -6,7 +6,7 @@ import {util_random_number_interval} from './utils';
 import {
     query_find_intersection
 } from "./query";
-import { util_generate_accuracy } from "./utils";
+//import { util_generate_accuracy } from "./utils";
 
 // Public variables
 export let map_main = undefined;
@@ -222,7 +222,7 @@ export function map_show_filtered_trips(data) {
             'line-cap': 'round'
         },
         paint: {
-            'line-color': '#D482A6',
+            'line-color': '#252525',
             'line-width': 2.5,
             'line-opacity': 1
         }
@@ -279,6 +279,7 @@ export function map_get_bbox_polygon()
     return bbox_polygon;
 }
 
+/*
 export function map_draw_trajectory(data)
 {
     let model = $('#filter-models').val();
@@ -334,7 +335,7 @@ export function map_draw_trajectory(data)
     }
 
     map_main.addLayer(trajectory_layer);
-}
+}*/
 
 export function map_draw_point(coord) {
 
@@ -385,16 +386,16 @@ export function map_draw_all_points(coords) {
         type: 'circle',
         source: 'trip-points-border',
         paint: {
-            'circle-color': '#000',
-            'circle-opacity': 0,
+            'circle-color': '#252525',
+            'circle-opacity': 0.5,
             'circle-radius': [
                 'interpolate',
                 ['linear'],
                 ['zoom'],
                 10,
-                3,
+                5,
                 15,
-                7
+                9
             ]
         }
     }
@@ -405,16 +406,16 @@ export function map_draw_all_points(coords) {
         type: 'circle',
         source: 'trip-points',
         paint: {
-            'circle-color': '#D482A6',
+            'circle-color': '#FF0000',
             'circle-opacity': 1,
             'circle-radius': [
                 'interpolate',
                 ['linear'],
                 ['zoom'],
                 10,
-                2,
+                4,
                 15,
-                6
+                8
             ]
         }
     }
@@ -839,4 +840,128 @@ export function map_query_rendered_features(feature_layer)
 
     map_main.addLayer(trajectory_layer);
     return;*/
+}
+
+export function map_visualize_background(layer_filter, street_data)
+{
+
+    //console.log(layer_filter);
+
+    let data = generate_data(street_data, layer_filter);
+    let map_data = data[0];
+    let map_range = data[1];
+
+    //console.log(map_data);
+    //console.log(map_range);
+
+    let color_range = (layer_filter.layers === 'Density'  || layer_filter.layers === 'entropy') ? ['#14717F','#F5C677','#C13224'] : ['#C13224','#F5C677','#14717F'];
+
+    let color = d3.scaleLinear()
+        .domain([0, d3.mean(map_range), d3.max(map_range)])
+        .range(color_range);
+
+    let opacity = d3.scaleLinear()
+        .domain([0, d3.mean(map_range), d3.max(map_range)])
+        .range([0.4,0.5,1]);
+
+    let display_features = [];
+    map_data.forEach(function(street) {
+        street.multiLineString.properties.color = color(street['value']);
+        street.multiLineString.properties.opacity = opacity(street['value']);
+        display_features.push(street.multiLineString);
+    });
+
+    let feature_collection = turf.featureCollection(display_features);
+
+   // map_remove_layer('roads-highlight');
+
+    if (map_main.getSource('roads-highlight')) {
+        map_main.getSource('roads-highlight').setData(feature_collection);
+        map_minimap._miniMap.getSource('roads-highlight').setData(feature_collection);
+        return;
+    }
+
+
+    map_main.addSource('roads-highlight', {
+        type: 'geojson',
+        data: feature_collection
+    });
+    map_minimap._miniMap.addSource('roads-highlight', {
+        type: 'geojson',
+        data: feature_collection
+    });
+
+    let trajectory_layer = {
+        id: 'roads-highlight',
+        type: 'line',
+        source: 'roads-highlight',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'butt'
+        },
+        paint: {
+            'line-color': ['get', 'color'],
+            'line-width': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                10,
+                1,
+                15,
+                4
+            ],
+            'line-opacity': ['get', 'opacity']
+        }
+    }
+
+    map_minimap._miniMap.addLayer(trajectory_layer);
+    map_main.addLayer(trajectory_layer);
+
+
+    function generate_data(data, filter) {
+        let map_data = [];
+        let value_ranges = [];
+        if (filter.layers === 'Density') {
+            for (let i = 0; i < data.length; ++i) {
+                map_data.push({
+                    name: data[i].name,
+                    multiLineString: data[i].multiLineString,
+                    value: data[i].count
+                });
+                value_ranges.push(data[i].count);
+            }
+        } else {
+            for (let i = 0; i < data.length; ++i) {
+                let values = [];
+                if (Object.keys(data[i]['performance']).length > 0) {
+                    Object.keys(data[i]['performance']).forEach(function(model) {
+                        if (filter.models.indexOf(model) >= 0) {
+                            Object.keys(data[i]['performance'][model]).forEach(function(action) {
+                                if (filter.actions.indexOf(action) >= 0) {
+                                    let value = data[i]['performance'][model][action][filter.layers];
+                                    if (value) {
+                                        values.push(value);
+                                    }
+                                }
+                            });
+                        }
+                    });
+                    let avg = d3.mean(values);
+                    map_data.push({
+                        name: data[i].name,
+                        multiLineString: data[i].multiLineString,
+                        value: (avg) ? avg : 0
+                    });
+                    value_ranges.push((avg) ? avg : 0);
+                } else {
+                    map_data.push({
+                        name: data[i].name,
+                        multiLineString: data[i].multiLineString,
+                        value: 0
+                    });
+                }
+            }
+        }
+        return [map_data, value_ranges]
+    }
 }

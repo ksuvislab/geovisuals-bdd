@@ -1,6 +1,7 @@
 import { map_access_token } from "./map";
 import { view_close_loading, view_show_loading } from "./view";
 
+// Set axios interceptor when query from MongoDB
 export function util_axios_interceptors()
 {
     axios.interceptors.request.use(function (config) {
@@ -21,102 +22,24 @@ export function util_axios_interceptors()
     });
 }
 
-export function util_read_geojson(geojson_filepath) {
-    d3.json(geojson_filepath).then(function(data) {
-        return data;
-    });
-}
-
+// Random generator from the interval
 export function util_random_number_interval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+// Preprocess only training datasets
 export function util_preprocess_data (data) {
-
     let result = [];
-
     return new Promise(function (resolve, reject) {
-
-        Object.keys(data).forEach(function (model_type) {
-            let model_data = data[model_type];
-            for (let i = 0; i < model_data.length; ++i) {
-                let trip = model_data[i];
-                // Check exist location
-                if (trip.locations) {
-                    trip.model_type = model_type;
-                    result.push(trip);
-                }
-            }
-        });
-
-        resolve(result);
-    });
-}
-
-export function util_generate_accuracy(data, model, action, accuracy)
-{
-    let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
-
-    let parameters = {};
-    for (let i = 0; i < car_actions.length; ++i) {
-        parameters[car_actions[i]] = {};
-        parameters[car_actions[i]].tp = 0;
-        parameters[car_actions[i]].tn = 0;
-        parameters[car_actions[i]].fp = 0;
-        parameters[car_actions[i]].fn = 0;
-    }
-
-    for (let i = 0; i < data.length; ++i) {
-        let actual = data[i].actual['no_slight'];
-        let predict = data[i].predict[model];
-        if (predict) {
-            //console.log(predict);
-            for (let j = 0; j < predict.length; ++j) {
-                let actual_action = car_actions[actual[j]];
-                let predict_action = car_actions[predict[j].indexOf(d3.max(predict[j]))];
-
-                if (actual_action && predict_action) {
-                    if (actual_action !== predict_action) {
-                        parameters[predict_action].fp += 1;
-                        parameters[actual_action].fn += 1;
-
-                        Object.keys(parameters).forEach(function(key) {
-                            if (key !== actual_action && key !== predict_action) {
-                                parameters[key].tn += 1;
-                            }
-                        });
-
-
-                    } else {
-                        parameters[actual_action].tp += 1;
-                        Object.keys(parameters).forEach(function(key) {
-                            if (key !== actual_action) {
-                                parameters[key].tn += 1;
-                            }
-                        });
-                    }
-                }
-
-            }
-
-            // Calculate precision and recall
-            let precision = parameters[action].tp / (parameters[action].tp + parameters[action].fp);
-            let recall = parameters[action].tp / (parameters[action].tp + parameters[action].fn);
-            let f1 = 2 * ((precision * recall) / (precision + recall));
-
-            if (accuracy === 'precision') {
-                data[i].accuracy = (isNaN(precision)) ? 0 : precision;
-            }
-            if (accuracy === 'recall') {
-                data[i].accuracy = (isNaN(recall)) ? 0 : recall;
-            }
-            if (accuracy === 'f1') {
-                data[i].accuracy = (isNaN(f1)) ? 0 : f1;
+        for (let i = 0; i < data.length; ++i) {
+            let trip = data[i];
+            // Check exist location
+            if (trip.locations) {
+                result.push(trip);
             }
         }
-    }
-
-    return;
+        resolve(result);
+    });
 }
 
 // Compute boolean cases expression
@@ -236,6 +159,7 @@ export function util_compute_entropy (data) {
     }
 }
 
+// Normalize vector in a set of interval
 export function util_normalize (vectors, range) {
 
     let min = d3.min(vectors);
@@ -251,6 +175,7 @@ export function util_normalize (vectors, range) {
     });
 }
 
+// Compute performances of all trip data
 export function util_compute_performance (data) {
 
     let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
@@ -258,6 +183,7 @@ export function util_compute_performance (data) {
     let confusion_matrix = {};
     let entropy_by_actions = {};
 
+    // Create confusion matrix
     for (let i = 0; i < data.length; ++i) {
 
         let true_label = data[i].actual.no_slight;
@@ -265,6 +191,7 @@ export function util_compute_performance (data) {
         let entropies = data[i].entropy;
 
         Object.keys(predicts).forEach(function (key) {
+            // Get prediction label
             let predict_label = predicts[key];
             // Add compute entropy
             let entropy_label = entropies[key];
@@ -304,6 +231,7 @@ export function util_compute_performance (data) {
     //console.log(confusion_matrix);
     //console.log(entropy_by_actions);
 
+    // Calculate all performance metrices
     Object.keys(confusion_matrix).forEach(function (model) {
 
         model_performance[model] = {};
@@ -358,6 +286,93 @@ export function util_compute_performance (data) {
     return model_performance;
 }
 
+// Group street data into a datasets
+export function util_compute_street_data(data, trips) {
+
+    let street_group = []
+    for (let i = 0; i < data.length; ++i) {
+
+        let trip_id = data[i].trip_id;
+        let matchings = data[i]['matchings'];
+
+        for (let j = 0; j < matchings.length; ++j) {
+            matchings[j]['street_names'].forEach(function(name) {
+
+                let pos = street_group.map(function(x) {
+                    return x.name;
+                }).indexOf(name);
+
+                let trip_pos = trips.map(function(x) {
+                    return x.trip_id;
+                }).indexOf(trip_id);
+
+                if (pos >= 0) {
+                    street_group[pos]['trip_ids'].push(trip_id);
+                    if (trip_pos >= 0) {
+                        street_group[pos]['predicted_trips'].push(trips[trip_pos]);
+                    }
+                } else {
+
+                    let street = {
+                        name: name,
+                        trip_ids: [trip_id], // For counting density
+                        predicted_trips: []
+                    }
+
+                    if (trip_pos >= 0) {
+                        street['predicted_trips'].push(trips[trip_pos]);
+                    }
+
+                    street_group.push(street);
+                }
+            });
+        }
+    }
+
+    //  Compute performance for streets
+    for (let i = 0; i < street_group.length; ++i) {
+        let street = street_group[i];
+        if (['predicted_trips'].length > 0) {
+            street['performance'] = util_compute_performance(street['predicted_trips']);
+        } else {
+            street['performance'] = undefined;
+        }
+    }
+
+    return street_group;
+}
+
+// Merge mapmatching street to roadnetwork with trip ids
+export function util_merge_street_roadnetwork(roadnetwork_data, street_data)
+{
+    let selected_streets = [];
+    //let trip_counts = [];
+    for (let i = 0; i < street_data.length; ++i) {
+        let name = street_data[i].name;
+        let pos = roadnetwork_data.map(function(x) {
+            return x.name;
+        }).indexOf(name);
+
+        if (pos >= 0) {
+            //trip_counts.push(street_data[i]['trip_ids'].length);
+            roadnetwork_data[pos]['count'] = street_data[i]['trip_ids'].length;
+            roadnetwork_data[pos]['trips'] = street_data[i]['predicted_trips'];
+            roadnetwork_data[pos]['performance'] = street_data[i]['performance'];
+            /*
+            let multi_line_string = [];
+            roadnetwork_data[i].features.forEach(function(feature) {
+                multi_line_string.push(feature.geometry.coordinates);
+            });
+
+            roadnetwork_data[pos]['multiLineString'] = turf.multiLineString(multi_line_string);*/
+
+            selected_streets.push(roadnetwork_data[pos]);
+        }
+    }
+
+    return selected_streets;
+}
+
 /*
 export function util_map_matching(trip)
 {
@@ -387,29 +402,3 @@ export function util_map_matching(trip)
         });
     }
 }*/
-
-export function util_compute_street_data(data) {
-
-    let street_group = []
-    for (let i = 0; i < data.length; ++i) {
-        let trip_id = data[i].trip_id;
-        let matchings = data[i]['matchings'];
-        for (let j = 0; j < matchings.length; ++j) {
-            matchings[j]['street_names'].forEach(function(name) {
-                let pos = street_group.map(function(x) {
-                    return x.name;
-                }).indexOf(name);
-                if (pos >= 0) {
-                    street_group[pos]['trip_ids'].push(trip_id);
-                } else {
-                    street_group.push({
-                        name: name,
-                        trip_ids: [trip_id]
-                    });
-                }
-            });
-        }
-    }
-
-    return street_group;
-}

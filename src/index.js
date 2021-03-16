@@ -11,7 +11,6 @@ import {
     map_main,
     map_initialize,
     map_add_draw_controls,
-    map_draw_trajectory,
     map_show_all_trips,
     map_get_bbox_polygon,
     map_show_filtered_trips,
@@ -29,6 +28,8 @@ import {
 
 import {
     util_axios_interceptors,
+    util_merge_street_roadnetwork,
+
     util_compute_cases,
     util_compute_entropy,
     util_compute_street_data,
@@ -38,15 +39,9 @@ import {
 } from './js/utils';
 
 import {
-    view_create_filters
-} from './js/view';
-
-import {
     query_all,
     query_all_streets,
-    query_count,
-    query_find_intersection,
-    query_find_roadnetwork_intersection
+    query_all_roadnetworks
 } from './js/query';
 
 import {
@@ -68,6 +63,7 @@ import {
 } from './js/vis';
 
 import {
+    filter_bbox_roadnetwork,
     filter_bbox_trips,
     filter_by_nodes,
     filter_by_polygon,
@@ -75,12 +71,18 @@ import {
     filter_predicted_trips,
     filter_trip_in_radius
 } from './js/filter';
+import { view_create_map_legends } from './js/view';
 
 export var main_regions = undefined;
 export var main_all_trips = undefined;
-export var main_all_streets = undefined;
+//export var main_all_streets = undefined;
 export var main_predicted_trips = undefined;
 export var main_mouse_coord = undefined;
+
+// Public datasets
+export var main_all_roadnetworks = undefined;
+export var main_all_streets = undefined;
+export var main_predicted_streets = undefined;
 
 export var main_states = {
     global: true,
@@ -103,102 +105,139 @@ export function main_init() {
     // Set axios interceptors
     util_axios_interceptors();
 
-    // Query road network
-    query_find_roadnetwork_intersection().then(function(data) {
+    main_get_all_datasets().then(function() {
+        // Preprocess data
+        util_preprocess_data(main_all_trips).then(function (processed_data) {
 
-        // find contains
-        let bbox = map_get_bbox_polygon();
-        let filtered_road_network = [];
-        let features = [];
+            // Compute trip data
+            main_all_trips = filter_bbox_trips(processed_data);
+            main_predicted_trips = main_preprocess(main_all_trips);
+            // Compute street and road network
+            main_all_streets = util_compute_street_data(main_all_streets, main_predicted_trips);
+            main_all_roadnetworks = filter_bbox_roadnetwork(main_all_roadnetworks);
 
-        for (let i = 0; i < data.length; ++i) {
+            console.log(main_all_streets);
+            main_predicted_streets = util_merge_street_roadnetwork(main_all_roadnetworks, main_all_streets);
+            console.log(main_predicted_streets);
 
-            let has = false;
-            let multi_line_string = [];
-            data[i].features.forEach(function(feature) {
-                if (turf.booleanContains(bbox, feature)) {
-                    has = true;
-                }
-                multi_line_string.push(feature.geometry.coordinates);
-            });
+            // Create drawable background
+            // TODO: need to show gradient
+            view_create_map_legends('map', main_predicted_streets);
 
-            if (has) {
-                filtered_road_network.push(data[i]);
-                features.push({
-                    name: data[i].name,
-                    multiLineString: turf.multiLineString(multi_line_string)
-                });
-            }
-        }
-
-        main_get_streets().then(function(street_data) {
-            main_all_streets = util_compute_street_data(street_data);
-            let selected_streets = [];
-            let trip_counts = [];
-            for (let i = 0; i < main_all_streets.length; ++i) {
-                let name = main_all_streets[i].name;
-                let pos = features.map(function(x) {
-                    return x.name;
-                }).indexOf(name);
-                if (pos >= 0) {
-                    trip_counts.push(main_all_streets[i]['trip_ids'].length);
-                    features[pos]['count'] = main_all_streets[i]['trip_ids'].length;
-                    selected_streets.push(features[pos]);
-                }
-            }
-
-            let color = d3.scaleLinear()
-                .domain([0, d3.mean(trip_counts), d3.max(trip_counts)])
-                .range(['#14717F','#F5C677','#C13224']); //0D6D54
-
-                // 1. ['#2E2E2E','#fdae61','#981328']
-
-            let opacity = d3.scaleLinear()
-                .domain([0, d3.mean(trip_counts), d3.max(trip_counts)])
-                .range([0.4,0.5,1]);
-
-            let display_features = [];
-            selected_streets.forEach(function (street) {
-                street.multiLineString.properties.color = color(street['count']);
-                street.multiLineString.properties.opacity = opacity(street['count']);
-                display_features.push(street.multiLineString);
-            });
-
-            let feature_collection = turf.featureCollection(display_features);
-
-            map_remove_layer('roads-highlight');
-            map_main.addSource('roads-highlight', {
-                type: 'geojson',
-                data: feature_collection
-            });
-            let trajectory_layer = {
-                id: 'roads-highlight',
-                type: 'line',
-                source: 'roads-highlight',
-                layout: {
-                    'line-join': 'round',
-                    'line-cap': 'butt'
-                },
-                paint: {
-                    'line-color': ['get', 'color'],
-                    'line-width': [
-                        'interpolate',
-                        ['linear'],
-                        ['zoom'],
-                        10,
-                        1,
-                        15,
-                        4
-                    ],
-                    'line-opacity': ['get', 'opacity']
-                }
-            }
-            map_main.addLayer(trajectory_layer);
+            map_show_filtered_trips(main_predicted_trips);
+            main_update_dataview(main_predicted_trips);
         });
     });
 
-    // Get all trips from database
+    map_main.on('dragend', function(e) {
+        if (main_states.global) {
+            if (main_all_trips) {
+                // Filter all trips inside bounding box
+                let trips = filter_bbox_trips(main_all_trips);
+                main_redraw_map(trips);
+            }
+        }
+    });
 
+    map_main.on('zoomend', function(e) {
+        if (main_states.global) {
+            if (main_all_trips) {
+                // Filter all trips inside bounding box
+                let trips = filter_bbox_trips(main_all_trips);
+                main_redraw_map(trips);
+            }
+        }
+
+        if (main_states.trip) {
+            if (main_predicted_trips) {
+                // Do something here
+            }
+        }
+    });
+
+    map_main.on('click', function (e) {
+        let coords = e.lngLat.wrap();
+        main_mouse_coord = [coords.lng, coords.lat];
+    });
+
+    map_main.on('click', 'trip-points', function (e) {
+
+        var coordinates = e.features[0].geometry.coordinates.slice();
+
+        let target_point = turf.point(main_mouse_coord);
+        let coords = [];
+
+        for (let i = 0; i < coordinates.length; ++i) {
+            coords.push(turf.point(coordinates[i]));
+        }
+
+        let points = turf.featureCollection(coords);
+        let nearest_point = turf.nearestPoint(target_point, points);
+        let trips = filter_point_on_trips(main_predicted_trips, nearest_point);
+
+        // Start trip states
+        // some to layer
+        main_states.global = false;
+        main_states.trip = true;
+        main_trip_study(trips);
+    });
+
+    map_main.on('zoomend', function(e) {
+        if (main_states.global) {
+            if (main_all_trips) {
+                // Filter all trips inside bounding box
+                let trips = filter_bbox_trips(main_all_trips);
+                main_redraw_map(trips);
+            }
+        }
+
+        if (main_states.trip) {
+            if (main_predicted_trips) {
+                //main_trip_study_init(main_predicted_trips[0]);
+            }
+        }
+    });
+
+    map_main.on('draw.create', function (e) {
+
+        let polygon = e.features[0];
+        // Need to remove and set new data
+        let trips = filter_by_polygon(polygon, main_all_trips);
+
+        if (main_regions) {
+            // Remove previous selection area
+            map_draw.delete([main_regions.id])
+            map_remove_layer('inner-trips');
+            main_regions = undefined;
+        }
+
+        // Draw new trips
+        map_draw_inner_trips('inner-trips', trips);
+        // Change outter trajectory
+        map_set_paint_property('outter-trips', 'line-color' ,'#525252');
+        // Assign new polygon area
+        main_regions = polygon;
+
+        main_predicted_trips =  main_preprocess(trips);
+        map_show_filtered_trips(main_predicted_trips);
+        main_update_dataview(main_predicted_trips);
+
+    });
+
+    map_main.on('draw.delete', function () {
+        if (main_regions) {
+            // Remove previous selection area
+            map_draw.delete([main_regions.id])
+            map_remove_layer('inner-trips');
+            main_regions = undefined;
+            // Re preprocessing trip and visualize it
+            let trips = filter_bbox_trips(main_all_trips);
+            main_redraw_map(trips);
+        }
+    });
+
+    // Get all trips from database
+    /*
     main_get_dataset().then(function (trip_data) {
         util_preprocess_data(trip_data).then(function (processed_data) {
 
@@ -311,8 +350,38 @@ export function main_init() {
         main_states.global = false;
         main_states.trip = true;
         main_trip_study(trips);
+    });*/
+}
+
+// 1. Get all datasets from mongodb
+function main_get_all_datasets()
+{
+    return new Promise(function(resolve, reject) {
+        query_all('train').then(function(trip_data) {
+            main_all_trips = trip_data;
+            //console.log('Done query trip data');
+            query_all_streets().then(function(street_data) {
+                main_all_streets = street_data;
+                //console.log('Done query street data');
+                query_all_roadnetworks().then(function(roadnetwork_data) {
+                    main_all_roadnetworks = roadnetwork_data;
+                    //console.log('Done query roadnetwork data');
+                    resolve();
+                });
+            });
+        });
     });
 }
+
+// 2. preprocess datasets
+function main_preprocess(trips)
+{
+    let preprocessed_trips = filter_predicted_trips(trips);
+    util_compute_cases(preprocessed_trips);
+    util_compute_entropy(preprocessed_trips);
+    return preprocessed_trips;
+}
+
 
 export function main_redraw_map(trips) {
 
@@ -364,41 +433,6 @@ export function main_set_maplayer_index() {
     }*/
 
     return;
-}
-
-// Get data from database
-function main_get_dataset() {
-    return new Promise(function (resolve, reject) {
-        var data = {};
-        query_all('train').then(function (train_data) {
-            data['train'] = train_data;
-            resolve(data);
-        });
-    });
-}
-
-function main_get_streets()
-{
-    return new Promise(function (resolve, reject) {
-        //var data = {};
-        query_all_streets().then(function(data) {
-            resolve(data);
-        });
-    });
-}
-
-function main_preprocess(trips) {
-
-    //let roads = map_query_rendered_features('road');
-    //util_map_matching(trips[0]);
-
-    let preprocessed_trips = filter_predicted_trips(trips);
-    console.log(preprocessed_trips);
-    // main_all_streets
-
-    util_compute_cases(preprocessed_trips);
-    util_compute_entropy(preprocessed_trips);
-    return preprocessed_trips;
 }
 
 // Update dataview

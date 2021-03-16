@@ -108,3 +108,35 @@ export function filter_trip_in_radius(trips, polygon) {
     }
     return filtered_trips;
 }
+
+// Filter roadnetwork inside bounding box
+// Return roads with multilinestring geometry
+export function filter_bbox_roadnetwork(roadnetwork)
+{
+    let bbox = map_get_bbox_polygon();
+    //let filtered_road_network = [];
+    let features = [];
+
+    for (let i = 0; i < roadnetwork.length; ++i) {
+
+        let has = false;
+        let multi_line_string = [];
+        // Get all linestring coordinates
+        roadnetwork[i].features.forEach(function(feature) {
+            if (turf.booleanContains(bbox, feature)) {
+                has = true;
+            }
+            multi_line_string.push(feature.geometry.coordinates);
+        });
+
+        if (has) {
+            //filtered_road_network.push(data[i]);
+            features.push({
+                name: roadnetwork[i].name,
+                multiLineString: turf.multiLineString(multi_line_string)
+            });
+        }
+    }
+
+    return features;
+}
