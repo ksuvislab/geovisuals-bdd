@@ -87,3 +87,5 @@ typings/
 
 # BDD data
 data/
+dist/
+papers/
