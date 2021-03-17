@@ -105,12 +105,27 @@ export function main_init() {
     // Set axios interceptors
     util_axios_interceptors();
 
+    // Need to fix query
+
+
     main_get_all_datasets().then(function() {
         // Preprocess data
         util_preprocess_data(main_all_trips).then(function (processed_data) {
-
             // Compute trip data
             main_all_trips = filter_bbox_trips(processed_data);
+            console.log(main_all_trips);
+            map_draw_outter_trips('outter-trips', main_all_trips);
+
+            let json_file = "";
+            for (let i = 0; i < main_all_trips.length; ++i) {
+                let trip = main_all_trips[i];
+                json_file += trip.trip_id + " ";
+            }
+
+            // Start file download.
+            download("CA_TRIP_ID.txt", json_file);
+
+            /*
             main_predicted_trips = main_preprocess(main_all_trips);
             // Compute street and road network
             main_all_streets = util_compute_street_data(main_all_streets, main_predicted_trips);
@@ -125,9 +140,22 @@ export function main_init() {
             view_create_map_legends('map', main_predicted_streets);
 
             map_show_filtered_trips(main_predicted_trips);
-            main_update_dataview(main_predicted_trips);
+            main_update_dataview(main_predicted_trips);*/
         });
     });
+
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
 
     map_main.on('dragend', function(e) {
         if (main_states.global) {

@@ -33,12 +33,16 @@ export function map_initialize(container_id)
     map_main = new mapboxgl.Map({
         container: container_id,
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-74.0060, 40.7128],
+        center: [-122.2730, 37.8715],
         zoom: 10,
         minZoom:  10,
         maxZoom: 15,
     });
 }
+
+//-74.0060, 40.7128 NY
+// -122.2730, 37.8715 CA
+
 
 // Add draw controls
 export function map_add_draw_controls()
@@ -67,9 +71,9 @@ export function map_draw_outter_trips (id, data) {
     // Set all feature property
     for (var i = 0; i < data.length; ++i) {
         let feature = turf.feature(data[i].locations, {
-            color: color[util_random_number_interval(0,4)],
-            opacity: 0.1,
-            model: data[i].model_type,
+            color: '#252525',
+            opacity: 1,
+            //model: data[i].model_type,
             time_of_day: data[i].time_of_day,
             scene: data[i].scene,
             weather: data[i].weather
@@ -96,7 +100,7 @@ export function map_draw_outter_trips (id, data) {
         },
         paint: {
             'line-color': ['get', 'color'],
-            'line-width': 4,
+            'line-width': 1,
             'line-opacity': ['get', 'opacity']
         }
     }

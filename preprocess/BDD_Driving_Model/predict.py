@@ -8,29 +8,70 @@ from PIL import Image
 from matplotlib.pyplot import imshow, show
 import numpy as np
 
-tfrecords_path = "./data/tfrecord_release2/"
-output_path = "./data/prediction_output/"
-frames_path = "./data/frames/"
+# Change this based on your data path
+tfrecords_path = "/Volumes/parndepu/tfrecord_release/"
+output_path = "./data/ny_outputs/"
+frames_path = "./data/ny_frames/"
 
-# Pretrained models
-#tcnn1 = wrapper.Wrapper("discrete_tcnn1", "./data/pretrained_models/discrete_tcnn1/model.ckpt-126001.bestmodel", 20)
+# Change this base on which model you want to runn
+model_type = 'tcnn1' # tcnn1, cnn_lstm, fcn_lstm
 
-cnn_lstm = wrapper.Wrapper("discrete_cnn_lstm", "./data/pretrained_models/discrete_cnn_lstm/model.ckpt-146001.bestmodel", 20)
+def get_wrapper(model):
+    """ Get model wrapper """
+    if model == 'tcnn1':
+        return wrapper.Wrapper("discrete_tcnn1", "./data/pretrained_models/discrete_tcnn1/model.ckpt-126001.bestmodel", 20)
+    elif model == 'cnn_lstm':
+        return wrapper.Wrapper("discrete_cnn_lstm", "./data/pretrained_models/discrete_cnn_lstm/model.ckpt-146001.bestmodel", truncate_len=1, is_lstm=True)
+    elif model == 'fcn_lstm':
+        return wrapper.Wrapper("discrete_fcn_lstm", "./data/pretrained_models/discrete_fcn_lstm/model.ckpt-315001.bestmodel", truncate_len=1, is_lstm=True)
 
-#fcn_lstm = wrapper.Wrapper("discrete_fcn_lstm", "./data/pretrained_models/discrete_fcn_lstm/model.ckpt-315001.bestmodel", 20)
+def save_image(im, save_image_path):
+    """ Save image if not exist """
+    if not os.path.exists(save_image_path):
+        im.save(save_image_path)
+    return
 
+def save_prediction_output(tfrecords_id, prediction_output, write_path):
+    """ Write prediction output """
+    if os.path.exists(write_path):
+        print('Write existing file ...')
+        with open(write_path, 'r') as json_file:
+            write_data = json.load(json_file)
+            write_data[model_type] = prediction_output
+        with open(write_path, 'w') as json_file:
+            json.dump(write_data, json_file)
+    else:
+        with open(write_path, 'w') as json_file:
+            output = { "id": tfrecords_id }
+            output[model_type]= prediction_output
+            json.dump(output, json_file)
 
+def check_exist_output(write_path):
+    """ Check existing output file """
+    if os.path.exists(write_path):
+        with open(write_path, 'r') as json_file:
+            json_data = json.load(json_file)
+            if model_type in json_data:
+                return True
+            else:
+                return False
+    return False
 
 if __name__ == '__main__':
 
+    # Start model wrappers
     example = example_pb2.Example()
+    model_wrapper = get_wrapper(model_type)
 
     for item in os.listdir(tfrecords_path):
 
         tfrecords_id = item.split(".")[0]
         json_path = os.path.join( output_path, str(tfrecords_id) + '.json')
+        write_path = os.path.join(output_path, str(tfrecords_id) + '.json')
 
-        if item.endswith(".tfrecords"): #and not os.path.isfile(json_path):
+        # Processing trip id
+        print('Process Trip ID: ' + str(tfrecords_id))
+        if item.endswith(".tfrecords") and not check_exist_output(write_path):
             this_tfrecords  = os.path.join(tfrecords_path, item)
             count = 0
             for example_serialized in tf.python_io.tf_record_iterator(this_tfrecords):
@@ -38,52 +79,29 @@ if __name__ == '__main__':
                 feature_map = example.features.feature
                 encoded = feature_map['image/encoded'].bytes_list.value
                 count += 1
-
-            image_path = os.path.join('./data/frames/', tfrecords_id)
+            # Create image path
+            image_path = os.path.join(frames_path, tfrecords_id)
 
             if not os.path.exists(image_path):
                 os.makedirs(image_path)
 
-            #tcnn1_output = []
-            cnn_lstm_output = []
-            #fcn_lstm_output = []
-
+            prediction_output = []
             for i in range(len(encoded)):
                 if i % 5 == 0:
                     file_jpgdata = StringIO(encoded[i])
-
-                    # save image
+                    # Save image
                     dt = Image.open(file_jpgdata)
                     im = Image.fromarray(np.asarray(dt))
-                    #im.save(os.path.join(image_path, str(i/5) + '.png'))
+                    save_image(im, os.path.join(image_path, str(i/5) + '.png'))
 
                     # observe prediction output
                     arr = np.asarray(dt)
-                    #out1 = tcnn1.observe_a_frame(arr)
-                    out2 = cnn_lstm.observe_a_frame(arr)
-                    #out3 = fcn_lstm.observe_a_frame(arr)
-
+                    out = model_wrapper.observe_a_frame(arr)
                     # Add prediction output to list
-                    #tcnn1_output.append(out1[0].tolist()[0])
-                    cnn_lstm_output.append(out2[0].tolist()[0])
-                    #fcn_lstm_output.append(out3[0].tolist()[0])
+                    prediction_output.append(out[0].tolist()[0])
+                    #print(str(i/5))
 
-                    print(str(i/5))
-
-            write_path = os.path.join(output_path, str(tfrecords_id) + '.json')
-            if os.path.exists(write_path):
-                print('Write existing file ...')
-                with open(write_path, 'r') as json_file:
-                    write_data = json.load(json_file)
-                write_data['cnn_lstm'] = cnn_lstm_output
-                #write_data['fcn_lstm'] = fcn_lstm_output
-                with open(write_path, 'w') as json_file:
-                    json.dump(write_data, json_file)
-            else:
-                # write prediction output in json
-                with open(os.path.join( output_path, str(tfrecords_id) + '.json'), 'w') as json_file:
-                    y = {
-                        "id": tfrecords_id,
-                        "tcnn1": tcnn1_output
-                    }
-                    json.dump(y, json_file)
+            # Save prediction output
+            save_prediction_output(tfrecords_id, prediction_output, write_path)
+        else:
+            print(str(model_type) + ' already generate predicted output.')
