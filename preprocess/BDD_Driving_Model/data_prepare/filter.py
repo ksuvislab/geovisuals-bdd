@@ -22,7 +22,7 @@ def probe_file(filename):
         # Saving the time length (in seconds) of the video into the variable 'whole_time'
         whole_time = float(hour)*3600 + float(minute)*60 + float(second)
     return whole_time
-    
+
 
 
 if __name__ == '__main__':

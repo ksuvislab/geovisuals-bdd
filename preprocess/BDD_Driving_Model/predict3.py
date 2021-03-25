@@ -13,7 +13,7 @@ tfrecords_path = "/Volumes/parndepu/tfrecord_release/"
 output_path = "../../data/prediction_output/"
 frames_path = "../../data/frames/"
 
-model_type = 'tcnn1' # tcnn1, cnn_lstm, fcn_lstm
+model_type = 'fcn_lstm' # tcnn1, cnn_lstm, fcn_lstm
 
 def get_wrapper(model):
     if model == 'tcnn1':

@@ -1,6 +1,5 @@
+import {symbolOctagonAlt} from 'd3-symbol-extra';
 import {
-    map_model_colors,
-    map_filter_all_trips,
     map_draw_point,
     map_remove_layer,
     map_draw_all_points,
@@ -8,22 +7,14 @@ import {
     map_main,
     map_draw_trip_in_radius,
     map_draw_selected_trips,
-    map_circle_polygon,
-    map_selected_line
 } from "./map";
 import './plugin/d3-parsets';
-
-import {
-    sankey as d3Sankey,
-    sankeyLinkHorizontal
-} from 'd3-sankey';
 
 import {
     util_compute_performance
 } from './utils';
 
-import {main_set_maplayer_index } from "..";
-import {compare} from 'image-ssim';
+import { view_trip_filter_mode } from './view';
 
 export var vis_is_parallelsets_filter = false;
 let CAR_ACTIONS = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
@@ -42,17 +33,19 @@ export function vis_global_view (trips, container_id) {
     $('#' + container_id).empty();
 
     let selection_div = create_selection_div(container_id);
-    let performance_colors = ['#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d']
+    let performance_colors = ['#6baed6','#fb6a4a','#cb181d','#a50f15','#d73027'];
+
     let width = 0;
     let height = 0;
     let margin = {top: 20, right: 40, bottom: 10, left: 20};
     let selection = {
-        parameter: 'action',
-        performances: ['accuracy', 'precision', 'recall', 'f1', 'entropy']
+        parameter: 'time_of_day',
+        performances: ['accuracy', 'entropy']
+        //performances: ['accuracy', 'precision', 'recall', 'f1', 'entropy']
     }
 
     // TODO: Need to have default one
-    add_trip_number(selection_div, trips);
+    //add_trip_number(selection_div, trips);
     add_parameter_legend(selection_div);
     add_performance_legend(selection_div);
     init_chart(container_id);
@@ -84,7 +77,7 @@ export function vis_global_view (trips, container_id) {
     // Add select option to dropdown list
     function add_dropdown(div) {
 
-        let parameters_str = ['Time Of Day', 'Scene', 'Weather', 'Action'];
+        let parameters_str = ['Time Of Day', 'Street Type', 'Weather', 'Action'];
         let parameters_value = ['time_of_day', 'scene', 'weather', 'action'];
         let actions_str = ['Straight', 'Slow Or Stop', 'Turn Left', 'Turn Right'];
         let actions_value = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
@@ -130,7 +123,7 @@ export function vis_global_view (trips, container_id) {
     // Add performance legends
     function add_parameter_legend(div) {
 
-        let parameters_str = ['Time Of Day', 'Scene', 'Weather', 'Action'];
+        let parameters_str = ['Time Of Day', 'Street Type', 'Weather', 'Action'];
         let parameters_value = ['time_of_day', 'scene', 'weather', 'action'];
 
         let parameter_div = div.append('div')
@@ -139,6 +132,7 @@ export function vis_global_view (trips, container_id) {
             .style('line-height', '20px')
             .style('box-sizing', 'border-box')
             .style('font-size', '14px')
+            .style('padding-left', '5px')
             .style('text-align', 'center');
 
         for (let i = 0; i < parameters_value.length; ++i) {
@@ -155,7 +149,7 @@ export function vis_global_view (trips, container_id) {
                 .attr('id', 'parameter-checkbox-' + i)
                 .attr('class', 'fas fa-square')
                 .style('cursor', 'pointer')
-                .style('color', '#7f0000');
+                .style('color', '#969696');
 
             let legend_text = legend_div.append('label')
                 .style('cursor', 'pointer')
@@ -175,8 +169,8 @@ export function vis_global_view (trips, container_id) {
             });
         }
 
-        // Select action as default
-        d3.select('#parameter-checkbox-' + parameters_value.indexOf('action'))
+        // Select time_of_day as default
+        d3.select('#parameter-checkbox-' + parameters_value.indexOf('time_of_day'))
             .attr('class', 'fas fa-check-square');
 
         return;
@@ -185,8 +179,10 @@ export function vis_global_view (trips, container_id) {
     // Add performance legends
     function add_performance_legend(div) {
 
-        let performace_str = ['Accuracy', 'Precision', 'Recall', 'F1', 'Perplexity'];
-        let performance_value = ['accuracy', 'precision', 'recall', 'f1', 'entropy'];
+        //let performace_str = ['Accuracy', 'Precision', 'Recall', 'F1', 'Perplexity'];
+        //let performance_value = ['accuracy', 'precision', 'recall', 'f1', 'entropy'];
+        let performace_str = ['Accuracy', 'Perplexity'];
+        let performance_value = ['accuracy', 'entropy'];
 
         let performance_div = div.append('div')
             .style('width', '100%')
@@ -194,6 +190,7 @@ export function vis_global_view (trips, container_id) {
             .style('line-height', '40px')
             .style('box-sizing', 'border-box')
             .style('font-size', '14px')
+            .style('padding-left', '5px')
             .style('text-align', 'center');
 
         for (let i = 0; i < performance_value.length; ++i) {
@@ -219,8 +216,10 @@ export function vis_global_view (trips, container_id) {
             legend_div.on('click', function() {
 
                 if (legend_div.classed('active')) {
+
                     let pos = selection.performances.indexOf(performance_value[i]);
                     selection.performances.splice(pos, 1);
+
                     legend_icon.attr('class', 'fas fa-square');
                     legend_div.classed('active', false);
                 } else {
@@ -281,9 +280,9 @@ export function vis_global_view (trips, container_id) {
 
         let y1_scale = d3.scaleBand()
             .padding(0.2);
-
+        // ['accuracy', 'precision', 'recall', 'f1', 'entropy']
         let color_scale = d3.scaleOrdinal()
-            .domain(['accuracy', 'precision', 'recall', 'f1', 'entropy'])
+            .domain(['accuracy', 'entropy'])
             .range(performance_colors);
 
         x0_scale.domain(models);
@@ -296,7 +295,7 @@ export function vis_global_view (trips, container_id) {
             .attr("class", "axis")
             .call(d3.axisLeft(y0_scale))
             .selectAll('text')
-            .style('font-size', '14px')
+            .style('font-size', '11px')
             .attr("text-anchor", "middle")
             .attr('transform', function(d) {
                 return 'translate(-13, -8) rotate(270)'
@@ -305,7 +304,7 @@ export function vis_global_view (trips, container_id) {
         // Draw X axis
         svg.append("g")
             .attr("class", "axis")
-            .style('font-size', '14px')
+            .style('font-size', '12px')
             .call(d3.axisTop(x0_scale));
 
         for (let i = 0; i < keys.length; ++i) {
@@ -325,10 +324,19 @@ export function vis_global_view (trips, container_id) {
                         .attr('width', x1_scale(1))
                         .attr('height', y1_scale.bandwidth())
                         .attr('fill', '#C9D2D3')
-                        .style("stroke", '#C9D2D3')
+                        .style("stroke", '#252525')
                         .style("stroke-width", "0.5px")
                         .attr('fill-opacity', '0.8')
                         .style("stroke-opacity", 1);
+
+                    let bar_scale = d3.scaleLinear()
+                        .domain([0, 1]);
+
+                    if (filter.performances[k] === 'accuracy') {
+                        bar_scale.range(['#f7fbff','#9ecae1']);
+                    } else {
+                        bar_scale.range(['#fff5f0','#fc9272']);
+                    }
 
                     g.append('rect')
                         .attr('x', 0)
@@ -337,8 +345,8 @@ export function vis_global_view (trips, container_id) {
                         .transition()
                         .duration(500)
                         .attr('width', (value) ? x1_scale(value) : x1_scale(0))
-                        .attr('fill', color_scale(filter.performances[k]))
-                        .style("stroke", color_scale(filter.performances[k]))
+                        .attr('fill', (value) ? bar_scale(value) : bar_scale(0))
+                        .style("stroke", '#252525')
                         .style("stroke-width", "0.5px")
                         .attr('fill-opacity', '0.8')
                         .style("stroke-opacity", 1);
@@ -349,10 +357,10 @@ export function vis_global_view (trips, container_id) {
                         .duration(500)
                         .attr("x", x1_scale(value) - 2)
                         .attr("dy", "0.32em")
-                        .attr("fill", '#fff')
+                        .attr("fill", '#252525')
                         .attr('font-size', '12px')
                         .attr("text-anchor", "end")
-                        .text( (value) ? value.toFixed(2) : 0);
+                        .text( (value) ? (value * 100).toFixed(0) + '%' : 0 + '%');
                 }
             }
         }
@@ -442,588 +450,182 @@ export function vis_global_view (trips, container_id) {
     }
 }
 
-/*
-export function vis_draw_model_table(trips, container_id) {
+export function vis_draw_trip_filter(trips)
+{
+    let condition_keys = ['time_of_day', 'scene', 'weather'];
+    let performance_keys = ['accuracy', 'perplexity']
+    let condition_keys_text = ['Time Of Day', 'Street Type', 'Weather'];
+    let performance_keys_text = ['Accuracy (%)', 'Perplexity (%)'];
 
+    let processed_trips = preprocess(trips);
 
-    let trip_count = 0;
-    let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
-    let action_symbols = ['GO', 'SS', 'TL', 'TR'];
-
-    // Create table data
-    let preprocessed_data = preprocess(trips);
-    let data = preprocessed_data[0];
-    let filtered_data = preprocessed_data[1];
-
-    if (vis_is_parallelsets_filter) {
-
-        let summary = preprocessed_data[0];
-
-        Object.keys(summary).forEach(function (model) {
-            Object.keys(summary[model]).forEach(function (action) {
-
-                let filter_total = summary[model][action];
-                let total = $('#column-' + model + '-' + action).html();
-                let html_str = "";
-
-                if (total) {
-                    if (total.indexOf('/') > -1) {
-                        total = total.split('/')[2];
-                        html_str = '<font color="#a50f15">' + filter_total + '</font>' + ' /' + total;
-                        d3.select('#column-' + model + '-' + action)
-                            .style('font-size', '12px')
-                            .html(html_str);
-                    } else {
-                        html_str = '<font color="#a50f15">' + filter_total + '</font>' + ' /' + total;
-                        d3.select('#column-' + model + '-' + action)
-                            .style('font-size', '12px')
-                            .html(html_str);
-                    }
-                }
-            });
-        });
-        return;
+    if (view_trip_filter_mode.condition) {
+        create_filter(processed_trips, condition_keys, condition_keys_text, 'trip-filter-body-condition');
+    } else if (view_trip_filter_mode.performance) {
+        create_filter(processed_trips, performance_keys, performance_keys_text, 'trip-filter-body-performance');
+    } else {
+        alert('error no mode selected');
     }
 
-    // Clear current container
-    $('#' + container_id).empty();
-    // Start drawing table here
-    let table = d3.select('#' + container_id)
-        .append('table')
-        .style('width', '100%')
-        .style('height', '100%');
-
-    let header_row = table.append('tr');
-    header_row.append('th').html(trip_count + ' Trips');
-    header_row.append('th').html('actual')
-    header_row.append('th').html('tcnn1')
-    header_row.append('th').html('cnn_lstm')
-    header_row.append('th').html('fcn_lstm');
-
-    for (let i = 0; i <  car_actions.length; ++i) {
-        let body_row = table.append('tr')
-            .attr('class', 'dataview-rows')
-            .style('cursor', 'pointer');
-        body_row.append('td').html(action_symbols[i]);
-        Object.keys(data).forEach(function (model) {
-            if (car_actions[i] in data[model]) {
-                body_row.append('td')
-                    .attr('id', 'column-' + model + '-' + car_actions[i])
-                    .html(data[model][car_actions[i]]);
-            } else {
-                body_row.append('td')
-                    .html(0);
-            }
-        });
-
-        body_row.on('click', function() {
-
-            d3.selectAll('.dataview-rows').style('opacity', 0.1);
-
-            if (body_row.classed('active')) {
-
-                //body_row.style('opacity', 1);
-                d3.selectAll('.dataview-rows').style('opacity', 1);
-
-                d3.selectAll('.performance-bar').style('opacity', 1);
-                body_row.classed('active', false);
-            } else {
-
-                d3.selectAll('.dataview-rows').classed('active', false);
-                body_row.style('opacity', 1);
-
-                let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
-
-                d3.selectAll('.performance-bar').style('opacity', 0.2);
-
-                models.forEach(function (model) {
-                    d3.select('#' + model + '-' + car_actions[i]).style('opacity', 1);
-                });
-                body_row.classed('active', true);
-            }
-
-        });
-    }
-
-    function preprocess (data) {
-        let filtered_trips = [];
-        let result = {};
-        for (var i = 0; i < data.length; ++i) {
-            // Get prediction action
-            if (data[i].actual && data[i].predict && Object.keys(data[i].predict).length === 3 && data[i].actual.no_slight) {
-                if (!('actual' in result)) { result['actual'] = {}; }
-                // Get actual label actions
-                for (var j = 0; j < data[i].actual.no_slight.length; ++j) {
-                    let action = data[i].actual.no_slight[j];
-                    if (car_actions[action] in result['actual']) {
-                        result['actual'][car_actions[action]] += 1;
-                    } else {
-                        result['actual'][car_actions[action]] = 1;
-                    }
-                }
-                // Get other model actions
-                Object.keys(data[i].predict).forEach(function (model) {
-                    if (model in result) {
-                        for (var j = 0; j < data[i].predict[model].length; ++j) {
-                            let prediction = data[i].predict[model][j];
-                            let action = prediction.indexOf(d3.max(prediction));
-                            if (car_actions[action] in result[model]) {
-                                result[model][car_actions[action]] += 1;
-                            } else {
-                                result[model][car_actions[action]] = 1;
-                            }
-                        }
-                    } else {
-                        result[model] = {};
-                        for (var j = 0; j < data[i].predict[model].length; ++j) {
-                            let prediction = data[i].predict[model][j];
-                            let action = prediction.indexOf(d3.max(prediction));
-                            if (car_actions[action] in result[model]) {
-                                result[model][car_actions[action]] += 1;
-                            } else {
-                                result[model][car_actions[action]] = 1;
-                            }
-                        }
-                    }
-                });
-
-                trip_count += 1;
-                filtered_trips.push(data[i]);
-            }
-        }
-
-        return [result, filtered_trips];
-    }
-
-    return filtered_data;
-}*/
-
-export function vis_parallelsets (trips, container_id) {
-
-    // need to preprocess this
-    let data = preprocess(trips);
-    vis_selected_nodes = [];
-
-    // 'accuracy', 'perplexity'
-
-    // Select keys
-    let provide_keys = ['time_of_day', 'scene', 'weather', 'accuracy', 'entropy'];
-    let keys = ['time_of_day', 'scene', 'weather'];
-
-    let color = d3.scaleOrdinal(d3.schemeCategory10).domain(['daytime', 'night', 'dawn/dusk']).unknown('#C9D2D3');
-
-    /*
-    let graph = get_graph(keys, data);
-    //console.log(graph);
-
-    let sankey = d3Sankey()
-        .nodeSort(null)
-        .linkSort(null)
-        .nodeWidth(4)
-        .nodePadding(20)
-        .nodeSort(null)
-        .extent([[0, 5], [width, height - 5]]);
-
-    const {nodes, links} = sankey({
-        nodes: graph.nodes.map(d => Object.assign({}, d)),
-        links: graph.links.map(d => Object.assign({}, d))
-    });*/
-
-    //console.log(nodes);
-    //console.log(links);
-
-    // Remove current svg;
-    d3.select('#' + container_id).empty();
-
-    // Add dimension selector
-    add_dimension_list(data, keys, container_id);
-    update_chart(data, keys);
-
-    function add_dimension_list( data, dimensions, container_id) {
-        let dimension_div = d3.select('#' + container_id).append('div')
-            .style('width', 'auto')
-            .style('height', 'auto')
-            .style('cursor', 'pointer')
-            .style('position', 'absolute')
-            .style('top', '-20px')
-            .style('left', '0px')
-            .style('background-color', '#C9D2D3')
-            .style('box-sizing', 'border-box')
-            .style('line-height', '14px')
-            .style('font-size', '14px')
-            .style('padding', '2px')
-            .html('Dimensions')
-            .on('click', function () {
-
-                if (dimension_div.classed('active')) {
-                    console.log('removed');
-                    d3.select('#dimension-selector').remove();
-                    dimension_div.classed('active', false);
-                    return;
-                }
-
-                let selector_div = d3.select('#' + container_id).append('div')
-                    .attr('id','dimension-selector')
-                    .style('width', 'auto')
-                    .style('height', 'auto')
-                    .style('cursor', 'pointer')
-                    .style('position', 'absolute')
-                    .style('top', '-20px')
-                    .style('right', '0px')
-                    .style('background-color', '#C9D2D3')
-                    .style('box-sizing', 'border-box')
-                    .style('line-height', '14px')
-                    .style('font-size', '14px')
-                    .style('padding', '2px')
-
-                for (let i = 0; i < provide_keys.length; ++i) {
-                    let select_div = selector_div.append('div')
-                        .attr('class', (dimensions.indexOf(provide_keys[i]) >= 0) ? 'active' : '')
-                        .style('width', 'auto')
-                        .style('height', '14px')
-                        .style('line-height', '14px')
-                        .style('cursor', 'pointer')
-                        .style('font-size', '14px');
-
-                    let select_icon = select_div.append('i')
-                        .attr('class', (dimensions.indexOf(provide_keys[i]) >= 0) ? 'fas fa-check-square' : 'fas fa-square')
-                        .style('cursor', 'pointer')
-                        .style('color', '#000');
-
-                    let select_text = select_div.append('label')
-                        .style('cursor', 'pointer')
-                        .html('&nbsp;' + provide_keys[i]);
-
-                    select_div.on('click', function() {
-
-                        if (select_div.classed('active')) {
-                            keys.splice(keys.indexOf(provide_keys[i]), 1);
-                            select_icon.attr('class', 'fas fa-square')
-                            select_div.classed('active', false);
-                        } else {
-                            keys.push(provide_keys[i]);
-                            select_icon.attr('class', 'fas fa-check-square')
-                            select_div.classed('active', true);
-                        }
-
-                        update_chart(data, keys);
-                    });
-
-                    dimension_div.classed('active', true);
-                }
-            });
-    }
-
-    function update_chart(data, dimensions) {
-
-        vis_selected_nodes = [];
-
-        //console.log(dimensions);
-        let margin = {top: 0, right: -30, bottom: 50, left: 0};
-        let width = $('#' + container_id).width() - margin.left - margin.right;
-        let height = $('#' + container_id).height() - margin.top - margin.bottom;
-
-        var chart = d3.parsets()
-            .width(height)
-            .height(width)
-            .dimensions(dimensions)
-            .tension(0.7);
-
-        d3.select('#' + container_id).select('svg').remove();
-
-        let svg = d3.select('#' + container_id).append('svg')
-                .attr('width', width + margin.left + margin.right)
-                .attr('height', height + margin.top + margin.bottom)
-            .append('g')
-                .attr('transform', 'translate(-40, ' + height + ')rotate(-90)');
-
-        svg.datum(data).call(chart);
-
-        chart.on('sortDimensions', function () {
-            change_dimensions();
-        });
-
-        chart.on('sortCategories', function () {
-            change_categories();
-        });
-
-        svg.selectAll(".category text")
-            .attr('font-size', '14px')
-            .attr("dy", "0.7em")
-            .attr("transform", "rotate(90)")
-            .attr("dx", function (d) {
-                return (d.dimension.name === keys[keys.length - 1]) ? -5 : 5;
-            })
-            .attr('text-anchor', function (d) {
-                return (d.dimension.name === keys[keys.length - 1]) ? 'end' : 'start';
-            });
-
-        svg.selectAll(".category rect")
-            .attr("y", 0);
-        svg.selectAll("text.dimension")
-            .attr("dy", "2em")
-            .attr('font-size', '14px')
-            .attr("transform", "rotate(90)")
-            .attr('text-anchor', function (d) {
-                return (d.name === keys[keys.length - 1]) ? 'end' : 'start';
-            });
-
-        svg.selectAll("text.dimension .sort.alpha")
-            .attr("x", 0)
-            .attr("dx", 0)
-            .attr("dy", "1.5em")
-            .attr('opacity', '0');
-
-        svg.selectAll("text.dimension .sort.size")
-            .attr("dx", "1em")
-            .attr('opacity', 0);
-
-        svg.selectAll('text')
-            .on('click', function (d) {
-
-                if (d3.select(this).classed('selected-text')) {
-                    d3.select(this)
-                        .attr('fill', '#000')
-                        .attr('font-size', '14px');
-                    d3.select(this).classed('selected-text', false);
-                } else {
-                    d3.select(this)
-                        .attr('fill', 'rgb(202,0,42)')
-                        .attr('font-size', '14px');
-                    d3.select(this).classed('selected-text', true);
-                }
-
-                highlight(d, true);
-            });
-
-    }
-
-    function highlight(d, ancestors) {
-
-        // Check is a nodes
-        if (!d.nodes) { return; }
-
-        var highlight = [];
-        d.nodes.forEach(function (node) {
-            (function recurse(x) {
-              highlight.push(x);
-              for (var k in x.children) recurse(x.children[k]);
-            })(node);
-            //highlight.shift();
-            if (ancestors) while (node) highlight.push(node), node = node.parent;
-        });
-
-        let pos = vis_selected_nodes.map(function (x) {
-            return x.parent;
-        }).indexOf(d.name);
-
-        if (pos >= 0) {
-            vis_selected_nodes.splice(pos, 1);
-        } else {
-            vis_selected_nodes.push({
-                parent: d.name,
-                dimension: d.dimension.name,
-                highlight: highlight
-            });
-        }
-
-        update_selection();
-    }
-
-    function update_selection() {
-        // Reset all selection path
-        d3.select('.ribbon').selectAll('path').classed('selected', false);
-        // Highlight selection
-        d3.select('.ribbon').selectAll('path').classed('selected', function (d) {
-            const found = vis_selected_nodes.some(item => item.highlight.indexOf(d.node) >= 0);
-            return (found) ? true : false;
-        });
-
-        //
-        update_by_selection();
-    }
-
-    function change_categories() {
-        // Reset all selection path
-        vis_selected_nodes = [];
-        d3.selectAll('.selected-text')
-            .attr('fill', '#000')
-            .attr('font-size', '14px');
-        d3.selectAll('.selected-text').classed('selected-text', false);
-
-        // Reset filter
-        reset_filter();
-    }
-
-    function change_dimensions() {
-        // Reset all selection path
-        vis_selected_nodes = [];
-        d3.selectAll('.selected-text')
-            .attr('fill', '#000')
-            .attr('font-size', '14px');
-        d3.selectAll('.selected-text').classed('selected-text', false);
-
-        reset_filter();
-    }
-
-    function update_by_selection() {
-        //data, selected_nodes;
+    function create_filter(data, keys, key_values, container_id) {
+
+        let graph = get_graph(keys, data);
+        // Container to empty
+        $('#' + container_id).empty();
+
+        let nodes = graph.nodes;
+        let width = $('#' + container_id).width();
+        let height = $('#' + container_id).height();
+        let color_range = d3.scaleLinear()
+            .domain([0, data.length])
+            .range(['#efedf5','#54278f']);
+
+        //console.log(width);
+        //console.log(height);
+
+        let sub_height = 70;
         let filter = {};
-        vis_selected_nodes.forEach(function (node) {
-            let key = node.dimension;
-            let value = node.parent;
-            if (!(key in filter)) {
-                filter[key] = [];
-            }
 
-            if (filter[key].indexOf(value) < 0) {
-                filter[key].push(value);
-            }
-        });
+        for (let i = 0, len = Object.keys(keys).length; i < len; i++) {
 
-        let filtered_trips = [];
-        for (let i = 0; i < trips.length; ++i) {
+            let counts = {};
+            graph.key_list[keys[i]].forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
 
-            let trip = trips[i];
+            filter[keys[i]] = [];
 
-            let meet = true;
-            Object.keys(filter).forEach(function (key) {
-                if (filter[key].indexOf(trip[key]) < 0) {
-                    meet = false;
+            let key_container = d3.select('#' + container_id).append('div')
+                .style('width', width)
+                .style('height', sub_height + 'px')
+                .style('box-sizing', 'border-box');
+
+            // Key header
+            let key_header = key_container.append('div')
+                .style('width', '100%')
+                .style('height', '25px')
+                .style('box-sizing', 'border-box')
+                .style('font-size', '14px')
+                .style('line-height', '25px')
+                .style('text-align', 'center')
+                .html(key_values[i]);
+
+            let key_body = key_container.append('div')
+                .style('width', '100%')
+                .style('height', 'calc(100% - 25px)')
+                .style('box-sizing', 'border-box');
+
+            let key_items = [];
+            for (let j = 0, j_len = nodes.length; j < j_len; j++) {
+                if (nodes[j].key === keys[i]) {
+                    key_items.push(nodes[j].name);
                 }
-            });
+            }
 
-            if (meet) {
-                filtered_trips.push(trip);
+            key_items.sort();
+
+            let sub_width = width / key_items.length;
+            for (let k = 0, k_len = key_items.length; k < k_len; k++) {
+
+                let item_container = key_body.append('div')
+                    .style('width', sub_width + 'px')
+                    .style('height', '100%')
+                    .style('box-sizing', 'border-box')
+                    .style('float', 'left')
+                    .style('display', 'inline-block');
+
+                let item_header = item_container.append('div')
+                    .style('width', '100%')
+                    .style('height', '20px')
+                    .style('box-sizing', 'border-box')
+                    .style('font-size', '12px')
+                    .style('line-height', '20px')
+                    .style('text-align', 'center')
+                    .style('overflow-x', 'hidden')
+                    .style('color', '#525252')
+                    .html(key_items[k]);
+
+                let item_body = item_container.append('div')
+                    .style('width', '100%')
+                    .style('height', 'calc(100% - 20px)')
+                    .style('padding-left', '3px')
+                    .style('padding-right', '3px')
+                    .style('box-sizing', 'border-box');
+
+                let item_rect = item_body.append('div')
+                    .attr('class', 'active')
+                    .style('width', '100%')
+                    .style('height', '20px')
+                    .style('cursor', 'pointer')
+                    .style('text-align', 'center')
+                    .style('background-color', color_range(counts[key_items[k]]))
+                    .style('border', '1px solid #252525');
+
+                item_rect.on('click', function() {
+                    if (item_rect.classed('active')) {
+                        item_rect.style('border', '1px solid #d0d0d0');
+                        item_rect.classed('active', false);
+
+                        filter[keys[i]].splice(filter[keys[i]].indexOf(key_items[k]), 1);
+
+                        if (filter[keys[i]].length === 0) { delete filter[keys[i]] }
+                        update_filter(filter, trips);
+
+                    } else {
+                        item_rect.style('border', '1px solid #252525');
+                        item_rect.classed('active', true);
+
+                        if (!(keys[i] in filter)) {
+                            filter[keys[i]] = [];
+                            filter[keys[i]].push(key_items[k]);
+                        } else {
+                            filter[keys[i]].push(key_items[k]);
+                        }
+                        update_filter(filter, trips);
+                    }
+                });
+                // Adding all filter here
+                filter[keys[i]].push(key_items[k]);
             }
         }
 
-        // Need to set filtered_trips
-
-        //vis_area_study(filtered_trips, 'tripview-body');
-        vis_model_cases(filtered_trips, 'model-cases-body');
-        vis_representative_images(filtered_trips, undefined, 'streetview-body');
-
-        map_show_filtered_trips(filtered_trips);
-        main_set_maplayer_index();
     }
 
-    function reset_filter() {
-        //vis_area_study(trips, 'tripview-body');
-        vis_model_cases(trips, 'model-cases-body');
-        vis_representative_images(trips, undefined, 'streetview-body');
+    function preprocess(data) {
 
-        map_show_filtered_trips(trips);
-        main_set_maplayer_index();
-        return;
-    }
+        // Need to categorize entropy
+        for (let i = 0; i < data.length; ++i) {
+            let trip = data[i];
+            let accuracy = [], entropy = [];
+            let performance = util_compute_performance([trip]);
 
-
-
-
-    /*
-    svg.append("g").selectAll("rect")
-        .data(nodes)
-        .join("rect")
-        .attr("x", d => d.x0)
-        .attr("y", d => d.y0)
-        .attr("height", d => d.y1 - d.y0)
-        .attr("width", d => d.x1 - d.x0)
-        .style('cursor', 'pointer')
-        .on('click', highlight_nodes)
-    .append("title")
-        .text(d => `${d.name}\n${d.value.toLocaleString()}`);
-
-
-    svg.append("g")
-        .attr("fill", "none")
-    .selectAll("g")
-        .data(links)
-        .join("path")
-        .attr("d", sankeyLinkHorizontal())
-        .attr('class', 'link')
-        .attr("id", function(d,i){
-            d.id = i;
-            return "link-"+i;
-        })
-        .attr("stroke", '#fb6a4a')
-        .attr("stroke-width", d => d.width)
-        .attr('stroke-opacity', 0.5)
-        .style("mix-blend-mode", "multiply")
-    .append("title")
-        .text(d => `${d.names.join(" → ")}\n${d.value.toLocaleString()}`);
-
-    svg.append("g")
-        .style('font-weight', 'bold')
-        .style("font-size", "12px")
-      .selectAll("text")
-      .data(nodes)
-      .join("text")
-        .attr("x", d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
-        .attr("y", d => (d.y1 + d.y0) / 2)
-        .attr("dy", "0.35em")
-        .attr("text-anchor", d => d.x0 < width / 2 ? "start" : "end")
-        .text(d => d.name)
-      .append("tspan")
-        .attr("fill-opacity", 0.7)
-        .text(d => `: ${d.value.toLocaleString()}`);
-
-    function highlight_nodes(node, i) {
-
-        d3.selectAll('.link').style('stroke', '#C9D2D3');
-        d3.selectAll('.link').style('stroke-opacity', 0.5);
-
-        var remainingNodes=[],
-            nextNodes=[];
-
-        var stroke_opacity = 0.5;
-
-        var traverse = [{
-            linkType : "sourceLinks",
-            nodeType : "target"
-        },{
-            linkType : "targetLinks",
-            nodeType : "source"
-        }];
-
-        // Create parallelset filter
-        var filter = [[], [], [], [], [], []];
-
-        traverse.forEach(function(step){
-
-            if (filter[node.layer].indexOf(node.name) === -1) {
-                filter[node.layer].push(node.name);
-            }
-
-            node[step.linkType].forEach(function(link) {
-                remainingNodes.push(link[step.nodeType]);
-                highlight_link(link.id, stroke_opacity);
+            Object.keys(performance).forEach(function (model) {
+                Object.keys(performance[model]).forEach(function (action) {
+                    accuracy.push(performance[model][action].accuracy);
+                    entropy.push(performance[model][action].entropy);
+                });
             });
 
-            while (remainingNodes.length) {
-                nextNodes = [];
-                remainingNodes.forEach(function(node) {
-
-                    if (filter[node.layer].indexOf(node.name) === -1) {
-                        filter[node.layer].push(node.name);
-                    }
-
-                    node[step.linkType].forEach(function(link) {
-                    nextNodes.push(link[step.nodeType]);
-                    highlight_link(link.id, stroke_opacity);
-                    });
-                });
-                remainingNodes = nextNodes;
+            trip.performances = {
+                accuracy: d3.mean(accuracy),
+                perplexity: d3.mean(entropy)
             }
-        });
 
-        vis_parallelsets_filter(data, filter);
+            trip.accuracy = get_value_category(d3.mean(accuracy));
+            trip.perplexity = get_value_category(d3.mean(entropy));
+
+        }
+
+        return data;
     }
 
-    function highlight_link (id, opacity){
-        d3.select("#link-"+id)
-            .style('stroke', '#fb6a4a')
-            .style("stroke-opacity", opacity);
+    function get_value_category(value) {
+        let category = ['0 - 10','20 - 30','30 - 40','30 - 40','40 - 50','50 - 60','60 - 70','70 - 80', '80 - 90', '90 - 100'];
+        let range = [0,.1,.2,.3,.4,.5,.6,.7,.8,.9];
+
+        for (let i = 0; i < range.length; ++i) {
+            if (value > range[i] && value <= range[i] + 0.10) {
+                return category[i];
+            }
+        }
     }
 
     function get_graph(keys, data) {
@@ -1032,12 +634,19 @@ export function vis_parallelsets (trips, container_id) {
         const nodeByKey = new Map;
         const indexByKey = new Map;
         const links = [];
+        const key_list = {};
 
         for (const k of keys) {
+
+            if (!(k in key_list)) {
+                key_list[k] = [];
+            }
+
             for (const d of data) {
                 const key = JSON.stringify([k, d[k]]);
+                key_list[k].push(d[k]);
                 if (nodeByKey.has(key)) continue;
-                const node = {name: d[k]};
+                const node = {name: d[k], key: k};
                 nodes.push(node);
                 nodeByKey.set(key, node);
                 indexByKey.set(key, ++index);
@@ -1066,1038 +675,380 @@ export function vis_parallelsets (trips, container_id) {
             }
         }
 
-        return {nodes, links};
-    }*/
-
-    function preprocess(data) {
-
-        // Need to categorize entropy
-        for (let i = 0; i < data.length; ++i) {
-            let trip = data[i];
-            let performance = util_compute_performance([trip]);
-
-            let accuracy = [], precision = [], recall = [], f1 = [], entropy = [];
-
-            Object.keys(performance).forEach(function (model) {
-                Object.keys(performance[model]).forEach(function (action) {
-                    accuracy.push(performance[model][action].accuracy);
-                    precision.push(performance[model][action].precision);
-                    recall.push(performance[model][action].recall);
-                    f1.push(performance[model][action].f1);
-                    entropy.push(performance[model][action].entropy);
-                });
-            });
-
-            trip.performances = {
-                accuracy: d3.mean(accuracy),
-                precision: d3.mean(precision),
-                recall: d3.mean(recall),
-                f1: d3.mean(f1),
-                perplexity: d3.mean(entropy)
-            }
-
-            trip.accuracy = get_value_category(d3.mean(accuracy));
-            trip.precision = get_value_category(d3.mean(precision));
-            trip.recall = get_value_category(d3.mean(recall));
-            trip.f1 = get_value_category(d3.mean(f1));
-            trip.perplexity = get_value_category(d3.mean(entropy));
-        }
-
-        return data;
+        return {nodes, links, key_list};
     }
 
-    function get_value_category(value) {
-        let category = ['0,10','20,30','30,40','30,40','40,50','50,60','60,70','70,80', '80,90', '90,100'];
-        let range = [0,.1,.2,.3,.4,.5,.6,.7,.8,.9];
-
-        for (let i = 0; i < range.length; ++i) {
-            if (value > range[i] && value <= range[i] + 0.10) {
-                return category[i];
+    // Update other views here
+    function update_filter(filter, trips) {
+        console.log(filter)
+        let filtered_trips = [];
+        for (let i = 0, len = trips.length; i < len; i++) {
+            let trip = trips[i];
+            let has = true;
+            Object.keys(filter).forEach(function(attribute) {
+                if (filter[attribute].indexOf(trip[attribute]) < 0) {
+                    has = false;
+                }
+            });
+            if (has) {
+                filtered_trips.push(trip);
             }
         }
+
+
+        //$('#dataview-summary').html(display_summary);
+
+        // Draw map here
+        vis_draw_histogram(filtered_trips);
+        map_show_filtered_trips(filtered_trips);
+        vis_model_cases(filtered_trips, 'model-cases-body');
+
+        return;
     }
 
     return;
 }
 
-export function vis_model_performance (data, container_id) {
+export function vis_draw_histogram(trips)
+{
+    //let processed_trips = preprocess(trips);
+    $('#histogram-condition').remove();
+    $('#histogram-performance').remove();
 
-    let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
-    let performance = preprocess(data);
+    if (view_trip_filter_mode.condition) {
+        let keys = ['accuracy', 'perplexity'];
+        let key_values = ['Accuracy', 'Perplexity'];
+        let processed_data = preprocess(trips, keys);
+        add_histogram_container_1('trip-filter-body-condition', keys, key_values, processed_data, trips);
+    } else if (view_trip_filter_mode.performance) {
+        let keys = ['time_of_day', 'weather', 'scene'];
+        let key_values = ['Time Of Day', 'Weather', 'Street Type'];
+        let processed_data = preprocess(trips, keys);
+        add_histogram_container_2('trip-filter-body-performance', keys, key_values, processed_data, trips);
+    }
 
-    if (vis_is_parallelsets_filter) {
+    function add_histogram_container_1(container_id, keys, key_values, data, all_trips) {
 
-        d3.selectAll('.performance-text').style('opacity', 0.2)
-        d3.selectAll('.filter-performance-bar').remove();
+        let body_height = 70 * 3;
 
-        for (let i = 0; i < models.length; ++i) {
+        let histogram_body = d3.select('#' + container_id).append('div')
+            .attr('id', 'histogram-condition')
+            .style('width', '100%')
+            .style('height', 'calc(100% - ' + body_height + 'px)')
+            .style('border-top', '1px solid #BCCFD3');
 
-            let model = models[i];
-            let filter_performance = performance[model];
+        let histogram_height = ($('#histogram-condition').height() / keys.length);
+        let histogram_width = $('#histogram-condition').width();
 
-            let svg = d3.select('#performance-' + models[i]);
-            let margin = {top: 40, right: 20, bottom: 30, left: 40};
-            let width = +svg.attr("width") - margin.left - margin.right;
-            let height = +svg.attr("height") - margin.top - margin.bottom;
-            let g = svg.append("g")
-                .attr('class', 'filter-performance-bar')
+        for (let i = 0, len = keys.length; i < len; i++) {
+
+            let histogram_container = histogram_body.append('div')
+                .style('width', '100%')
+                .style('height', histogram_height + 'px')
+                .style('box-sizing', 'border-box');
+
+            var margin = {top: 40, right: 20, bottom: 20, left: 40},
+                width = histogram_width - margin.left - margin.right,
+                height = histogram_height - margin.top - margin.bottom;
+
+            var x = d3.scaleBand()
+                    .range([0, width])
+                    .padding(0.1);
+            var y = d3.scaleLinear()
+                    .range([height, 0]);
+
+            let svg = histogram_container.append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            let colors = ['#fee5d9','#fcae91','#fb6a4a','#cb181d'];
-            let matrices = ['accuracy', 'precision', 'recall', 'f1'];
-            let x0 = d3.scaleBand()
-                .rangeRound([0, width])
-                .paddingInner(0.1);
-
-            let x1 = d3.scaleBand()
-                .padding(0.05);
-
-            let y = d3.scaleLinear()
-                .rangeRound([height, 0]);
-
-            x0.domain(Object.keys(filter_performance));
-            x1.domain(matrices).rangeRound([0, x0.bandwidth()]);
-            y.domain([0, 1]).nice();
-
-            Object.keys(filter_performance).forEach(function (key, index) {
-
-                let bar = g.append("g")
-                    .style('opacity', 1)
-                    .attr('transform', "translate(" + x0(key) + ",0)");
-
-                for (let i = 0; i < matrices.length; ++i) {
-
-                    bar.append("rect")
-                        .attr("x", x1(matrices[i]))
-                        .attr("width", x1.bandwidth())
-                        .attr("y", y(0))
-                        .attr("height", 0)
-                        .transition()
-                        .duration(500)
-                        .attr("y", y(filter_performance[key][matrices[i]]))
-                        .attr('height',  height - y(filter_performance[key][matrices[i]]))
-                        .attr('fill', 'transparent')
-                        .style("stroke", '#252525')
-                        .style("stroke-width", "0.5px")
-                        .style("stroke-opacity", 1);
-
-                    bar.append('text')
-                        .attr("x", x1(matrices[i]))
-                        .attr("y", y(filter_performance[key][matrices[i]]) - 5)
-                        .attr("dy", "0.32em")
-                        .attr("fill", '#000')
-                        .attr('font-size', '9px')
-                        .attr("text-anchor", "start")
-                        .text(filter_performance[key][matrices[i]].toFixed(2));
-                }
-            });
-        }
-
-        return;
-    }
-
-    d3.select('#' + container_id).selectAll('svg').remove();
-    for (let i = 0; i < models.length; ++i) {
-        let svg = create_svg(container_id, models[i]);
-        draw_group_barchart(svg, performance[models[i]], models[i]);
-    }
-
-    function draw_group_barchart(svg, data, model_name) {
-
-        let matrices = ['accuracy', 'precision', 'recall', 'f1'];
-        let colors = ['#fee5d9','#fcae91','#fb6a4a','#cb181d'];
-
-        let margin = {top: 40, right: 20, bottom: 30, left: 40};
-        let width = +svg.attr("width") - margin.left - margin.right;
-        let height = +svg.attr("height") - margin.top - margin.bottom;
-        let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        let x0 = d3.scaleBand()
-            .rangeRound([0, width])
-            .paddingInner(0.1);
-
-        let x1 = d3.scaleBand()
-            .padding(0.05);
-
-        let y = d3.scaleLinear()
-            .rangeRound([height, 0]);
-
-        x0.domain(Object.keys(data));
-        x1.domain(matrices).rangeRound([0, x0.bandwidth()]);
-        y.domain([0, 1]).nice();
-
-        // Adding circle color legend
-        if (model_name === 'tcnn1') {
-            for (let i = 0; i < matrices.length; ++i) {
-                svg.append("circle")
-                    .attr("cx", i * (width / 4) + 50)
-                    .attr("cy", 10).attr("r", 6)
-                    .style("fill", colors[i])
-                    .attr('opacity', 1)
-                    .style("stroke", '#252525')
-                    .style("stroke-width", "0.5px")
-                    .style("stroke-opacity", 1);
-                svg.append("text").attr("x", i * (width / 4) + 60).attr("y", 10).text(matrices[i]).style("font-size", "15px").attr("alignment-baseline","middle");
-            }
-        }
-
-        Object.keys(data).forEach(function (key, index) {
-
-            let bar = g.append("g")
-                .attr('class', 'performance-bar')
-                .attr('id', model_name + '-' + key)
-                .attr('transform', "translate(" + x0(key) + ",0)");
-
-            for (let i = 0; i < matrices.length; ++i) {
-
-                bar.append("rect")
-                    .attr("x", x1(matrices[i]))
-                    .attr("y", y(data[key][matrices[i]]))
-                    .attr("width", x1.bandwidth())
-                    .attr('height',  height - y(data[key][matrices[i]]))
-                    .attr('opacity', 1)
-                    .attr('fill', colors[i])
-                    .style("stroke", '#252525')
-                    .style("stroke-width", "0.5px")
-                    .style("stroke-opacity", 1);
-
-                bar.append('text')
-                    .attr('class', 'performance-text')
-                    .attr("x", x1(matrices[i]))
-                    .attr("y", y(data[key][matrices[i]]) - 5)
-                    .attr("dy", "0.32em")
-                    .attr("fill", "#000")
-                    .attr('font-size', '9px')
-                    .attr("text-anchor", "start")
-                    .text(data[key][matrices[i]].toFixed(2));
-            }
-        });
-
-        g.append("g")
-            .attr("class", "axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x0));
-
-
-        g.append("g")
-            .attr("class", "y axis")
-            .call(d3.axisLeft(y).ticks(2, 's'));
-
-        /*
-        g.append("text")
-            .attr("x", width / 2)
-            .attr("y", -3)
-            .attr("dy", "0.32em")
-            .attr("fill", "#000")
-            .attr("font-weight", "bold")
-            .attr('font-size', '14px')
-            .attr("text-anchor", "middle")
-            .text(model_name);*/
-
-        return;
-    }
-
-    function create_svg(container_id, model) {
-
-        let container_width = $('#' + container_id).width();
-        let container_height = ($('#' + container_id).height()) / 3;
-
-        let container = d3.select('#' + container_id)
-            .append('div')
-            .style('width', container_width)
-            .style('height', container_height);
-
-        let svg = container.append('svg')
-            .attr('id', 'performance-' + model)
-            .attr('width', container_width)
-            .attr('height', container_height);
-
-        return svg;
-    }
-
-    // Calculate confuse matrix
-    function preprocess (data) {
-
-        let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
-        let model_performance = {};
-        let confusion_matrix = {};
-
-        for (let i = 0; i < data.length; ++i) {
-
-            let true_label = data[i].actual.no_slight;
-            let predicts = data[i].predict;
-
-            Object.keys(predicts).forEach(function (key) {
-                let predict_label = predicts[key];
-
-                if (!(key in confusion_matrix)) { confusion_matrix[key] = {}; }
-
-                for (let  j = 0; j < predict_label.length; ++j) {
-
-                    let true_action = car_actions[true_label[j]];
-                    let predict_action = car_actions[predict_label[j].indexOf(d3.max(predict_label[j]))];
-
-                    if (!(true_action in confusion_matrix[key])) {
-                        confusion_matrix[key][true_action] = {
-                            'straight': 0,
-                            'slow_or_stop': 0,
-                            'turn_left': 0,
-                            'turn_right': 0
-                        };
-                    }
-
-                    confusion_matrix[key][true_action][predict_action] += 1;
-                    /*
-                    if (predict_action in confusion_matrix[key][true_action]) {
-                        confusion_matrix[key][true_action][predict_action] += 1;
-                    } else {
-                        confusion_matrix[key][true_action][predict_action] = 1;
-                    }*/
-                }
-            });
-        }
-
-        Object.keys(confusion_matrix).forEach(function (model) {
-
-            model_performance[model] = {};
-            delete confusion_matrix[model][undefined];
-
-            Object.keys(confusion_matrix[model]).forEach(function (main_class) {
-
-                let tp = 0; let tn = 0; let fp = 0; let fn = 0;
-
-                Object.keys(confusion_matrix[model][main_class]).forEach(function (predict_class) {
-                    if (predict_class !== main_class) {
-                        fn += confusion_matrix[model][main_class][predict_class];
-                    } else {
-                        tp = confusion_matrix[model][main_class][predict_class];
-                    }
-                });
-
-                Object.keys(confusion_matrix[model]).forEach(function (sub_class) {
-                    if (main_class !== sub_class) {
-                        Object.keys(confusion_matrix[model][sub_class]).forEach(function (predict_class) {
-                            if (predict_class === main_class) {
-                                fp += confusion_matrix[model][sub_class][predict_class];
-                            } else {
-                                tn += confusion_matrix[model][sub_class][predict_class];
-                            }
-                        });
-                    }
-                });
-                /*
-                console.log('tp: ' + tp);
-                console.log('tn: ' + tn);
-                console.log('fp: ' + fp);
-                console.log('fn: ' + fn);*/
-
-                model_performance[model][main_class] = {};
-
-                let accuracy = (tp + tn) / (tp + tn + fp + fn);
-                let precision = tp / (tp + fp);
-                let recall = tp / (tp + fn);
-                let f1 = (2 * tp) / ((2 * tp) + fp + fn);
-
-                model_performance[model][main_class]['accuracy'] = (isNaN(accuracy))? 0 : accuracy;
-                model_performance[model][main_class]['precision'] = (isNaN(precision))? 0 : precision;
-                model_performance[model][main_class]['recall'] = (isNaN(recall))? 0 : recall;
-                model_performance[model][main_class]['f1'] = (isNaN(f1))? 0 : f1;
-            });
-        });
-
-        return model_performance;
-    }
-}
-
-export function vis_model_relation (data, container_id) {
-
-    let relation = preprocess(data);
-    console.log(relation);
-
-    d3.select('#' + container_id).selectAll('svg').remove();
-
-    Object.keys(relation).forEach(function (model) {
-        let svg = create_svg(container_id);
-        draw_pieglyph(svg, relation[model], model);
-    });
-
-    function draw_pieglyph (svg, data, model) {
-
-        let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-
-        let margin = {top: 50, right: 20, bottom: 50, left: 20};
-        let width = +svg.attr("width") - margin.left - margin.right;
-        let height = +svg.attr("height") - margin.top - margin.bottom;
-        let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        var color = ["#C9D2D3", "rgb(202,0,42)"];
-
-        let x = d3.scaleBand()
-            .rangeRound([0, width])
-            .paddingInner(0.1);
-
-        x.domain(models);
-
-
-        if (model === 'actual') {
-            g.append("g")
-                .attr("class", "axis")
-                .attr("transform", "translate(0," + (-35) + ")")
-                .call(d3.axisTop(x));
-        }
-
-        g.append("text")
-            .attr("x", 20)
-            .attr("y", height / 2)
-            .text(model)
-            .style("font-size", "12px")
-            .attr("transform", "translate(0, 40)rotate(270)");
-
-        for (let i = 0; i < models.length; ++i) {
-
-            let pie_group = g.append("g")
-                .attr('class', 'pie')
-                .attr('transform', "translate(" + (x(models[i]) + 40)  + "," + ((height / 2) + 2) + ")");
-
-            if (data[models[i]]) {
-                var pie = d3.pie()
-                    .value(function(d) {return d.value; });
-
-                var data_ready = pie(d3.entries(data[models[i]]));
-                pie_group.selectAll('glyph')
-                .data(data_ready)
-                .enter()
-                .append('path')
-                    .attr('d', d3.arc()
-                        .innerRadius(0)
-                        .outerRadius(25)
-                    )
-                    .attr('fill', function(d, i){ return(color[i]); })
-                    .attr("stroke", function(d, i){ return(color[i]); })
-                    .style("stroke-width", "2px")
-                    .style("stroke-opacity", 1)
-                    .style("opacity", .5)
-
-                pie_group.selectAll('glyph-text')
-                .data(data_ready)
-                .enter()
-                .append('text')
-                .attr('transform', function (d) {
-                    d.innerRadius = 0;
-                    d.outerRadius = 25;
-
-                    let pos = d3.arc()
-                        .innerRadius(0)
-                        .outerRadius(25)
-                        .centroid(d);
-
-                    return 'translate(' + pos + ')';
-                })
-                .attr("text-anchor", "middle")
-                .attr('font-size', '9px')
-                .text(function (d) { return d.value; });
-            }
-        }
-    }
-
-    function create_svg (container_id) {
-
-        let container_width = $('#' + container_id).width();
-        let container_height = ($('#' + container_id).height()) / 4;
-
-        let container = d3.select('#' + container_id)
-            .append('div')
-            .style('width', container_width)
-            .style('height', container_height);
-
-        let svg = container.append('svg')
-            .attr('width', container_width)
-            .attr('height', container_height);
-
-        return svg;
-    }
-
-    function preprocess (data) {
-
-        let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-
-        let relation = {};
-        for (let i = 0; i < models.length; ++i) {
-            relation[models[i]] = {};
-            for (let j = 0; j < models.length; ++j) {
-                if (models[i] !== models[j]) {
-                    relation[models[i]][models[j]] = {
-                        same: 0,
-                        different: 0
-                    };
-                }
-            }
-        }
-
-        for (let i = 0; i < data.length; ++i) {
-            let predicts = data[i].predict;
-            let actual = data[i].actual.no_slight;
-
-            Object.keys(predicts).forEach(function (model) {
-                for (let  i = 0; i < predicts[model].length; ++i) {
-                    if (predicts[model][i].indexOf(d3.max(predicts[model][i])) !== actual[i]) {
-                        relation['actual'][model].different += 1;
-                    } else {
-                        relation['actual'][model].same += 1;
-                    }
-                }
+            let values = [];
+            let items = [];
+            Object.keys(data[keys[i]]).forEach(function(item) {
+                items.push(item);
+                values.push(data[keys[i]][item]);
             });
 
-            Object.keys(predicts).forEach(function (main_model) {
+            x.domain(items);
+            y.domain([0, d3.max(values)]);
 
-                for (let  i = 0; i < predicts[main_model].length; ++i) {
-                    if (predicts[main_model][i].indexOf(d3.max(predicts[main_model][i])) !== actual[i]) {
-                        relation[main_model]['actual'].different += 1;
-                    } else {
-                        relation[main_model]['actual'].same += 1;
-                    }
-                }
-
-                Object.keys(predicts).forEach(function (sub_model) {
-                    if (sub_model !== main_model) {
-                        for (let  i = 0; i < predicts[sub_model].length; ++i) {
-                            if (predicts[main_model][i].indexOf(d3.max(predicts[main_model][i])) !== predicts[sub_model][i].indexOf(d3.max(predicts[sub_model][i]))) {
-                                relation[main_model][sub_model].different += 1;
-                            } else {
-                                relation[main_model][sub_model].same += 1;
-                            }
-                        }
-                    }
-                });
-            });
-        }
-
-        return relation;
-    }
-}
-
-/*s
-export function vis_streetview (data, container_id) {
-
-    $('#' + container_id).empty();
-    let width = $('#' + container_id).width();
-    let height = $('#' + container_id).height();
-
-    // Create trip containers
-    for (let i = 0; i < data.length; ++i) {
-        let div = d3.select('#' + container_id)
-            .append('div')
-            .style('width', width)
-            .style('height', '100')
-            .style('border', '1px solid #C9D2D3')
-            .style('overflow-x', 'auto')
-            .style('overflow-y', 'hidden')
-            .style('white-space', 'nowrap');
-
-        // Random and put images
-        let random_count = 0;
-
-        while (random_count < 15) {
-            let random_index = Math.floor(Math.random() * data[i].actual.no_slight.length);
-            div.append('img')
-                .attr('alt', '')
-                .attr('src', '/frames/' + data[i].trip_id + '/' + random_index + '.png')
-                .style('width', '150px')
-                .style('height', '100px')
-                .style('border', '1px solid #C9D2D3')
-                .style('display', 'inline-block');
-            random_count += 1;
-        }
-    }
-}*/
-
-
-export function vis_summary (data, container_id) {
-    let trips = data;
-    let processed_trips = preprocess(trips);
-
-    draw_model(processed_trips.model, container_id, processed_trips);
-
-    var svg_time_of_day = create_svg(container_id);
-    var svg_scene = create_svg(container_id);
-    var svg_weather = create_svg(container_id);
-
-    var time_of_day_xy = draw_group_barchart(svg_time_of_day, processed_trips.time_of_day, 'time_of_day');
-    var scene_xy = draw_group_barchart(svg_scene, processed_trips.scene, 'scene');
-    var weather_xy = draw_group_barchart(svg_weather, processed_trips.weather, 'weather');
-
-
-
-    function draw_group_barchart(svg, data, data_type) {
-
-        let margin = {top: 10, right: 20, bottom: 30, left: 40};
-        let width = +svg.attr("width") - margin.left - margin.right;
-        let height = +svg.attr("height") - margin.top - margin.bottom;
-        let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        let x0 = d3.scaleBand()
-            .rangeRound([0, width])
-            .paddingInner(0.1);
-
-        let x1 = d3.scaleBand()
-            .padding(0.05);
-
-        let y = d3.scaleLinear()
-            .rangeRound([height, 0]);
-
-        let values = [];
-        Object.keys(data).forEach(function (key) {
-            values.push(data[key].train);
-            values.push(data[key].val);
-        });
-
-        x0.domain(Object.keys(data));
-        x1.domain(['train', 'val']).rangeRound([0, x0.bandwidth()]);
-        y.domain([0, d3.max(values)]).nice();
-
-        Object.keys(data).forEach(function (key) {
-
-            let key_str = (key == 'dawn/dusk') ? 'dawn_dusk' : key.replaceAll(' ', '_');
-
-            let bar = g.append("g")
-                .attr('class', 'bar')
-                .attr('transform', "translate(" + x0(key) + ",0)");
-
-            bar.append("rect")
-                .attr('id', 'bar-train-' + data_type + '-' + key_str)
-                .attr("x", x1('train'))
-                .attr("y", y(data[key].train))
-                .attr("width", x1.bandwidth())
-                .attr('height',  height - y(data[key].train))
-                .attr('fill', map_model_colors.train);
-
-            bar.append("rect")
-                .attr('id', 'bar-val-' + data_type + '-' + key_str)
-                .attr("x", x1('val'))
-                .attr("y", y(data[key].val))
-                .attr("width", x1.bandwidth())
-                .attr('height',  height - y(data[key].val))
-                .attr('fill', map_model_colors.val);
-        });
-
-        g.append("g")
-            .attr("class", "axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x0));
-
-
-        g.append("g")
-            .attr("class", "y axis")
-            .call(d3.axisLeft(y).ticks(2, 's'));
-
-        g.append("text")
-            .attr("x", width / 2)
-            .attr("y", 0)
-            .attr("dy", "0.32em")
-            .attr("fill", "#000")
-            .attr("font-weight", "bold")
-            .attr('font-size', '14px')
-            .attr("text-anchor", "middle")
-            .text(data_type.replaceAll('_', ' '));
-
-
-
-        return [x0, x1, y, height];
-    }
-
-    function update_group_barchart(xy, model_filter, attribute_filter, data, svg, data_type) {
-
-        console.log(data);
-
-        // x1 , y
-        let x0 = xy[0], x1 = xy[1], y = xy[2], height = xy[3];
-        x1.domain(model_filter).rangeRound([0, x0.bandwidth()]);
-
-        let values = [];
-        Object.keys(data).forEach(function (key) {
-            for (let i = 0; i < model_filter.length; ++i) {
-                let pos =  attribute_filter.indexOf(key);
-                if (pos !== -1) values.push(data[key][model_filter[i]]);
-            }
-        });
-
-        y.domain([0, d3.max(values)]).nice();
-
-        svg.select(".y")
-            .transition()
-            .call(d3.axisLeft(y).ticks(2, "s"))
-            .duration(500);
-
-        Object.keys(data).forEach(function (key) {
-
-            let key_str = (key == 'dawn/dusk') ? 'dawn_dusk' : key.replaceAll(' ', '_');
-
-            if (model_filter.indexOf('train') !== -1) {
-                svg.select('#bar-train-' + data_type + '-' + key_str)
-                    .transition()
-                    .attr("x", x1('train'))
-                    .attr("y", y(data[key].train))
-                    .attr("width", x1.bandwidth())
-                    .attr('height',  height - y(data[key].train))
-                    .attr('fill', map_model_colors.train)
-                    .duration(500);
-            } else {
-                svg.select('#bar-train-' + data_type + '-' + key_str)
-                    .transition()
-                    .attr("x", function() {
-                        return (+d3.select(this).attr("x")) + (+d3.select(this).attr("width"))/2;
+            Object.keys(data[keys[i]]).forEach(function(item, index) {
+                svg.append("rect")
+                    .attr('id', 'histogram-' + keys[i] + '-' + index)
+                    .attr("class", "histogram-bar")
+                    .attr("x", x(item))
+                    .attr("width", x.bandwidth())
+                    .attr('fill', '#fdb863')
+                    .attr('stroke', '#BCCFD3')
+                    .attr('cursor', 'pointer')
+                    .attr('y', function(d) { return y(0); })
+                    .attr('height', function(d) { return height - y(0); })
+                    .on('click', function() {
+                        clicked_on_bar(data[keys[i] + '_trips'][item], index, keys[i], all_trips);
                     })
-                    .attr("y", function() { return height; })
-                    .attr("width", 0)
-                    .attr('height',  0)
-                    .attr('fill', map_model_colors.train)
-                    .duration(500);
-            }
-
-            if (model_filter.indexOf('val') !== -1) {
-                svg.select('#bar-val-' + data_type + '-' + key_str)
                     .transition()
-                    .attr("x", x1('val'))
-                    .attr("y", y(data[key].val))
-                    .attr("width", x1.bandwidth())
-                    .attr('height',  height - y(data[key].val))
-                    .attr('fill', map_model_colors.val)
-                    .duration(500);
-            } else {
-                svg.select('#bar-val-' + data_type + '-' + key_str)
-                    .transition()
-                    .attr("x", function() {
-                        return (+d3.select(this).attr("x")) + (+d3.select(this).attr("width"))/2;
-                    })
-                    .attr("y", function() { return height; })
-                    .attr("width", 0)
-                    .attr('height',  0)
-                    .attr('fill', map_model_colors.val)
-                    .duration(500);
-            }
+                    .delay(function(d) { return Math.random() * 500; })
+                    .duration(500)
+                    .attr("y", y(data[keys[i]][item]))
+                    .attr("height", height - y(data[keys[i]][item]));
 
-        });
+                svg.append('text')
+                    .attr('class', 'histogram-text')
+                    .attr('x', x(item) + (x.bandwidth() / 2))
+                    .attr('y', y(data[keys[i]][item]) - 2)
+                    .style('fill', '#252525')
+                    .style('text-anchor', 'middle')
+                    .style('cursor', 'pointer')
+                    .style('font-size', '12px')
+                    .text(data[keys[i]][item])
+                    .on('click', function() {
+                        clicked_on_bar(data[keys[i] + '_trips'][item], index, keys[i], all_trips);
+                    });
+            });
+
+            // add the x Axis
+            svg.append("g")
+                .attr('class', 'x axis')
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            // add the y Axis
+            svg.append("g")
+                .attr('class', 'y axis')
+                .call(d3.axisLeft(y).ticks(7));
+
+            // Y title
+            svg.append('text')
+                .attr('x', 4)
+                .attr('y', -10)
+                .attr('dy', '.35em')
+                .style('font-size', '12px')
+                .style('text-anchor', 'end')
+                .style('fill', '#252525')
+                .text('Trips');
+
+            // Chart title
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', -20)
+                .attr('dy', '.35em')
+                .style('font-size', '14px')
+                .style('text-anchor', 'middle')
+                .style('fill', '#252525')
+                .text(key_values[i] + ' Distribution');
+
+        }
     }
 
-    function create_svg(container_id) {
+    function add_histogram_container_2(container_id, keys, key_values, data, all_trips) {
 
-        let container_width = $('#' + container_id).width();
-        let container_height = ($('#' + container_id).height() - 30) / 3;
+        let body_height = 70 * 2;
 
-        let container = d3.select('#' + container_id)
-            .append('div')
-            .style('width', container_width)
-            .style('height', container_height);
-
-        let svg = container.append('svg')
-            .attr('width', container_width)
-            .attr('height', container_height);
-
-        return svg;
-    }
-
-    function draw_model(data, div_id, full_data) {
-        let container = d3.select('#' + div_id)
-            .append('div')
+        let histogram_body = d3.select('#' + container_id).append('div')
+            .attr('id', 'histogram-performance')
             .style('width', '100%')
-            .style('height', '30px')
-            .style('line-height', '30px')
-            .style('text-align', 'center');
+            .style('height', 'calc(100% - ' + body_height + 'px)')
+            .style('border-top', '1px solid #BCCFD3');
 
-        Object.keys(data).forEach(function (key) {
-            let square = container.append('i')
-                .attr('class', 'fas fa-square-full')
-                .style('cursor', 'pointer')
-                .style('color', map_model_colors[key]);
+        let histogram_height = ($('#histogram-performance').height() / keys.length);
+        let histogram_width = $('#histogram-performance').width();
 
-            let label = container.append('label')
-                .attr('class', 'label-' + key + ' active')
-                .style('color', map_model_colors[key])
-                .style('cursor', 'pointer')
-                .html('&nbsp;&nbsp;' + key + ': ' + data[key] + '&nbsp;&nbsp;');
+        for (let i = 0, len = keys.length; i < len; i++) {
 
-            label.on('click', function() {
+            let histogram_container = histogram_body.append('div')
+                .style('width', '100%')
+                .style('height', histogram_height + 'px')
+                .style('box-sizing', 'border-box');
 
-                let model_filter = ['train', 'val'];
+            var margin = {top: 40, right: 20, bottom: 20, left: 40},
+                width = histogram_width - margin.left - margin.right,
+                height = histogram_height - margin.top - margin.bottom;
 
-                if (label.classed('active')) {
-                    label.classed('active', false)
-                        .style('color', '#d9d9d9');
-                    square.style('color', '#d9d9d9');
-
-                    // Filter
-                    model_filter.splice(model_filter.indexOf(key), 1);
-                    update_group_barchart(scene_xy, model_filter,Object.keys(full_data.scene), full_data.scene, svg_scene, 'scene');
-                    update_group_barchart(time_of_day_xy, model_filter,Object.keys(full_data.time_of_day), full_data.time_of_day, svg_time_of_day, 'time_of_day');
-                    update_group_barchart(weather_xy, model_filter,Object.keys(full_data.weather), full_data.weather, svg_weather, 'weather');
-
-                    map_filter_all_trips(model_filter);
-                } else {
-                    label.classed('active', true)
-                        .style('color', map_model_colors[key]);
-                    square.style('color', map_model_colors[key]);
-
-                     // Filter
-                     update_group_barchart(scene_xy, model_filter,Object.keys(full_data.scene), full_data.scene, svg_scene, 'scene');
-                     update_group_barchart(time_of_day_xy, model_filter,Object.keys(full_data.time_of_day), full_data.time_of_day, svg_time_of_day, 'time_of_day');
-                     update_group_barchart(weather_xy, model_filter,Object.keys(full_data.weather), full_data.weather, svg_weather, 'weather');
-
-                     map_filter_all_trips(model_filter);
-                }
-            });
-        });
-
-        container.append('label')
-            .html('&nbsp;' + '/ ' + (data.train + data.val) + '&nbsp; Total trips');
-    }
-
-    function preprocess (data) {
-        let result = {
-            model: {},
-            weather: {},
-            scene: {},
-            time_of_day: {}
-        };
-
-        for (let i = 0; i < data.length; ++i) {
-            let trip = data[i];
-            Object.keys(result).forEach(function (key) {
-
-                if (key === 'model') {
-                    if (!(trip.model_type in result[key])) {
-                        result[key][trip.model_type] = 1;
-                    } else {
-                        result[key][trip.model_type] += 1;
-                    }
-                }  else {
-                    if (trip[key] != null && trip[key] != 'undefined') {
-                        if (!(trip[key] in result[key])) {
-                            result[key][trip[key]] = {};
-                            result[key][trip[key]][trip.model_type] = 1;
-                        } else {
-                            if (result[key][trip[key]][trip.model_type]) {
-                                result[key][trip[key]][trip.model_type] += 1;
-                            } else {
-                                result[key][trip[key]][trip.model_type] = 1;
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        return result;
-    }
-}
-
-export function vis_filter (result, container_id) {
-
-    // Clear filter
-    $('#' + container_id).empty();
-
-    let trips = preprocess(result);
-    console.log(trips);
-
-
-    let margin = {top: 30, right: 40, bottom: 10, left: 40};
-    let width = $('#' + container_id).width() - margin.left - margin.right;
-    let height = $('#' + container_id).height() - margin.top - margin.bottom;
-
-    let svg = d3.select('#' + container_id).append('svg')
-        .attr('width', width + margin.left + margin.right)
-        .attr('height', height + margin.top + margin.bottom)
-    .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-
-
-    // Preprocess and filter data
-
-    let dimensions = [];
-    let brushHeight = 25;
-    const brush = d3.brushX()
-        .extent([
-            [0, -(brushHeight / 2)],
-            [width, brushHeight / 2]
-        ])
-        .on("start brush end", brushed)
-        .on("end.snap", brushended);
-
-    Object.keys(trips[0]).forEach(function (key) {
-
-        if (key === 'AVG_Speed') {
-            dimensions.push({
-                name: key,
-                scale: d3.scaleLinear()
-                    .domain([0, 50])
-                    .range([0, width]).nice(),
-                type: 'number'
-            });
-        }
-
-        if (key === 'scene' || key === 'weather' || key === 'time_of_day') {
-            dimensions.push({
-                name: key,
-                scale: d3.scalePoint().range([0, width]),
-                type: 'string'
-            });
-        }
-        /*
-        if (key === 'start_time' || key === 'end_time') {
-            dimensions.push({
-                name: key,
-                scale: d3.scaleTime()
+            var x = d3.scaleBand()
                     .range([0, width])
-                    .domain([new Date(2016, 0, 1, 0, 0, 0), new Date(2016, 0, 1, 23, 59, 59)])
-                    .nice(),
-                type: 'time'
+                    .padding(0.1);
+            var y = d3.scaleLinear()
+                    .range([height, 0]);
+
+            let svg = histogram_container.append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            let values = [];
+            let items = [];
+            Object.keys(data[keys[i]]).forEach(function(item) {
+                items.push(item);
+                values.push(data[keys[i]][item]);
             });
-        }*/
-    });
 
-    var y = d3.scalePoint()
-        .domain(dimensions.map(function(d) { return d.name; }))
-        .range([0, height])
-        .padding(1);
+            x.domain(items);
+            y.domain([0, d3.max(values)]);
 
-    var dragging = {};
+            Object.keys(data[keys[i]]).forEach(function(item, index) {
+                svg.append("rect")
+                    .attr('id', 'histogram-' + keys[i] + '-' + index)
+                    .attr("class", "histogram-bar")
+                    .attr("x", x(item))
+                    .attr("width", x.bandwidth())
+                    .attr('fill', '#fdb863')
+                    .attr('stroke', '#BCCFD3')
+                    .attr('cursor', 'pointer')
+                    .attr('y', function(d) { return y(0); })
+                    .attr('height', function(d) { return height - y(0); })
+                    .on('click', function() {
+                        // highlight trips
+                        clicked_on_bar(data[keys[i] + '_trips'][item], index, keys[i], all_trips);
+                    })
+                    .transition()
+                    .delay(function(d) { return Math.random() * 500; })
+                    .duration(500)
+                    .attr("y", y(data[keys[i]][item]))
+                    .attr("height", height - y(data[keys[i]][item]));
 
+                svg.append('text')
+                    .attr("class", "histogram-text")
+                    .attr('x', x(item) + (x.bandwidth() / 2))
+                    .attr('y', y(data[keys[i]][item]) - 2)
+                    .style('fill', '#252525')
+                    .style('text-anchor', 'middle')
+                    .style('cursor', 'pointer')
+                    .style('font-size', '12px')
+                    .text(data[keys[i]][item])
+                    .on('click', function() {
+                        clicked_on_bar(data[keys[i] + '_trips'][item], index, keys[i], all_trips);
+                    });
+            });
 
-    var line = d3.line()
-        .defined(function(d) { return !isNaN(d[1]); }),
-        axis = d3.axisBottom(),
-        background,
-        foreground;
+            // add the x Axis
+            svg.append("g")
+                .attr('class', 'x axis')
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
 
-    Object.keys(dimensions).forEach(function(key) {
+            // add the y Axis
+            svg.append("g")
+                .attr('class', 'y axis')
+                .call(d3.axisLeft(y).ticks(7));
 
-        if (dimensions[key].type === "number") {
-            dimensions[key].scale.domain(d3.extent(trips, function(d) { return +d[dimensions[key].name]; }));
+            // Y title
+            svg.append('text')
+                .attr('x', 4)
+                .attr('y', -10)
+                .attr('dy', '.35em')
+                .style('font-size', '12px')
+                .style('text-anchor', 'end')
+                .style('fill', '#252525')
+                .text('Trips');
+
+            // Chart title
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', -20)
+                .attr('dy', '.35em')
+                .style('font-size', '14px')
+                .style('text-anchor', 'middle')
+                .style('fill', '#252525')
+                .text(key_values[i] + ' Distribution');
+
         }
-
-        if (dimensions[key].type === "string") {
-            dimensions[key].scale.domain(trips.map(function(d) { return d[dimensions[key].name]; }).sort());
-        }
-    });
-
-
-
-    // Add grey background lines for context.
-
-    background = svg.append("g")
-        .attr("class", "background")
-        .selectAll("path")
-        .data(trips)
-        .enter().append("path")
-        .attr("d", draw);
-
-    // Add blue foreground lines for focus.
-    foreground = svg.append("g")
-        .attr("class", "foreground")
-        .selectAll("path")
-        .data(trips)
-        .enter().append("path")
-        .attr('stroke', '#D99200')
-        .attr("d", draw);
-
-
-    svg.selectAll(".dimension")
-        .data(dimensions)
-        .enter()
-        .append("g")
-        .each(function(d) {
-            d3.select(this)
-                .attr("transform", 'translate(0,' + y(d.name) + ')')
-                .call(axis.scale(d.scale));
-        })
-        .call(brush)
-        .call(g => g.selectAll("text")
-        .clone(true).lower()
-        .attr("fill", "none")
-        .attr("stroke-width", 5)
-        .attr("stroke-linejoin", "round")
-        .attr("stroke", "white"));
-
-    function brushed(d) {
-        let selection = d3.brushSelection(this);
-        const range = d.scale.domain().map(d.scale);
-        const i0 = d3.bisectRight(range, selection[0]);
-        const i1 = d3.bisectRight(range, selection[1]);
-        console.log([i0, i1]);
     }
 
-    function brushended(d) {
-        let selection = d3.brushSelection(this);
-        const range = d.scale.domain().map(d.scale), dx = d.scale.step() / 2;
-        const x0 = range[d3.bisectRight(range, selection[0])] - dx;
-        const x1 = range[d3.bisectRight(range, selection[1]) - 1] + dx;
-        console.log([x0, x1]);
-        d3.select(this).transition().call(brush.move, x1 > x0 ? [x0, x1] : null);
-    }
+    function preprocess(trips, keys) {
 
+        // compute accuracy and perplexity
+        if (keys.length == 2) {
 
+            let value_category = ['0 - 10','20 - 30','30 - 40','30 - 40','40 - 50','50 - 60','60 - 70','70 - 80', '80 - 90', '90 - 100'];
 
-    function draw(d) {
-        return line(dimensions.map(function(dimension) {
-            return [dimension.scale(d[dimension.name]), y(dimension.name)];
-        }));
-    }
+            let category_data = {
+                accuracy: {},
+                perplexity: {},
+                accuracy_trips: {},
+                perplexity_trips: {}
+            }
 
-    function preprocess(data) {
+            for (let i = 0, len = value_category.length; i < len; i++) {
+                category_data.accuracy[value_category[i]] = 0;
+                category_data.perplexity[value_category[i]] = 0;
+                category_data.accuracy_trips[value_category[i]] = [];
+                category_data.perplexity_trips[value_category[i]] = [];
+            }
 
-        let filter_data = [];
+            for (let i = 0, len = trips.length; i < len; i++) {
+                category_data.accuracy[trips[i].accuracy] += 1;
+                category_data.perplexity[trips[i].perplexity] += 1;
+                category_data.accuracy_trips[trips[i].accuracy].push(trips[i]);
+                category_data.perplexity_trips[trips[i].perplexity].push(trips[i]);
+            }
 
-        for (let i = 0; i < data.length; ++i) {
-            let trip = data[i];
-            if (trip['weather'] != null && trip['weather'] != 'undefined' && trip['scene'] != null && trip['scene'] != 'undefined' && trip['time_of_day'] != null && trip['time_of_day'] != 'undefined') {
-                let avg_speed = d3.mean(trip['speeds']);
-                if (avg_speed) {
-                    trip['AVG_Speed'] = avg_speed;
-                    filter_data.push(trip);
+            return category_data;
+
+        } else {
+
+            let category_data = {}
+            for (let i = 0, len = trips.length; i < len; i++) {
+                let trip = trips[i];
+                for (let j = 0, j_len = keys.length; j < j_len; j++) {
+                    let key = keys[j]
+
+                    if (!(key in category_data)) {
+                        category_data[key] = {};
+                        category_data[key + '_trips'] = {};
+                    }
+
+                    if (!(trip[key] in category_data[key])) {
+
+                        category_data[key][trip[key]] = 1;
+                        category_data[key + '_trips'][trip[key]] = [];
+                        category_data[key + '_trips'][trip[key]].push(trips[i]);
+                        //category_data[key][trip[key]]['accuracy'].push(trip['performances']['accuracy']);
+                        //category_data[key][trip[key]]['perplexity'].push(trip['performances']['perplexity']);
+                    } else {
+                        category_data[key][trip[key]] += 1;
+                        category_data[key + '_trips'][trip[key]].push(trips[i]);
+                        //ategory_data[key][trip[key]]['accuracy'].push(trip['performances']['accuracy']);
+                        //category_data[key][trip[key]]['perplexity'].push(trip['performances']['perplexity']);
+                    }
                 }
             }
+            return category_data;
         }
 
-        return filter_data;
     }
-}
 
-export function vis_parallelsets_filter(data, filter) {
+    function clicked_on_bar(filtered_trips, index, key, all_trips) {
 
-    // Set boolean filter
-    vis_is_parallelsets_filter = true;
+        if (d3.select('#histogram-' + key + '-' + index).classed('active')) {
 
-    let trips = preprocess(data, filter);
+            d3.selectAll('.histogram-bar').style('stroke', '#BCCFD3');
+            d3.selectAll('.histogram-bar').classed('active', false);
+            d3.select('#histogram-' + key + '-' + index).classed('active', false);
 
-    // filter table
-    vis_draw_model_table(trips, 'dataview-table');
-    vis_model_performance(trips, 'model_performance-body');
+            map_show_filtered_trips(all_trips);
+            vis_model_cases(all_trips, 'model-cases-body');
+        } else {
+            d3.selectAll('.histogram-bar').style('stroke', '#BCCFD3');
+            d3.selectAll('.histogram-bar').classed('active', false);
+            d3.select('#histogram-' + key + '-' + index).style('stroke', '#252525');
+            d3.select('#histogram-' + key + '-' + index).classed('active', true);
 
-    // Set boolean back to default
-    vis_is_parallelsets_filter = false;
-
-    function preprocess(data, filter) {
-
-        let trips = [];
-        for (let i = 0; i < data.length; ++i) {
-
-            let time_of_day = data[i].time_of_day;
-            let scene = data[i].scene;
-            let weather = data[i].weather;
-
-            if (filter[0].indexOf(time_of_day) !== -1 && filter[1].indexOf(scene) !== -1 && filter[2].indexOf(weather) !== -1) {
-                trips.push(data[i]);
-            }
+            map_show_filtered_trips(filtered_trips);
+            vis_model_cases(filtered_trips, 'model-cases-body');
         }
-
-        return trips;
     }
 }
 
 // TODO: need to add d3 here
 export function vis_model_cases(trips, container_id)
 {
+    // Need to remove thumbnails and markers
+    d3.selectAll('.thumbnail-container').classed('active', false);
+    d3.selectAll('.thumbnail-viewer').remove();
+    if (vis_marker) { vis_marker.remove(); }
+
     // Summarize all cases
     let cases = preprocess(trips);
 
@@ -2116,68 +1067,78 @@ export function vis_model_cases(trips, container_id)
         .attr('width', '100%')
         .attr('height', '100%');
 
-    let table_headers = ['actual', 'tcnn1', 'fcn_lstm', 'cnn_lstm', 'count'];
+    let table_colors = ['#252525', '#e41a1c', '#377eb8', '#4daf4a', '#252525'];
+    let table_headers = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm', 'count'];
 
-    table.append('tr');
+    let table_header_row = table.append('tr');
     for (let i = 0; i < table_headers.length; ++i) {
-        table.append('th')
-            .style('color', '#000')
+        table_header_row.append('th')
+            .style('color', table_colors[i])
             .html(table_headers[i]);
     }
 
     Object.keys(cases).forEach(function(item, index) {
 
-        let row = table.append('tr')
-            .attr('class', 'row-cases')
-            .style('cursor', 'pointer')
-            .style('text-align', 'center');
+        if (item !== '0000') {
+            let row = table.append('tr')
+                .attr('class', 'row-cases')
+                .style('cursor', 'pointer')
+                .style('text-align', 'center');
 
-        let boolean_expression = item.split('');
+            let boolean_expression = item.split('');
 
-        for (let i = 0; i < boolean_expression.length; ++i) {
-            row.append('td')
-                .style('color', (boolean_expression[i] === '1') ? '#FF0000' : '#C9D2D3')
-                .style('font-size', '24px')
-                .style('text-align', 'center')
-                .append('div')
-                .style('height', '20px')
-                .style('width', '20px')
-                .style('margin', 'auto')
-                .style('border-radius', '50%')
-                .style('box-shadow', (boolean_expression[i] === '1') ? 'none' : 'inset 0px 0px 5px #737373')
-                .style('background-color', (boolean_expression[i] === '1') ? '#FF0000' : '#C9D2D3');
-        }
-
-        // Show count
-        row.append('td')
-            .html(cases[item]);
-
-        row.on('click', function() {
-            if (row.classed('active')) {
-                d3.selectAll('.row-cases').classed('active', false);
-                d3.selectAll('.row-cases').style('background-color', 'transparent');
-                //vis_streetview(trips, 'streetview-body');
-            } else {
-                // Set class
-                d3.selectAll('.row-cases').classed('active', false);
-                row.classed('active', true);
-                // Bg
-                d3.selectAll('.row-cases').style('background-color', 'transparent');
-                row.style('background-color', '#bababa');
-                // Draw new gallery
-                vis_representative_images(trips, item, 'streetview-body');
+            for (let i = 0; i < boolean_expression.length; ++i) {
+                row.append('td')
+                    .style('color', (boolean_expression[i] === '1') ? table_colors[i] : '#C9D2D3')
+                    .style('font-size', '24px')
+                    .style('text-align', 'center')
+                    .append('div')
+                    .style('height', '20px')
+                    .style('width', '20px')
+                    .style('margin', 'auto')
+                    .style('border', '1px solid #C9D2D3')
+                    .style('border-radius', '50%')
+                    .style('box-shadow', (boolean_expression[i] === '1') ? 'none' : 'inset 0px 0px 5px #737373')
+                    .style('background-color', (boolean_expression[i] === '1') ? table_colors[i] : '#C9D2D3');
             }
 
-        });
+            // Show count
+            row.append('td')
+                .html(cases[item]);
 
-        // Set first default representative images
-        if (index === 0) {
-            d3.selectAll('.row-cases').style('background-color', 'transparent');
-            row.style('background-color', '#bababa');
-            // Set style without highlight
-            row.classed('active', true);
-            // Show representative images
-            vis_representative_images(trips, item, 'streetview-body');
+            row.on('click', function() {
+                d3.selectAll('.thumbnail-container').classed('active', false);
+                d3.selectAll('.thumbnail-viewer').remove();
+                // For performance issues
+                if (row.classed('active')) {
+                    return;
+                } else {
+                    d3.selectAll('.row-cases').classed('active', false);
+                    row.classed('active', true);
+                    // Bg
+                    d3.selectAll('.row-cases').style('background-color', 'transparent');
+                    row.style('background-color', '#bababa');
+                    // Draw new gallery
+                    let coords = get_all_points(trips, item)
+                    map_draw_all_points(coords);
+                    vis_representative_images(trips, item, 'streetview-body');
+                }
+                //vis_representative_images(trips, item, 'streetview-body');
+
+            });
+
+            // Set first default representative images as default
+            if (index === 0) {
+                d3.selectAll('.row-cases').style('background-color', 'transparent');
+                row.style('background-color', '#bababa');
+                // Set style without highlight
+                row.classed('active', true);
+                // Show representative images
+                let coords = get_all_points(trips, item)
+                map_draw_all_points(coords);
+                vis_representative_images(trips, item, 'streetview-body');
+                //vis_representative_images(trips, item, 'streetview-body');
+            }
         }
     });
 
@@ -2195,28 +1156,53 @@ export function vis_model_cases(trips, container_id)
         return cases;
     }
 
+    function get_all_points(trips, expression) {
+        let coords = [];
+        if (expression  && expression !== '0000') {
+            let actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+            for (let i = 0; i < trips.length; ++i) {
+
+                let trip = trips[i];
+                let actual = trips[i].actual.no_slight;
+                if (trip.cases[expression]) {
+                    let indexes = trip.cases[expression];
+                    for (let j = 0; j < indexes.length; ++j) {
+                        coords.push({
+                            action: (actual[indexes[j]] != -1) ? actions[actual[indexes[j]]] : 'not_sure',
+                            coordinates: trip.locations.coordinates[Math.floor(indexes[j]/3)]
+                        });
+                    }
+                }
+            }
+        }
+        return coords;
+    }
+
 }
 
 export function vis_representative_images(trips, expression, container_id) {
-
+    //console.log(expression);
     $('#' + container_id).empty();
 
-    let coords = [];
+    let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+    let model_colors = ['#e41a1c', '#377eb8', '#4daf4a'];
+    let car_action = ['▲', '⬣', '◀','▶'];
+    let actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
 
-    if (expression  && expression !== '0000') {
-        coords = [];
-        let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
-        let model_colors = ['#e41a1c', '#377eb8', '#4daf4a'];
-        let car_action = ['▲', '●', '◀','▶'];
+    let prev_image_data = undefined;
+    let prev_trip_id = undefined;
 
-        let prev_context = undefined;
+    let all_images = [];
+    //let count = 0;
+    if (expression) {
         for (let i = 0; i < trips.length; ++i) {
             let trip = trips[i];
+            let prev_action = undefined;
             if (trip.cases[expression]) {
                 let indexes = trip.cases[expression];
-                for (let j = 0; j < indexes.length; ++j) {
-                    if (Math.random() < 0.3) {
-                        coords.push(trip.locations.coordinates[Math.floor(indexes[j]/3)]);
+                // TODO: hack this
+                if (indexes.length > 0) {
+                    for  (let j = 0, j_len = indexes.length; j < j_len; j++ ) {
 
                         let action = trip.actual.no_slight[indexes[j]];
                         let tcnn1 = trip.predict[models[0]][indexes[j]];
@@ -2228,139 +1214,105 @@ export function vis_representative_images(trips, expression, container_id) {
                         let cnn_lstm_action = car_action[cnn_lstm.indexOf(d3.max(cnn_lstm))];
                         let fcn_lstm_action = car_action[fcn_lstm.indexOf(d3.max(fcn_lstm))];
 
-                        let image_container = d3.select('#' + container_id).append('div')
-                            .attr('id', 'image-container-' + trip.trip_id + '-' + indexes[j])
-                            .style('position', 'relative')
-                            .style('width', '140px')
-                            .style('height', '90px')
-                            .style('border', '1px solid #C9D2D3')
-                            .style('cursor', 'pointer')
-                            .style('float', 'left')
-                            .on('click', function () {
-                                clicked(trip, indexes[j]);
-                            });
-
-                        image_container.append('img')
-                            .attr('id', 'image-' + trip.trip_id + '-' + indexes[j])
-                            .attr('class', 'case-images')
-                            .attr('alt', '')
-                            .attr('src', '/frames/' + trip.trip_id + '/' + indexes[j] + '.png')
-                            .style('width', '100%')
-                            .style('height', '100%');
-
-                        if (actual_action) {
-                            image_container.append('div')
-                                .style('position', 'absolute')
-                                .style('width', '100%')
-                                .style('height', '20px')
-                                .style('bottom', '0px')
-                                .style('background', 'rgba(255,255,255,0.9)')
-                                .style('left', '0px')
-                                .style('text-align', 'center')
-                                .html(actual_action + '&nbsp;&nbsp;<font color="#e41a1c">' + tcnn1_action + '</font>&nbsp;&nbsp;<font color="#377eb8">' +  cnn_lstm_action + '</font>&nbsp;&nbsp;<font color="#4daf4a">' + fcn_lstm_action + '</font>');
+                        let image = {
+                            trip_id: trip.trip_id,
+                            index: indexes[j],
+                            actual: actual_action,
+                            tcnn1: tcnn1_action,
+                            cnn_lstm: cnn_lstm_action,
+                            fcn_lstm: fcn_lstm_action,
+                            location: trip.locations.coordinates[Math.floor(indexes[j] / 3)],
+                            path: '/frames/' + trip.trip_id + '/' + indexes[j] + '.png'
                         }
 
+                        if (trip.actual.no_slight[indexes[j]] !== prev_action) {
+                            all_images.unshift(image);
+                            prev_action = trip.actual.no_slight[indexes[j]];
+                        } else {
+                            all_images.push(image);
+                        }
                     }
                 }
             }
         }
-        /*
-        if ($('#image-' + trip.trip_id + '-' + indexes[j]).length >= 1) {
-            let current_img = get_image_data('image-' + trip.trip_id + '-' + indexes[j]);
-            let prev_img = get_image_data('image-' + trip.trip_id + '-' + indexes[j - 1]);
+    }
 
-            let res = compare(current_img, prev_img, 8, 0.01, 0.03, true);
-            let ssim = Math.round(res.ssim * 1000) / 1000;
-            //console.log(ssim);
-        }*/
+    // Display images
+    for (let i = 0, len = (all_images.length > 500) ? 1000 : all_images.length; i < len; i++) {
+        let image = all_images[i];
+        let action_summary = image.actual + '&nbsp;&nbsp;<font color="#e41a1c">' + image.tcnn1 + '</font>&nbsp;&nbsp;<font color="#377eb8">' +  image.cnn_lstm + '</font>&nbsp;&nbsp;<font color="#4daf4a">' + image.fcn_lstm + '</font>';
+        // Adding new div
+        let image_path = image.path;
+        let image_container = d3.select('#' + container_id).append('div')
+            .attr('id', 'image-container-' + image.trip_id + '-' + image.index)
+            .attr('class', 'thumbnail-container')
+            .style('position', 'relative')
+            .style('width', '147px')
+            .style('height', '100px')
+            .style('border', '1px solid #737373')
+            .style('cursor', 'pointer')
+            .style('float', 'left')
+            .on('click', function () {
 
-        map_draw_all_points(coords);
+                if (d3.select(this).classed('active')) {
+                    d3.selectAll('.thumbnail-container').classed('active', false);
+                    d3.selectAll('.thumbnail-viewer').remove();
+                    if (vis_marker) { vis_marker.remove(); }
+                    d3.select(this).classed('active', false);
+                } else {
+                    d3.selectAll('.thumbnail-container').classed('active', false);
+                    d3.selectAll('.thumbnail-viewer').remove();
+                    let thumbnail_viewer = d3.select('#map').append('div')
+                        .attr('class', 'thumbnail-viewer')
+                        .style('width', '350px')
+                        .style('height', '250px')
+                        .style('position', 'absolute')
+                        .style('z-index', '9999')
+                        .style('top', '90px')
+                        .style('left', '10px');
 
-    } else {
-
-        coords = [];
-
-        for (let i = 0; i < trips.length; ++i) {
-            let trip = trips[i];
-            let actual_label = trip.actual.no_slight;
-            let temp_action = "";
-            for (let j = 0; j < actual_label.length; ++j) {
-
-                let action = actual_label[j];
-
-                // Math.random() < 0.1; --> 10% to getting true
-                if (action && temp_action !== action && Math.random() < 0.3) {
-                    coords.push(trip.locations.coordinates[Math.floor(j/3)]);
-                    d3.select('#' + container_id).append('img')
-                        .attr('id', 'image-' + trip.trip_id + '-' + j)
-                        .attr('class', 'case-images')
+                    thumbnail_viewer.append('img')
                         .attr('alt', '')
-                        .attr('src', '/frames/' + trip.trip_id + '/' + j + '.png')
-                        .style('width', '140px')
-                        .style('height', '90px')
-                        .style('cursor', 'pointer')
-                        .style('border', '1px solid #C9D2D3')
-                        .style('float', 'left')
-                        .on('click', function () {
-                            clicked (trip, j);
-                        });
-                    temp_action = action;
+                        .attr('src', image_path)
+                        .style('width', '100%')
+                        .style('height', '100%')
+                        .style('background', '#737373')
+                        .style('border-radius', '5px')
+                        .style('border', '1px solid #737373')
+                        .style('opacity', 0)
+                        .transition()
+                        .duration(1000)
+                        .style('opacity', 1);
+
+                    // Show location
+                    if (vis_marker) { vis_marker.remove(); }
+                    vis_marker = new mapboxgl.Marker()
+                        .setLngLat(image.location)
+                        .addTo(map_main);
+
+                    d3.select(this).classed('active', true);
                 }
+            });
 
-            }
-        }
+        image_container.append('img')
+            .attr('id', 'image-' + image.trip_id + '-' + image.index)
+            .attr('class', 'case-images')
+            .attr('alt', '')
+            .attr('src', image_path)
+            .style('width', '100%')
+            .style('height', '100%');
 
-        map_draw_all_points(coords);
-    }
-
-    function clicked (trip, index) {
-        d3.selectAll('.case-images').style('opacity', 0.2);
-        d3.selectAll('.case-images')
-            .style('width', '140px')
-            .style('height', '90px');
-
-        $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
-
-        if (d3.select('#image-' + trip.trip_id + '-' + index).classed('active')) {
-            map_remove_layer('point-layer');
-            d3.selectAll('.case-images').style('opacity', 1);
-            d3.selectAll('.case-images')
-                .style('width', '140')
-                .style('height', '90px');
-            d3.select('#image-' + trip.trip_id + '-' + index).classed('active', false);
-
-            $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
-
-        } else {
-            let coord = trip.locations.coordinates[Math.floor(index / 3)];
-            map_draw_point(coord, trip.trip_id + '-' + index);
-            d3.selectAll('.case-images').classed('active', false);
-            d3.select('#image-' + trip.trip_id + '-' + index).style('opacity', 1);
-            d3.select('#image-' + trip.trip_id + '-' + index)
-                .style('width', '140px')
-                .style('height', '90px');
-            d3.select('#image-' + trip.trip_id + '-' + index).classed('active', true);
-
-            vis_show_streetview(coord, '/frames/' + trip.trip_id + '/' + index + '.png');
-        }
-
-    }
-
-    function get_image_data(image_id) {
-
-        var canvas = document.createElement('canvas');
-        var context = canvas.getContext('2d');
-        let img = document.getElementById(image_id);
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        var new_img = new Image();
-        new_img.onload = function () {
-            context.drawImage(new_img, 0, 0);
-            var id = context.getImageData(0, 0, img.width, img.height);
-            let img_obj = {width: canvas.width, height: canvas.height, data: id.data, channels: 4, canvas: canvas}
-            console.log(img_obj);
-        }
+        image_container.append('div')
+            .style('position', 'absolute')
+            .style('width', '100%')
+            .style('height', '16px')
+            .style('line-height', '16px')
+            .style('font-size', '14px')
+            .style('bottom', '0px')
+            .style('background', 'rgba(255,255,255,0.9)')
+            .style('left', '0px')
+            .style('text-align', 'center')
+            .html(action_summary);
     }
 
     return;
@@ -2598,583 +1550,6 @@ export function vis_area_study(trips, container_id) {
     }
 }
 
-
-/*
-export function vis_trips_study(trips) {
-
-    if (trips.length <= 0) return;
-
-    let container_height = 190; // 150
-    let max_height = 420;
-    let total_height = trips.length * container_height;
-
-    if (total_height < max_height) {
-        max_height = total_height + 20;
-    }
-
-    // Move map and set senter
-    d3.select('#map').style('height','calc(100% - ' + max_height + 'px)');
-    d3.select('#tripview').style('max-height', max_height + 'px');
-    $('#tripview-body').height('calc(' + max_height + 'px - 20px)');
-    d3.select('#tripview').style('transition','max-height 0.25s ease-in');
-
-    $('#tripview-body').empty();
-    let trip_container = d3.select('#tripview-body').append('div')
-        .style('width', '100%')
-        .style('height', total_height + 'px')
-        .style('box-sizing', 'border-box');
-
-    vis_trip_detail(trips, trip_container);
-
-
-    $('#tripview').on('transitionend', function () {
-        vis_trip_detail(trips, trip_container);
-    });
-
-    $('#tripview-dropdown').off().on('change', function() {
-        $('#tripview-body').empty();
-        let trip_container = d3.select('#tripview-body').append('div')
-            .style('width', '100%')
-            .style('height', total_height + 'px')
-            .style('box-sizing', 'border-box');
-
-        vis_trip_detail(trips, trip_container);
-    });
-}*/
-
-/*
-export function vis_trip_detail (trips, div) {
-
-    //console.log($('#tripview-dropdown').val());
-    // get mode
-    switch ($('#tripview-dropdown').val()) {
-        case 'action': draw_action(trips, div); break;
-        case 'perplexity': draw_perplexity(trips, div); break;
-        case 'combine': vis_draw_action(trips, div); break;
-        default: draw_action(trips, div); break;
-    }
-
-    function draw_action(trips, div) {
-
-        for (let i = 0; i < trips.length; ++i) {
-
-            vis_create_trip_info(trips[i], div, i);
-            let trip = trips[i];
-            let models = ['actual', 'tcnn1', 'fcn_lstm', 'cnn_lstm'];
-            let car_actions = ['straight2', 'slow_or_stop2', 'turn_left2', 'turn_right2', 'turn_left_slight2', 'turn_right_slight2'];
-
-            let width = $('#tripview-body').width();
-            let height = 150;
-
-            let container = div.append('div')
-                .style('width', '100%')
-                .style('box-sizing', 'border-box')
-                .style('border-bottom', '1px solid #d9d9d9')
-                .style('height', height + 'px');
-
-            let row_height = height / models.length;
-
-            let x = d3.scaleLinear()
-                .range([0, width - 100])
-                .domain([0, trip.actual.slight.length]);
-
-            let svg = container.append('svg')
-                .attr('class', 'trip-svg-' + i)
-                .style('width', width)
-                .style('height', height);
-
-            let img_width = x(1) - x(0);
-
-            var brushFn = d3.brushX()
-                .extent([[-16, 0], [width, height]]);
-
-            for (let i = 0; i < car_actions.length; ++i) {
-                svg.append("defs")
-                    .append("pattern")
-                    .attr("id", 'rect-bg-' + car_actions[i])
-                    .attr('patternUnits', 'objectBoundingBox')
-                    .attr('width', img_width)
-                    .attr('height', row_height)
-                    .append("image")
-                    .attr("xlink:href", 'signs/' + car_actions[i] + '.png')
-                    .attr('width', img_width)
-                    .attr('height', row_height);
-            }
-
-            for (let i = 0; i < models.length; ++i) {
-
-                let model_g = svg.append('g')
-                .attr("transform", "translate(0," + i * row_height + ")");
-
-                model_g.append('text')
-                    .attr("x", 10)
-                    .attr("y", row_height / 2)
-                    .attr("dy", ".35em")
-                    .style('stroke', model_colors[models[i]])
-                    .text(models[i]);
-
-                let model_bg = model_g.append('g')
-                    .attr("transform", "translate(100,0)");
-
-                //console.log(trip);
-
-                for (let j = 0; j < trip.actual.no_slight.length; ++j) {
-
-                    let action = (models[i] === 'actual') ? trip.actual.no_slight[j] : trip.predict[models[i]][j].indexOf(d3.max(trip.predict[models[i]][j]));
-
-                    model_bg.append('rect')
-                        .attr('x', x(j))
-                        .attr('class', 'sign-rect sign-rect-' + j)
-                        .attr('y', 10)
-                        .style('fill', model_colors[models[i]])
-                        .style('opacity', 1)
-                        .attr('width', img_width)
-                        .attr('height', row_height - 20);
-
-                    let sign = model_bg.append('rect')
-                        .attr('x', x(j))
-                        .style('fill', 'url(#rect-bg-' + car_actions[action] + ')')
-                        .style('cursor', 'pointer')
-                        .attr('width', img_width)
-                        .attr('height', row_height)
-                        .on('click', function() {
-                        })
-                        .on('mouseover', function() {
-                        })
-                        .on('mouseout', function() {
-                        });
-                }
-            }
-
-            svg.append('g').call(brushFn);
-
-            let legend_models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-            let legend_model_colors = ['#9d9d9d', '#e41a1c', '#377eb8', '#4daf4a'];
-
-            $('#tripview-legends').empty();
-
-            for (let i = 0; i < legend_models.length; ++i) {
-
-                let legend_icon = d3.select('#tripview-legends').append('i')
-                    .attr('class', 'fas fa-square')
-                    .style('cursor', 'pointer')
-                    .style('color', legend_model_colors[i]);
-
-                let legend_text = d3.select('#tripview-legends').append('label')
-                    .style('cursor', 'pointer')
-                    .html('&nbsp;' + legend_models[i] + '&nbsp;&nbsp;');
-            }
-        }
-    }
-
-    function draw_perplexity(trip, svg) {
-        // Draw perplexity
-        for (let i = 0; i < trips.length; ++i) {
-
-            vis_create_trip_info(trips[i], div);
-            let trip = trips[i];
-
-            let width = $('#tripview-body').width();
-            let height = 150;
-
-            let container = div.append('div')
-                .style('width', '100%')
-                .style('height', height + 'px');
-
-            let margin = {top: 20, right: 0, bottom: 20, left: 40};
-            width = width - margin.left - margin.right;
-            height = 150 - margin.top - margin.bottom;
-
-            var x = d3.scaleLinear().range([0, width]);
-            var y = d3.scaleLinear().range([height, 0]);
-            let value_scale = d3.scaleLinear().range([0, 100]).domain([0, 1]);
-
-            var brushFn = d3.brushX()
-                .extent([[-16, 0], [width, height]]);
-
-            var area = d3.area()
-                .x(function(d) { return x(d.index); })
-                .y0(y(0))
-                .y1(function(d) { return y(d.value); })
-
-            var line = d3.line()
-                .x(function(d) { return x(d.index); })
-                .y(function(d) { return y(d.value); })
-                .curve(d3.curveBasis);
-
-            let g = container.append('svg')
-                .attr('class', 'trip-svg-' + i)
-                .attr('width', width + margin.left + margin.right)
-                .attr('height', height + margin.top + margin.bottom)
-                    .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-            y.domain([0, 100]);
-            x.domain([0, 108]);
-
-            g.append('g').call(brushFn);
-            g.append("g")
-                .attr("class", "axis axis--y")
-                .call(d3.axisLeft(y).tickFormat(d3.format('.0f')));
-
-            Object.keys(trip.entropy).forEach(function (model) {
-                let line_data = [];
-                for (let i = 0; i < trip.entropy[model].length; ++i) {
-                    line_data.push({
-                        index: i,
-                        value: value_scale(trip.entropy[model][i])
-                    });
-                }
-                // Draw line
-                g.append("path")
-                    .datum(line_data)
-                    .attr("class", "line-" + model)
-                    .attr("d", area);
-            });
-
-            g.append('rect')
-                .attr('x', 0)
-                .attr('y', y(50))
-                .attr('width', width)
-                .attr('height', height - y(50))
-                .attr('fill', '#C9D2D3')
-                .attr('fill-opacity', 0.6);
-
-            g.append('circle')
-                .attr('cx', 0)
-                .attr('cy', y(50))
-                .attr('r', 3)
-                .attr('fill', '#252525');
-
-            let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
-            let model_colors = ['#e41a1c', '#377eb8', '#4daf4a'];
-
-            $('#tripview-legends').empty();
-
-            for (let i = 0; i < models.length; ++i) {
-
-                let legend_icon = d3.select('#tripview-legends').append('i')
-                    .attr('class', 'fas fa-square')
-                    .style('cursor', 'pointer')
-                    .style('color', model_colors[i]);
-
-                let legend_text = d3.select('#tripview-legends').append('label')
-                    .style('cursor', 'pointer')
-                    .html('&nbsp;' + models[i] + '&nbsp;&nbsp;');
-            }
-
-        }
-    }
-}*/
-
-/*
-export function vis_draw_action(trips, div) {
-    // Show nearest point on other trips
-
-    let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-    let model_colors = ['#9d9d9d', '#e41a1c', '#377eb8', '#4daf4a'];
-
-    $('#tripview-legends').empty();
-
-    for (let i = 0; i < models.length; ++i) {
-
-        let legend_icon = d3.select('#tripview-legends').append('i')
-            .attr('class', 'fas fa-square')
-            .style('cursor', 'pointer')
-            .style('color', model_colors[i]);
-
-        let legend_text = d3.select('#tripview-legends').append('label')
-            .style('cursor', 'pointer')
-            .html('&nbsp;' + models[i] + '&nbsp;&nbsp;');
-    }
-
-    let car_action = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
-
-    let width = $('#tripview-body').width();
-    let height = 150;
-
-    for (let i = 0; i < trips.length; ++i) {
-
-        vis_create_trip_info(trips[i], div, i);
-        let keys = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-
-        let container = div.append('div')
-            .style('width', '100%')
-            .style('height', height + 'px');
-
-        let margin = {top: 20, right: 10, bottom: 20, left: 50}
-        let svg_width = width - margin.left - margin.right;
-        let svg_height = height - margin.top - margin.bottom;
-
-        let svg = container.append('svg')
-            .attr('class', 'trip-svg-' + i)
-            .attr('width', svg_width + margin.left + margin.right)
-            .attr('height', svg_height + margin.left + margin.right)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        let actual_action = trips[i].actual.no_slight;
-
-        let x = d3.scaleLinear()
-            .range([0, svg_width]);
-        let y = d3.scaleBand()
-            .range([0, svg_height])
-            .paddingInner(0.2);
-
-        let y1_scale = d3.scaleLinear();
-
-        x.domain([0, actual_action.length])
-        y.domain(keys);
-        y1_scale.domain([0, 1]).range([y.bandwidth(), 0]);
-
-        //console.log(trips[i]);
-
-        let data = {
-            actual: trips[i].actual.no_slight,
-            tcnn1: trips[i].predict.tcnn1,
-            cnn_lstm: trips[i].predict.cnn_lstm,
-            fcn_lstm: trips[i].predict.fcn_lstm
-        }
-
-        var brushFn = d3.brushX()
-            .extent([[0, 0], [svg_width, svg_height]]);
-
-        svg.append('g').call(brushFn);
-        svg.append("g")
-            .attr("class", "axis")
-            .call(d3.axisLeft(y));
-
-        for (let k = 0; k < keys.length; ++k) {
-
-            let g = svg.append("g")
-                .style('opacity', 1)
-                .attr('transform', "translate(" + 0 + "," + y(keys[k]) + ")");
-
-            g.append('line')
-                .style("stroke", model_colors[k])
-                .style("stroke-width", 1.5)
-                .style("stroke-dasharray", ("3, 3"))
-                .attr("x1", x(0))
-                .attr("y1", y.bandwidth() / 2)
-                .attr("x2", x(data[keys[k]].length - 1))
-                .attr("y2", y.bandwidth() / 2);
-
-            let temp_action = undefined;
-            let count = 0;
-            let pos = 0;
-
-            let predict_action = data[keys[k]];
-            let entropy = undefined;
-            if (keys[k] !== 'actual') entropy = trips[i].entropy[keys[k]]
-
-            let entropy_data = [];
-
-            // find median
-            for (let j = 0; j < predict_action.length; ++j) {
-
-                let action = (keys[k] === 'actual') ? car_action[predict_action[j]] : car_action[predict_action[j].indexOf(d3.max(predict_action[j]))];
-
-                entropy_data.push({
-                    index: j,
-                    value: (entropy) ? entropy[j] : undefined
-                });
-
-                if (action !== temp_action) {
-
-                    // Draw last line
-                    if (j == 0) {
-                        g.append('line')
-                            .style("stroke", model_colors[k])
-                            .style("stroke-width", 2)
-                            .attr("x1", x(j))
-                            .attr("y1", 4)
-                            .attr("x2", x(j))
-                            .attr("y2", y.bandwidth() - 4);
-                    } else {
-                        if (count >= 3) {
-                            g.append('line')
-                                .style("stroke", model_colors[k])
-                                .style("stroke-width", 2)
-                                .attr("x1", x(j))
-                                .attr("y1", 4)
-                                .attr("x2", x(j))
-                                .attr("y2", y.bandwidth() - 4);
-                            // Draw symbol
-                            let symbol_index = (j + pos) / 2;
-                            draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
-                        } else {
-                            draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
-
-                            //g.append('line')
-                              //  .style("stroke", model_colors[k])
-                                //.style("stroke-width", 2)
-                                //.attr("x1", x(j+1))
-                                //.attr("y1", 4)
-                                //.attr("x2", x(j+1))
-                                //.attr("y2", y.bandwidth() - 4);
-                        }
-                    }
-
-                    temp_action = action;
-                    count = 0;
-                    pos = j;
-                }
-
-                if (j == actual_action.length - 1) {
-                    if (count >= 3) {
-                        g.append('line')
-                            .style("stroke", model_colors[k])
-                            .style("stroke-width", 2)
-                            .attr("x1", x(j))
-                            .attr("y1", 4)
-                            .attr("x2", x(j))
-                            .attr("y2", y.bandwidth() - 4);
-                        // Draw symbol
-                        let symbol_index = (j + pos) / 2;
-                        draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
-                    } else {
-                        draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
-
-                        //g.append('line')
-                          //  .style("stroke", model_colors[k])
-                            //.style("stroke-width", 1)
-                            //.attr("x1", x(j+1))
-                            //.attr("y1", 4)
-                            //.attr("x2", x(j+1))
-                            //.attr("y2", y.bandwidth() - 4);
-                    }
-                }
-
-                count += 1;
-            }
-
-            var area = d3.area()
-                .x(function(d) { return x(d.index); })
-                .y0(y1_scale(0))
-                .y1(function(d) { return y1_scale(d.value); });
-
-            if (keys[k] !== 'actual') {
-                // Draw line
-                g.append("path")
-                    .datum(entropy_data)
-                    .attr("class", "line-" + keys[k] + "-1")
-                    .attr("d", area);
-            }
-        }
-    }
-
-    function draw_symbol(g, action, x, y, color) {
-
-        let symbol = undefined;
-        let rotate = 0;
-
-        if (action === 'slow_or_stop') {
-            symbol = d3.symbolCircle;
-            //color = '#fbb4ae';
-        } else {
-            symbol = d3.symbolTriangle;
-            //color = '#ccebc5';
-            if (action === 'turn_left') {
-                rotate = 270;
-                //color = '#b3cde3'
-            }
-            if (action === 'turn_right') {
-                rotate = 90;
-                //color = '#b3cde3'
-            }
-        }
-
-        g.append('path')
-            .attr('d', d3.symbol().size(40).type(symbol))
-            .attr('fill', color)
-            .attr('stroke', color)
-            .attr('stroke-width', 1)
-            .attr('transform', function(d) {
-                return "translate(" + x + "," + y + ") rotate(" + rotate + ")";
-            });
-    }
-}*/
-
-/*
-export function vis_create_trip_info(trip, div, index) {
-
-    let trip_info = div.append('div')
-        .style('width', '100%')
-        .style('height', '20px')
-        .style('font-size', '14px')
-        .style('padding-left', '5px')
-        .style('line-height', '20px');
-
-    let trip_icon = trip_info.append('i')
-        .attr('class', (index === 0) ? 'fas fa-check-square trip-checkbox' : 'fas fa-square trip-checkbox')
-        .style('cursor', 'pointer')
-        .style('color', '#000')
-        .on('click', function() {
-            d3.selectAll('.trip-checkbox').classed('fas fa-check-square', false);
-            d3.selectAll('.trip-checkbox').classed('fas fa-square', true);
-
-            d3.select(this).attr('class', 'fas fa-check-square trip-checkbox');
-            vis_trip_viewer(trip, div, index);
-        });
-
-    let trip_text = trip_info.append('label')
-        .style('cursor', 'pointer')
-        .html('&nbsp;Trip ID: ' + trip.trip_id + '&nbsp;&nbsp;');
-
-    let performances = ['accuracy', 'perplexity', 'f1'];
-    let performance_labels = ['Accuracy', 'Perplexity', 'F1'];
-    let performance_colors = ['#fb6a4a','#67000d','#a50f15'];
-
-    for (let i = 0; i < performances.length; ++i) {
-        let performance = trip[performances[i]].split(',')[0];
-        trip_info.append('label')
-            .style('margin-left', '2px')
-            .style('border-radius', '2px')
-            .style('background-color', performance_colors[i])
-            .style('color', '#fff')
-            .html('&nbsp;' + performance_labels[i] + ': ' + performance + "&nbsp;");
-    }
-
-    let others = ['time_of_day', 'scene', 'weather'];
-    let other_labels = ['Time', 'Scene', 'Weather'];
-
-    for (let i = 0; i < others.length; ++i) {
-        trip_info.append('label')
-            .style('margin-right', '2px')
-            .style('border-radius', '2px')
-            .style('float', 'right')
-            .style('background-color', '#C9D2D3')
-            .style('color', '#252525')
-            .html('&nbsp;' + other_labels[i] + ': ' + trip[others[i]] + "&nbsp;");
-    }
-
-    let trip_slider_container = div.append('div')
-        .style('width', '100%')
-        .style('height', '20px')
-        .style('font-size', '14px')
-        .style('line-height', '20px')
-
-    let trip_slider = trip_slider_container.append('input')
-        .attr('id', 'trip-slider-' + index)
-        .attr('class', 'custom-slider')
-        .attr('type', 'range')
-        .attr('min', 0)
-        .attr('max', '107')
-        .attr('step', '1')
-        .attr('val', 0)
-        .style('float', 'left')
-        .style('width', 'calc(100% - 60px)')
-        .style('height', '1px')
-        .style('margin-top', '20px')
-        .style('margin-left', '50px')
-        .style('margin-right', '10px')
-        .style('background', '#252525');
-
-    if (index == 0) {
-        vis_trip_viewer(trip, div, index);
-    }
-}*/
-
 export function vis_trip_list(trips)
 {
     //console.log(trips);
@@ -3188,7 +1563,7 @@ export function vis_trip_list(trips)
         .style('position', 'absolute')
         .style('top', '30px')
         .style('left', '0px')
-        .style('z-index', '9999')
+        .style('z-index', '5000')
         .style('background-color', '#f0f0f0')
         .style('box-sizing', 'border-box');
 
@@ -3206,9 +1581,9 @@ export function vis_trip_list(trips)
         .style('overflow-x', 'hidden')
         .style('overflow-y', 'auto');
 
-    let performances = ['accuracy', 'perplexity', 'f1'];
-    let performance_labels = ['Accuracy', 'Perplexity', 'F1'];
-    let performance_colors = ['#fb6a4a','#67000d','#a50f15'];
+    let performances = ['accuracy', 'perplexity'];
+    let performance_labels = ['Accuracy', 'Perplexity'];
+    let performance_colors = ['#6baed6','#fb6a4a'];
 
     for (let i = performances.length - 1; i >=0; --i) {
 
@@ -3280,14 +1655,14 @@ export function vis_trip_list(trips)
 
         let width_scale = d3.scaleLinear()
             .domain([0, 100])
-            .range([0, 60]);
+            .range([0, 90]);
 
         for (let i = 0; i < performances.length; ++i) {
 
             let value = value_scale(trip.performances[performances[i]]);
 
             let trip_performance = trip_info.append('div')
-                .style('width', '60px')
+                .style('width', '90px')
                 .style('height', '20px')
                 .style('float', 'left')
                 .style('font-size', '12px')
@@ -3295,20 +1670,17 @@ export function vis_trip_list(trips)
                 .style('background-color', '#fff');
 
             let svg = trip_performance.append('svg')
-                .attr('width', '60')
+                .attr('width', '90')
                 .attr('height', '20');
 
-            /*
-            svg.append('defs')
-                .append('pattern')
-                    .attr('id', 'diagonalHatch')
-                    .attr('patternUnits', 'userSpaceOnUse')
-                    .attr('width', 4)
-                    .attr('height', 4)
-                .append('path')
-                    .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
-                    .attr('stroke', '#f0f0f0')
-                    .attr('stroke-width', 1);*/
+            svg.append('rect')
+                .attr('x', 0)
+                .attr('y', 0)
+                .attr('height', '20')
+                .attr('fill', '#d9d9d9')
+                .attr('stroke', '#fff')
+                .attr('stroke-width', .5)
+                .attr('width', width_scale(100));
 
             svg.append('rect')
                 .attr('x', 0)
@@ -3324,20 +1696,12 @@ export function vis_trip_list(trips)
             svg.append('text')
                 .attr('x', 2)
                 .attr('y', 10)
-                .style('font-size', '10px')
+                .attr('font-size', '12px')
                 .attr("text-anchor", "start")
-                .attr("dy", "0.32em")
-                .attr("fill", "#fff")
+                .attr('dy', '0.32em')
+                .attr('fill', '#252525')
                 .text(value.toFixed(2) + '%');
 
-            /*
-            svg.append("rect")
-                .attr("x", 0)
-                .attr("width", width_scale(value))
-                .attr("height", 20)
-                .attr('fill', 'url(#diagonalHatch)')
-                .attr('stroke', '#f0f0f0')
-                .attr('stroke-width', .5);*/
         }
     }
 
@@ -3350,8 +1714,6 @@ export function vis_trip_list(trips)
 export function vis_trip_viewer(trip, index) {
 
     d3.select('#trip-slider-' + index).property("value", 0);
-    //d3.selectAll('.custom-slider').property("disabled", true);
-    //d3.select('#trip-slider-' + index).property("disabled", false);
 
     if (vis_marker) { vis_marker.remove(); }
     vis_marker = new mapboxgl.Marker()
@@ -3366,7 +1728,8 @@ export function vis_trip_viewer(trip, index) {
         width: '400px',
         height: '250px',
         'box-sizing': 'border-box',
-        'border': '10px solid #f0f0f0'
+        'border': '1px solid #f0f0f0',
+        'position': 'relative'
     });
 
     let img  = $('<img/>', {
@@ -3380,36 +1743,153 @@ export function vis_trip_viewer(trip, index) {
 
     viewer.append(img);
     viewer.insertAfter('#trip-info-' + index);
+    add_trip_action(trip, index);
 
-    //map_main.flyTo({center: trip.locations.coordinates[0], essential: true, zoom:15 });
+    let width = $('#tripview-body').width();
+    let margin = {top: 20, right: 10, bottom: 20, left: 70}
+    let svg_width = width - margin.left - margin.right;
 
     let x = d3.scaleLinear()
         .domain([0, 108])
-        .range([50, $('#tripview-body').width()]);
+        .range([0, svg_width]);
 
     d3.select('#trip-slider-' + index).on("input", function() {
 
         d3.select('#trip-viwer-image')
             .attr('src', '/frames/' + trip.trip_id + '/' + this.value + '.png');
 
-        d3.selectAll('.trip-video-line').remove();
-        d3.selectAll('.trip-svg-' + index).append('line')
-            .attr('class', 'trip-video-line')
-            .style("stroke", '#fff')
-            .style("stroke-opacity", 0.8)
-            .style("stroke-width", 1)
+        d3.selectAll('.trip-video-line')
             .attr("x1", x(this.value))
-            .attr("y1", 10)
+            .attr("y1", -15)
             .attr("x2", x(this.value))
             .attr("y2", 300);
+
+        let slider_index = this.value;
+
+        let keys = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+        for (let i = 0, len = keys.length; i < len; i++) {
+            d3.select('#trip-text-' + keys[i])
+                .attr('x', (slider_index > 70) ? x(slider_index) - 2 : x(slider_index) + 2)
+                .attr("text-anchor", (slider_index > 70) ? 'end' : 'start')
+                .text(function() {
+                    if (keys[i] === 'actual') {
+                        return 'Speed: ' + trip.speeds[Math.floor(slider_index/3)].toFixed(2) +  ' mph';
+                    } else {
+                        return 'Perplexity: ' + trip.entropy[keys[i]][slider_index].toFixed(2);
+                    }
+                });
+        }
 
         if (vis_marker) { vis_marker.remove(); }
         vis_marker = new mapboxgl.Marker()
             .setLngLat(trip.locations.coordinates[Math.floor(this.value / 3)])
             .addTo(map_main);
 
-        //map_main.flyTo({center: trip.locations.coordinates[Math.floor(this.value / 3)], essential: true, zoom: 15 });
+        add_trip_action(trip, this.value, index);
     });
+
+    function add_trip_action(trip, index, row_index) {
+
+        $('#trip-action-summary').remove();
+
+        let car_action = ['▲', '⬣', '◀','▶'];
+        let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+
+        let action = trip.actual.no_slight[index];
+        let tcnn1 = trip.predict[models[0]][index];
+        let cnn_lstm = trip.predict[models[1]][index];
+        let fcn_lstm = trip.predict[models[2]][index];
+
+        let tcnn1_value = trip.entropy[models[0]][index].toFixed(2);
+        let cnn_lstm_value = trip.entropy[models[1]][index].toFixed(2);
+        let fcn_lstm_value = trip.entropy[models[2]][index].toFixed(2);
+        let speed = trip.speeds[Math.floor(index/3)].toFixed(2);
+
+        let actual_action = car_action[action];
+        let tcnn1_action = car_action[tcnn1.indexOf(d3.max(tcnn1))];
+        let cnn_lstm_action = car_action[cnn_lstm.indexOf(d3.max(cnn_lstm))];
+        let fcn_lstm_action = car_action[fcn_lstm.indexOf(d3.max(fcn_lstm))];
+
+        let action_summary = '&nbsp;Speed:&nbsp;' + speed + '&nbsp;' + actual_action + '&nbsp;<font color="#e41a1c">' + tcnn1_action + '&nbsp' + tcnn1_value + '&nbsp</font>&nbsp;&nbsp;<font color="#377eb8">' +  cnn_lstm_action + '&nbsp' + cnn_lstm_value + '&nbsp;</font>&nbsp;&nbsp;<font color="#4daf4a">' + fcn_lstm_action + '&nbsp' + fcn_lstm_value + '&nbsp;</font>';
+
+        // Create table
+        let action_div = $('<div/>', {
+            id: 'trip-action-summary'
+        }).css({
+            width: '400px',
+            height: '70px',
+            'font-size': '14px',
+            'box-sizing': 'border-box',
+            'background': 'rgba(255,255,255,0.9)',
+            'text-align': 'center'
+        });
+
+        let action_table = $('<table/>', {
+            width: '400px',
+            height: '100%',
+            'font-size': '12px'
+        });
+
+        let action_header = $('<tr/>');
+        let data_row = $('<tr/>');
+        let headers = ['Actual Speed', 'TCNN1 Prediction', 'CNN_LSTM Prediction', 'FCN_LSTM Prediction'];
+        let header_values = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+        let data_attr = [actual_action + ' ' + speed + ' mph', '<font color="#e41a1c">' + tcnn1_action + '&nbsp' + d3.max(tcnn1).toFixed(2) + '</font>', '<font color="#377eb8">' + cnn_lstm_action + '&nbsp' + d3.max(cnn_lstm).toFixed(2) + '</font.', '<font color="#4daf4a">' + fcn_lstm_action + '&nbsp' + d3.max(fcn_lstm).toFixed(2) + '</font.']
+        for (let i = 0, len = headers.length; i < len; i++) {
+            let action_head = $('<th/>').css({
+                width: '100px',
+                border: '1px solid #C9D2D3'
+            }).html(headers[i]);
+            let action_value = $('<td/>').css({
+                width: '100px',
+                border: '1px solid #C9D2D3',
+                cursor: 'pointer'
+            }).html(data_attr[i]);
+            action_header.append(action_head);
+            data_row.append(action_value);
+            action_value.on('mouseover', function() {
+
+                if (i !== 0) {
+                    let action_color = ['#252525', '#252525', '#252525', '#252525']
+                    let max_index = trip.predict[header_values[i]][index].indexOf(d3.max(trip.predict[header_values[i]][index]));
+
+                    action_color[max_index] = 'red';
+
+                    // only 4 action
+                    let straight =  '<font color="' + action_color[0] + '">&nbsp;▲&nbsp;' + trip.predict[header_values[i]][index][0].toFixed(2) + '</font>';
+                    let slow_or_stop = '<font color="' + action_color[1] + '">&nbsp;⬣&nbsp;' + trip.predict[header_values[i]][index][1].toFixed(2) + '</font>';
+                    let turn_left = '<font color="' + action_color[2] + '">&nbsp;◀&nbsp;' + trip.predict[header_values[i]][index][2].toFixed(2) + '</font>';
+                    let turn_right = '<font color="' + action_color[3] + '">&nbsp;▶&nbsp;' + trip.predict[header_values[i]][index][3].toFixed(2) + '</font>';
+
+                    let prediction_div = $('<div/>', {
+                        id: 'prediction-summary'
+                    }).css({
+                        width: '100%',
+                        height: 'auto',
+                        'font-size': '14px',
+                        'box-sizing': 'border-box',
+                        'text-align': 'center',
+                        'background': 'rgba(255, 255, 255, 0.8)',
+                        'position': 'absolute',
+                        'color': '#252525',
+                        'bottom': '0px',
+                        'left': '0px'
+                    });
+                    prediction_div.html( header_values[i] + ' predictions: ' + straight + " " + slow_or_stop + " " + turn_left + " " + turn_right);
+                    $('.trip-viewer').append(prediction_div);
+                }
+            });
+            action_value.on('mouseout', function () {
+                $('#prediction-summary').remove();
+            });
+        }
+
+        action_table.append(action_header);
+        action_table.append(data_row);
+        action_div.append(action_table);
+        action_div.insertAfter('.trip-viewer');
+    }
+
     return;
 }
 
@@ -3417,8 +1897,6 @@ export function vis_trips_study(trip, index) {
 
     let container_height = 300; // 150
     let max_height = 320;
-
-
     // Move map and set senter
     d3.select('#map').style('height','calc(100% - ' + 250 + 'px)');
     d3.select('#tripview').style('max-height', 250 + 'px');
@@ -3432,58 +1910,31 @@ export function vis_trips_study(trip, index) {
         .style('box-sizing', 'border-box');
 
     vis_draw_action(trip, trip_container, index);
-
-    $('#tripview').off('mouseenter').on('mouseover', function () {
-
-    });
-
-    $('#tripview').off('mouseout').on('mouseout', function() {
-        /*
-        var coordinates = map_circle_polygon.geometry.coordinates[0];
-        var bounds = coordinates.reduce(function (bounds, coord) {
-            return bounds.extend(coord);
-        }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
-
-        map_main.fitBounds(bounds, {
-            zoom: 11
-        });*/
-    });
-
-    /*
-    $('#tripview').on('transitionend', function () {
-        vis_trip_detail(trips, trip_container);
-    });*/
-
-    /*
-    $('#tripview-dropdown').off().on('change', function() {
-        $('#tripview-body').empty();
-        let trip_container = d3.select('#tripview-body').append('div')
-            .style('width', '100%')
-            .style('height', total_height + 'px')
-            .style('box-sizing', 'border-box');
-
-        //vis_trip_detail(trips, trip_container);
-    });*/
 }
 
 export function vis_draw_action(trip, div, index) {
     // Show nearest point on other trips
 
     let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-    let model_colors = ['#9d9d9d', '#e41a1c', '#377eb8', '#4daf4a'];
+    let model_colors = ['#252525', '#e41a1c', '#377eb8', '#4daf4a'];
+
+    let actions = ['▲ Straight', '⬣ Slow/Stop', '<font size="3px">◀</font> Turn Left', '<font size="3px">▶</font> Turn Right'];
 
     $('#tripview-legends').empty();
 
-    for (let i = 0; i < models.length; ++i) {
-
+    for (let i = 0; i < actions.length; ++i) {
+        /*
         let legend_icon = d3.select('#tripview-legends').append('i')
             .attr('class', 'fas fa-square')
             .style('cursor', 'pointer')
-            .style('color', model_colors[i]);
-
+            .style('color', model_colors[i]);*/
+        /*
         let legend_text = d3.select('#tripview-legends').append('label')
             .style('cursor', 'pointer')
-            .html('&nbsp;' + models[i] + '&nbsp;&nbsp;');
+            .html('&nbsp;' + models[i] + '&nbsp;&nbsp;');*/
+        let legend_text = d3.select('#tripview-legends').append('label')
+            .style('cursor', 'pointer')
+            .html('&nbsp;' + actions[i] + '&nbsp;');
     }
 
     let car_action = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
@@ -3498,7 +1949,7 @@ export function vis_draw_action(trip, div, index) {
         .style('width', '100%')
         .style('height', height + 'px');
 
-    let margin = {top: 20, right: 10, bottom: 20, left: 50}
+    let margin = {top: 20, right: 10, bottom: 20, left: 70}
     let svg_width = width - margin.left - margin.right;
     let svg_height = height - margin.top - margin.bottom;
 
@@ -3532,20 +1983,43 @@ export function vis_draw_action(trip, div, index) {
         fcn_lstm: trip.predict.fcn_lstm
     }
 
-    /*
-    var brushFn = d3.brushX()
-        .extent([[0, 0], [svg_width, svg_height]]);*/
-    /*
-    svg.append('g').call(brushFn);*/
     svg.append("g")
         .attr("class", "axis")
+        .style('font-size', '14px')
         .call(d3.axisLeft(y));
+
+    svg.append('line')
+        .attr('class', 'trip-video-line')
+        .style("stroke", '#252525')
+        .style("stroke-opacity", 0.8)
+        .style("stroke-width", 1)
+        .attr("x1", x(0))
+        .attr("y1", -15)
+        .attr("x2", x(0))
+        .attr("y2", 300);
 
     for (let k = 0; k < keys.length; ++k) {
 
         let g = svg.append("g")
             .style('opacity', 1)
             .attr('transform', "translate(" + 0 + "," + y(keys[k]) + ")");
+
+        g.append('text')
+            .attr('id', 'trip-text-' + keys[k])
+            .attr("x", x(0) + 2)
+            .attr('y', -3)
+            .attr("dy", "0.32em")
+            .attr("fill", model_colors[k])
+            .attr('font-size', '12px')
+            .attr("text-anchor", "start")
+            .text(function() {
+                if (keys[k] === 'actual') {
+                    return 'Speed: ' + trip.speeds[0].toFixed(2) +  ' mph';
+                } else {
+                    return 'Perplexity: ' + trip.entropy[keys[k]][0].toFixed(2);
+                }
+            });
+
 
         g.append('line')
             .style("stroke", model_colors[k])
@@ -3601,14 +2075,6 @@ export function vis_draw_action(trip, div, index) {
                         draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
                     } else {
                         draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
-                        /*
-                        g.append('line')
-                            .style("stroke", model_colors[k])
-                            .style("stroke-width", 2)
-                            .attr("x1", x(j+1))
-                            .attr("y1", 4)
-                            .attr("x2", x(j+1))
-                            .attr("y2", y.bandwidth() - 4);*/
                     }
                 }
 
@@ -3631,14 +2097,6 @@ export function vis_draw_action(trip, div, index) {
                     draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
                 } else {
                     draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
-                    /*
-                    g.append('line')
-                        .style("stroke", model_colors[k])
-                        .style("stroke-width", 1)
-                        .attr("x1", x(j+1))
-                        .attr("y1", 4)
-                        .attr("x2", x(j+1))
-                        .attr("y2", y.bandwidth() - 4);*/
                 }
             }
 
@@ -3664,9 +2122,11 @@ export function vis_draw_action(trip, div, index) {
 
         let symbol = undefined;
         let rotate = 0;
+        let size = 60;
 
         if (action === 'slow_or_stop') {
-            symbol = d3.symbolCircle;
+            symbol = symbolOctagonAlt;
+            size = 100
             //color = '#fbb4ae';
         } else {
             symbol = d3.symbolTriangle;
@@ -3682,7 +2142,7 @@ export function vis_draw_action(trip, div, index) {
         }
 
         g.append('path')
-            .attr('d', d3.symbol().size(60).type(symbol))
+            .attr('d', d3.symbol().size(size).type(symbol))
             .attr('fill', color)
             .attr('stroke', color)
             .attr('stroke-width', 1)
@@ -3696,7 +2156,7 @@ export function vis_create_trip_info(trip, div, index)
 {
 
     let others = ['time_of_day', 'scene', 'weather'];
-    let other_labels = ['Time', 'Scene', 'Weather'];
+    let other_labels = ['Time', 'Street Type', 'Weather'];
 
     for (let i = 0; i < others.length; ++i) {
         d3.select('#tripview-legends').append('label')
@@ -3725,11 +2185,11 @@ export function vis_create_trip_info(trip, div, index)
         .attr('step', '1')
         .attr('val', 0)
         .style('float', 'left')
-        .style('width', 'calc(100% - 60px)')
+        .style('width', 'calc(100% - 81px)')
         .style('height', '1px')
         .style('margin-top', '19px')
-        .style('margin-left', '50px')
-        .style('margin-right', '10px')
+        .style('margin-left', '63px')
+        .style('margin-right', '18px')
         .style('background', '#252525');
 
     return;

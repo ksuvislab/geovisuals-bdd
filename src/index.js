@@ -1,100 +1,83 @@
 import '../node_modules/mapbox-gl/dist/mapbox-gl.css';
 import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 import '../node_modules/@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
+//import '../node_modules/@simonwep/pickr/dist/themes/nano.min.css';
 import './css/main.css';
 import './css/left.css';
 import './css/middle.css';
 import './css/right.css';
-import './css/parsets.css';
+//import './css/parsets.css';
 
 import {
     map_main,
     map_initialize,
     map_add_draw_controls,
-    map_show_all_trips,
-    map_get_bbox_polygon,
     map_show_filtered_trips,
     map_remove_layer,
     map_draw_outter_trips,
-    map_set_paint_property,
-    map_draw_inner_trips,
     map_draw,
     map_add_minimap,
     map_minimap,
-    map_create_circle_radius,
-    map_query_rendered_features,
-    map_draw_background
+    map_visualize_background,
+    map_legend_filter
 } from './js/map';
 
 import {
     util_axios_interceptors,
-    util_merge_street_roadnetwork,
-
     util_compute_cases,
     util_compute_entropy,
-    util_compute_street_data,
-    util_map_matching,
     util_preprocess_data,
-    util_read_geojson
 } from './js/utils';
 
 import {
-    query_all,
-    query_all_streets,
-    query_all_roadnetworks
+    query_all
 } from './js/query';
 
 import {
-    vis_draw_model_table,
-    vis_filter,
-    vis_model_performance,
-    vis_model_relation,
-    vis_parallelsets,
-    vis_streetview,
     vis_model_cases,
-    vis_summary,
     vis_global_view,
-    vis_representative_images,
-    vis_area_study,
-    vis_selected_nodes,
-    vis_trips_study,
     vis_trip_list,
-    vis_marker
+    vis_marker,
+    vis_draw_trip_filter,
+    vis_draw_histogram
 } from './js/vis';
 
 import {
-    filter_bbox_roadnetwork,
     filter_bbox_trips,
-    filter_by_nodes,
     filter_by_polygon,
     filter_point_on_trips,
-    filter_predicted_trips,
-    filter_trip_in_radius
 } from './js/filter';
-import { view_create_map_legends } from './js/view';
 
-export var main_regions = undefined;
-export var main_all_trips = undefined;
-//export var main_all_streets = undefined;
-export var main_predicted_trips = undefined;
-export var main_mouse_coord = undefined;
+import {
+    view_init_trip_filter_tab,
+    view_trip_critical_location_legend,
+    view_zipcode_legend
+} from './js/view';
 
-// Public datasets
-export var main_all_roadnetworks = undefined;
-export var main_all_streets = undefined;
-export var main_predicted_streets = undefined;
-
+// State of views
 export var main_states = {
     global: true,
     trip: false
 }
 
+// Zipcode levels
+export var main_all_zipcodes = undefined;
+export var main_processed_zipcodes = undefined;
+// Trip levels
+export var main_all_trips = undefined;
+export var main_processed_trips = undefined;
+// Mouse coordinates
+export var main_mouse_coord = undefined;
+export var main_region = undefined;
+
+// Initialize map
 map_initialize('map');
 
 // Fire when map finished loading
 map_main.on('load', function() {
     main_init();
 });
+
 
 export function main_init() {
 
@@ -105,252 +88,65 @@ export function main_init() {
     // Set axios interceptors
     util_axios_interceptors();
 
-    // Need to fix query
-
-
+    // Get map bouning box
     main_get_all_datasets().then(function() {
-        // Preprocess data
-        util_preprocess_data(main_all_trips).then(function (processed_data) {
-            // Compute trip data
-            main_all_trips = filter_bbox_trips(processed_data);
-            console.log(main_all_trips);
-            map_draw_outter_trips('outter-trips', main_all_trips);
 
-            let json_file = "";
-            for (let i = 0; i < main_all_trips.length; ++i) {
-                let trip = main_all_trips[i];
-                json_file += trip.trip_id + " ";
-            }
-
-            // Start file download.
-            download("CA_TRIP_ID.txt", json_file);
-
-            /*
-            main_predicted_trips = main_preprocess(main_all_trips);
-            // Compute street and road network
-            main_all_streets = util_compute_street_data(main_all_streets, main_predicted_trips);
-            main_all_roadnetworks = filter_bbox_roadnetwork(main_all_roadnetworks);
-
-            console.log(main_all_streets);
-            main_predicted_streets = util_merge_street_roadnetwork(main_all_roadnetworks, main_all_streets);
-            console.log(main_predicted_streets);
-
-            // Create drawable background
-            // TODO: need to show gradient
-            view_create_map_legends('map', main_predicted_streets);
-
-            map_show_filtered_trips(main_predicted_trips);
-            main_update_dataview(main_predicted_trips);*/
-        });
-    });
-
-    function download(filename, text) {
-        var element = document.createElement('a');
-        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-        element.setAttribute('download', filename);
-
-        element.style.display = 'none';
-        document.body.appendChild(element);
-
-        element.click();
-
-        document.body.removeChild(element);
-    }
-
-    map_main.on('dragend', function(e) {
-        if (main_states.global) {
-            if (main_all_trips) {
-                // Filter all trips inside bounding box
-                let trips = filter_bbox_trips(main_all_trips);
-                main_redraw_map(trips);
-            }
-        }
-    });
-
-    map_main.on('zoomend', function(e) {
-        if (main_states.global) {
-            if (main_all_trips) {
-                // Filter all trips inside bounding box
-                let trips = filter_bbox_trips(main_all_trips);
-                main_redraw_map(trips);
-            }
-        }
-
-        if (main_states.trip) {
-            if (main_predicted_trips) {
-                // Do something here
-            }
-        }
-    });
-
-    map_main.on('click', function (e) {
-        let coords = e.lngLat.wrap();
-        main_mouse_coord = [coords.lng, coords.lat];
-    });
-
-    map_main.on('click', 'trip-points', function (e) {
-
-        var coordinates = e.features[0].geometry.coordinates.slice();
-
-        let target_point = turf.point(main_mouse_coord);
-        let coords = [];
-
-        for (let i = 0; i < coordinates.length; ++i) {
-            coords.push(turf.point(coordinates[i]));
-        }
-
-        let points = turf.featureCollection(coords);
-        let nearest_point = turf.nearestPoint(target_point, points);
-        let trips = filter_point_on_trips(main_predicted_trips, nearest_point);
-
-        // Start trip states
-        // some to layer
-        main_states.global = false;
-        main_states.trip = true;
-        main_trip_study(trips);
-    });
-
-    map_main.on('zoomend', function(e) {
-        if (main_states.global) {
-            if (main_all_trips) {
-                // Filter all trips inside bounding box
-                let trips = filter_bbox_trips(main_all_trips);
-                main_redraw_map(trips);
-            }
-        }
-
-        if (main_states.trip) {
-            if (main_predicted_trips) {
-                //main_trip_study_init(main_predicted_trips[0]);
-            }
-        }
-    });
-
-    map_main.on('draw.create', function (e) {
-
-        let polygon = e.features[0];
-        // Need to remove and set new data
-        let trips = filter_by_polygon(polygon, main_all_trips);
-
-        if (main_regions) {
-            // Remove previous selection area
-            map_draw.delete([main_regions.id])
-            map_remove_layer('inner-trips');
-            main_regions = undefined;
-        }
-
-        // Draw new trips
-        map_draw_inner_trips('inner-trips', trips);
-        // Change outter trajectory
-        map_set_paint_property('outter-trips', 'line-color' ,'#525252');
-        // Assign new polygon area
-        main_regions = polygon;
-
-        main_predicted_trips =  main_preprocess(trips);
-        map_show_filtered_trips(main_predicted_trips);
-        main_update_dataview(main_predicted_trips);
-
-    });
-
-    map_main.on('draw.delete', function () {
-        if (main_regions) {
-            // Remove previous selection area
-            map_draw.delete([main_regions.id])
-            map_remove_layer('inner-trips');
-            main_regions = undefined;
-            // Re preprocessing trip and visualize it
-            let trips = filter_bbox_trips(main_all_trips);
-            main_redraw_map(trips);
-        }
-    });
-
-    // Get all trips from database
-    /*
-    main_get_dataset().then(function (trip_data) {
-        util_preprocess_data(trip_data).then(function (processed_data) {
-
-            // Set global of all trips
+        // Compute prediction vectors
+        util_preprocess_data(main_all_trips).then(function(processed_data) {
             main_all_trips = processed_data;
+            main_processed_trips = main_preprocess(processed_data);
 
-            main_get_streets().then(function(street_data) {
-                main_all_streets = util_compute_street_data(street_data);
-                console.log(main_all_streets);
-                let trips = filter_bbox_trips(processed_data);
-                //map_draw_outter_trips('outter-trips', trips);
-                main_predicted_trips =  main_preprocess(trips);
-                //console.log(main_predicted_trips);
+            // Show how download precomputed geojson
+            //main_processed_zipcodes = filter_bbox_zipcodes(main_all_zipcodes);
+            //main_processed_zipcodes = util_map_trip_in_zipcodes(main_processed_trips, main_processed_zipcodes);
+            //util_downloadObject_asJson(main_processed_zipcodes, 'ny_zipcode_data');
 
-                map_show_filtered_trips(main_predicted_trips);
-                main_update_dataview(main_predicted_trips);
+            main_processed_zipcodes = main_all_zipcodes;
 
-            });
+            // Draw all trips on minimap
+            map_draw_outter_trips('minimap-trips', main_processed_trips);
+
+            view_init_trip_filter_tab();
+
+            // Map layer controls
+            main_init_map_layers('map');
+            main_init_map_draw();
+
+            // Visualization
+            // Get trip inside bounding box
+            //let trips = filter_bbox_trips(main_processed_trips);
+            main_init_visualization(main_processed_trips);
         });
     });
-    // On map drag
-    map_main.on('dragend', function(e) {
-        if (main_states.global) {
-            if (main_all_trips) {
-                // Filter all trips inside bounding box
-                let trips = filter_bbox_trips(main_all_trips);
-                main_redraw_map(trips);
-            }
-        }
-    });
 
-    // On map zoom
+    // Map zoom behavior
 
     map_main.on('zoomend', function(e) {
+        /*
         if (main_states.global) {
-            if (main_all_trips) {
-                // Filter all trips inside bounding box
-                let trips = filter_bbox_trips(main_all_trips);
-                main_redraw_map(trips);
+            // Visualization
+            if (main_region) {
+                let trips = filter_by_polygon(main_region, main_processed_trips);
+                main_init_visualization(trips);
+            } else {
+                let trips = filter_bbox_trips(main_processed_trips);
+                main_init_visualization(trips);
             }
-        }
-
-        if (main_states.trip) {
-            if (main_predicted_trips) {
-                //main_trip_study_init(main_predicted_trips[0]);
-            }
-        }
+        }*/
     });
 
-    map_main.on('draw.create', function (e) {
-
-        let polygon = e.features[0];
-        // Need to remove and set new data
-        let trips = filter_by_polygon(polygon, main_all_trips);
-
-        if (main_regions) {
-            // Remove previous selection area
-            map_draw.delete([main_regions.id])
-            map_remove_layer('inner-trips');
-            main_regions = undefined;
-        }
-
-        // Draw new trips
-        map_draw_inner_trips('inner-trips', trips);
-        // Change outter trajectory
-        map_set_paint_property('outter-trips', 'line-color' ,'#525252');
-        // Assign new polygon area
-        main_regions = polygon;
-
-        main_predicted_trips =  main_preprocess(trips);
-        map_show_filtered_trips(main_predicted_trips);
-        main_update_dataview(main_predicted_trips);
-
-    });
-
-    map_main.on('draw.delete', function () {
-        if (main_regions) {
-            // Remove previous selection area
-            map_draw.delete([main_regions.id])
-            map_remove_layer('inner-trips');
-            main_regions = undefined;
-            // Re preprocessing trip and visualize it
-            let trips = filter_bbox_trips(main_all_trips);
-            main_redraw_map(trips);
-        }
+    // Map drag behavior
+    map_main.on('dragend', function(e) {
+        /*
+        if (main_states.global) {
+            if (main_region) {
+                let trips = filter_by_polygon(main_region, main_processed_trips);
+                main_init_visualization(trips);
+            } else {
+                let trips = filter_bbox_trips(main_processed_trips);
+                main_init_visualization(trips);
+            }
+        }*/
     });
 
     map_main.on('click', function (e) {
@@ -360,42 +156,72 @@ export function main_init() {
 
     map_main.on('click', 'trip-points', function (e) {
 
-        var coordinates = e.features[0].geometry.coordinates.slice();
-
         let target_point = turf.point(main_mouse_coord);
         let coords = [];
 
-        for (let i = 0; i < coordinates.length; ++i) {
-            coords.push(turf.point(coordinates[i]));
+        let features = e.features;
+
+        for (let i = 0; i < features.length; ++i) {
+            let coord_str = features[i].properties.loc.split(',');
+            coords.push(turf.point([parseFloat(coord_str[0].slice(1)) ,parseFloat(coord_str[1].slice(0, -1))]));
         }
 
         let points = turf.featureCollection(coords);
         let nearest_point = turf.nearestPoint(target_point, points);
-        let trips = filter_point_on_trips(main_predicted_trips, nearest_point);
+        let trips = filter_point_on_trips(main_processed_trips, nearest_point);
 
         // Start trip states
         // some to layer
         main_states.global = false;
         main_states.trip = true;
         main_trip_study(trips);
-    });*/
+    });
+
+    map_main.on('draw.create', function (e) {
+
+        let polygon = e.features[0];
+        // Need to remove and set new data
+        let trips = filter_by_polygon(polygon, main_processed_trips);
+
+        if (main_region) {
+            // Remove previous selection area
+            map_draw.delete([main_region.id])
+            map_remove_layer('inner-trips');
+            main_region = undefined;
+        }
+
+        // Assign new polygon area
+        main_region = polygon;
+        main_init_visualization(trips);
+
+    });
+
+    map_main.on('draw.delete', function () {
+        if (main_region) {
+            // Remove previous selection area
+            map_draw.delete([main_region.id])
+            map_remove_layer('inner-trips');
+            main_region = undefined;
+        }
+
+        //let trips = filter_bbox_trips(main_processed_trips);
+        main_init_visualization(main_processed_trips);
+    });
 }
 
 // 1. Get all datasets from mongodb
 function main_get_all_datasets()
 {
     return new Promise(function(resolve, reject) {
+
+        // Get all datasets
         query_all('train').then(function(trip_data) {
             main_all_trips = trip_data;
-            //console.log('Done query trip data');
-            query_all_streets().then(function(street_data) {
-                main_all_streets = street_data;
-                //console.log('Done query street data');
-                query_all_roadnetworks().then(function(roadnetwork_data) {
-                    main_all_roadnetworks = roadnetwork_data;
-                    //console.log('Done query roadnetwork data');
-                    resolve();
-                });
+
+            // Get ny zipcode regions
+            d3.json('ny_zipcode_data.json').then(function(zipcode_data) {
+                main_all_zipcodes = zipcode_data;
+                resolve();
             });
         });
     });
@@ -404,83 +230,44 @@ function main_get_all_datasets()
 // 2. preprocess datasets
 function main_preprocess(trips)
 {
-    let preprocessed_trips = filter_predicted_trips(trips);
-    util_compute_cases(preprocessed_trips);
-    util_compute_entropy(preprocessed_trips);
-    return preprocessed_trips;
+    //let preprocessed_trips = filter_predicted_trips(trips);
+    util_compute_cases(trips);
+    util_compute_entropy(trips);
+    return trips;
 }
 
-
-export function main_redraw_map(trips) {
-
-    //map_draw_outter_trips('outter-trips', trips);
-    //map_draw_background(trips, main_all_streets);
-
-    // Draw all trips
-    if (main_regions) {
-        let filtered_trips = filter_by_polygon(main_regions, trips);
-        // Draw new trips
-        map_draw_inner_trips('inner-trips', filtered_trips);
-        // Change outter trajectory
-        //map_set_paint_property('outter-trips', 'line-color' ,'#525252');
-
-        // Draw filtered trips
-        main_predicted_trips =  main_preprocess(filtered_trips);
-        if (vis_selected_nodes.length > 0) {
-            main_predicted_trips = filter_by_nodes(main_predicted_trips, vis_selected_nodes);
-        }
-        map_show_filtered_trips(main_predicted_trips);
-
-    } else {
-        main_predicted_trips =  main_preprocess(trips);
-        main_update_dataview(main_predicted_trips);
-        // Draw filtered trips
-        if (vis_selected_nodes.length > 0) {
-            main_predicted_trips = filter_by_nodes(main_predicted_trips, vis_selected_nodes);
-        }
-        map_show_filtered_trips(main_predicted_trips);
-    }
-
-    main_set_maplayer_index();
+// 3.
+function main_init_map_layers(map_container_id)
+{
+    view_zipcode_legend(map_container_id, main_processed_zipcodes);
+    view_trip_critical_location_legend(map_container_id);
+    //view_trip_critcal_location_legend(map_container_id);
     return;
 }
 
-// Move z-position of map layers
-export function main_set_maplayer_index() {
-    /*
-    map_main.moveLayer('trip-points-border', 'trip-points');
-    map_main.moveLayer('trip-filtered-trajectory', 'trip-points-border');
-
-    if (main_regions) {
-        map_main.moveLayer('inner-trips', 'trip-filtered-trajectory');
-        //map_main.moveLayer('outter-trips', 'inner-trips');
-        map_main.moveLayer('roads-highlight', 'inner-trips');
-    } else {
-        //map_main.moveLayer('outter-trips', 'trip-filtered-trajectory');
-        map_main.moveLayer('roads-highlight', 'inner-trips');
-    }*/
-
-    return;
+// 4.
+function main_init_map_draw()
+{
+    // Draw background
+    //console.log(main_processed_zipcodes);
+    map_visualize_background(map_legend_filter, main_processed_zipcodes);
 }
 
-// Update dataview
-function main_update_dataview(trips) {
-
-    if (map_minimap) {
-        $('#mapboxgl-minimap').css({ opacity: 0 });
-        $('#mapboxgl-minimap').off('click');
-    }
-
-    //console.log(trips);
-
-    map_remove_layer('trip-point');
-    map_remove_layer('trip-points');
-
+// 5.
+export function main_init_visualization(trips)
+{
+    // Draw global view
     vis_global_view(trips, 'globalview-body');
-    vis_parallelsets(trips, 'dataview-parallelsets');
-    //vis_area_study(trips,'tripview-body');
+    // Draw trip filter
+    //vis_trip_filter(trips, 'dataview-parallelsets');
+    // Draw parallelsets
+    //vis_parallelsets(trips, 'dataview-summary-body');
+    vis_draw_trip_filter(trips);
+    vis_draw_histogram(trips);
+    // Draw trips
+    map_show_filtered_trips(trips);
+    // Draw trips cases
     vis_model_cases(trips, 'model-cases-body');
-    //vis_representative_images(trips, undefined, 'streetview-body');
 
     return;
 }
@@ -488,27 +275,46 @@ function main_update_dataview(trips) {
 // Create trip study view
 export function main_trip_study(trips)
 {
+    $('#trip-critical-legend').hide();
+    $('#zipcode-legend').hide();
+    $('#header-title').html('AutoDrive VIZ - Drill Down Study');
     // Show minimap
     if (map_minimap) {
         $('#mapboxgl-minimap').css({ opacity: 1 });
     }
 
-    //map_remove_layer('trip-points');
-    //map_remove_layer('trip-points-border');
-    //map_remove_layer('trip-filtered-trajectory');
-    //map_remove_layer('inner-trips');
-    //map_remove_layer('outter-trips');
+    d3.select('#right').style('width', '0px');
+    d3.select('#middle').style('width', 'calc(100% - 400px)');
 
-    // let create polygon
-    //let circle_polygon = map_create_circle_radius(trips[0]);
+    if (map_main.getLayer('roads-highlight')) {
+        map_main.setPaintProperty('roads-highlight', 'fill-opacity', 0);
+    }
+
+    if (map_main.getLayer('trip-filtered-trajectory')) {
+        map_main.setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0);
+    }
+
+    if (map_main.getLayer('trip-points')) {
+        map_main.setPaintProperty('trip-points', 'circle-opacity', 0);
+    }
+
 
     main_trip_study_init(trips[0]);
-
+    map_main.resize();
+    // Hide legends
 
     // Set on click listener
     $('#mapboxgl-minimap').off().on('click', function () {
+        // Change header
+        $('#header-title').html('AutoDrive VIZ');
+        d3.select('#right').style('width', '300px');
+        d3.select('#middle').style('width', 'calc(100% - 700px)');
+        $('#mapboxgl-minimap').css({ opacity: 0 });
+        $('#trip-critical-legend').show();
+        $('#zipcode-legend').show();
+
         // Go back to main-strip view
-        if (main_all_trips) {
+        if (main_processed_trips) {
             // Filter all trips inside bounding box
             main_states.global = true;
             main_states.trip = false;
@@ -526,8 +332,20 @@ export function main_trip_study(trips)
             d3.select('#tripview').style('max-height', 0 + 'px');
             vis_marker.remove();
 
-            let trips = filter_bbox_trips(main_all_trips);
-            main_redraw_map(trips);
+            //let trips = filter_bbox_trips(main_processed_trips);
+            main_init_visualization(main_processed_trips);
+            if (map_main.getLayer('roads-highlight')) {
+                map_main.setPaintProperty('roads-highlight', 'fill-opacity', 0.5);
+            }
+
+            if (map_main.getLayer('trip-filtered-trajectory')) {
+                map_main.setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0.7);
+            }
+
+            if (map_main.getLayer('trip-points')) {
+                map_main.setPaintProperty('trip-points', 'circle-opacity', 0.5);
+            }
+            map_main.resize();
         }
     });
 }
@@ -535,16 +353,38 @@ export function main_trip_study(trips)
 export function main_trip_study_init(selected_trip) {
     //let filtered_trips = filter_trip_in_radius(main_predicted_trips, circle_polygon);
     // Need to draw trip for more selected points
-    let filtered_trips = filter_bbox_trips(main_predicted_trips);
-    vis_model_cases(filtered_trips, 'model-cases-body');
+
+    let filtered_trips = filter_bbox_trips(main_processed_trips);
+    //vis_model_cases(filtered_trips, 'model-cases-body');
 
     // Remove that selected_trip
     let pos = filtered_trips.map(function (x) {
         return x.trip_id;
     }).indexOf(selected_trip.trip_id);
+
     filtered_trips.splice(pos, 1);
     filtered_trips.unshift(selected_trip);
 
     vis_trip_list(filtered_trips);
     return;
 }
+
+/*
+// Move z-position of map layers
+export function main_set_maplayer_index() {
+
+    map_main.moveLayer('trip-points-border', 'trip-points');
+    map_main.moveLayer('trip-filtered-trajectory', 'trip-points-border');
+
+    if (main_regions) {
+        map_main.moveLayer('inner-trips', 'trip-filtered-trajectory');
+        //map_main.moveLayer('outter-trips', 'inner-trips');
+        map_main.moveLayer('roads-highlight', 'inner-trips');
+    } else {
+        //map_main.moveLayer('outter-trips', 'trip-filtered-trajectory');
+        map_main.moveLayer('roads-highlight', 'inner-trips');
+    }
+
+    return;
+}
+*/

@@ -2,7 +2,7 @@ from os import listdir
 import json
 from pymongo import MongoClient
 
-prediction_output = '../data/actual/' # edit
+prediction_output = '../data/actual_noslight/' # edit
 
 def connect_db(mode, db_name):
     client = MongoClient('localhost', 27017)
@@ -28,7 +28,7 @@ if __name__ == '__main__':
                         'trip_id': trip_id
                     },{
                         '$set':{
-                            'actual.slight': output_data['actual_v'] # edit
+                            'actual.no_slight': output_data['actual_v'] # edit
                         }
                     }, upsert=True, multi=False)
                     print('Update response: ', res)

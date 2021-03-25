@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AutoViz</title>
+<title>Autonomous Driving Visualization</title>
 </head>
 <body>
 <div id="loading">
@@ -10,17 +10,33 @@
 </div>
 <div id="main">
     <div id="header">
-        <div id="header-title">AUTOVIZ</div>
+        <div id="header-title">AutoDrive VIZ</div>
     </div>
     <div id="left">
         <div id="globalview">
-            <div id="globalview-title">MODEL PERFORMANCES</div>
+            <div id="globalview-title">MODEL PERFORMANCE CHART</div>
             <div id="globalview-body">
             </div>
         </div>
-        <div id="dataview">
-            <div id="dataview-title">DATA FILTER</div>
+
+        <div id="trip-filter">
+            <div id="trip-filter-tab">
+                <div id="trip-filter-tab-condition">SPATIAL CONDITIONS FILTER</div>
+                <div id="trip-filter-tab-performance">MODEL METRICS FILTER</div>
+            </div>
+            <div id="trip-filter-body">
+                <div id="trip-filter-body-condition">Condition</div>
+                <div id="trip-filter-body-performance">Performance</div>
+            </div>
+
+            <!--
+            <div id="dataview-title">SPATIAL CONDITION FILTER</div>
             <div id="dataview-parallelsets"></div>
+            <div id="dataview-summary">
+                <div id="dataview-summary-title">TRIP DISTRIBUTION VIEW</div>
+                <div id="dataview-summary-body"></div>
+            </div>
+            -->
             <!--<div id="dataview-table"></div>-->
         </div>
         <!--
@@ -42,7 +58,7 @@
         <div id="map"></div>
 
         <div id="tripview">
-            <div id="tripview-title">TRIP STUDY
+            <div id="tripview-title">TRIP TIMELINES OF MODEL PREDICTION
                 <div id="tripview-dropdown-container">
                     <div id="tripview-legends">
                         test
@@ -78,11 +94,12 @@
     </div>
     <div id="right">
         <div id="model-cases">
-            <div id="model-cases-header">PREDICTIONS OF MODEL</div>
+            <div id="model-cases-header-1">CRITICAL LOCATION PANEL</div>
+            <div id="model-cases-header-2">MODEL PREDICTION VIEW</div>
             <div id="model-cases-body"></div>
         </div>
         <div id="streetview">
-            <div id="streetview-header">REPRESENTATIVE STREETVIEWS</div>
+            <div id="streetview-header">STREET VIEW THUMBNAILS</div>
             <div id="streetview-body"></div>
         </div>
     </div>

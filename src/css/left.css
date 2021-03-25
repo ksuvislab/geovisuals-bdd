@@ -8,46 +8,44 @@
 
 #globalview {
     width: 100%;
-    height: 55%;
+    height: 430px;
     box-sizing: border-box;
     color: var(--main-text);
-    /*
-    border: 5px solid #C9D2D3;
-    border-top: 2.5px solid #C9D2D3;
-    border-bottom: 2.5px soli #C9D2D3;*/
 }
 
 #globalview-title {
     width: 100%;
     height: 20px;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
+    border: 1px solid #C9D2D3;
+    border-bottom: 0px solid #C9D2D3;
 }
 
 #globalview-body {
     width: 100%;
     height: calc(100% - 20px);
     box-sizing: border-box;
+    border: 1px solid #C9D2D3;
 }
 
 #dataview {
     width: 100%;
-    height: 45%;
+    height: calc(100% - 430px);
     box-sizing: border-box;
     color: var(--main-txt);
-    /*
-    border: 5px solid #C9D2D3;
-    border-top: 2.5px solid #C9D2D3;
-    border-bottom: 2.5px solid #C9D2D3;*/
 }
 
 #dataview-title {
     width: 100%;
-    height: 20px;
+    height: 40px;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
+    border: 1px solid #C9D2D3;
+    border-top: 0px solid #C9D2D3;
+    border-bottom: 0px solid #C9D2D3;
 }
 
 
@@ -64,9 +62,89 @@ td, th {
     text-align: center;
 }
 
+#dataview-summary {
+    width: 100%;
+    height: 230px;
+    box-sizing: border-box;
+    font-size: 14px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#dataview-summary-title {
+    width: 100%;
+    height: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #C9D2D3;
+    border-bottom: 0px solid #C9D2D3;
+}
+
+#dataview-summary-body {
+    width: 100%;
+    height: calc(100% - 20px);
+    box-sizing: border-box;
+    border: 1px solid #C9D2D3;
+}
+
 #dataview-parallelsets {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 270px);
     position: relative;
+    box-sizing: border-box;
+    border: 1px solid #C9D2D3;
+    border-bottom: 0px solid #C9D2D3;
+}
+
+#trip-filter {
+    width: 100%;
+    height: calc(100% - 430px);
+    box-sizing: border-box;
+    color: var(--main-txt);
+}
+
+#trip-filter-tab {
+    width: 100%;
+    height: 20px;
+    box-sizing: border-box;
+    line-height: 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #C9D2D3;
+}
+
+#trip-filter-tab-condition {
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-color: #C9D2D3;
+    text-align: center;
+    cursor: pointer;
+}
+
+#trip-filter-tab-performance {
+    width: 50%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+#trip-filter-body {
+    width: 100%;
+    height: calc(100% - 20px);
+    box-sizing: border-box;
+}
+
+#trip-filter-body-condition {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#trip-filter-body-performance {
+    width: 100%;
+    height: 100%;
+    display: none;
     box-sizing: border-box;
 }

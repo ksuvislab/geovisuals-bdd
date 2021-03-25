@@ -22,24 +22,24 @@ if __name__ == '__main__':
         with open(output_file) as json_file:
             try:
                 output_data = json.load(json_file)
+                tcnn1 = output_data['tcnn1'] if 'tcnn1' in output_data else []
+                cnn_lstm = output_data['cnn_lstm'] if 'cnn_lstm' in output_data else []
+                fcn_lstm = output_data['fcn_lstm'] if 'fcn_lstm' in output_data else []
 
                 try:
                     res = collection.update({
                         'trip_id': trip_id
                     },{
                         '$set':{
-                            'predict.tcnn1': output_data['tcnn1']
-                        },
-                        '$set': {
-                            'predict.cnn_lstm': output_data['cnn_lstm']
-                        },
-                        '$set': {
-                            'predict.fcn_lstm': output_data['fcn_lstm']
+                            'predict.tcnn1': tcnn1,
+                            'predict.cnn_lstm': cnn_lstm,
+                            'predict.fcn_lstm': fcn_lstm
                         }
                     }, upsert=True, multi=False)
                     print('Update response: ', res)
+                    print(trip_id)
                 except Exception as e:
-                    print(e)
+                    print('error: ' + str(e))
 
             except Exception as e:
-                print(e)
+                print('error: ' + str(e))

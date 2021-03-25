@@ -4,7 +4,7 @@ let defaultOptions = {
 	height: "150px",
 	style: "mapbox://styles/mapbox/light-v10",
 	center: [0, 0],
-	zoom: 6,
+	zoom: 10,
 
 	// should be a function; will be bound to Minimap
 	zoomAdjust: null,
@@ -23,7 +23,7 @@ let defaultOptions = {
 	lineOpacity: 1,
 
 	fillColor: "#9d9d9d",
-	fillOpacity: 0.25,
+	fillOpacity: 0,
 
 	dragPan: false,
 	scrollZoom: false,
@@ -192,7 +192,7 @@ class Minimap {
 				this._previousPoint[1] - this._currentPoint[1]
 			];
 
-			var newBounds = this._moveTrackingRect(offset);
+			//var newBounds = this._moveTrackingRect(offset);
 
 			this._parentMap.fitBounds(newBounds, {
 				duration: 80,
@@ -218,8 +218,8 @@ class Minimap {
 		bounds._sw.lat -= offset[1];
 		bounds._sw.lng -= offset[0];
 
-		this._convertBoundsToPoints(bounds);
-		source.setData(data);
+		//this._convertBoundsToPoints(bounds);
+		//source.setData(data);
 
 		return bounds;
 	}
@@ -254,13 +254,14 @@ class Minimap {
 
 	_update()
 	{
+
 		if( this._isDragging  ) {
 			return;
 		}
-
+		/*
 		var parentBounds = this._parentMap.getBounds();
 
-		this._setTrackingRectBounds(parentBounds);
+		this._setTrackingRectBounds(parentBounds);*/
 
 		if( typeof this.options.zoomAdjust === "function" ) {
 			this.options.zoomAdjust();
@@ -276,19 +277,20 @@ class Minimap {
 		var levels = this.options.zoomLevels;
 		var found = false;
 
+
 		levels.forEach(function(zoom)
 		{
 			if( ! found && parentZoom >= zoom[0] )
 			{
 				if( miniZoom >= zoom[1] ) {
-					miniMap.setZoom(zoom[2]);
+					miniMap.setZoom(10);
 				}
 
 				miniMap.setCenter(parentMap.getCenter());
 				found = true;
 			}
 		});
-
+		/*
 		if( ! found && miniZoom !== this.options.zoom )
 		{
 			if( typeof this.options.bounds === "object" ) {
@@ -296,7 +298,7 @@ class Minimap {
 			}
 
 			miniMap.setZoom(this.options.zoom)
-		}
+		}*/
 	}
 
 	_createContainer ( parentMap )
@@ -306,7 +308,7 @@ class Minimap {
 		container.id = 'mapboxgl-minimap';
 		container.className = "mapboxgl-ctrl-minimap mapboxgl-ctrl";
 
-		container.setAttribute('style', 'width: ' + opts.width + '; height: ' + opts.height + ';');
+		container.setAttribute('style', 'width: ' + opts.width + '; height: ' + opts.height + ';' + 'position: relative; opacity: 0;');
 		container.addEventListener("contextmenu", this._preventDefault);
 
 		parentMap.getContainer().appendChild(container);
@@ -315,9 +317,15 @@ class Minimap {
 			container.id = opts.id;
 		}
 
-		container.style.border = "5px solid #C9D2D3";
+		container.style.border = "2px solid #737373";
 		container.style.borderRadius = "5px";
+		// Add opacity here
 
+		var rectangle_container = document.createElement("div");
+		rectangle_container.setAttribute('style', 'position: absolute; top: 60px; left: 70px; width: 50px; height: 30px; border: 1px solid #d6604d; z-index: 9999');
+
+
+		container.appendChild(rectangle_container);
 		return container;
 	}
 

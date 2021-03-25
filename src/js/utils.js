@@ -1,4 +1,4 @@
-import { map_access_token } from "./map";
+import { map_access_token, map_get_bbox_polygon } from "./map";
 import { view_close_loading, view_show_loading } from "./view";
 
 // Set axios interceptor when query from MongoDB
@@ -31,12 +31,20 @@ export function util_random_number_interval(min, max) { // min and max included
 export function util_preprocess_data (data) {
     let result = [];
     return new Promise(function (resolve, reject) {
+
+        /*
+        let temp_arr = [];
+        for (let j = 0; j < 108; ++j) {
+            temp_arr.push([0,0,0,0,0,0]);
+        }*/
+
         for (let i = 0; i < data.length; ++i) {
+
             let trip = data[i];
-            // Check exist location
-            if (trip.locations) {
+            if (trip.predict['tcnn1'].length > 0 && trip.predict['cnn_lstm'].length > 0 && trip.predict['fcn_lstm'].length > 0 && trip.actual.no_slight.length > 0 && trip.locations) {
                 result.push(trip);
             }
+
         }
         resolve(result);
     });
@@ -63,24 +71,24 @@ export function util_compute_cases(data)
         for (let j = 0; j < trip.actual.no_slight.length; ++j) {
             let actual = trip.actual.no_slight[j]; // A
             let tcnn1 = trip.predict.tcnn1[j].indexOf(d3.max(trip.predict.tcnn1[j])); // B
-            let fcn_lstm = trip.predict.fcn_lstm[j].indexOf(d3.max(trip.predict.fcn_lstm[j]));// C
-            let cnn_lstm = trip.predict.cnn_lstm[j].indexOf(d3.max(trip.predict.cnn_lstm[j])); // D
+            let cnn_lstm = trip.predict.cnn_lstm[j].indexOf(d3.max(trip.predict.cnn_lstm[j])); // C
+            let fcn_lstm = trip.predict.fcn_lstm[j].indexOf(d3.max(trip.predict.fcn_lstm[j])); // D
 
             //console.log(actual + " " + tcnn1 + " " + fcn_lstm + " " + cnn_lstm);
             if (actual !== tcnn1 && actual !== fcn_lstm && actual !== cnn_lstm) {
                 trip.cases['1000'].push(j);
             }  else if (actual !== tcnn1 && actual !== fcn_lstm && actual === cnn_lstm) {
-                trip.cases['1001'].push(j);
-            } else if (actual !== tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
                 trip.cases['1010'].push(j);
+            } else if (actual !== tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
+                trip.cases['1001'].push(j);
             } else if (actual !== tcnn1 && actual === fcn_lstm && actual === cnn_lstm) {
                 trip.cases['1011'].push(j);
             } else if (actual === tcnn1 && actual !== fcn_lstm && actual !== cnn_lstm) {
                 trip.cases['1100'].push(j);
             } else if (actual === tcnn1 && actual !== fcn_lstm && actual === cnn_lstm) {
-                trip.cases['1101'].push(j);
-            } else if (actual === tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
                 trip.cases['1110'].push(j);
+            } else if (actual === tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
+                trip.cases['1101'].push(j);
             } else if (actual === tcnn1 && actual === fcn_lstm && actual === cnn_lstm) {
                 trip.cases['1111'].push(j);
             }
@@ -93,7 +101,7 @@ export function util_compute_entropy (data) {
     for (let i = 0; i < data.length; ++i) {
         let trip = data[i];
 
-        let true_labels = trip.actual.slight;
+        let true_labels = trip.actual.no_slight;
         let tcnn1_probs = trip.predict.tcnn1;
         let cnn_lstm_probs = trip.predict.cnn_lstm;
         let fcn_lstm_probs = trip.predict.fcn_lstm;
@@ -365,40 +373,132 @@ export function util_merge_street_roadnetwork(roadnetwork_data, street_data)
             });
 
             roadnetwork_data[pos]['multiLineString'] = turf.multiLineString(multi_line_string);*/
-
-            selected_streets.push(roadnetwork_data[pos]);
+            if (street_data[i]['trip_ids'].length > 0) {
+                selected_streets.push(roadnetwork_data[pos]);
+            }
         }
     }
 
     return selected_streets;
 }
 
-/*
-export function util_map_matching(trip)
+export function util_compute_roadnetwork(trips, roadnetworks)
 {
-    var profile = "driving";
-    var coords = trip.locations.coordinates;
-    var newCoords = coords.join(';')
-    var radius = [];
-    coords.forEach(element => {
-      radius.push(25);
-    });
-    getMatch(newCoords, radius, profile);
 
-    function getMatch(coordinates, radius, profile) {
+    let selected_roads = [];
 
-        var radiuses = radius.join(';')
-        // Create the query
-        var query = 'https://api.mapbox.com/matching/v5/mapbox/' + profile + '/' + coordinates + '?geometries=geojson&radiuses=' + radiuses + '&steps=true&access_token=' + map_access_token;
+    for (let i = 0; i < trips.length; ++i) {
+        let trip = trips[i];
+        let trip_id = trip.trip_id;
+        for (let j = 0; j < roadnetworks.length; ++j) {
+            let roadnetwork = roadnetworks[j];
+            if (roadnetwork['trip_ids'].indexOf(trip_id) >= 0) {
 
-        $.ajax({
-            method: 'GET',
-            url: query
-        }).done(function(data) {
-            console.log(data);
-            // Get the coordinates from the response
-            //var coords = data.matchings[0].geometry;
-            //console.log(coords);
-        });
+                let pos = selected_roads.map(function(x) {
+                    return x.name;
+                }).indexOf(roadnetwork.name);
+
+                // Add selected roads
+                if (pos !== -1) {
+                    selected_roads[pos].trip_ids.push(trip_id);
+                    selected_roads[pos].trips.push(trip);
+                } else {
+                    selected_roads.push({
+                        name: roadnetwork.name,
+                        features: roadnetwork.features,
+                        trip_ids: [trip_id],
+                        trips: [trip]
+                    });
+                }
+            }
+        }
     }
-}*/
+
+    for (let i = 0; i < selected_roads.length; ++i) {
+        let road = selected_roads[i];
+        road['performance'] = util_compute_performance(road['trips']);
+        road['count'] = road['trip_ids'].length;
+
+        // Compute multi linestring
+        let multi_line_string = [];
+        road['features'].forEach(function(feature) {
+            multi_line_string.push(feature.geometry.coordinates);
+        });
+
+        road['multiLineString'] = turf.multiLineString(multi_line_string);
+    }
+
+    return selected_roads;
+}
+
+export function util_map_trip_in_zipcodes(trips, zipcodes) {
+
+    let processed_zipcodes = [];
+
+    for (let i = 0, len = zipcodes.features.length; i < len; i++) {
+
+        let feature = zipcodes.features[i];
+        feature.properties['trips'] = [];
+
+        for (let j = 0, j_len = trips.length; j < j_len; j++) {
+
+            let location = trips[j].locations;
+            if (turf.booleanContains(feature, location)) {
+                feature.properties['trips'].push(trips[j]);
+            }
+        }
+    }
+
+    for (let i = 0, len = zipcodes.features.length; i < len; i++) {
+
+        let feature = zipcodes.features[i];
+
+        if (feature.properties['trips'].length > 0) {
+            feature.properties['performance'] = util_compute_performance(feature.properties['trips']);
+            feature.properties['trip_count'] = feature.properties['trips'].length;
+            delete feature.properties['trips'];
+            processed_zipcodes.push(feature);
+        }
+    }
+
+    return processed_zipcodes;
+}
+
+// Create downloadable text file with tripids
+export function util_download_txt_file(trips, file_name)
+{
+    let json_file = "";
+    for (let i = 0; i < trips.length; ++i) {
+        let trip = trips[i];
+        json_file += trip.trip_id + " ";
+    }
+
+    // Start file download.
+    download(file_name + ".txt", json_file);
+
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
+
+    return;
+}
+
+// For downloading geojson files
+export function util_downloadObject_asJson(exportObj, exportName){
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+}

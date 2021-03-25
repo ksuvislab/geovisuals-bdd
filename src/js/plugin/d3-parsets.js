@@ -399,7 +399,10 @@
                 .attr("x2", function(d) { return d.dx; });
             // Parn edit this
             category.merge(categoryEnter).select("text")
-                .text(function(d) { return d.name + ': ' + d.count; })//truncateText(function(d) { return d.name; }, function(d) { return d.dx; }));
+                //.text(truncateText(function(d) { return d.name; }, function(d) { return d.dx; }));
+                .text(function(d) { return d.name + ': ' + d.count; })
+
+            //truncateText(function(d) { return d.name; }, function(d) { return d.dx; });
           }
         });
       }

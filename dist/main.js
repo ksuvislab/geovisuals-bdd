@@ -8330,7 +8330,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "#left {\n    width: 400px;\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n}\n\n#globalview {\n    width: 100%;\n    height: 55%;\n    box-sizing: border-box;\n    color: var(--main-text);\n    /*\n    border: 5px solid #C9D2D3;\n    border-top: 2.5px solid #C9D2D3;\n    border-bottom: 2.5px soli #C9D2D3;*/\n}\n\n#globalview-title {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#globalview-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n}\n\n#dataview {\n    width: 100%;\n    height: 45%;\n    box-sizing: border-box;\n    color: var(--main-txt);\n    /*\n    border: 5px solid #C9D2D3;\n    border-top: 2.5px solid #C9D2D3;\n    border-bottom: 2.5px solid #C9D2D3;*/\n}\n\n#dataview-title {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n\n#dataview-table {\n    width: 100%;\n    height: 200px;\n    box-sizing: border-box;\n    /*border: 1px solid #C9D2D3;*/\n}\n\ntd, th {\n    /*border: 1px solid #C9D2D3;*/\n    border: none;\n    text-align: center;\n}\n\n#dataview-parallelsets {\n    width: 100%;\n    height: 100%;\n    position: relative;\n    box-sizing: border-box;\n}", ""]);
+exports.push([module.i, "#left {\n    width: 400px;\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n}\n\n#globalview {\n    width: 100%;\n    height: 430px;\n    box-sizing: border-box;\n    color: var(--main-text);\n}\n\n#globalview-title {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 14px;\n    text-align: center;\n    border: 1px solid #C9D2D3;\n    border-bottom: 0px solid #C9D2D3;\n}\n\n#globalview-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n    border: 1px solid #C9D2D3;\n}\n\n#dataview {\n    width: 100%;\n    height: calc(100% - 430px);\n    box-sizing: border-box;\n    color: var(--main-txt);\n}\n\n#dataview-title {\n    width: 100%;\n    height: 40px;\n    box-sizing: border-box;\n    font-size: 14px;\n    text-align: center;\n    border: 1px solid #C9D2D3;\n    border-top: 0px solid #C9D2D3;\n    border-bottom: 0px solid #C9D2D3;\n}\n\n\n#dataview-table {\n    width: 100%;\n    height: 200px;\n    box-sizing: border-box;\n    /*border: 1px solid #C9D2D3;*/\n}\n\ntd, th {\n    /*border: 1px solid #C9D2D3;*/\n    border: none;\n    text-align: center;\n}\n\n#dataview-summary {\n    width: 100%;\n    height: 230px;\n    box-sizing: border-box;\n    font-size: 14px;\n    overflow-x: hidden;\n    overflow-y: hidden;\n}\n\n#dataview-summary-title {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 14px;\n    text-align: center;\n    border: 1px solid #C9D2D3;\n    border-bottom: 0px solid #C9D2D3;\n}\n\n#dataview-summary-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n    border: 1px solid #C9D2D3;\n}\n\n#dataview-parallelsets {\n    width: 100%;\n    height: calc(100% - 270px);\n    position: relative;\n    box-sizing: border-box;\n    border: 1px solid #C9D2D3;\n    border-bottom: 0px solid #C9D2D3;\n}\n\n#trip-filter {\n    width: 100%;\n    height: calc(100% - 430px);\n    box-sizing: border-box;\n    color: var(--main-txt);\n}\n\n#trip-filter-tab {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    line-height: 20px;\n    font-size: 14px;\n    border-bottom: 1px solid #C9D2D3;\n}\n\n#trip-filter-tab-condition {\n    width: 50%;\n    height: 100%;\n    float: left;\n    background-color: #C9D2D3;\n    text-align: center;\n    cursor: pointer;\n}\n\n#trip-filter-tab-performance {\n    width: 50%;\n    height: 100%;\n    float: left;\n    text-align: center;\n    cursor: pointer;\n}\n\n#trip-filter-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n}\n\n#trip-filter-body-condition {\n    width: 100%;\n    height: 100%;\n    box-sizing: border-box;\n}\n\n#trip-filter-body-performance {\n    width: 100%;\n    height: 100%;\n    display: none;\n    box-sizing: border-box;\n}", ""]);
 
 // exports
 
@@ -8349,7 +8349,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Barlow|Oxygen|Bellota&display=swap);", ""]);
 
 // module
-exports.push([module.i, "/* Base 16 Ocean Color Palette\n#eff1f5,#c0c5ce,#2A303C,#222831,#1B1F27,#b48ead,#8fa1b3,#96b5b4\n#a3be8c,#ebcb8b,#bf616a\n*/\n\n:root {\n    --header-bg: #C9D2D3;\n    --header-txt: #1B1F27;\n    --title-txt: #1B1F27;\n    --header-filter-txt: #96b5b4;\n\n    --main-bg: #C9D2D3;\n    --sub-bg: #f0f0f0;\n    --main-txt: #1B1F27;\n}\n\n*:focus { outline: none; }\n\nhtml, body {\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    font-family: 'Barlow', sans-serif;\n    overflow: hidden;\n}\n\n#loading {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background: var(--main-bg);\n    top: 0;\n    left: 0;\n    z-index: 9999;\n    display: none;\n    opacity: 0.7;\n}\n\n#loading-icon {\n    margin: auto;\n    pointer-events: none;\n    width: 100px;\n    height: 100px;\n}\n\n#main {\n    width: 100%;\n    height: 100%;\n    box-sizing: border-box;\n    background: var(--main-bg);\n    color:  var(--main-txt);\n}\n\n#header {\n    width: 100%;\n    height: 30px;\n    box-sizing: border-box;\n}\n\n#header-title {\n    width: 150px;\n    height: 100%;\n    box-sizing: border-box;\n    font-size: 24px;\n    color: var(--title-txt);\n    line-height: 30px;\n    font-weight: bold;\n    float: left;\n    padding-left: 5px;\n}", ""]);
+exports.push([module.i, "/* Base 16 Ocean Color Palette\n#eff1f5,#c0c5ce,#2A303C,#222831,#1B1F27,#b48ead,#8fa1b3,#96b5b4\n#a3be8c,#ebcb8b,#bf616a\n*/\n\n:root {\n    --header-bg: #C9D2D3;\n    --header-txt: #1B1F27;\n    --title-txt: #1B1F27;\n    --header-filter-txt: #96b5b4;\n\n    --main-bg: #C9D2D3;\n    --sub-bg: #f0f0f0;\n    --main-txt: #1B1F27;\n}\n\n*:focus { outline: none; }\n\nhtml, body {\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    font-family: 'Barlow', sans-serif;\n    overflow: hidden;\n    -webkit-user-select: none;  /* Chrome all / Safari all */\n    -moz-user-select: none;     /* Firefox all */\n    -ms-user-select: none;      /* IE 10+ */\n    user-select: none;          /* Likely future */\n}\n\n#loading {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background: var(--main-bg);\n    top: 0;\n    left: 0;\n    z-index: 9999;\n    display: none;\n    opacity: 0.7;\n}\n\n#loading-icon {\n    margin: auto;\n    pointer-events: none;\n    width: 100px;\n    height: 100px;\n}\n\n#main {\n    width: 100%;\n    height: 100%;\n    box-sizing: border-box;\n    background: var(--main-bg);\n    color:  var(--main-txt);\n}\n\n#header {\n    width: 100%;\n    height: 30px;\n    box-sizing: border-box;\n}\n\n#header-title {\n    width: 100%;\n    height: 100%;\n    box-sizing: border-box;\n    font-size: 24px;\n    color: var(--title-txt);\n    line-height: 30px;\n    font-weight: bold;\n    float: left;\n    padding-left: 5px;\n}", ""]);
 
 // exports
 
@@ -8368,26 +8368,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "#middle {\n    width: calc(100% - 700px);\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    position: relative;\n}\n\n#tripview {\n    width: 100%;\n    max-height: 0px; /* calc(100% - 600px) */\n    box-sizing: border-box;\n    /*border-top: 2.5px solid #C9D2D3;*/\n    /*border-bottom: 5px solid #C9D2D3;*/\n    transition: max-height 0.15s linear;\n    position: relative;\n    overflow: hidden;\n}\n\n#tripview-title {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    padding-left: 5px;\n    padding-right: 5px;\n}\n\n#tripview-dropdown-container {\n    width: auto;\n    height: 20px;\n    line-height: 20px;\n    font-size: 16px;\n    float: right;\n}\n\n#tripview-dropdown {\n    height: 100%;\n    border: none;\n    border-bottom: 1px solid #000;\n    background-color: #f0f0f0;\n    float: left;\n}\n\n#tripview-legends {\n    width: auto;\n    height: 20px;\n    line-height: 20px;\n    font-size: 16px;\n    float: left;\n}\n\n#tripview-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n    overflow: auto;\n}\n\n#map {\n    width: 100%;\n    height: 100%; /* 600px */\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    border: none;\n    outline: none;\n    cursor: crosshair;\n    position: relative;\n}\n\n.mapboxgl-canvas-container {\n    cursor: crosshair, auto !important\n}\n\n.line-tcnn1 {\n    fill: none;\n    stroke: #e41a1c;\n    stroke-width: 2px;\n    stroke-opacity: 0.8;\n}\n\n.line-cnn_lstm {\n    fill: none;\n    stroke: #377eb8;\n    stroke-width: 2px;\n    stroke-opacity: 0.8;\n}\n\n.line-fcn_lstm {\n    fill: none;\n    stroke: #4daf4a;\n    stroke-width: 2px;\n    stroke-opacity: 0.8;\n}\n\n.line-tcnn1-1 {\n    fill: #e41a1c;\n    fill-opacity: 0.2;\n    stroke: #e41a1c;\n    stroke-width: 0px;\n    stroke-opacity: 0.8;\n}\n\n.line-cnn_lstm-1 {\n    fill: #377eb8;\n    fill-opacity: 0.2;\n    stroke: #377eb8;\n    stroke-width: 0px;\n    stroke-opacity: 0.8;\n}\n\n.line-fcn_lstm-1 {\n    fill: #4daf4a;\n    fill-opacity: 0.2;\n    stroke: #4daf4a;\n    stroke-width: 0px;\n    stroke-opacity: 0.8;\n}\n\n.custom-slider {\n    -webkit-appearance: none;\n    width: 100%;\n    height: 4px;\n    background: #d9d9d9;\n    outline: none;\n    opacity: 1;\n}\n.custom-slider::-webkit-slider-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    width: 15px;\n    height: 15px;\n    border-radius: 50%;\n    background: #252525;\n    cursor: pointer;\n}\n.custom-slider::-moz-range-thumb {\n    width: 15px;\n    height: 15px;\n    border-radius: 50%;\n    background: #252525;\n    cursor: pointer;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./src/css/parsets.css":
-/*!*******************************************************!*\
-  !*** ./node_modules/css-loader!./src/css/parsets.css ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".dimension { cursor: ew-resize; }\n.category { cursor: ns-resize; }\n.dimension tspan.name { font-size: 1em; fill: #333; font-weight: bold; }\n.dimension tspan.sort { fill: #000; cursor: pointer; opacity: 0; }\n.dimension tspan.sort:hover { fill: #333; }\n.dimension:hover tspan.name { fill: #000; }\n.dimension:hover tspan.sort { opacity: 1; }\n.dimension line { stroke: #000; }\n.dimension rect { stroke: none; fill-opacity: 0; }\n.dimension > rect, .category-background { fill: #fff; }\n.dimension > rect { display: none; }\n.category:hover rect { fill-opacity: .3; }\n.dimension:hover > rect { fill-opacity: .3; }\n.ribbon path {\n  fill: #A9B1B2;\n  stroke-opacity: .1;\n  fill-opacity: .4;\n}\n\n.ribbon path.active {\n  fill: #f4a582;\n  stroke-opacity: .1;\n  fill-opacity: .6;\n}\n\n.ribbon-mouse path {\n  fill-opacity: .0;\n}\n\n.ribbon path.selected {\n  fill: #f4a582;\n  stroke-opacity: .1;\n  fill-opacity: .6;\n}\n\n.category-0 { fill: #C9D2D3; stroke: #67000d; }\n.category-1 { fill: #C9D2D3; stroke: #67000d; }\n.category-2 { fill: #C9D2D3; stroke: #67000d; }\n.category-3 { fill: #C9D2D3; stroke: #67000d; }\n.category-4 { fill: #C9D2D3; stroke: #67000d; }\n.category-5 { fill: #C9D2D3; stroke: #67000d; }\n.category-6 { fill: #C9D2D3; stroke: #67000d; }\n.category-7 { fill: #C9D2D3; stroke: #67000d; }\n.category-8 { fill: #C9D2D3; stroke: #67000d; }\n.category-9 { fill: #C9D2D3; stroke: #67000d; }\n\n.tooltip {\n  font-size: 12px;\n  background-color: rgba(242, 242, 242, .6);\n  position: absolute;\n  padding: 5px;\n}", ""]);
+exports.push([module.i, "#middle {\n    width: calc(100% - 700px);\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    position: relative;\n}\n\n#tripview {\n    width: 100%;\n    max-height: 0px; /* calc(100% - 600px) */\n    box-sizing: border-box;\n    /*border-top: 2.5px solid #C9D2D3;*/\n    /*border-bottom: 5px solid #C9D2D3;*/\n    transition: max-height 0.15s linear;\n    position: relative;\n    overflow: hidden;\n}\n\n#tripview-title {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    padding-left: 5px;\n    padding-right: 5px;\n}\n\n#tripview-dropdown-container {\n    width: auto;\n    height: 20px;\n    line-height: 20px;\n    font-size: 16px;\n    float: right;\n}\n\n#tripview-dropdown {\n    height: 100%;\n    border: none;\n    border-bottom: 1px solid #000;\n    background-color: #f0f0f0;\n    float: left;\n}\n\n#tripview-legends {\n    width: auto;\n    height: 20px;\n    line-height: 20px;\n    font-size: 16px;\n    float: left;\n}\n\n#tripview-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n    overflow: auto;\n}\n\n#map {\n    width: 100%;\n    height: 100%; /* 600px */\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    border: none;\n    outline: none;\n    cursor: crosshair;\n    position: relative;\n}\n\n.mapboxgl-canvas-container {\n    cursor: crosshair, auto !important\n}\n\n.line-tcnn1 {\n    fill: none;\n    stroke: #e41a1c;\n    stroke-width: 2px;\n    stroke-opacity: 0.8;\n}\n\n.line-cnn_lstm {\n    fill: none;\n    stroke: #377eb8;\n    stroke-width: 2px;\n    stroke-opacity: 0.8;\n}\n\n.line-fcn_lstm {\n    fill: none;\n    stroke: #4daf4a;\n    stroke-width: 2px;\n    stroke-opacity: 0.8;\n}\n\n.line-tcnn1-1 {\n    fill: #e41a1c;\n    fill-opacity: 0.2;\n    stroke: #e41a1c;\n    stroke-width: 0px;\n    stroke-opacity: 0.8;\n}\n\n.line-cnn_lstm-1 {\n    fill: #377eb8;\n    fill-opacity: 0.2;\n    stroke: #377eb8;\n    stroke-width: 0px;\n    stroke-opacity: 0.8;\n}\n\n.line-fcn_lstm-1 {\n    fill: #4daf4a;\n    fill-opacity: 0.2;\n    stroke: #4daf4a;\n    stroke-width: 0px;\n    stroke-opacity: 0.8;\n}\n\n.custom-slider {\n    -webkit-appearance: none;\n    width: 100%;\n    height: 4px;\n    background: #d9d9d9;\n    outline: none;\n    opacity: 1;\n}\n.custom-slider::-webkit-slider-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    width: 15px;\n    height: 15px;\n    border: 1px solid #252525;\n    border-radius: 0%;\n    background: #fff;\n    cursor: grab;\n}\n.custom-slider::-moz-range-thumb {\n    width: 15px;\n    height: 15px;\n    border: 1px solid #252525;\n    border-radius: 0%;\n    background: #fff;\n    cursor: grab;\n}", ""]);
 
 // exports
 
@@ -8406,7 +8387,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "#right {\n    width: 300px;\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n}\n\n#model-cases {\n    width: 100%;\n    height: calc(100% - 600px);\n    box-sizing: border-box;\n    /*\n    border: 5px solid #BCCFD3;\n    border-top: 2.5px solid #BCCFD3;\n    border-bottom: 2.5px soli #BCCFD3;*/\n}\n\n#model-cases-header {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#model-cases-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n}\n\n#streetview {\n    width: 100%;\n    height: 600px;\n    box-sizing: border-box;\n    /*\n    border: 5px solid #BCCFD3;\n    border-top: 2.5px solid #BCCFD3;\n    border-bottom: 2.5px solid #BCCFD3;*/\n}\n\n#streetview-header {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#streetview-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n\n/*\n#map {\n    width: 100%;\n    height: 600px;\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    border: none;\n    outline: none;\n}*/\n\n#streetview-drawer {\n    position: absolute;\n    right: 0;\n    top: 0;\n    height: 600px;\n    overflow-x: hidden; /* Needed for initial hidden state */\n    z-index: 9999;\n}\n\n#streetview-drawer-content {\n    width:         500px;\n    margin-right: -500px; /* -width */\n    background-color: rgba(255, 255,255, 0.8);\n    float: left;\n    padding: 5px;\n    box-sizing: border-box;\n}\n\n#streetview-drawer-pano {\n    width: 500px;\n    height: 300px;\n}\n\n#streetview-drawer-image {\n    width: 500px;\n    height: 300px;\n}\n\n/*\n#bottom {\n    width: 100%;\n    height: calc(100% - 600px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n}\n\n#model-performance {\n    width: 700px;\n    height: 100%;\n    box-sizing: border-box;\n    float: left;\n    border-right: 2.5px solid #C9D2D3;\n}\n\n#model-performance-header {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#model-performance-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n}\n\n/*\n#model-relation {\n    width: 400px;\n    height: 100%;\n    box-sizing: border-box;\n    float: left;\n    border-right: 2.5px solid #C9D2D3;\n}\n\n#model-relation-header {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n}\n\n#model-relation-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n}\n*/\n\n.axis .domain {\n    display: none;\n}", ""]);
+exports.push([module.i, "#right {\n    width: 300px;\n    height: calc(100% - 30px);\n    background-color: var(--sub-bg);\n    box-sizing: border-box;\n    float: left;\n    overflow: hidden;\n}\n\n#model-cases {\n    width: 100%;\n    height: calc(100% - 600px);\n    box-sizing: border-box;\n}\n\n#model-cases-header-1 {\n    width: 100%;\n    height: 30px;\n    box-sizing: border-box;\n    font-size: 16px;\n    text-align: center;\n    line-height: 30px;\n    border: 1px solid #BCCFD3;\n    border-bottom: 0px solid #BCCFD3;\n}\n\n#model-cases-header-2 {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 14px;\n    line-height: 20px;\n    text-align: center;\n    border: 1px solid #BCCFD3;\n}\n\n#model-cases-body {\n    width: 100%;\n    height: calc(100% - 50px);\n    box-sizing: border-box;\n    border-left: 1px solid #BCCFD3;\n}\n\n#streetview {\n    width: 100%;\n    height: 600px;\n    box-sizing: border-box;\n}\n\n#streetview-header {\n    width: 100%;\n    height: 20px;\n    box-sizing: border-box;\n    font-size: 14px;\n    text-align: center;\n    border: 1px solid #BCCFD3;\n}\n\n#streetview-body {\n    width: 100%;\n    height: calc(100% - 20px);\n    box-sizing: border-box;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n\n#streetview-drawer {\n    position: absolute;\n    right: 0;\n    top: 0;\n    height: 600px;\n    overflow-x: hidden; /* Needed for initial hidden state */\n    z-index: 9999;\n}\n\n#streetview-drawer-content {\n    width:         500px;\n    margin-right: -500px; /* -width */\n    background-color: rgba(255, 255,255, 0.8);\n    float: left;\n    padding: 5px;\n    box-sizing: border-box;\n}\n\n#streetview-drawer-pano {\n    width: 500px;\n    height: 300px;\n}\n\n#streetview-drawer-image {\n    width: 500px;\n    height: 300px;\n}\n\n.axis .domain {\n    display: none;\n}", ""]);
 
 // exports
 
@@ -23950,2659 +23931,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/array.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/array.js ***!
-  \*******************************************************************/
-/*! exports provided: slice, map */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "slice", function() { return slice; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map", function() { return map; });
-var array = Array.prototype;
-
-var slice = array.slice;
-var map = array.map;
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function(a, b) {
-  return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/bin.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/bin.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _array_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./array.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/array.js");
-/* harmony import */ var _bisect_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bisect.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bisect.js");
-/* harmony import */ var _constant_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constant.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/constant.js");
-/* harmony import */ var _extent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./extent.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/extent.js");
-/* harmony import */ var _identity_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./identity.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/identity.js");
-/* harmony import */ var _nice_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./nice.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/nice.js");
-/* harmony import */ var _ticks_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ticks.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js");
-/* harmony import */ var _threshold_sturges_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./threshold/sturges.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/sturges.js");
-
-
-
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function() {
-  var value = _identity_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-      domain = _extent_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-      threshold = _threshold_sturges_js__WEBPACK_IMPORTED_MODULE_7__["default"];
-
-  function histogram(data) {
-    if (!Array.isArray(data)) data = Array.from(data);
-
-    var i,
-        n = data.length,
-        x,
-        values = new Array(n);
-
-    for (i = 0; i < n; ++i) {
-      values[i] = value(data[i], i, data);
-    }
-
-    var xz = domain(values),
-        x0 = xz[0],
-        x1 = xz[1],
-        tz = threshold(values, x0, x1);
-
-    // Convert number of thresholds into uniform thresholds, and nice the
-    // default domain accordingly.
-    if (!Array.isArray(tz)) {
-      const max = x1, tn = +tz;
-      if (domain === _extent_js__WEBPACK_IMPORTED_MODULE_3__["default"]) [x0, x1] = Object(_nice_js__WEBPACK_IMPORTED_MODULE_5__["default"])(x0, x1, tn);
-      tz = Object(_ticks_js__WEBPACK_IMPORTED_MODULE_6__["default"])(x0, x1, tn);
-
-      // If the last threshold is coincident with the domain’s upper bound, the
-      // last bin will be zero-width. If the default domain is used, and this
-      // last threshold is coincident with the maximum input value, we can
-      // extend the niced upper bound by one tick to ensure uniform bin widths;
-      // otherwise, we simply remove the last threshold. Note that we don’t
-      // coerce values or the domain to numbers, and thus must be careful to
-      // compare order (>=) rather than strict equality (===)!
-      if (tz[tz.length - 1] >= x1) {
-        if (max >= x1 && domain === _extent_js__WEBPACK_IMPORTED_MODULE_3__["default"]) {
-          const step = Object(_ticks_js__WEBPACK_IMPORTED_MODULE_6__["tickIncrement"])(x0, x1, tn);
-          if (isFinite(step)) {
-            if (step > 0) {
-              x1 = (Math.floor(x1 / step) + 1) * step;
-            } else if (step < 0) {
-              x1 = (Math.ceil(x1 * -step) + 1) / -step;
-            }
-          }
-        } else {
-          tz.pop();
-        }
-      }
-    }
-
-    // Remove any thresholds outside the domain.
-    var m = tz.length;
-    while (tz[0] <= x0) tz.shift(), --m;
-    while (tz[m - 1] > x1) tz.pop(), --m;
-
-    var bins = new Array(m + 1),
-        bin;
-
-    // Initialize bins.
-    for (i = 0; i <= m; ++i) {
-      bin = bins[i] = [];
-      bin.x0 = i > 0 ? tz[i - 1] : x0;
-      bin.x1 = i < m ? tz[i] : x1;
-    }
-
-    // Assign data to bins by value, ignoring any outside the domain.
-    for (i = 0; i < n; ++i) {
-      x = values[i];
-      if (x0 <= x && x <= x1) {
-        bins[Object(_bisect_js__WEBPACK_IMPORTED_MODULE_1__["default"])(tz, x, 0, m)].push(data[i]);
-      }
-    }
-
-    return bins;
-  }
-
-  histogram.value = function(_) {
-    return arguments.length ? (value = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), histogram) : value;
-  };
-
-  histogram.domain = function(_) {
-    return arguments.length ? (domain = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])([_[0], _[1]]), histogram) : domain;
-  };
-
-  histogram.thresholds = function(_) {
-    return arguments.length ? (threshold = typeof _ === "function" ? _ : Array.isArray(_) ? Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_array_js__WEBPACK_IMPORTED_MODULE_0__["slice"].call(_)) : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), histogram) : threshold;
-  };
-
-  return histogram;
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/bisect.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/bisect.js ***!
-  \********************************************************************/
-/*! exports provided: bisectRight, bisectLeft, bisectCenter, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bisectRight", function() { return bisectRight; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bisectLeft", function() { return bisectLeft; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bisectCenter", function() { return bisectCenter; });
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-/* harmony import */ var _bisector_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bisector.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bisector.js");
-/* harmony import */ var _number_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./number.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/number.js");
-
-
-
-
-const ascendingBisect = Object(_bisector_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
-const bisectRight = ascendingBisect.right;
-const bisectLeft = ascendingBisect.left;
-const bisectCenter = Object(_bisector_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_number_js__WEBPACK_IMPORTED_MODULE_2__["default"]).center;
-/* harmony default export */ __webpack_exports__["default"] = (bisectRight);
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/bisector.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/bisector.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function(f) {
-  let delta = f;
-  let compare = f;
-
-  if (f.length === 1) {
-    delta = (d, x) => f(d) - x;
-    compare = ascendingComparator(f);
-  }
-
-  function left(a, x, lo, hi) {
-    if (lo == null) lo = 0;
-    if (hi == null) hi = a.length;
-    while (lo < hi) {
-      const mid = (lo + hi) >>> 1;
-      if (compare(a[mid], x) < 0) lo = mid + 1;
-      else hi = mid;
-    }
-    return lo;
-  }
-
-  function right(a, x, lo, hi) {
-    if (lo == null) lo = 0;
-    if (hi == null) hi = a.length;
-    while (lo < hi) {
-      const mid = (lo + hi) >>> 1;
-      if (compare(a[mid], x) > 0) hi = mid;
-      else lo = mid + 1;
-    }
-    return lo;
-  }
-
-  function center(a, x, lo, hi) {
-    if (lo == null) lo = 0;
-    if (hi == null) hi = a.length;
-    const i = left(a, x, lo, hi - 1);
-    return i > lo && delta(a[i - 1], x) > -delta(a[i], x) ? i - 1 : i;
-  }
-
-  return {left, center, right};
-});
-
-function ascendingComparator(f) {
-  return (d, x) => Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(f(d), x);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/constant.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/constant.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function(x) {
-  return function() {
-    return x;
-  };
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/count.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return count; });
-function count(values, valueof) {
-  let count = 0;
-  if (valueof === undefined) {
-    for (let value of values) {
-      if (value != null && (value = +value) >= value) {
-        ++count;
-      }
-    }
-  } else {
-    let index = -1;
-    for (let value of values) {
-      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
-        ++count;
-      }
-    }
-  }
-  return count;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/cross.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/cross.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return cross; });
-function length(array) {
-  return array.length | 0;
-}
-
-function empty(length) {
-  return !(length > 0);
-}
-
-function arrayify(values) {
-  return typeof values !== "object" || "length" in values ? values : Array.from(values);
-}
-
-function reducer(reduce) {
-  return values => reduce(...values);
-}
-
-function cross(...values) {
-  const reduce = typeof values[values.length - 1] === "function" && reducer(values.pop());
-  values = values.map(arrayify);
-  const lengths = values.map(length);
-  const j = values.length - 1;
-  const index = new Array(j + 1).fill(0);
-  const product = [];
-  if (j < 0 || lengths.some(empty)) return product;
-  while (true) {
-    product.push(index.map((j, i) => values[i][j]));
-    let i = j;
-    while (++index[i] === lengths[i]) {
-      if (i === 0) return reduce ? product.map(reduce) : product;
-      index[i--] = 0;
-    }
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/cumsum.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/cumsum.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return cumsum; });
-function cumsum(values, valueof) {
-  var sum = 0, index = 0;
-  return Float64Array.from(values, valueof === undefined
-    ? v => (sum += +v || 0)
-    : v => (sum += +valueof(v, index++, values) || 0));
-}
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/descending.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/descending.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function(a, b) {
-  return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/deviation.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/deviation.js ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return deviation; });
-/* harmony import */ var _variance_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./variance.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/variance.js");
-
-
-function deviation(values, valueof) {
-  const v = Object(_variance_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values, valueof);
-  return v ? Math.sqrt(v) : v;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/difference.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/difference.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return difference; });
-function difference(values, ...others) {
-  values = new Set(values);
-  for (const other of others) {
-    for (const value of other) {
-      values.delete(value);
-    }
-  }
-  return values;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/disjoint.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/disjoint.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return disjoint; });
-function disjoint(values, other) {
-  const iterator = other[Symbol.iterator](), set = new Set();
-  for (const v of values) {
-    if (set.has(v)) return false;
-    let value, done;
-    while (({value, done} = iterator.next())) {
-      if (done) break;
-      if (Object.is(v, value)) return false;
-      set.add(value);
-    }
-  }
-  return true;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/every.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/every.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return every; });
-function every(values, test) {
-  if (typeof test !== "function") throw new TypeError("test is not a function");
-  let index = -1;
-  for (const value of values) {
-    if (!test(value, ++index, values)) {
-      return false;
-    }
-  }
-  return true;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/extent.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/extent.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function(values, valueof) {
-  let min;
-  let max;
-  if (valueof === undefined) {
-    for (const value of values) {
-      if (value != null) {
-        if (min === undefined) {
-          if (value >= value) min = max = value;
-        } else {
-          if (min > value) min = value;
-          if (max < value) max = value;
-        }
-      }
-    }
-  } else {
-    let index = -1;
-    for (let value of values) {
-      if ((value = valueof(value, ++index, values)) != null) {
-        if (min === undefined) {
-          if (value >= value) min = max = value;
-        } else {
-          if (min > value) min = value;
-          if (max < value) max = value;
-        }
-      }
-    }
-  }
-  return [min, max];
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/filter.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/filter.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return filter; });
-function filter(values, test) {
-  if (typeof test !== "function") throw new TypeError("test is not a function");
-  const array = [];
-  let index = -1;
-  for (const value of values) {
-    if (test(value, ++index, values)) {
-      array.push(value);
-    }
-  }
-  return array;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/fsum.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/fsum.js ***!
-  \******************************************************************/
-/*! exports provided: Adder, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Adder", function() { return Adder; });
-// https://github.com/python/cpython/blob/a74eea238f5baba15797e2e8b570d153bc8690a7/Modules/mathmodule.c#L1423
-class Adder {
-  constructor() {
-    this._partials = new Float64Array(32);
-    this._n = 0;
-  }
-  add(x) {
-    const p = this._partials;
-    let i = 0;
-    for (let j = 0; j < this._n && j < 32; j++) {
-      const y = p[j],
-        hi = x + y,
-        lo = Math.abs(x) < Math.abs(y) ? x - (hi - y) : y - (hi - x);
-      if (lo) p[i++] = lo;
-      x = hi;
-    }
-    p[i] = x;
-    this._n = i + 1;
-    return this;
-  }
-  valueOf() {
-    const p = this._partials;
-    let n = this._n, x, y, lo, hi = 0;
-    if (n > 0) {
-      hi = p[--n];
-      while (n > 0) {
-        x = hi;
-        y = p[--n];
-        hi = x + y;
-        lo = y - (hi - x);
-        if (lo) break;
-      }
-      if (n > 0 && ((lo < 0 && p[n - 1] < 0) || (lo > 0 && p[n - 1] > 0))) {
-        y = lo * 2;
-        x = hi + y;
-        if (y == x - hi) hi = x;
-      }
-    }
-    return hi;
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (function(values, valueof) {
-  const adder = new Adder();
-  if (valueof === undefined) {
-    for (let value of values) {
-      if (value = +value) {
-        adder.add(value);
-      }
-    }
-  } else {
-    let index = -1;
-    for (let value of values) {
-      if (value = +valueof(value, ++index, values)) {
-        adder.add(value);
-      }
-    }
-  }
-  return +adder;
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/greatest.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/greatest.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return greatest; });
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-
-
-function greatest(values, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
-  let max;
-  let defined = false;
-  if (compare.length === 1) {
-    let maxValue;
-    for (const element of values) {
-      const value = compare(element);
-      if (defined
-          ? Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value, maxValue) > 0
-          : Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value, value) === 0) {
-        max = element;
-        maxValue = value;
-        defined = true;
-      }
-    }
-  } else {
-    for (const value of values) {
-      if (defined
-          ? compare(value, max) > 0
-          : compare(value, value) === 0) {
-        max = value;
-        defined = true;
-      }
-    }
-  }
-  return max;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/greatestIndex.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/greatestIndex.js ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return greatestIndex; });
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-/* harmony import */ var _maxIndex_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./maxIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/maxIndex.js");
-
-
-
-function greatestIndex(values, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
-  if (compare.length === 1) return Object(_maxIndex_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, compare);
-  let maxValue;
-  let max = -1;
-  let index = -1;
-  for (const value of values) {
-    ++index;
-    if (max < 0
-        ? compare(value, value) === 0
-        : compare(value, maxValue) > 0) {
-      maxValue = value;
-      max = index;
-    }
-  }
-  return max;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/group.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/group.js ***!
-  \*******************************************************************/
-/*! exports provided: default, groups, rollup, rollups, index, indexes */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return group; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "groups", function() { return groups; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rollup", function() { return rollup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rollups", function() { return rollups; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "index", function() { return index; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "indexes", function() { return indexes; });
-/* harmony import */ var internmap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! internmap */ "./node_modules/internmap/src/index.js");
-/* harmony import */ var _identity_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./identity.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/identity.js");
-
-
-
-function group(values, ...keys) {
-  return nest(values, _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], keys);
-}
-
-function groups(values, ...keys) {
-  return nest(values, Array.from, _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], keys);
-}
-
-function rollup(values, reduce, ...keys) {
-  return nest(values, _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], reduce, keys);
-}
-
-function rollups(values, reduce, ...keys) {
-  return nest(values, Array.from, reduce, keys);
-}
-
-function index(values, ...keys) {
-  return nest(values, _identity_js__WEBPACK_IMPORTED_MODULE_1__["default"], unique, keys);
-}
-
-function indexes(values, ...keys) {
-  return nest(values, Array.from, unique, keys);
-}
-
-function unique(values) {
-  if (values.length !== 1) throw new Error("duplicate key");
-  return values[0];
-}
-
-function nest(values, map, reduce, keys) {
-  return (function regroup(values, i) {
-    if (i >= keys.length) return reduce(values);
-    const groups = new internmap__WEBPACK_IMPORTED_MODULE_0__["InternMap"]();
-    const keyof = keys[i++];
-    let index = -1;
-    for (const value of values) {
-      const key = keyof(value, ++index, values);
-      const group = groups.get(key);
-      if (group) group.push(value);
-      else groups.set(key, [value]);
-    }
-    for (const [key, values] of groups) {
-      groups.set(key, regroup(values, i));
-    }
-    return map(groups);
-  })(values, 0);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/groupSort.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/groupSort.js ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return groupSort; });
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-/* harmony import */ var _group_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./group.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/group.js");
-/* harmony import */ var _sort_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sort.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/sort.js");
-
-
-
-
-function groupSort(values, reduce, key) {
-  return (reduce.length === 1
-    ? Object(_sort_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_group_js__WEBPACK_IMPORTED_MODULE_1__["rollup"])(values, reduce, key), (([ak, av], [bk, bv]) => Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(av, bv) || Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(ak, bk)))
-    : Object(_sort_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_group_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, key), (([ak, av], [bk, bv]) => reduce(av, bv) || Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(ak, bk))))
-    .map(([key]) => key);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/identity.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/identity.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function(x) {
-  return x;
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/index.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/index.js ***!
-  \*******************************************************************/
-/*! exports provided: bisect, bisectRight, bisectLeft, bisectCenter, ascending, bisector, count, cross, cumsum, descending, deviation, extent, fsum, Adder, group, groups, index, indexes, rollup, rollups, groupSort, bin, histogram, thresholdFreedmanDiaconis, thresholdScott, thresholdSturges, max, maxIndex, mean, median, merge, min, minIndex, nice, pairs, permute, quantile, quantileSorted, quickselect, range, least, leastIndex, greatest, greatestIndex, scan, shuffle, shuffler, sum, ticks, tickIncrement, tickStep, transpose, variance, zip, every, some, filter, map, reduce, reverse, sort, difference, disjoint, intersection, subset, superset, union, InternMap, InternSet */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _bisect_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bisect.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bisect.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisect", function() { return _bisect_js__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisectRight", function() { return _bisect_js__WEBPACK_IMPORTED_MODULE_0__["bisectRight"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisectLeft", function() { return _bisect_js__WEBPACK_IMPORTED_MODULE_0__["bisectLeft"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisectCenter", function() { return _bisect_js__WEBPACK_IMPORTED_MODULE_0__["bisectCenter"]; });
-
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ascending", function() { return _ascending_js__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-/* harmony import */ var _bisector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bisector.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bisector.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bisector", function() { return _bisector_js__WEBPACK_IMPORTED_MODULE_2__["default"]; });
-
-/* harmony import */ var _count_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./count.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "count", function() { return _count_js__WEBPACK_IMPORTED_MODULE_3__["default"]; });
-
-/* harmony import */ var _cross_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cross.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/cross.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cross", function() { return _cross_js__WEBPACK_IMPORTED_MODULE_4__["default"]; });
-
-/* harmony import */ var _cumsum_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cumsum.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/cumsum.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cumsum", function() { return _cumsum_js__WEBPACK_IMPORTED_MODULE_5__["default"]; });
-
-/* harmony import */ var _descending_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./descending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/descending.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "descending", function() { return _descending_js__WEBPACK_IMPORTED_MODULE_6__["default"]; });
-
-/* harmony import */ var _deviation_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./deviation.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/deviation.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "deviation", function() { return _deviation_js__WEBPACK_IMPORTED_MODULE_7__["default"]; });
-
-/* harmony import */ var _extent_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./extent.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/extent.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "extent", function() { return _extent_js__WEBPACK_IMPORTED_MODULE_8__["default"]; });
-
-/* harmony import */ var _fsum_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./fsum.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/fsum.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fsum", function() { return _fsum_js__WEBPACK_IMPORTED_MODULE_9__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Adder", function() { return _fsum_js__WEBPACK_IMPORTED_MODULE_9__["Adder"]; });
-
-/* harmony import */ var _group_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./group.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/group.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "group", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "groups", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["groups"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "index", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["index"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "indexes", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["indexes"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rollup", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["rollup"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rollups", function() { return _group_js__WEBPACK_IMPORTED_MODULE_10__["rollups"]; });
-
-/* harmony import */ var _groupSort_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./groupSort.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/groupSort.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "groupSort", function() { return _groupSort_js__WEBPACK_IMPORTED_MODULE_11__["default"]; });
-
-/* harmony import */ var _bin_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./bin.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/bin.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bin", function() { return _bin_js__WEBPACK_IMPORTED_MODULE_12__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "histogram", function() { return _bin_js__WEBPACK_IMPORTED_MODULE_12__["default"]; });
-
-/* harmony import */ var _threshold_freedmanDiaconis_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./threshold/freedmanDiaconis.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/freedmanDiaconis.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "thresholdFreedmanDiaconis", function() { return _threshold_freedmanDiaconis_js__WEBPACK_IMPORTED_MODULE_13__["default"]; });
-
-/* harmony import */ var _threshold_scott_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./threshold/scott.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/scott.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "thresholdScott", function() { return _threshold_scott_js__WEBPACK_IMPORTED_MODULE_14__["default"]; });
-
-/* harmony import */ var _threshold_sturges_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./threshold/sturges.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/sturges.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "thresholdSturges", function() { return _threshold_sturges_js__WEBPACK_IMPORTED_MODULE_15__["default"]; });
-
-/* harmony import */ var _max_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./max.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/max.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "max", function() { return _max_js__WEBPACK_IMPORTED_MODULE_16__["default"]; });
-
-/* harmony import */ var _maxIndex_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./maxIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/maxIndex.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "maxIndex", function() { return _maxIndex_js__WEBPACK_IMPORTED_MODULE_17__["default"]; });
-
-/* harmony import */ var _mean_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mean.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/mean.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "mean", function() { return _mean_js__WEBPACK_IMPORTED_MODULE_18__["default"]; });
-
-/* harmony import */ var _median_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./median.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/median.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "median", function() { return _median_js__WEBPACK_IMPORTED_MODULE_19__["default"]; });
-
-/* harmony import */ var _merge_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./merge.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/merge.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "merge", function() { return _merge_js__WEBPACK_IMPORTED_MODULE_20__["default"]; });
-
-/* harmony import */ var _min_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./min.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/min.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "min", function() { return _min_js__WEBPACK_IMPORTED_MODULE_21__["default"]; });
-
-/* harmony import */ var _minIndex_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./minIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/minIndex.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "minIndex", function() { return _minIndex_js__WEBPACK_IMPORTED_MODULE_22__["default"]; });
-
-/* harmony import */ var _nice_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./nice.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/nice.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "nice", function() { return _nice_js__WEBPACK_IMPORTED_MODULE_23__["default"]; });
-
-/* harmony import */ var _pairs_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./pairs.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/pairs.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pairs", function() { return _pairs_js__WEBPACK_IMPORTED_MODULE_24__["default"]; });
-
-/* harmony import */ var _permute_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./permute.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/permute.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "permute", function() { return _permute_js__WEBPACK_IMPORTED_MODULE_25__["default"]; });
-
-/* harmony import */ var _quantile_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./quantile.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "quantile", function() { return _quantile_js__WEBPACK_IMPORTED_MODULE_26__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "quantileSorted", function() { return _quantile_js__WEBPACK_IMPORTED_MODULE_26__["quantileSorted"]; });
-
-/* harmony import */ var _quickselect_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./quickselect.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quickselect.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "quickselect", function() { return _quickselect_js__WEBPACK_IMPORTED_MODULE_27__["default"]; });
-
-/* harmony import */ var _range_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./range.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/range.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "range", function() { return _range_js__WEBPACK_IMPORTED_MODULE_28__["default"]; });
-
-/* harmony import */ var _least_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./least.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/least.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "least", function() { return _least_js__WEBPACK_IMPORTED_MODULE_29__["default"]; });
-
-/* harmony import */ var _leastIndex_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./leastIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/leastIndex.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "leastIndex", function() { return _leastIndex_js__WEBPACK_IMPORTED_MODULE_30__["default"]; });
-
-/* harmony import */ var _greatest_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./greatest.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/greatest.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "greatest", function() { return _greatest_js__WEBPACK_IMPORTED_MODULE_31__["default"]; });
-
-/* harmony import */ var _greatestIndex_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./greatestIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/greatestIndex.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "greatestIndex", function() { return _greatestIndex_js__WEBPACK_IMPORTED_MODULE_32__["default"]; });
-
-/* harmony import */ var _scan_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./scan.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/scan.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "scan", function() { return _scan_js__WEBPACK_IMPORTED_MODULE_33__["default"]; });
-
-/* harmony import */ var _shuffle_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./shuffle.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/shuffle.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "shuffle", function() { return _shuffle_js__WEBPACK_IMPORTED_MODULE_34__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "shuffler", function() { return _shuffle_js__WEBPACK_IMPORTED_MODULE_34__["shuffler"]; });
-
-/* harmony import */ var _sum_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./sum.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/sum.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sum", function() { return _sum_js__WEBPACK_IMPORTED_MODULE_35__["default"]; });
-
-/* harmony import */ var _ticks_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./ticks.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ticks", function() { return _ticks_js__WEBPACK_IMPORTED_MODULE_36__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "tickIncrement", function() { return _ticks_js__WEBPACK_IMPORTED_MODULE_36__["tickIncrement"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "tickStep", function() { return _ticks_js__WEBPACK_IMPORTED_MODULE_36__["tickStep"]; });
-
-/* harmony import */ var _transpose_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./transpose.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/transpose.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "transpose", function() { return _transpose_js__WEBPACK_IMPORTED_MODULE_37__["default"]; });
-
-/* harmony import */ var _variance_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./variance.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/variance.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "variance", function() { return _variance_js__WEBPACK_IMPORTED_MODULE_38__["default"]; });
-
-/* harmony import */ var _zip_js__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./zip.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/zip.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "zip", function() { return _zip_js__WEBPACK_IMPORTED_MODULE_39__["default"]; });
-
-/* harmony import */ var _every_js__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./every.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/every.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "every", function() { return _every_js__WEBPACK_IMPORTED_MODULE_40__["default"]; });
-
-/* harmony import */ var _some_js__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./some.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/some.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "some", function() { return _some_js__WEBPACK_IMPORTED_MODULE_41__["default"]; });
-
-/* harmony import */ var _filter_js__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./filter.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/filter.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "filter", function() { return _filter_js__WEBPACK_IMPORTED_MODULE_42__["default"]; });
-
-/* harmony import */ var _map_js__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./map.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/map.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "map", function() { return _map_js__WEBPACK_IMPORTED_MODULE_43__["default"]; });
-
-/* harmony import */ var _reduce_js__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./reduce.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/reduce.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reduce", function() { return _reduce_js__WEBPACK_IMPORTED_MODULE_44__["default"]; });
-
-/* harmony import */ var _reverse_js__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./reverse.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/reverse.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reverse", function() { return _reverse_js__WEBPACK_IMPORTED_MODULE_45__["default"]; });
-
-/* harmony import */ var _sort_js__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./sort.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/sort.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sort", function() { return _sort_js__WEBPACK_IMPORTED_MODULE_46__["default"]; });
-
-/* harmony import */ var _difference_js__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./difference.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/difference.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "difference", function() { return _difference_js__WEBPACK_IMPORTED_MODULE_47__["default"]; });
-
-/* harmony import */ var _disjoint_js__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./disjoint.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/disjoint.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "disjoint", function() { return _disjoint_js__WEBPACK_IMPORTED_MODULE_48__["default"]; });
-
-/* harmony import */ var _intersection_js__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./intersection.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/intersection.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "intersection", function() { return _intersection_js__WEBPACK_IMPORTED_MODULE_49__["default"]; });
-
-/* harmony import */ var _subset_js__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./subset.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/subset.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subset", function() { return _subset_js__WEBPACK_IMPORTED_MODULE_50__["default"]; });
-
-/* harmony import */ var _superset_js__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./superset.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/superset.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "superset", function() { return _superset_js__WEBPACK_IMPORTED_MODULE_51__["default"]; });
-
-/* harmony import */ var _union_js__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./union.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/union.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "union", function() { return _union_js__WEBPACK_IMPORTED_MODULE_52__["default"]; });
-
-/* harmony import */ var internmap__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! internmap */ "./node_modules/internmap/src/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InternMap", function() { return internmap__WEBPACK_IMPORTED_MODULE_53__["InternMap"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InternSet", function() { return internmap__WEBPACK_IMPORTED_MODULE_53__["InternSet"]; });
-
-
-
-
-
-
-
-
-
-
-
-
-
- // Deprecated; use bin.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- // Deprecated; use leastIndex.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/intersection.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/intersection.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return intersection; });
-/* harmony import */ var _set_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./set.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/set.js");
-
-
-function intersection(values, ...others) {
-  values = new Set(values);
-  others = others.map(_set_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  out: for (const value of values) {
-    for (const other of others) {
-      if (!other.has(value)) {
-        values.delete(value);
-        continue out;
-      }
-    }
-  }
-  return values;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/least.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/least.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return least; });
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-
-
-function least(values, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
-  let min;
-  let defined = false;
-  if (compare.length === 1) {
-    let minValue;
-    for (const element of values) {
-      const value = compare(element);
-      if (defined
-          ? Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value, minValue) < 0
-          : Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value, value) === 0) {
-        min = element;
-        minValue = value;
-        defined = true;
-      }
-    }
-  } else {
-    for (const value of values) {
-      if (defined
-          ? compare(value, min) < 0
-          : compare(value, value) === 0) {
-        min = value;
-        defined = true;
-      }
-    }
-  }
-  return min;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/leastIndex.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/leastIndex.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return leastIndex; });
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-/* harmony import */ var _minIndex_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./minIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/minIndex.js");
-
-
-
-function leastIndex(values, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
-  if (compare.length === 1) return Object(_minIndex_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, compare);
-  let minValue;
-  let min = -1;
-  let index = -1;
-  for (const value of values) {
-    ++index;
-    if (min < 0
-        ? compare(value, value) === 0
-        : compare(value, minValue) < 0) {
-      minValue = value;
-      min = index;
-    }
-  }
-  return min;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/map.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/map.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return map; });
-function map(values, mapper) {
-  if (typeof values[Symbol.iterator] !== "function") throw new TypeError("values is not iterable");
-  if (typeof mapper !== "function") throw new TypeError("mapper is not a function");
-  return Array.from(values, (value, index) => mapper(value, index, values));
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/max.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/max.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return max; });
-function max(values, valueof) {
-  let max;
-  if (valueof === undefined) {
-    for (const value of values) {
-      if (value != null
-          && (max < value || (max === undefined && value >= value))) {
-        max = value;
-      }
-    }
-  } else {
-    let index = -1;
-    for (let value of values) {
-      if ((value = valueof(value, ++index, values)) != null
-          && (max < value || (max === undefined && value >= value))) {
-        max = value;
-      }
-    }
-  }
-  return max;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/maxIndex.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/maxIndex.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return maxIndex; });
-function maxIndex(values, valueof) {
-  let max;
-  let maxIndex = -1;
-  let index = -1;
-  if (valueof === undefined) {
-    for (const value of values) {
-      ++index;
-      if (value != null
-          && (max < value || (max === undefined && value >= value))) {
-        max = value, maxIndex = index;
-      }
-    }
-  } else {
-    for (let value of values) {
-      if ((value = valueof(value, ++index, values)) != null
-          && (max < value || (max === undefined && value >= value))) {
-        max = value, maxIndex = index;
-      }
-    }
-  }
-  return maxIndex;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/mean.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/mean.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return mean; });
-function mean(values, valueof) {
-  let count = 0;
-  let sum = 0;
-  if (valueof === undefined) {
-    for (let value of values) {
-      if (value != null && (value = +value) >= value) {
-        ++count, sum += value;
-      }
-    }
-  } else {
-    let index = -1;
-    for (let value of values) {
-      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
-        ++count, sum += value;
-      }
-    }
-  }
-  if (count) return sum / count;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/median.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/median.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _quantile_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./quantile.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function(values, valueof) {
-  return Object(_quantile_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values, 0.5, valueof);
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/merge.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/merge.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return merge; });
-function* flatten(arrays) {
-  for (const array of arrays) {
-    yield* array;
-  }
-}
-
-function merge(arrays) {
-  return Array.from(flatten(arrays));
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/min.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/min.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return min; });
-function min(values, valueof) {
-  let min;
-  if (valueof === undefined) {
-    for (const value of values) {
-      if (value != null
-          && (min > value || (min === undefined && value >= value))) {
-        min = value;
-      }
-    }
-  } else {
-    let index = -1;
-    for (let value of values) {
-      if ((value = valueof(value, ++index, values)) != null
-          && (min > value || (min === undefined && value >= value))) {
-        min = value;
-      }
-    }
-  }
-  return min;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/minIndex.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/minIndex.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return minIndex; });
-function minIndex(values, valueof) {
-  let min;
-  let minIndex = -1;
-  let index = -1;
-  if (valueof === undefined) {
-    for (const value of values) {
-      ++index;
-      if (value != null
-          && (min > value || (min === undefined && value >= value))) {
-        min = value, minIndex = index;
-      }
-    }
-  } else {
-    for (let value of values) {
-      if ((value = valueof(value, ++index, values)) != null
-          && (min > value || (min === undefined && value >= value))) {
-        min = value, minIndex = index;
-      }
-    }
-  }
-  return minIndex;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/nice.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/nice.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return nice; });
-/* harmony import */ var _ticks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ticks.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js");
-
-
-function nice(start, stop, count) {
-  let prestep;
-  while (true) {
-    const step = Object(_ticks_js__WEBPACK_IMPORTED_MODULE_0__["tickIncrement"])(start, stop, count);
-    if (step === prestep || step === 0 || !isFinite(step)) {
-      return [start, stop];
-    } else if (step > 0) {
-      start = Math.floor(start / step) * step;
-      stop = Math.ceil(stop / step) * step;
-    } else if (step < 0) {
-      start = Math.ceil(start * step) / step;
-      stop = Math.floor(stop * step) / step;
-    }
-    prestep = step;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/number.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/number.js ***!
-  \********************************************************************/
-/*! exports provided: default, numbers */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "numbers", function() { return numbers; });
-/* harmony default export */ __webpack_exports__["default"] = (function(x) {
-  return x === null ? NaN : +x;
-});
-
-function* numbers(values, valueof) {
-  if (valueof === undefined) {
-    for (let value of values) {
-      if (value != null && (value = +value) >= value) {
-        yield value;
-      }
-    }
-  } else {
-    let index = -1;
-    for (let value of values) {
-      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
-        yield value;
-      }
-    }
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/pairs.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/pairs.js ***!
-  \*******************************************************************/
-/*! exports provided: default, pair */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return pairs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pair", function() { return pair; });
-function pairs(values, pairof = pair) {
-  const pairs = [];
-  let previous;
-  let first = false;
-  for (const value of values) {
-    if (first) pairs.push(pairof(previous, value));
-    previous = value;
-    first = true;
-  }
-  return pairs;
-}
-
-function pair(a, b) {
-  return [a, b];
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/permute.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/permute.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function(source, keys) {
-  return Array.from(keys, key => source[key]);
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js ***!
-  \**********************************************************************/
-/*! exports provided: default, quantileSorted */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return quantile; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "quantileSorted", function() { return quantileSorted; });
-/* harmony import */ var _max_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./max.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/max.js");
-/* harmony import */ var _min_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./min.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/min.js");
-/* harmony import */ var _quickselect_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./quickselect.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quickselect.js");
-/* harmony import */ var _number_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./number.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/number.js");
-
-
-
-
-
-function quantile(values, p, valueof) {
-  values = Float64Array.from(Object(_number_js__WEBPACK_IMPORTED_MODULE_3__["numbers"])(values, valueof));
-  if (!(n = values.length)) return;
-  if ((p = +p) <= 0 || n < 2) return Object(_min_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values);
-  if (p >= 1) return Object(_max_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values);
-  var n,
-      i = (n - 1) * p,
-      i0 = Math.floor(i),
-      value0 = Object(_max_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_quickselect_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values, i0).subarray(0, i0 + 1)),
-      value1 = Object(_min_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values.subarray(i0 + 1));
-  return value0 + (value1 - value0) * (i - i0);
-}
-
-function quantileSorted(values, p, valueof = _number_js__WEBPACK_IMPORTED_MODULE_3__["default"]) {
-  if (!(n = values.length)) return;
-  if ((p = +p) <= 0 || n < 2) return +valueof(values[0], 0, values);
-  if (p >= 1) return +valueof(values[n - 1], n - 1, values);
-  var n,
-      i = (n - 1) * p,
-      i0 = Math.floor(i),
-      value0 = +valueof(values[i0], i0, values),
-      value1 = +valueof(values[i0 + 1], i0 + 1, values);
-  return value0 + (value1 - value0) * (i - i0);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/quickselect.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/quickselect.js ***!
-  \*************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return quickselect; });
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-
-
-// Based on https://github.com/mourner/quickselect
-// ISC license, Copyright 2018 Vladimir Agafonkin.
-function quickselect(array, k, left = 0, right = array.length - 1, compare = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]) {
-  while (right > left) {
-    if (right - left > 600) {
-      const n = right - left + 1;
-      const m = k - left + 1;
-      const z = Math.log(n);
-      const s = 0.5 * Math.exp(2 * z / 3);
-      const sd = 0.5 * Math.sqrt(z * s * (n - s) / n) * (m - n / 2 < 0 ? -1 : 1);
-      const newLeft = Math.max(left, Math.floor(k - m * s / n + sd));
-      const newRight = Math.min(right, Math.floor(k + (n - m) * s / n + sd));
-      quickselect(array, k, newLeft, newRight, compare);
-    }
-
-    const t = array[k];
-    let i = left;
-    let j = right;
-
-    swap(array, left, k);
-    if (compare(array[right], t) > 0) swap(array, left, right);
-
-    while (i < j) {
-      swap(array, i, j), ++i, --j;
-      while (compare(array[i], t) < 0) ++i;
-      while (compare(array[j], t) > 0) --j;
-    }
-
-    if (compare(array[left], t) === 0) swap(array, left, j);
-    else ++j, swap(array, j, right);
-
-    if (j <= k) left = j + 1;
-    if (k <= j) right = j - 1;
-  }
-  return array;
-}
-
-function swap(array, i, j) {
-  const t = array[i];
-  array[i] = array[j];
-  array[j] = t;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/range.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/range.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function(start, stop, step) {
-  start = +start, stop = +stop, step = (n = arguments.length) < 2 ? (stop = start, start = 0, 1) : n < 3 ? 1 : +step;
-
-  var i = -1,
-      n = Math.max(0, Math.ceil((stop - start) / step)) | 0,
-      range = new Array(n);
-
-  while (++i < n) {
-    range[i] = start + i * step;
-  }
-
-  return range;
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/reduce.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/reduce.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return reduce; });
-function reduce(values, reducer, value) {
-  if (typeof reducer !== "function") throw new TypeError("reducer is not a function");
-  const iterator = values[Symbol.iterator]();
-  let done, next, index = -1;
-  if (arguments.length < 3) {
-    ({done, value} = iterator.next());
-    if (done) return;
-    ++index;
-  }
-  while (({done, value: next} = iterator.next()), !done) {
-    value = reducer(value, next, ++index, values);
-  }
-  return value;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/reverse.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/reverse.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return reverse; });
-function reverse(values) {
-  if (typeof values[Symbol.iterator] !== "function") throw new TypeError("values is not iterable");
-  return Array.from(values).reverse();
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/scan.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/scan.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return scan; });
-/* harmony import */ var _leastIndex_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./leastIndex.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/leastIndex.js");
-
-
-function scan(values, compare) {
-  const index = Object(_leastIndex_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values, compare);
-  return index < 0 ? undefined : index;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/set.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/set.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return set; });
-function set(values) {
-  return values instanceof Set ? values : new Set(values);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/shuffle.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/shuffle.js ***!
-  \*********************************************************************/
-/*! exports provided: default, shuffler */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shuffler", function() { return shuffler; });
-/* harmony default export */ __webpack_exports__["default"] = (shuffler(Math.random));
-
-function shuffler(random) {
-  return function shuffle(array, i0 = 0, i1 = array.length) {
-    let m = i1 - (i0 = +i0);
-    while (m) {
-      const i = random() * m-- | 0, t = array[m + i0];
-      array[m + i0] = array[i + i0];
-      array[i + i0] = t;
-    }
-    return array;
-  };
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/some.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/some.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return some; });
-function some(values, test) {
-  if (typeof test !== "function") throw new TypeError("test is not a function");
-  let index = -1;
-  for (const value of values) {
-    if (test(value, ++index, values)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/sort.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/sort.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sort; });
-/* harmony import */ var _ascending_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ascending.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/ascending.js");
-/* harmony import */ var _permute_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./permute.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/permute.js");
-
-
-
-function sort(values, ...F) {
-  if (typeof values[Symbol.iterator] !== "function") throw new TypeError("values is not iterable");
-  values = Array.from(values);
-  let [f = _ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"]] = F;
-  if (f.length === 1 || F.length > 1) {
-    const index = Uint32Array.from(values, (d, i) => i);
-    if (F.length > 1) {
-      F = F.map(f => values.map(f));
-      index.sort((i, j) => {
-        for (const f of F) {
-          const c = Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(f[i], f[j]);
-          if (c) return c;
-        }
-      });
-    } else {
-      f = values.map(f);
-      index.sort((i, j) => Object(_ascending_js__WEBPACK_IMPORTED_MODULE_0__["default"])(f[i], f[j]));
-    }
-    return Object(_permute_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, index);
-  }
-  return values.sort(f);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/subset.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/subset.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return subset; });
-/* harmony import */ var _superset_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./superset.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/superset.js");
-
-
-function subset(values, other) {
-  return Object(_superset_js__WEBPACK_IMPORTED_MODULE_0__["default"])(other, values);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/sum.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/sum.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sum; });
-function sum(values, valueof) {
-  let sum = 0;
-  if (valueof === undefined) {
-    for (let value of values) {
-      if (value = +value) {
-        sum += value;
-      }
-    }
-  } else {
-    let index = -1;
-    for (let value of values) {
-      if (value = +valueof(value, ++index, values)) {
-        sum += value;
-      }
-    }
-  }
-  return sum;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/superset.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/superset.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return superset; });
-function superset(values, other) {
-  const iterator = values[Symbol.iterator](), set = new Set();
-  for (const o of other) {
-    if (set.has(o)) continue;
-    let value, done;
-    while (({value, done} = iterator.next())) {
-      if (done) return false;
-      set.add(value);
-      if (Object.is(o, value)) break;
-    }
-  }
-  return true;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/freedmanDiaconis.js":
-/*!****************************************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/threshold/freedmanDiaconis.js ***!
-  \****************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _count_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../count.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js");
-/* harmony import */ var _quantile_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../quantile.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/quantile.js");
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function(values, min, max) {
-  return Math.ceil((max - min) / (2 * (Object(_quantile_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, 0.75) - Object(_quantile_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values, 0.25)) * Math.pow(Object(_count_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values), -1 / 3)));
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/scott.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/threshold/scott.js ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _count_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../count.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js");
-/* harmony import */ var _deviation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../deviation.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/deviation.js");
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function(values, min, max) {
-  return Math.ceil((max - min) / (3.5 * Object(_deviation_js__WEBPACK_IMPORTED_MODULE_1__["default"])(values) * Math.pow(Object(_count_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values), -1 / 3)));
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/threshold/sturges.js":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/threshold/sturges.js ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _count_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../count.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/count.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function(values) {
-  return Math.ceil(Math.log(Object(_count_js__WEBPACK_IMPORTED_MODULE_0__["default"])(values)) / Math.LN2) + 1;
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/ticks.js ***!
-  \*******************************************************************/
-/*! exports provided: default, tickIncrement, tickStep */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tickIncrement", function() { return tickIncrement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tickStep", function() { return tickStep; });
-var e10 = Math.sqrt(50),
-    e5 = Math.sqrt(10),
-    e2 = Math.sqrt(2);
-
-/* harmony default export */ __webpack_exports__["default"] = (function(start, stop, count) {
-  var reverse,
-      i = -1,
-      n,
-      ticks,
-      step;
-
-  stop = +stop, start = +start, count = +count;
-  if (start === stop && count > 0) return [start];
-  if (reverse = stop < start) n = start, start = stop, stop = n;
-  if ((step = tickIncrement(start, stop, count)) === 0 || !isFinite(step)) return [];
-
-  if (step > 0) {
-    start = Math.ceil(start / step);
-    stop = Math.floor(stop / step);
-    ticks = new Array(n = Math.ceil(stop - start + 1));
-    while (++i < n) ticks[i] = (start + i) * step;
-  } else {
-    step = -step;
-    start = Math.ceil(start * step);
-    stop = Math.floor(stop * step);
-    ticks = new Array(n = Math.ceil(stop - start + 1));
-    while (++i < n) ticks[i] = (start + i) / step;
-  }
-
-  if (reverse) ticks.reverse();
-
-  return ticks;
-});
-
-function tickIncrement(start, stop, count) {
-  var step = (stop - start) / Math.max(0, count),
-      power = Math.floor(Math.log(step) / Math.LN10),
-      error = step / Math.pow(10, power);
-  return power >= 0
-      ? (error >= e10 ? 10 : error >= e5 ? 5 : error >= e2 ? 2 : 1) * Math.pow(10, power)
-      : -Math.pow(10, -power) / (error >= e10 ? 10 : error >= e5 ? 5 : error >= e2 ? 2 : 1);
-}
-
-function tickStep(start, stop, count) {
-  var step0 = Math.abs(stop - start) / Math.max(0, count),
-      step1 = Math.pow(10, Math.floor(Math.log(step0) / Math.LN10)),
-      error = step0 / step1;
-  if (error >= e10) step1 *= 10;
-  else if (error >= e5) step1 *= 5;
-  else if (error >= e2) step1 *= 2;
-  return stop < start ? -step1 : step1;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/transpose.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/transpose.js ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _min_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./min.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/min.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function(matrix) {
-  if (!(n = matrix.length)) return [];
-  for (var i = -1, m = Object(_min_js__WEBPACK_IMPORTED_MODULE_0__["default"])(matrix, length), transpose = new Array(m); ++i < m;) {
-    for (var j = -1, n, row = transpose[i] = new Array(n); ++j < n;) {
-      row[j] = matrix[j][i];
-    }
-  }
-  return transpose;
-});
-
-function length(d) {
-  return d.length;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/union.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/union.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return union; });
-function union(...others) {
-  const set = new Set();
-  for (const other of others) {
-    for (const o of other) {
-      set.add(o);
-    }
-  }
-  return set;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/variance.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/variance.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return variance; });
-function variance(values, valueof) {
-  let count = 0;
-  let delta;
-  let mean = 0;
-  let sum = 0;
-  if (valueof === undefined) {
-    for (let value of values) {
-      if (value != null && (value = +value) >= value) {
-        delta = value - mean;
-        mean += delta / ++count;
-        sum += delta * (value - mean);
-      }
-    }
-  } else {
-    let index = -1;
-    for (let value of values) {
-      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
-        delta = value - mean;
-        mean += delta / ++count;
-        sum += delta * (value - mean);
-      }
-    }
-  }
-  if (count > 1) return sum / (count - 1);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/node_modules/d3-array/src/zip.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/d3-sankey/node_modules/d3-array/src/zip.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _transpose_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./transpose.js */ "./node_modules/d3-sankey/node_modules/d3-array/src/transpose.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function() {
-  return Object(_transpose_js__WEBPACK_IMPORTED_MODULE_0__["default"])(arguments);
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/src/align.js":
-/*!*********************************************!*\
-  !*** ./node_modules/d3-sankey/src/align.js ***!
-  \*********************************************/
-/*! exports provided: left, right, justify, center */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "left", function() { return left; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "right", function() { return right; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "justify", function() { return justify; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "center", function() { return center; });
-/* harmony import */ var d3_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3-array */ "./node_modules/d3-sankey/node_modules/d3-array/src/index.js");
-
-
-function targetDepth(d) {
-  return d.target.depth;
-}
-
-function left(node) {
-  return node.depth;
-}
-
-function right(node, n) {
-  return n - 1 - node.height;
-}
-
-function justify(node, n) {
-  return node.sourceLinks.length ? node.depth : n - 1;
-}
-
-function center(node) {
-  return node.targetLinks.length ? node.depth
-      : node.sourceLinks.length ? Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["min"])(node.sourceLinks, targetDepth) - 1
-      : 0;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/src/constant.js":
-/*!************************************************!*\
-  !*** ./node_modules/d3-sankey/src/constant.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return constant; });
-function constant(x) {
-  return function() {
-    return x;
-  };
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/src/index.js":
-/*!*********************************************!*\
-  !*** ./node_modules/d3-sankey/src/index.js ***!
-  \*********************************************/
-/*! exports provided: sankey, sankeyCenter, sankeyLeft, sankeyRight, sankeyJustify, sankeyLinkHorizontal */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _sankey_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sankey.js */ "./node_modules/d3-sankey/src/sankey.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankey", function() { return _sankey_js__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony import */ var _align_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./align.js */ "./node_modules/d3-sankey/src/align.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyCenter", function() { return _align_js__WEBPACK_IMPORTED_MODULE_1__["center"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyLeft", function() { return _align_js__WEBPACK_IMPORTED_MODULE_1__["left"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyRight", function() { return _align_js__WEBPACK_IMPORTED_MODULE_1__["right"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyJustify", function() { return _align_js__WEBPACK_IMPORTED_MODULE_1__["justify"]; });
-
-/* harmony import */ var _sankeyLinkHorizontal_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sankeyLinkHorizontal.js */ "./node_modules/d3-sankey/src/sankeyLinkHorizontal.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sankeyLinkHorizontal", function() { return _sankeyLinkHorizontal_js__WEBPACK_IMPORTED_MODULE_2__["default"]; });
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/src/sankey.js":
-/*!**********************************************!*\
-  !*** ./node_modules/d3-sankey/src/sankey.js ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Sankey; });
-/* harmony import */ var d3_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3-array */ "./node_modules/d3-sankey/node_modules/d3-array/src/index.js");
-/* harmony import */ var _align_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./align.js */ "./node_modules/d3-sankey/src/align.js");
-/* harmony import */ var _constant_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constant.js */ "./node_modules/d3-sankey/src/constant.js");
-
-
-
-
-function ascendingSourceBreadth(a, b) {
-  return ascendingBreadth(a.source, b.source) || a.index - b.index;
-}
-
-function ascendingTargetBreadth(a, b) {
-  return ascendingBreadth(a.target, b.target) || a.index - b.index;
-}
-
-function ascendingBreadth(a, b) {
-  return a.y0 - b.y0;
-}
-
-function value(d) {
-  return d.value;
-}
-
-function defaultId(d) {
-  return d.index;
-}
-
-function defaultNodes(graph) {
-  return graph.nodes;
-}
-
-function defaultLinks(graph) {
-  return graph.links;
-}
-
-function find(nodeById, id) {
-  const node = nodeById.get(id);
-  if (!node) throw new Error("missing: " + id);
-  return node;
-}
-
-function computeLinkBreadths({nodes}) {
-  for (const node of nodes) {
-    let y0 = node.y0;
-    let y1 = y0;
-    for (const link of node.sourceLinks) {
-      link.y0 = y0 + link.width / 2;
-      y0 += link.width;
-    }
-    for (const link of node.targetLinks) {
-      link.y1 = y1 + link.width / 2;
-      y1 += link.width;
-    }
-  }
-}
-
-function Sankey() {
-  let x0 = 0, y0 = 0, x1 = 1, y1 = 1; // extent
-  let dx = 24; // nodeWidth
-  let dy = 8, py; // nodePadding
-  let id = defaultId;
-  let align = _align_js__WEBPACK_IMPORTED_MODULE_1__["justify"];
-  let sort;
-  let linkSort;
-  let nodes = defaultNodes;
-  let links = defaultLinks;
-  let iterations = 6;
-
-  function sankey() {
-    const graph = {nodes: nodes.apply(null, arguments), links: links.apply(null, arguments)};
-    computeNodeLinks(graph);
-    computeNodeValues(graph);
-    computeNodeDepths(graph);
-    computeNodeHeights(graph);
-    computeNodeBreadths(graph);
-    computeLinkBreadths(graph);
-    return graph;
-  }
-
-  sankey.update = function(graph) {
-    computeLinkBreadths(graph);
-    return graph;
-  };
-
-  sankey.nodeId = function(_) {
-    return arguments.length ? (id = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), sankey) : id;
-  };
-
-  sankey.nodeAlign = function(_) {
-    return arguments.length ? (align = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), sankey) : align;
-  };
-
-  sankey.nodeSort = function(_) {
-    return arguments.length ? (sort = _, sankey) : sort;
-  };
-
-  sankey.nodeWidth = function(_) {
-    return arguments.length ? (dx = +_, sankey) : dx;
-  };
-
-  sankey.nodePadding = function(_) {
-    return arguments.length ? (dy = py = +_, sankey) : dy;
-  };
-
-  sankey.nodes = function(_) {
-    return arguments.length ? (nodes = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), sankey) : nodes;
-  };
-
-  sankey.links = function(_) {
-    return arguments.length ? (links = typeof _ === "function" ? _ : Object(_constant_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_), sankey) : links;
-  };
-
-  sankey.linkSort = function(_) {
-    return arguments.length ? (linkSort = _, sankey) : linkSort;
-  };
-
-  sankey.size = function(_) {
-    return arguments.length ? (x0 = y0 = 0, x1 = +_[0], y1 = +_[1], sankey) : [x1 - x0, y1 - y0];
-  };
-
-  sankey.extent = function(_) {
-    return arguments.length ? (x0 = +_[0][0], x1 = +_[1][0], y0 = +_[0][1], y1 = +_[1][1], sankey) : [[x0, y0], [x1, y1]];
-  };
-
-  sankey.iterations = function(_) {
-    return arguments.length ? (iterations = +_, sankey) : iterations;
-  };
-
-  function computeNodeLinks({nodes, links}) {
-    for (const [i, node] of nodes.entries()) {
-      node.index = i;
-      node.sourceLinks = [];
-      node.targetLinks = [];
-    }
-    const nodeById = new Map(nodes.map((d, i) => [id(d, i, nodes), d]));
-    for (const [i, link] of links.entries()) {
-      link.index = i;
-      let {source, target} = link;
-      if (typeof source !== "object") source = link.source = find(nodeById, source);
-      if (typeof target !== "object") target = link.target = find(nodeById, target);
-      source.sourceLinks.push(link);
-      target.targetLinks.push(link);
-    }
-    if (linkSort != null) {
-      for (const {sourceLinks, targetLinks} of nodes) {
-        sourceLinks.sort(linkSort);
-        targetLinks.sort(linkSort);
-      }
-    }
-  }
-
-  function computeNodeValues({nodes}) {
-    for (const node of nodes) {
-      node.value = node.fixedValue === undefined
-          ? Math.max(Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["sum"])(node.sourceLinks, value), Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["sum"])(node.targetLinks, value))
-          : node.fixedValue;
-    }
-  }
-
-  function computeNodeDepths({nodes}) {
-    const n = nodes.length;
-    let current = new Set(nodes);
-    let next = new Set;
-    let x = 0;
-    while (current.size) {
-      for (const node of current) {
-        node.depth = x;
-        for (const {target} of node.sourceLinks) {
-          next.add(target);
-        }
-      }
-      if (++x > n) throw new Error("circular link");
-      current = next;
-      next = new Set;
-    }
-  }
-
-  function computeNodeHeights({nodes}) {
-    const n = nodes.length;
-    let current = new Set(nodes);
-    let next = new Set;
-    let x = 0;
-    while (current.size) {
-      for (const node of current) {
-        node.height = x;
-        for (const {source} of node.targetLinks) {
-          next.add(source);
-        }
-      }
-      if (++x > n) throw new Error("circular link");
-      current = next;
-      next = new Set;
-    }
-  }
-
-  function computeNodeLayers({nodes}) {
-    const x = Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["max"])(nodes, d => d.depth) + 1;
-    const kx = (x1 - x0 - dx) / (x - 1);
-    const columns = new Array(x);
-    for (const node of nodes) {
-      const i = Math.max(0, Math.min(x - 1, Math.floor(align.call(null, node, x))));
-      node.layer = i;
-      node.x0 = x0 + i * kx;
-      node.x1 = node.x0 + dx;
-      if (columns[i]) columns[i].push(node);
-      else columns[i] = [node];
-    }
-    if (sort) for (const column of columns) {
-      column.sort(sort);
-    }
-    return columns;
-  }
-
-  function initializeNodeBreadths(columns) {
-    const ky = Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["min"])(columns, c => (y1 - y0 - (c.length - 1) * py) / Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["sum"])(c, value));
-    for (const nodes of columns) {
-      let y = y0;
-      for (const node of nodes) {
-        node.y0 = y;
-        node.y1 = y + node.value * ky;
-        y = node.y1 + py;
-        for (const link of node.sourceLinks) {
-          link.width = link.value * ky;
-        }
-      }
-      y = (y1 - y + py) / (nodes.length + 1);
-      for (let i = 0; i < nodes.length; ++i) {
-        const node = nodes[i];
-        node.y0 += y * (i + 1);
-        node.y1 += y * (i + 1);
-      }
-      reorderLinks(nodes);
-    }
-  }
-
-  function computeNodeBreadths(graph) {
-    const columns = computeNodeLayers(graph);
-    py = Math.min(dy, (y1 - y0) / (Object(d3_array__WEBPACK_IMPORTED_MODULE_0__["max"])(columns, c => c.length) - 1));
-    initializeNodeBreadths(columns);
-    for (let i = 0; i < iterations; ++i) {
-      const alpha = Math.pow(0.99, i);
-      const beta = Math.max(1 - alpha, (i + 1) / iterations);
-      relaxRightToLeft(columns, alpha, beta);
-      relaxLeftToRight(columns, alpha, beta);
-    }
-  }
-
-  // Reposition each node based on its incoming (target) links.
-  function relaxLeftToRight(columns, alpha, beta) {
-    for (let i = 1, n = columns.length; i < n; ++i) {
-      const column = columns[i];
-      for (const target of column) {
-        let y = 0;
-        let w = 0;
-        for (const {source, value} of target.targetLinks) {
-          let v = value * (target.layer - source.layer);
-          y += targetTop(source, target) * v;
-          w += v;
-        }
-        if (!(w > 0)) continue;
-        let dy = (y / w - target.y0) * alpha;
-        target.y0 += dy;
-        target.y1 += dy;
-        reorderNodeLinks(target);
-      }
-      if (sort === undefined) column.sort(ascendingBreadth);
-      resolveCollisions(column, beta);
-    }
-  }
-
-  // Reposition each node based on its outgoing (source) links.
-  function relaxRightToLeft(columns, alpha, beta) {
-    for (let n = columns.length, i = n - 2; i >= 0; --i) {
-      const column = columns[i];
-      for (const source of column) {
-        let y = 0;
-        let w = 0;
-        for (const {target, value} of source.sourceLinks) {
-          let v = value * (target.layer - source.layer);
-          y += sourceTop(source, target) * v;
-          w += v;
-        }
-        if (!(w > 0)) continue;
-        let dy = (y / w - source.y0) * alpha;
-        source.y0 += dy;
-        source.y1 += dy;
-        reorderNodeLinks(source);
-      }
-      if (sort === undefined) column.sort(ascendingBreadth);
-      resolveCollisions(column, beta);
-    }
-  }
-
-  function resolveCollisions(nodes, alpha) {
-    const i = nodes.length >> 1;
-    const subject = nodes[i];
-    resolveCollisionsBottomToTop(nodes, subject.y0 - py, i - 1, alpha);
-    resolveCollisionsTopToBottom(nodes, subject.y1 + py, i + 1, alpha);
-    resolveCollisionsBottomToTop(nodes, y1, nodes.length - 1, alpha);
-    resolveCollisionsTopToBottom(nodes, y0, 0, alpha);
-  }
-
-  // Push any overlapping nodes down.
-  function resolveCollisionsTopToBottom(nodes, y, i, alpha) {
-    for (; i < nodes.length; ++i) {
-      const node = nodes[i];
-      const dy = (y - node.y0) * alpha;
-      if (dy > 1e-6) node.y0 += dy, node.y1 += dy;
-      y = node.y1 + py;
-    }
-  }
-
-  // Push any overlapping nodes up.
-  function resolveCollisionsBottomToTop(nodes, y, i, alpha) {
-    for (; i >= 0; --i) {
-      const node = nodes[i];
-      const dy = (node.y1 - y) * alpha;
-      if (dy > 1e-6) node.y0 -= dy, node.y1 -= dy;
-      y = node.y0 - py;
-    }
-  }
-
-  function reorderNodeLinks({sourceLinks, targetLinks}) {
-    if (linkSort === undefined) {
-      for (const {source: {sourceLinks}} of targetLinks) {
-        sourceLinks.sort(ascendingTargetBreadth);
-      }
-      for (const {target: {targetLinks}} of sourceLinks) {
-        targetLinks.sort(ascendingSourceBreadth);
-      }
-    }
-  }
-
-  function reorderLinks(nodes) {
-    if (linkSort === undefined) {
-      for (const {sourceLinks, targetLinks} of nodes) {
-        sourceLinks.sort(ascendingTargetBreadth);
-        targetLinks.sort(ascendingSourceBreadth);
-      }
-    }
-  }
-
-  // Returns the target.y0 that would produce an ideal link from source to target.
-  function targetTop(source, target) {
-    let y = source.y0 - (source.sourceLinks.length - 1) * py / 2;
-    for (const {target: node, width} of source.sourceLinks) {
-      if (node === target) break;
-      y += width + py;
-    }
-    for (const {source: node, width} of target.targetLinks) {
-      if (node === source) break;
-      y -= width;
-    }
-    return y;
-  }
-
-  // Returns the source.y0 that would produce an ideal link from source to target.
-  function sourceTop(source, target) {
-    let y = target.y0 - (target.targetLinks.length - 1) * py / 2;
-    for (const {source: node, width} of target.targetLinks) {
-      if (node === source) break;
-      y += width + py;
-    }
-    for (const {target: node, width} of source.sourceLinks) {
-      if (node === target) break;
-      y -= width;
-    }
-    return y;
-  }
-
-  return sankey;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/d3-sankey/src/sankeyLinkHorizontal.js":
-/*!************************************************************!*\
-  !*** ./node_modules/d3-sankey/src/sankeyLinkHorizontal.js ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var d3_shape__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3-shape */ "./node_modules/d3-shape/src/index.js");
-
-
-function horizontalSource(d) {
-  return [d.source.x1, d.y0];
-}
-
-function horizontalTarget(d) {
-  return [d.target.x0, d.y1];
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (function() {
-  return Object(d3_shape__WEBPACK_IMPORTED_MODULE_0__["linkHorizontal"])()
-      .source(horizontalSource)
-      .target(horizontalTarget);
-});
-
-
-/***/ }),
-
 /***/ "./node_modules/d3-scale-chromatic/src/categorical/Accent.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/d3-scale-chromatic/src/categorical/Accent.js ***!
@@ -34450,6 +31778,253 @@ var c = -0.5,
 
 /***/ }),
 
+/***/ "./node_modules/d3-symbol-extra/build/d3-symbol-extra.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/d3-symbol-extra/build/d3-symbol-extra.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+   true ? factory(exports) :
+  undefined;
+}(this, (function (exports) { 'use strict';
+
+// Direct variations of `symbolTriangle` from d3-shape.
+var sqrt3 = Math.sqrt(3);
+
+var triangleDown = {
+  draw: function(context, size) {
+    var y = -Math.sqrt(size / (sqrt3 * 3));
+    context.moveTo(0, -y * 2);
+    context.lineTo(-sqrt3 * y, y);
+    context.lineTo(sqrt3 * y, y);
+    context.closePath();
+  }
+};
+
+var triangleLeft = {
+  draw: function(context, size) {
+    var x = -Math.sqrt(size / (sqrt3 * 3));
+    context.moveTo(x * 2, 0);
+    context.lineTo(-x, -sqrt3 * x);
+    context.lineTo(-x, sqrt3 * x);
+    context.closePath();
+  }
+};
+
+var triangleRight = {
+  draw: function(context, size) {
+    var x = -Math.sqrt(size / (sqrt3 * 3));
+    context.moveTo(-x * 2, 0);
+    context.lineTo(x, -sqrt3 * x);
+    context.lineTo(x, sqrt3 * x);
+    context.closePath();
+  }
+};
+
+// Direct variation of `symbolDiamond` from d3-shape.
+
+var tan30 = Math.sqrt(1 / 3);
+var tan30_2 = tan30 * 2;
+
+var diamondAlt = {
+  draw: function(context, size) {
+    var x = Math.sqrt(size / tan30_2);
+    var y = x * tan30;
+
+    context.moveTo(0, -y);
+    context.lineTo(x, 0);
+    context.lineTo(0, y);
+    context.lineTo(-x, 0);
+
+    context.closePath();
+  }
+};
+
+var diamondSquare = {
+  draw: function(context, size) {
+    var w = Math.sqrt(size);
+    var d = w / 2 * Math.sqrt(2);
+
+    context.moveTo(0, -d);
+    context.lineTo(d, 0);
+    context.lineTo(0, d);
+    context.lineTo(-d, 0);
+
+    context.closePath();
+  }
+};
+
+var pi = Math.PI;
+var tau = 2 * pi;
+
+function rotatePoint(x, y, theta) {
+  return [
+    Math.cos(theta) * x + -Math.sin(theta) * y, // x
+    Math.sin(theta) * x + Math.cos(theta) * y,  // y
+  ];
+}
+
+// Pentagon reference: http://mathworld.wolfram.com/Pentagon.html
+var circumradiusCoeff = 1/10 * Math.sqrt(50 + 10 * Math.sqrt(5)); // ~ 0.85065080835204
+
+function circumradius(side) { return side * circumradiusCoeff; }
+
+function sideLength(area) {
+  var num = 4 * area;
+  var denom = Math.sqrt(5 * (5 + 2 * Math.sqrt(5))); // ~ 6.881909602355868
+
+  return Math.sqrt(num / denom);
+}
+
+var pentagon = {
+  draw: function(context, size) {
+    var s = sideLength(size);
+    var R = circumradius(s);
+    var theta = -tau / 4; // Rotate 1/4 turn back so the shape is oriented with a point upward.
+
+    context.moveTo.apply(context, rotatePoint(R, 0, theta));
+
+    for (var i = 0; i < 5; ++i) {
+      var a = tau * i / 5;
+      var x = Math.cos(a) * R;
+      var y = Math.sin(a) * R;
+
+      context.lineTo.apply(context, rotatePoint(x, y, theta));
+    }
+
+    context.closePath();
+  }
+};
+
+// Hexagon reference: http://mathworld.wolfram.com/Hexagon.html
+function sideLength$1(area) {
+  var num = 2 * area;
+  var denom = 3 * Math.sqrt(3);
+  return Math.sqrt(num / denom);
+}
+
+function drawBuild(theta) {
+  var t = theta || 0;
+
+  return function draw(context, size) {
+    var s = sideLength$1(size);
+    var R = s;
+
+    context.moveTo.apply(context, rotatePoint(R, 0, t));
+
+    for (var i = 0; i < 6; ++i) {
+      var a = tau * i / 6;
+      var x = Math.cos(a) * R;
+      var y = Math.sin(a) * R;
+
+      context.lineTo.apply(context, rotatePoint(x, y, t));
+    }
+
+    context.closePath();
+  };
+}
+
+var hexagon = {
+  draw: drawBuild(tau / 12) // Rotate 1/12 turn back so the shape is oriented with a point upward.
+};
+
+var hexagonAlt = {
+  draw: drawBuild()
+};
+
+// Octagon reference: http://mathworld.wolfram.com/Octagon.html
+var circumradiusCoeff$1 = 1/2 * Math.sqrt(4 + 2 * Math.sqrt(2)); // ~ 1.3065629648763766
+
+function circumradius$1(side) { return side * circumradiusCoeff$1; }
+
+function sideLength$2(area) {
+  var num = area * (1 - Math.sqrt(2));
+  var denom = 2;
+  return Math.sqrt(-1 * num / denom);
+}
+
+function drawBuild$1(theta) {
+  var t = theta || 0;
+
+  return function draw(context, size) {
+    var s = sideLength$2(size);
+    var R = circumradius$1(s);
+
+    context.moveTo.apply(context, rotatePoint(R, 0, t));
+
+    for (var i = 0; i < 8; ++i) {
+      var a = tau * i / 8;
+      var x = Math.cos(a) * R;
+      var y = Math.sin(a) * R;
+
+      context.lineTo.apply(context, rotatePoint(x, y, t));
+    }
+
+    context.closePath();
+  };
+}
+
+var octagon = {
+  draw: drawBuild$1()
+};
+
+var octagonAlt = {
+  draw: drawBuild$1(tau / 16) // Rotate 1/16 turn back so the shape is oriented with flat top and bottom.
+};
+
+// Direct variation of `symbolCross` from d3-shape.
+var x = {
+  draw: function(context, size) {
+    var r = Math.sqrt(size / 5) / 2;
+    var theta = tau / 8;
+
+    // Use the same construction points as `symbolCross` and rotate 1/8 turn.
+    var points = [
+      rotatePoint(-3 * r, -r, theta),
+      rotatePoint(-r, -r, theta),
+      rotatePoint(-r, -3 * r, theta),
+      rotatePoint(r, -3 * r, theta),
+      rotatePoint(r, -r, theta),
+      rotatePoint(3 * r, -r, theta),
+      rotatePoint(3 * r, r, theta),
+      rotatePoint(r, r, theta),
+      rotatePoint(r, 3 * r, theta),
+      rotatePoint(-r, 3 * r, theta),
+      rotatePoint(-r, r, theta),
+      rotatePoint(-3 * r, r, theta)
+    ];
+
+    context.moveTo.apply(context, points.pop());
+    
+    for (var i = 0; i < points.length; i++) {
+      context.lineTo.apply(context, points[i]);
+    }
+
+    context.closePath();
+  }
+};
+
+exports.symbolTriangleDown = triangleDown;
+exports.symbolTriangleLeft = triangleLeft;
+exports.symbolTriangleRight = triangleRight;
+exports.symbolDiamondAlt = diamondAlt;
+exports.symbolDiamondSquare = diamondSquare;
+exports.symbolPentagon = pentagon;
+exports.symbolHexagon = hexagon;
+exports.symbolHexagonAlt = hexagonAlt;
+exports.symbolOctagon = octagon;
+exports.symbolOctagonAlt = octagonAlt;
+exports.symbolCrossAlt = x;
+exports.symbolX = x;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+
+/***/ }),
+
 /***/ "./node_modules/d3-time-format/src/defaultLocale.js":
 /*!**********************************************************!*\
   !*** ./node_modules/d3-time-format/src/defaultLocale.js ***!
@@ -40664,236 +38239,6 @@ hat.rack = function (bits, base, expandBy) {
     fn.base = base || 16;
     return fn;
 };
-
-
-/***/ }),
-
-/***/ "./node_modules/image-ssim/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/image-ssim/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * @preserve
- * Copyright 2015 Igor Bezkrovny
- * All rights reserved. (MIT Licensed)
- *
- * ssim.ts - part of Image Quantization Library
- */
-/**
- * - Original TypeScript implementation:
- *   https://github.com/igor-bezkrovny/image-quantization/blob/9f62764ac047c3e53accdf1d7e4e424b0ef2fb60/src/quality/ssim.ts
- * - Based on Java implementation: https://github.com/rhys-e/structural-similarity
- * - For more information see: http://en.wikipedia.org/wiki/Structural_similarity
- */
-var ImageSSIM;
-(function (ImageSSIM) {
-    'use strict';
-    /**
-     * Grey = 1, GreyAlpha = 2, RGB = 3, RGBAlpha = 4
-     */
-    (function (Channels) {
-        Channels[Channels["Grey"] = 1] = "Grey";
-        Channels[Channels["GreyAlpha"] = 2] = "GreyAlpha";
-        Channels[Channels["RGB"] = 3] = "RGB";
-        Channels[Channels["RGBAlpha"] = 4] = "RGBAlpha";
-    })(ImageSSIM.Channels || (ImageSSIM.Channels = {}));
-    var Channels = ImageSSIM.Channels;
-    /**
-     * Entry point.
-     * @throws new Error('Images have different sizes!')
-     */
-    function compare(image1, image2, windowSize, K1, K2, luminance, bitsPerComponent) {
-        if (windowSize === void 0) { windowSize = 8; }
-        if (K1 === void 0) { K1 = 0.01; }
-        if (K2 === void 0) { K2 = 0.03; }
-        if (luminance === void 0) { luminance = true; }
-        if (bitsPerComponent === void 0) { bitsPerComponent = 8; }
-        if (image1.width !== image2.width || image1.height !== image2.height) {
-            throw new Error('Images have different sizes!');
-        }
-        /* tslint:disable:no-bitwise */
-        var L = (1 << bitsPerComponent) - 1;
-        /* tslint:enable:no-bitwise */
-        var c1 = Math.pow((K1 * L), 2), c2 = Math.pow((K2 * L), 2), numWindows = 0, mssim = 0.0;
-        var mcs = 0.0;
-        function iteration(lumaValues1, lumaValues2, averageLumaValue1, averageLumaValue2) {
-            // calculate variance and covariance
-            var sigxy, sigsqx, sigsqy;
-            sigxy = sigsqx = sigsqy = 0.0;
-            for (var i = 0; i < lumaValues1.length; i++) {
-                sigsqx += Math.pow((lumaValues1[i] - averageLumaValue1), 2);
-                sigsqy += Math.pow((lumaValues2[i] - averageLumaValue2), 2);
-                sigxy += (lumaValues1[i] - averageLumaValue1) * (lumaValues2[i] - averageLumaValue2);
-            }
-            var numPixelsInWin = lumaValues1.length - 1;
-            sigsqx /= numPixelsInWin;
-            sigsqy /= numPixelsInWin;
-            sigxy /= numPixelsInWin;
-            // perform ssim calculation on window
-            var numerator = (2 * averageLumaValue1 * averageLumaValue2 + c1) * (2 * sigxy + c2);
-            var denominator = (Math.pow(averageLumaValue1, 2) + Math.pow(averageLumaValue2, 2) + c1) * (sigsqx + sigsqy + c2);
-            mssim += numerator / denominator;
-            mcs += (2 * sigxy + c2) / (sigsqx + sigsqy + c2);
-            numWindows++;
-        }
-        // calculate SSIM for each window
-        Internals._iterate(image1, image2, windowSize, luminance, iteration);
-        return { ssim: mssim / numWindows, mcs: mcs / numWindows };
-    }
-    ImageSSIM.compare = compare;
-    /**
-     * Internal functions.
-     */
-    var Internals;
-    (function (Internals) {
-        function _iterate(image1, image2, windowSize, luminance, callback) {
-            var width = image1.width, height = image1.height;
-            for (var y = 0; y < height; y += windowSize) {
-                for (var x = 0; x < width; x += windowSize) {
-                    // avoid out-of-width/height
-                    var windowWidth = Math.min(windowSize, width - x), windowHeight = Math.min(windowSize, height - y);
-                    var lumaValues1 = _lumaValuesForWindow(image1, x, y, windowWidth, windowHeight, luminance), lumaValues2 = _lumaValuesForWindow(image2, x, y, windowWidth, windowHeight, luminance), averageLuma1 = _averageLuma(lumaValues1), averageLuma2 = _averageLuma(lumaValues2);
-                    callback(lumaValues1, lumaValues2, averageLuma1, averageLuma2);
-                }
-            }
-        }
-        Internals._iterate = _iterate;
-        function _lumaValuesForWindow(image, x, y, width, height, luminance) {
-            var array = image.data, lumaValues = new Float32Array(new ArrayBuffer(width * height * 4)), counter = 0;
-            var maxj = y + height;
-            for (var j = y; j < maxj; j++) {
-                var offset = j * image.width;
-                var i = (offset + x) * image.channels;
-                var maxi = (offset + x + width) * image.channels;
-                switch (image.channels) {
-                    case 1 /* Grey */:
-                        while (i < maxi) {
-                            // (0.212655 +  0.715158 + 0.072187) === 1
-                            lumaValues[counter++] = array[i++];
-                        }
-                        break;
-                    case 2 /* GreyAlpha */:
-                        while (i < maxi) {
-                            lumaValues[counter++] = array[i++] * (array[i++] / 255);
-                        }
-                        break;
-                    case 3 /* RGB */:
-                        if (luminance) {
-                            while (i < maxi) {
-                                lumaValues[counter++] = (array[i++] * 0.212655 + array[i++] * 0.715158 + array[i++] * 0.072187);
-                            }
-                        }
-                        else {
-                            while (i < maxi) {
-                                lumaValues[counter++] = (array[i++] + array[i++] + array[i++]);
-                            }
-                        }
-                        break;
-                    case 4 /* RGBAlpha */:
-                        if (luminance) {
-                            while (i < maxi) {
-                                lumaValues[counter++] = (array[i++] * 0.212655 + array[i++] * 0.715158 + array[i++] * 0.072187) * (array[i++] / 255);
-                            }
-                        }
-                        else {
-                            while (i < maxi) {
-                                lumaValues[counter++] = (array[i++] + array[i++] + array[i++]) * (array[i++] / 255);
-                            }
-                        }
-                        break;
-                }
-            }
-            return lumaValues;
-        }
-        function _averageLuma(lumaValues) {
-            var sumLuma = 0.0;
-            for (var i = 0; i < lumaValues.length; i++) {
-                sumLuma += lumaValues[i];
-            }
-            return sumLuma / lumaValues.length;
-        }
-    })(Internals || (Internals = {}));
-})(ImageSSIM || (ImageSSIM = {}));
-module.exports = ImageSSIM;
-
-
-/***/ }),
-
-/***/ "./node_modules/internmap/src/index.js":
-/*!*********************************************!*\
-  !*** ./node_modules/internmap/src/index.js ***!
-  \*********************************************/
-/*! exports provided: InternMap, InternSet */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InternMap", function() { return InternMap; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InternSet", function() { return InternSet; });
-class InternMap extends Map {
-  constructor(entries = [], key = keyof) {
-    super();
-    Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
-    for (const [key, value] of entries) this.set(key, value);
-  }
-  get(key) {
-    return super.get(intern_get(this, key));
-  }
-  has(key) {
-    return super.has(intern_get(this, key));
-  }
-  set(key, value) {
-    return super.set(intern_set(this, key), value);
-  }
-  delete(key) {
-    return super.delete(intern_delete(this, key));
-  }
-}
-
-class InternSet extends Set {
-  constructor(values = [], key = keyof) {
-    super();
-    Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
-    for (const value of values) this.add(value);
-  }
-  has(value) {
-    return super.has(intern_get(this, value));
-  }
-  add(value) {
-    return super.add(intern_set(this, value));
-  }
-  delete(value) {
-    return super.delete(intern_delete(this, value));
-  }
-}
-
-function intern_get({_intern, _key}, value) {
-  const key = _key(value);
-  return _intern.has(key) ? _intern.get(key) : value;
-}
-
-function intern_set({_intern, _key}, value) {
-  const key = _key(value);
-  if (_intern.has(key)) return _intern.get(key);
-  _intern.set(key, value);
-  return value;
-}
-
-function intern_delete({_intern, _key}, value) {
-  const key = _key(value);
-  if (_intern.has(key)) {
-    value = _intern.get(value);
-    _intern.delete(key);
-  }
-  return value;
-}
-
-function keyof(value) {
-  return value !== null && typeof value === "object" ? value.valueOf() : value;
-}
 
 
 /***/ }),
@@ -55983,36 +53328,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./src/css/parsets.css":
-/*!*****************************!*\
-  !*** ./src/css/parsets.css ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../node_modules/css-loader!./parsets.css */ "./node_modules/css-loader/index.js!./src/css/parsets.css");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./src/css/right.css":
 /*!***************************!*\
   !*** ./src/css/right.css ***!
@@ -56047,20 +53362,20 @@ if(false) {}
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! exports provided: main_regions, main_all_trips, main_all_streets, main_predicted_trips, main_mouse_coord, main_states, main_init, main_redraw_map, main_set_maplayer_index, main_trip_study, main_trip_study_init */
+/*! exports provided: main_states, main_all_zipcodes, main_processed_zipcodes, main_all_trips, main_processed_trips, main_mouse_coord, main_region, main_init, main_init_visualization, main_trip_study, main_trip_study_init */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($, d3) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_regions", function() { return main_regions; });
+/* WEBPACK VAR INJECTION */(function(turf, d3, $) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_states", function() { return main_states; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_all_zipcodes", function() { return main_all_zipcodes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_processed_zipcodes", function() { return main_processed_zipcodes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_all_trips", function() { return main_all_trips; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_all_streets", function() { return main_all_streets; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_predicted_trips", function() { return main_predicted_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_processed_trips", function() { return main_processed_trips; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_mouse_coord", function() { return main_mouse_coord; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_states", function() { return main_states; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_region", function() { return main_region; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_init", function() { return main_init; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_redraw_map", function() { return main_redraw_map; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_set_maplayer_index", function() { return main_set_maplayer_index; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_init_visualization", function() { return main_init_visualization; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_trip_study", function() { return main_trip_study; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main_trip_study_init", function() { return main_trip_study_init; });
 /* harmony import */ var _node_modules_mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/mapbox-gl/dist/mapbox-gl.css */ "./node_modules/mapbox-gl/dist/mapbox-gl.css");
@@ -56077,14 +53392,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_middle_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_css_middle_css__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _css_right_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./css/right.css */ "./src/css/right.css");
 /* harmony import */ var _css_right_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_css_right_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _css_parsets_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./css/parsets.css */ "./src/css/parsets.css");
-/* harmony import */ var _css_parsets_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_css_parsets_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _js_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/map */ "./src/js/map.js");
-/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/utils */ "./src/js/utils.js");
-/* harmony import */ var _js_view__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/view */ "./src/js/view.js");
-/* harmony import */ var _js_query__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./js/query */ "./src/js/query.js");
-/* harmony import */ var _js_vis__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./js/vis */ "./src/js/vis.js");
-/* harmony import */ var _js_filter__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./js/filter */ "./src/js/filter.js");
+/* harmony import */ var _js_map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/map */ "./src/js/map.js");
+/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/utils */ "./src/js/utils.js");
+/* harmony import */ var _js_query__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/query */ "./src/js/query.js");
+/* harmony import */ var _js_vis__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/vis */ "./src/js/vis.js");
+/* harmony import */ var _js_filter__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./js/filter */ "./src/js/filter.js");
+/* harmony import */ var _js_view__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./js/view */ "./src/js/view.js");
+
+
+
+//import '../node_modules/@simonwep/pickr/dist/themes/nano.min.css';
+
+
+
+
+//import './css/parsets.css';
 
 
 
@@ -56098,330 +53420,257 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-var main_regions = undefined;
-var main_all_trips = undefined;
-var main_all_streets = undefined;
-var main_predicted_trips = undefined;
-var main_mouse_coord = undefined;
-
+// State of views
 var main_states = {
     global: true,
     trip: false
-};
 
-Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_initialize"])('map');
+    // Zipcode levels
+};var main_all_zipcodes = undefined;
+var main_processed_zipcodes = undefined;
+// Trip levels
+var main_all_trips = undefined;
+var main_processed_trips = undefined;
+// Mouse coordinates
+var main_mouse_coord = undefined;
+var main_region = undefined;
+
+// Initialize map
+Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_initialize"])('map');
 
 // Fire when map finished loading
-_js_map__WEBPACK_IMPORTED_MODULE_8__["map_main"].on('load', function () {
+_js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].on('load', function () {
     main_init();
 });
 
 function main_init() {
 
     // Initialize all map components
-    Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_add_draw_controls"])();
-    Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_add_minimap"])();
+    Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_add_draw_controls"])();
+    Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_add_minimap"])();
 
     // Set axios interceptors
-    Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_axios_interceptors"])();
+    Object(_js_utils__WEBPACK_IMPORTED_MODULE_8__["util_axios_interceptors"])();
 
-    // Query road network
-    Object(_js_query__WEBPACK_IMPORTED_MODULE_11__["query_find_roadnetwork_intersection"])().then(function (roadnetwork_data) {
-        main_roadnetwork = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_roadnetwork"])(roadnetwork_data);
-        console.log(main_roadnetwork);
-        /*
-        main_get_streets().then(function(street_data) {
-            main_all_streets = util_compute_street_data(street_data);
-            let selected_streets = [];
-            let trip_counts = [];
-            for (let i = 0; i < main_all_streets.length; ++i) {
-                let name = main_all_streets[i].name;
-                let pos = features.map(function(x) {
-                    return x.name;
-                }).indexOf(name);
-                if (pos >= 0) {
-                    trip_counts.push(main_all_streets[i]['trip_ids'].length);
-                    features[pos]['count'] = main_all_streets[i]['trip_ids'].length;
-                    selected_streets.push(features[pos]);
-                }
-            }
-             let color = d3.scaleLinear()
-                .domain([0, d3.mean(trip_counts), d3.max(trip_counts)])
-                .range(['#14717F','#F5C677','#C13224']); //0D6D54
-                 // 1. ['#2E2E2E','#fdae61','#981328']
-             let opacity = d3.scaleLinear()
-                .domain([0, d3.mean(trip_counts), d3.max(trip_counts)])
-                .range([0.4,0.5,1]);
-             let display_features = [];
-            selected_streets.forEach(function (street) {
-                street.multiLineString.properties.color = color(street['count']);
-                street.multiLineString.properties.opacity = opacity(street['count']);
-                display_features.push(street.multiLineString);
-            });
-             let feature_collection = turf.featureCollection(display_features);
-             map_remove_layer('roads-highlight');
-            map_main.addSource('roads-highlight', {
-                type: 'geojson',
-                data: feature_collection
-            });
-            let trajectory_layer = {
-                id: 'roads-highlight',
-                type: 'line',
-                source: 'roads-highlight',
-                layout: {
-                    'line-join': 'round',
-                    'line-cap': 'butt'
-                },
-                paint: {
-                    'line-color': ['get', 'color'],
-                    'line-width': [
-                        'interpolate',
-                        ['linear'],
-                        ['zoom'],
-                        10,
-                        1,
-                        15,
-                        4
-                    ],
-                    'line-opacity': ['get', 'opacity']
-                }
-            }
-            map_main.addLayer(trajectory_layer);
-        });*/
-    });
+    // Get map bouning box
+    main_get_all_datasets().then(function () {
 
-    // Get all trips from database
-    /*
-    main_get_dataset().then(function (trip_data) {
-        util_preprocess_data(trip_data).then(function (processed_data) {
-             // Set global of all trips
+        // Compute prediction vectors
+        Object(_js_utils__WEBPACK_IMPORTED_MODULE_8__["util_preprocess_data"])(main_all_trips).then(function (processed_data) {
             main_all_trips = processed_data;
-             main_get_streets().then(function(street_data) {
-                main_all_streets = util_compute_street_data(street_data);
-                console.log(main_all_streets);
-                let trips = filter_bbox_trips(processed_data);
-                //map_draw_outter_trips('outter-trips', trips);
-                main_predicted_trips =  main_preprocess(trips);
-                //console.log(main_predicted_trips);
-                 map_show_filtered_trips(main_predicted_trips);
-                main_update_dataview(main_predicted_trips);
-             });
+            main_processed_trips = main_preprocess(processed_data);
+
+            // Show how download precomputed geojson
+            //main_processed_zipcodes = filter_bbox_zipcodes(main_all_zipcodes);
+            //main_processed_zipcodes = util_map_trip_in_zipcodes(main_processed_trips, main_processed_zipcodes);
+            //util_downloadObject_asJson(main_processed_zipcodes, 'ny_zipcode_data');
+
+            main_processed_zipcodes = main_all_zipcodes;
+
+            // Draw all trips on minimap
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_draw_outter_trips"])('minimap-trips', main_processed_trips);
+
+            Object(_js_view__WEBPACK_IMPORTED_MODULE_12__["view_init_trip_filter_tab"])();
+
+            // Map layer controls
+            main_init_map_layers('map');
+            main_init_map_draw();
+
+            // Visualization
+            // Get trip inside bounding box
+            //let trips = filter_bbox_trips(main_processed_trips);
+            main_init_visualization(main_processed_trips);
         });
     });
-    // On map drag
-    map_main.on('dragend', function(e) {
+
+    // Map zoom behavior
+
+    _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].on('zoomend', function (e) {
+        /*
         if (main_states.global) {
-            if (main_all_trips) {
-                // Filter all trips inside bounding box
-                let trips = filter_bbox_trips(main_all_trips);
-                main_redraw_map(trips);
+            // Visualization
+            if (main_region) {
+                let trips = filter_by_polygon(main_region, main_processed_trips);
+                main_init_visualization(trips);
+            } else {
+                let trips = filter_bbox_trips(main_processed_trips);
+                main_init_visualization(trips);
             }
-        }
+        }*/
     });
-     // On map zoom
-     map_main.on('zoomend', function(e) {
+
+    // Map drag behavior
+    _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].on('dragend', function (e) {
+        /*
         if (main_states.global) {
-            if (main_all_trips) {
-                // Filter all trips inside bounding box
-                let trips = filter_bbox_trips(main_all_trips);
-                main_redraw_map(trips);
+            if (main_region) {
+                let trips = filter_by_polygon(main_region, main_processed_trips);
+                main_init_visualization(trips);
+            } else {
+                let trips = filter_bbox_trips(main_processed_trips);
+                main_init_visualization(trips);
             }
-        }
-         if (main_states.trip) {
-            if (main_predicted_trips) {
-                //main_trip_study_init(main_predicted_trips[0]);
-            }
-        }
+        }*/
     });
-     map_main.on('draw.create', function (e) {
-         let polygon = e.features[0];
-        // Need to remove and set new data
-        let trips = filter_by_polygon(polygon, main_all_trips);
-         if (main_regions) {
-            // Remove previous selection area
-            map_draw.delete([main_regions.id])
-            map_remove_layer('inner-trips');
-            main_regions = undefined;
-        }
-         // Draw new trips
-        map_draw_inner_trips('inner-trips', trips);
-        // Change outter trajectory
-        map_set_paint_property('outter-trips', 'line-color' ,'#525252');
-        // Assign new polygon area
-        main_regions = polygon;
-         main_predicted_trips =  main_preprocess(trips);
-        map_show_filtered_trips(main_predicted_trips);
-        main_update_dataview(main_predicted_trips);
-     });
-     map_main.on('draw.delete', function () {
-        if (main_regions) {
-            // Remove previous selection area
-            map_draw.delete([main_regions.id])
-            map_remove_layer('inner-trips');
-            main_regions = undefined;
-            // Re preprocessing trip and visualize it
-            let trips = filter_bbox_trips(main_all_trips);
-            main_redraw_map(trips);
-        }
-    });
-     map_main.on('click', function (e) {
+
+    _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].on('click', function (e) {
         let coords = e.lngLat.wrap();
         main_mouse_coord = [coords.lng, coords.lat];
     });
-     map_main.on('click', 'trip-points', function (e) {
-         var coordinates = e.features[0].geometry.coordinates.slice();
-         let target_point = turf.point(main_mouse_coord);
+
+    _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].on('click', 'trip-points', function (e) {
+
+        let target_point = turf.point(main_mouse_coord);
         let coords = [];
-         for (let i = 0; i < coordinates.length; ++i) {
-            coords.push(turf.point(coordinates[i]));
+
+        let features = e.features;
+
+        for (let i = 0; i < features.length; ++i) {
+            let coord_str = features[i].properties.loc.split(',');
+            coords.push(turf.point([parseFloat(coord_str[0].slice(1)), parseFloat(coord_str[1].slice(0, -1))]));
         }
-         let points = turf.featureCollection(coords);
+
+        let points = turf.featureCollection(coords);
         let nearest_point = turf.nearestPoint(target_point, points);
-        let trips = filter_point_on_trips(main_predicted_trips, nearest_point);
-         // Start trip states
+        let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_11__["filter_point_on_trips"])(main_processed_trips, nearest_point);
+
+        // Start trip states
         // some to layer
         main_states.global = false;
         main_states.trip = true;
         main_trip_study(trips);
-    });*/
-}
+    });
 
-function main_redraw_map(trips) {
+    _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].on('draw.create', function (e) {
 
-    //map_draw_outter_trips('outter-trips', trips);
-    //map_draw_background(trips, main_all_streets);
+        let polygon = e.features[0];
+        // Need to remove and set new data
+        let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_11__["filter_by_polygon"])(polygon, main_processed_trips);
 
-    // Draw all trips
-    if (main_regions) {
-        let filtered_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_by_polygon"])(main_regions, trips);
-        // Draw new trips
-        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_draw_inner_trips"])('inner-trips', filtered_trips);
-        // Change outter trajectory
-        //map_set_paint_property('outter-trips', 'line-color' ,'#525252');
-
-        // Draw filtered trips
-        main_predicted_trips = main_preprocess(filtered_trips);
-        if (_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_selected_nodes"].length > 0) {
-            main_predicted_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_by_nodes"])(main_predicted_trips, _js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_selected_nodes"]);
+        if (main_region) {
+            // Remove previous selection area
+            _js_map__WEBPACK_IMPORTED_MODULE_7__["map_draw"].delete([main_region.id]);
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_remove_layer"])('inner-trips');
+            main_region = undefined;
         }
-        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_show_filtered_trips"])(main_predicted_trips);
-    } else {
-        main_predicted_trips = main_preprocess(trips);
-        main_update_dataview(main_predicted_trips);
-        // Draw filtered trips
-        if (_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_selected_nodes"].length > 0) {
-            main_predicted_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_by_nodes"])(main_predicted_trips, _js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_selected_nodes"]);
+
+        // Assign new polygon area
+        main_region = polygon;
+        main_init_visualization(trips);
+    });
+
+    _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].on('draw.delete', function () {
+        if (main_region) {
+            // Remove previous selection area
+            _js_map__WEBPACK_IMPORTED_MODULE_7__["map_draw"].delete([main_region.id]);
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_remove_layer"])('inner-trips');
+            main_region = undefined;
         }
-        Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_show_filtered_trips"])(main_predicted_trips);
-    }
 
-    main_set_maplayer_index();
-    return;
+        //let trips = filter_bbox_trips(main_processed_trips);
+        main_init_visualization(main_processed_trips);
+    });
 }
 
-// Move z-position of map layers
-function main_set_maplayer_index() {
-    /*
-    map_main.moveLayer('trip-points-border', 'trip-points');
-    map_main.moveLayer('trip-filtered-trajectory', 'trip-points-border');
-     if (main_regions) {
-        map_main.moveLayer('inner-trips', 'trip-filtered-trajectory');
-        //map_main.moveLayer('outter-trips', 'inner-trips');
-        map_main.moveLayer('roads-highlight', 'inner-trips');
-    } else {
-        //map_main.moveLayer('outter-trips', 'trip-filtered-trajectory');
-        map_main.moveLayer('roads-highlight', 'inner-trips');
-    }*/
-
-    return;
-}
-
-// Get data from database
-function main_get_dataset() {
+// 1. Get all datasets from mongodb
+function main_get_all_datasets() {
     return new Promise(function (resolve, reject) {
-        var data = {};
-        Object(_js_query__WEBPACK_IMPORTED_MODULE_11__["query_all"])('train').then(function (train_data) {
-            data['train'] = train_data;
-            resolve(data);
+
+        // Get all datasets
+        Object(_js_query__WEBPACK_IMPORTED_MODULE_9__["query_all"])('train').then(function (trip_data) {
+            main_all_trips = trip_data;
+
+            // Get ny zipcode regions
+            d3.json('ny_zipcode_data.json').then(function (zipcode_data) {
+                main_all_zipcodes = zipcode_data;
+                resolve();
+            });
         });
     });
 }
 
-function main_get_streets() {
-    return new Promise(function (resolve, reject) {
-        //var data = {};
-        Object(_js_query__WEBPACK_IMPORTED_MODULE_11__["query_all_streets"])().then(function (data) {
-            resolve(data);
-        });
-    });
-}
-
+// 2. preprocess datasets
 function main_preprocess(trips) {
-
-    //let roads = map_query_rendered_features('road');
-    //util_map_matching(trips[0]);
-
-    let preprocessed_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_predicted_trips"])(trips);
-    console.log(preprocessed_trips);
-    // main_all_streets
-
-    Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_compute_cases"])(preprocessed_trips);
-    Object(_js_utils__WEBPACK_IMPORTED_MODULE_9__["util_compute_entropy"])(preprocessed_trips);
-    return preprocessed_trips;
+    //let preprocessed_trips = filter_predicted_trips(trips);
+    Object(_js_utils__WEBPACK_IMPORTED_MODULE_8__["util_compute_cases"])(trips);
+    Object(_js_utils__WEBPACK_IMPORTED_MODULE_8__["util_compute_entropy"])(trips);
+    return trips;
 }
 
-// Update dataview
-function main_update_dataview(trips) {
+// 3.
+function main_init_map_layers(map_container_id) {
+    Object(_js_view__WEBPACK_IMPORTED_MODULE_12__["view_zipcode_legend"])(map_container_id, main_processed_zipcodes);
+    Object(_js_view__WEBPACK_IMPORTED_MODULE_12__["view_trip_critical_location_legend"])(map_container_id);
+    //view_trip_critcal_location_legend(map_container_id);
+    return;
+}
 
-    if (_js_map__WEBPACK_IMPORTED_MODULE_8__["map_minimap"]) {
-        $('#mapboxgl-minimap').css({ opacity: 0 });
-        $('#mapboxgl-minimap').off('click');
-    }
+// 4.
+function main_init_map_draw() {
+    // Draw background
+    //console.log(main_processed_zipcodes);
+    Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_visualize_background"])(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_legend_filter"], main_processed_zipcodes);
+}
 
-    //console.log(trips);
-
-    Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-point');
-    Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-points');
-
-    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_global_view"])(trips, 'globalview-body');
-    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_parallelsets"])(trips, 'dataview-parallelsets');
-    //vis_area_study(trips,'tripview-body');
-    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_model_cases"])(trips, 'model-cases-body');
-    //vis_representative_images(trips, undefined, 'streetview-body');
+// 5.
+function main_init_visualization(trips) {
+    // Draw global view
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_10__["vis_global_view"])(trips, 'globalview-body');
+    // Draw trip filter
+    //vis_trip_filter(trips, 'dataview-parallelsets');
+    // Draw parallelsets
+    //vis_parallelsets(trips, 'dataview-summary-body');
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_10__["vis_draw_trip_filter"])(trips);
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_10__["vis_draw_histogram"])(trips);
+    // Draw trips
+    Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_show_filtered_trips"])(trips);
+    // Draw trips cases
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_10__["vis_model_cases"])(trips, 'model-cases-body');
 
     return;
 }
 
 // Create trip study view
 function main_trip_study(trips) {
+    $('#trip-critical-legend').hide();
+    $('#zipcode-legend').hide();
+    $('#header-title').html('AutoDrive VIZ - Drill Down Study');
     // Show minimap
-    if (_js_map__WEBPACK_IMPORTED_MODULE_8__["map_minimap"]) {
+    if (_js_map__WEBPACK_IMPORTED_MODULE_7__["map_minimap"]) {
         $('#mapboxgl-minimap').css({ opacity: 1 });
     }
 
-    //map_remove_layer('trip-points');
-    //map_remove_layer('trip-points-border');
-    //map_remove_layer('trip-filtered-trajectory');
-    //map_remove_layer('inner-trips');
-    //map_remove_layer('outter-trips');
+    d3.select('#right').style('width', '0px');
+    d3.select('#middle').style('width', 'calc(100% - 400px)');
 
-    // let create polygon
-    //let circle_polygon = map_create_circle_radius(trips[0]);
+    if (_js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].getLayer('roads-highlight')) {
+        _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].setPaintProperty('roads-highlight', 'fill-opacity', 0);
+    }
+
+    if (_js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].getLayer('trip-filtered-trajectory')) {
+        _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0);
+    }
+
+    if (_js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].getLayer('trip-points')) {
+        _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].setPaintProperty('trip-points', 'circle-opacity', 0);
+    }
 
     main_trip_study_init(trips[0]);
+    _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].resize();
+    // Hide legends
 
     // Set on click listener
     $('#mapboxgl-minimap').off().on('click', function () {
+        // Change header
+        $('#header-title').html('AutoDrive VIZ');
+        d3.select('#right').style('width', '300px');
+        d3.select('#middle').style('width', 'calc(100% - 700px)');
+        $('#mapboxgl-minimap').css({ opacity: 0 });
+        $('#trip-critical-legend').show();
+        $('#zipcode-legend').show();
+
         // Go back to main-strip view
-        if (main_all_trips) {
+        if (main_processed_trips) {
             // Filter all trips inside bounding box
             main_states.global = true;
             main_states.trip = false;
@@ -56429,18 +53678,30 @@ function main_trip_study(trips) {
             $('#trip-list').remove();
             $('#radius-control').remove();
             //map_remove_layer('trip-radius');
-            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-unselected-line');
-            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-unselected-start');
-            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-unselected-end');
-            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-selected-arrow');
-            Object(_js_map__WEBPACK_IMPORTED_MODULE_8__["map_remove_layer"])('trip-selected-line');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_remove_layer"])('trip-unselected-line');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_remove_layer"])('trip-unselected-start');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_remove_layer"])('trip-unselected-end');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_remove_layer"])('trip-selected-arrow');
+            Object(_js_map__WEBPACK_IMPORTED_MODULE_7__["map_remove_layer"])('trip-selected-line');
             // Reset middle view
             d3.select('#map').style('height', 'calc(100% - ' + 0 + 'px)');
             d3.select('#tripview').style('max-height', 0 + 'px');
-            _js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_marker"].remove();
+            _js_vis__WEBPACK_IMPORTED_MODULE_10__["vis_marker"].remove();
 
-            let trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_all_trips);
-            main_redraw_map(trips);
+            //let trips = filter_bbox_trips(main_processed_trips);
+            main_init_visualization(main_processed_trips);
+            if (_js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].getLayer('roads-highlight')) {
+                _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].setPaintProperty('roads-highlight', 'fill-opacity', 0.5);
+            }
+
+            if (_js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].getLayer('trip-filtered-trajectory')) {
+                _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0.7);
+            }
+
+            if (_js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].getLayer('trip-points')) {
+                _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].setPaintProperty('trip-points', 'circle-opacity', 0.5);
+            }
+            _js_map__WEBPACK_IMPORTED_MODULE_7__["map_main"].resize();
         }
     });
 }
@@ -56448,20 +53709,42 @@ function main_trip_study(trips) {
 function main_trip_study_init(selected_trip) {
     //let filtered_trips = filter_trip_in_radius(main_predicted_trips, circle_polygon);
     // Need to draw trip for more selected points
-    let filtered_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_13__["filter_bbox_trips"])(main_predicted_trips);
-    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_model_cases"])(filtered_trips, 'model-cases-body');
+
+    let filtered_trips = Object(_js_filter__WEBPACK_IMPORTED_MODULE_11__["filter_bbox_trips"])(main_processed_trips);
+    //vis_model_cases(filtered_trips, 'model-cases-body');
 
     // Remove that selected_trip
     let pos = filtered_trips.map(function (x) {
         return x.trip_id;
     }).indexOf(selected_trip.trip_id);
+
     filtered_trips.splice(pos, 1);
     filtered_trips.unshift(selected_trip);
 
-    Object(_js_vis__WEBPACK_IMPORTED_MODULE_12__["vis_trip_list"])(filtered_trips);
+    Object(_js_vis__WEBPACK_IMPORTED_MODULE_10__["vis_trip_list"])(filtered_trips);
     return;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js")))
+
+/*
+// Move z-position of map layers
+export function main_set_maplayer_index() {
+
+    map_main.moveLayer('trip-points-border', 'trip-points');
+    map_main.moveLayer('trip-filtered-trajectory', 'trip-points-border');
+
+    if (main_regions) {
+        map_main.moveLayer('inner-trips', 'trip-filtered-trajectory');
+        //map_main.moveLayer('outter-trips', 'inner-trips');
+        map_main.moveLayer('roads-highlight', 'inner-trips');
+    } else {
+        //map_main.moveLayer('outter-trips', 'trip-filtered-trajectory');
+        map_main.moveLayer('roads-highlight', 'inner-trips');
+    }
+
+    return;
+}
+*/
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
@@ -56469,12 +53752,13 @@ function main_trip_study_init(selected_trip) {
 /*!**************************!*\
   !*** ./src/js/filter.js ***!
   \**************************/
-/*! exports provided: filter_bbox_trips, filter_by_polygon, filter_predicted_trips, filter_by_nodes, filter_point_on_trips, filter_trip_in_radius, filter_bbox_roadnetwork */
+/*! exports provided: filter_bbox_trips, filter_bbox_zipcodes, filter_by_polygon, filter_predicted_trips, filter_by_nodes, filter_point_on_trips, filter_trip_in_radius, filter_bbox_roadnetwork */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(turf) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_bbox_trips", function() { return filter_bbox_trips; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_bbox_zipcodes", function() { return filter_bbox_zipcodes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_by_polygon", function() { return filter_by_polygon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_predicted_trips", function() { return filter_predicted_trips; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter_by_nodes", function() { return filter_by_nodes; });
@@ -56484,6 +53768,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
 
 
+// Filter trip in bounding box
 function filter_bbox_trips(trips) {
     let bbox = Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_get_bbox_polygon"])();
     let filtered_trips = [];
@@ -56497,11 +53782,38 @@ function filter_bbox_trips(trips) {
     return filtered_trips;
 }
 
-/**
- * Filter trips by polygon
- * @param {*} polygon
- * @param {*} trips
- */
+// Filter zipcode region in bounding box
+function filter_bbox_zipcodes(zipcodes) {
+    let bbox = Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_get_bbox_polygon"])();
+    let filtered_zipcodes = [];
+
+    for (let i = 0, len = zipcodes.features.length; i < len; i++) {
+        let feature = zipcodes.features[i];
+        if (feature.geometry.type === 'MultiPolygon') {
+            let coordinates = feature.geometry.coordinates;
+            coordinates.forEach(function (coord) {
+                let new_polygon = turf.polygon(coord);
+                /*
+                if (turf.booleanContains(bbox, new_polygon)) {
+                    filtered_zipcodes.push(new_polygon);
+                }*/
+                filtered_zipcodes.push(new_polygon);
+            });
+        } else {
+            feature.properties = {};
+            filtered_zipcodes.push(feature);
+            /*
+            if (turf.booleanContains(bbox, feature)) {
+                feature.properties = {};
+                filtered_zipcodes.push(feature);
+            }*/
+        }
+    }
+
+    return turf.featureCollection(filtered_zipcodes);
+}
+
+// Filter trip by polygon
 function filter_by_polygon(polygon, trips) {
 
     let filtered_trips = [];
@@ -56518,10 +53830,25 @@ function filter_by_polygon(polygon, trips) {
 
 // Get trip that have all these 3 predictions
 function filter_predicted_trips(trips) {
+
     let filtered_trips = [];
+    let temp_arr = [];
+    for (var j = 0; j < 108; ++j) {
+        temp_arr.push([0, 0, 0, 0, 0, 0]);
+    }
+
     for (var i = 0; i < trips.length; ++i) {
         // Get prediction action
         if (trips[i].actual && trips[i].predict && Object.keys(trips[i].predict).length === 3 && trips[i].actual.no_slight) {
+            if (trips[i].predict['tcnn1'].length <= 0) {
+                trips[i].predict['tcnn1'] = temp_arr;
+            }
+            if (trips[i].predict['cnn_lstm'].length <= 0) {
+                trips[i].predict['cnn_lstm'] = temp_arr;
+            }
+            if (trips[i].predict['fcn_lstm'].length <= 0) {
+                trips[i].predict['fcn_lstm'] = temp_arr;
+            }
             filtered_trips.push(trips[i]);
         }
     }
@@ -56529,6 +53856,7 @@ function filter_predicted_trips(trips) {
     return filtered_trips;
 }
 
+// Filter by nodes
 function filter_by_nodes(trips, selected_nodes) {
     let filter = {};
     selected_nodes.forEach(function (node) {
@@ -56574,12 +53902,16 @@ function filter_point_on_trips(trips, point) {
         let distance = turf.pointToLineDistance(point, line, { units: 'miles' });
         if (distance >= 0 && distance < 0.05) {
             filtered_trips.push(trips[i]);
+            return filtered_trips;
         }
     }
 
-    return filtered_trips;
+    return;
+
+    // return filtered_trips;
 }
 
+// Filter trip in radius
 function filter_trip_in_radius(trips, polygon) {
     let filtered_trips = [];
     for (let i = 0; i < trips.length; ++i) {
@@ -56595,30 +53927,29 @@ function filter_trip_in_radius(trips, polygon) {
 // Filter roadnetwork inside bounding box
 // Return roads with multilinestring geometry
 function filter_bbox_roadnetwork(roadnetwork) {
-    //let bbox = map_get_bbox_polygon();
+    let bbox = Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_get_bbox_polygon"])();
     //let filtered_road_network = [];
     let features = [];
 
     for (let i = 0; i < roadnetwork.length; ++i) {
 
-        //let has = false;
+        let has = false;
         let multi_line_string = [];
         // Get all linestring coordinates
         roadnetwork[i].features.forEach(function (feature) {
-
-            //if (turf.booleanContains(bbox, feature)) {
-            //    has = true;
-            //}
+            if (turf.booleanContains(bbox, feature)) {
+                has = true;
+            }
             multi_line_string.push(feature.geometry.coordinates);
         });
 
-        //if (has) {
-        //filtered_road_network.push(data[i]);
-        features.push({
-            name: roadnetwork[i].name,
-            multiLineString: turf.multiLineString(multi_line_string)
-        });
-        // }
+        if (has) {
+            //filtered_road_network.push(data[i]);
+            features.push({
+                name: roadnetwork[i].name,
+                multiLineString: turf.multiLineString(multi_line_string)
+            });
+        }
     }
 
     return features;
@@ -56631,7 +53962,7 @@ function filter_bbox_roadnetwork(roadnetwork) {
 /*!***********************!*\
   !*** ./src/js/map.js ***!
   \***********************/
-/*! exports provided: map_main, map_draw, map_minimap, map_circle_polygon, map_selected_line, map_access_token, map_model_colors, map_initialize, map_add_draw_controls, map_add_minimap, map_draw_outter_trips, map_draw_inner_trips, map_set_paint_property, map_show_all_trips, map_show_filtered_trips, map_filter_all_trips, map_remove_layer, map_get_bbox_polygon, map_draw_point, map_draw_all_points, map_create_circle_radius, map_draw_selected_trips, map_draw_trip_in_radius, map_draw_background, map_query_rendered_features */
+/*! exports provided: map_main, map_draw, map_minimap, map_circle_polygon, map_selected_line, map_all_points_data, map_legend_filter, map_access_token, map_model_colors, map_initialize, map_add_draw_controls, map_add_minimap, map_draw_outter_trips, map_draw_inner_trips, map_set_paint_property, map_show_all_trips, map_show_filtered_trips, map_remove_layer, map_get_bbox_polygon, map_draw_point, map_draw_all_points, map_create_circle_radius, map_draw_selected_trips, map_draw_trip_in_radius, map_draw_background, map_query_rendered_features, map_visualize_background */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56641,6 +53972,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_minimap", function() { return map_minimap; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_circle_polygon", function() { return map_circle_polygon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_selected_line", function() { return map_selected_line; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_all_points_data", function() { return map_all_points_data; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_legend_filter", function() { return map_legend_filter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_access_token", function() { return map_access_token; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_model_colors", function() { return map_model_colors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_initialize", function() { return map_initialize; });
@@ -56651,7 +53984,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_set_paint_property", function() { return map_set_paint_property; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_show_all_trips", function() { return map_show_all_trips; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_show_filtered_trips", function() { return map_show_filtered_trips; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_filter_all_trips", function() { return map_filter_all_trips; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_remove_layer", function() { return map_remove_layer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_get_bbox_polygon", function() { return map_get_bbox_polygon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_point", function() { return map_draw_point; });
@@ -56661,18 +53993,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_trip_in_radius", function() { return map_draw_trip_in_radius; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_draw_background", function() { return map_draw_background; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_query_rendered_features", function() { return map_query_rendered_features; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map_visualize_background", function() { return map_visualize_background; });
 /* harmony import */ var _mapbox_mapbox_gl_draw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mapbox/mapbox-gl-draw */ "./node_modules/@mapbox/mapbox-gl-draw/index.js");
 /* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! .. */ "./src/index.js");
 /* harmony import */ var _plugin_mapboxgl_minimap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugin/mapboxgl-minimap */ "./src/js/plugin/mapboxgl-minimap.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
-/* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./query */ "./src/js/query.js");
 
 
 
 
-
-
-//import { util_generate_accuracy } from "./utils";
 
 // Public variables
 let map_main = undefined;
@@ -56680,9 +54009,15 @@ let map_draw = undefined;
 let map_minimap = undefined;
 let map_circle_polygon = undefined;
 let map_selected_line = undefined;
+let map_all_points_data = undefined;
 
-// Private Variables
-var map_access_token = 'pk.eyJ1IjoiZGlnaXRhbGtpIiwiYSI6ImNqNXh1MDdibTA4bTMycnAweDBxYXBpYncifQ.daSatfva2eG-95QHWC9Mig';
+var map_legend_filter = {
+    models: ['tcnn1', 'cnn_lstm', 'fcn_lstm'],
+    actions: ['straight', 'slow_or_stop', 'turn_left', 'turn_right'],
+    layers: 'Density'
+
+    // Private Variables
+};var map_access_token = 'pk.eyJ1IjoicGFybmRlcHUiLCJhIjoiY2ttZzNkbzMzMHdnajJwcHF5dWwwaTh0cCJ9.3yOfWlhXiUwXN2tjqJ6mmg';
 var map_model_colors = {
     //train: 'rgb(255, 89, 143)',
     //val: 'rgb(21, 178, 211)'
@@ -56697,12 +54032,17 @@ var map_model_colors = {
     map_main = new mapboxgl.Map({
         container: container_id,
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-74.0060, 40.7128],
+        center: [-73.87485070755145, 40.78978271228149],
         zoom: 10,
         minZoom: 10,
         maxZoom: 15
     });
 }
+
+//-74.0060, 40.7128 NY
+// Good newyork center: -73.87485070755145, 40.78978271228149
+// -122.2730, 37.8715 CA
+
 
 // Add draw controls
 function map_add_draw_controls() {
@@ -56720,30 +54060,23 @@ function map_add_draw_controls() {
 
 function map_add_minimap() {
     map_minimap = new _plugin_mapboxgl_minimap__WEBPACK_IMPORTED_MODULE_2__["default"]();
-    map_main.addControl(map_minimap, 'top-right');
+    map_main.addControl(map_minimap, 'bottom-left');
     return;
 }
 
 function map_draw_outter_trips(id, data) {
-    let color = ['#ffffcc', '#c2e699', '#78c679', '#31a354', '#006837'];
+
     let trajectory = [];
     // Set all feature property
     for (var i = 0; i < data.length; ++i) {
-        let feature = turf.feature(data[i].locations, {
-            color: color[Object(_utils__WEBPACK_IMPORTED_MODULE_3__["util_random_number_interval"])(0, 4)],
-            opacity: 0.1,
-            model: data[i].model_type,
-            time_of_day: data[i].time_of_day,
-            scene: data[i].scene,
-            weather: data[i].weather
-        });
+        let feature = turf.feature(data[i].locations);
         trajectory.push(feature);
     }
     // Remove outter trips
-    map_remove_layer(id);
+    //map_remove_layer(id);
     // Create feature collection and add to source
     let feature_collection = turf.featureCollection(trajectory);
-    map_main.addSource(id, {
+    map_minimap._miniMap.addSource(id, {
         type: 'geojson',
         data: feature_collection
     });
@@ -56758,12 +54091,12 @@ function map_draw_outter_trips(id, data) {
             'line-cap': 'round'
         },
         paint: {
-            'line-color': ['get', 'color'],
-            'line-width': 4,
-            'line-opacity': ['get', 'opacity']
+            'line-color': '#252525',
+            'line-width': 1,
+            'line-opacity': 0.3
         }
         // Add new layer
-    };map_main.addLayer(trajectory_layer);
+    };map_minimap._miniMap.addLayer(trajectory_layer);
     return;
 }
 
@@ -56772,7 +54105,7 @@ function map_draw_inner_trips(id, data) {
     // Set all feature property
     for (var i = 0; i < data.length; ++i) {
         let feature = turf.feature(data[i].locations, {
-            color: '#252525',
+            color: 'blue',
             opacity: 0.2,
             model: data[i].model_type,
             time_of_day: data[i].time_of_day,
@@ -56855,60 +54188,52 @@ function map_show_all_trips(id, data) {
 function map_show_filtered_trips(data) {
 
     // Draw filtered trajectory
-    let trajectory = [];
+    let points = [];
 
-    for (var i = 0; i < data.length; ++i) {
-        let feature = turf.feature(data[i].locations, {
-            time_of_day: data[i].time_of_day,
-            scene: data[i].scene,
-            weather: data[i].weather
-        });
-        trajectory.push(feature);
+    for (var i = 0, len = data.length; i < len; i++) {
+        let coordinates = data[i].locations.coordinates;
+        for (let j = 0, j_len = coordinates.length; j < j_len; j++) {
+            points.push(turf.point(coordinates[j], {
+                mag: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["util_random_number_interval"])(0, 6)
+            }));
+        }
     }
 
-    let feature_collection = turf.featureCollection(trajectory);
+    let feature_collection = turf.featureCollection(points);
 
-    map_remove_layer('trip-filtered-trajectory');
+    if (map_main.getSource('trip-filtered-trajectory')) {
+        map_main.getSource('trip-filtered-trajectory').setData(feature_collection);
+        return;
+    }
+
     map_main.addSource('trip-filtered-trajectory', {
         type: 'geojson',
         data: feature_collection
     });
 
     let trajectory_layer = {
-        id: 'trip-filtered-trajectory',
-        type: 'line',
-        source: 'trip-filtered-trajectory',
-        layout: {
-            'line-join': 'round',
-            'line-cap': 'round'
-        },
-        paint: {
-            'line-color': '#D482A6',
-            'line-width': 2.5,
-            'line-opacity': 1
+        'id': 'trip-filtered-trajectory',
+        'type': 'heatmap',
+        'source': 'trip-filtered-trajectory',
+        'maxzoom': 15,
+        'paint': {
+            // Increase the heatmap weight based on frequency and property magnitude
+            'heatmap-weight': ['interpolate', ['linear'], ['get', 'mag'], 0, 0, 6, 1],
+            // Increase the heatmap color weight weight by zoom level
+            // heatmap-intensity is a multiplier on top of heatmap-weight
+            'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 10, 1, 15, 3],
+            // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+            // Begin color ramp at 0-stop with a 0-transparancy color
+            // to create a blur-like effect.
+            'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'], 0, 'rgba(33,102,172,0)', 0.2, '#91cf60', 0.4, '#d9ef8b', 0.6, '#fee08b', 0.8, '#fc8d59', 1, '#d73027'],
+            // Adjust the heatmap radius by zoom level
+            'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 10, 4, 15, 10],
+            // Transition from heatmap to circle layer by zoom level
+            'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 10, 0.5, 15, 0.5]
         }
     };
 
     return map_main.addLayer(trajectory_layer);
-}
-
-function map_filter_all_trips(models) {
-    var features = map_main.queryRenderedFeatures({ layers: ['trip-trajectory'] });
-    /*
-    if (features) {
-        var uniqueFeatures = getUniqueFeatures(features, models);
-    }
-     function getUniqueFeatures(array, comparatorProperty) {
-         var uniqueFeatures = array.filter(function (el) {
-        if (existingFeatureKeys[el.properties[comparatorProperty]]) {
-            return false;
-        } else {
-            existingFeatureKeys[el.properties[comparatorProperty]] = true;
-            return true;
-        }
-        });
-         return uniqueFeatures;
-    }*/
 }
 
 // Remove map layer by ids
@@ -56932,64 +54257,6 @@ function map_get_bbox_polygon() {
     var bbox_polygon = turf.bboxPolygon(bbox);
     return bbox_polygon;
 }
-
-/*
-export function map_draw_trajectory(data)
-{
-    let model = $('#filter-models').val();
-    let action = $('#filter-actions').val();
-    let accuracy = $('#filter-accuracy').val();
-
-    util_generate_accuracy(data, model, action, accuracy);
-
-    let trajectories = []; let all_accuracy = [];
-
-    for (var i = 0; i < data.length; ++i) {
-        if ('accuracy' in data[i]) {
-            all_accuracy.push(data[i].accuracy);
-        }
-    }
-
-    let line_color = d3.scaleSequential()
-        .interpolator(d3.interpolateRdYlGn)
-        .domain([0, 1]);
-
-    for (var i = 0; i < data.length; ++i) {
-        if ('accuracy' in data[i]) {
-            let trip_feature = turf.feature(data[i].locations, {
-                color: line_color(data[i].accuracy)
-            });
-            trajectories.push(trip_feature);
-        }
-    }
-
-    console.log(trajectories);
-
-    let feature_collection = turf.featureCollection(trajectories);
-
-    map_remove_layer('trip-trajectory');
-    map_main.addSource('trip-trajectory', {
-        type: 'geojson',
-        data: feature_collection
-    });
-
-    let trajectory_layer = {
-        id: 'trip-trajectory',
-        type: 'line',
-        source: 'trip-trajectory',
-        layout: {
-            'line-join': 'round',
-            'line-cap': 'round'
-        },
-        paint: {
-            'line-color': ['get', 'color'],
-            'line-width': 8,
-            'line-opacity': 1
-        }
-    }
-
-    map_main.addLayer(trajectory_layer);
-}*/
 
 function map_draw_point(coord) {
 
@@ -57019,46 +54286,42 @@ function map_draw_point(coord) {
 
 function map_draw_all_points(coords) {
 
-    let point = turf.multiPoint(coords);
+    let point = [];
+    for (let i = 0; i < coords.length; ++i) {
+        let geometry = turf.point(coords[i].coordinates, {
+            action: coords[i].action,
+            loc: coords[i].coordinates
+        });
+        point.push(geometry);
+    }
 
-    map_remove_layer('trip-points');
-    map_remove_layer('trip-points-border');
+    let feature_collection = turf.featureCollection(point);
+    //console.log(feature_collection);
+
+    if (map_main.getSource('trip-points')) {
+        map_main.getSource('trip-points').setData(feature_collection);
+        return;
+    }
 
     map_main.addSource('trip-points', {
         type: 'geojson',
-        data: point
-    });
-
-    map_main.addSource('trip-points-border', {
-        type: 'geojson',
-        data: point
+        data: feature_collection
     });
 
     // Create point
-    let point_border_layer = {
-        id: 'trip-points-border',
-        type: 'circle',
-        source: 'trip-points-border',
-        paint: {
-            'circle-color': '#000',
-            'circle-opacity': 0,
-            'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 3, 15, 7]
-        }
-
-        // Create point
-    };let point_layer = {
+    let point_layer = {
         id: 'trip-points',
         type: 'circle',
         source: 'trip-points',
         paint: {
-            'circle-color': '#D482A6',
-            'circle-opacity': 1,
-            'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 2, 15, 6]
+            'circle-color': '#525252',
+            'circle-opacity': 0.1,
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 4, 15, 8]
         }
     };
 
-    map_main.addLayer(point_border_layer);
     map_main.addLayer(point_layer);
+    map_all_points_data = point;
     return;
 }
 
@@ -57181,8 +54444,8 @@ function map_draw_selected_trips(trip) {
     map_main.addLayer(trajectory_layer);
     map_main.addLayer(arrow_layer);
 
-    map_main.moveLayer('trip-selected-arrow', 'trip-points-border');
-    map_main.moveLayer('trip-selected-line', 'trip-points-border');
+    //map_main.moveLayer('trip-selected-arrow', 'trip-points-border');
+    //map_main.moveLayer('trip-selected-line', 'trip-points-border');
 
     map_selected_line = feature_collection;
     var coordinates = map_selected_line.geometry.coordinates;
@@ -57193,6 +54456,7 @@ function map_draw_selected_trips(trip) {
     map_main.fitBounds(bounds, {
         zoom: 20
     });
+
     return;
 }
 
@@ -57275,9 +54539,9 @@ function map_draw_trip_in_radius(trips, index) {
     map_main.addLayer(start_layer);
     map_main.addLayer(end_layer);
 
-    map_main.moveLayer('trip-unselected-start', 'trip-points-border');
-    map_main.moveLayer('trip-unselected-end', 'trip-points-border');
-    map_main.moveLayer('trip-unselected-line', 'trip-unselected-end');
+    //map_main.moveLayer('trip-unselected-start', 'trip-points-border');
+    //map_main.moveLayer('trip-unselected-end', 'trip-points-border');
+    //map_main.moveLayer('trip-unselected-line', 'trip-unselected-end');
     return;
 }
 
@@ -57415,6 +54679,152 @@ function map_query_rendered_features(feature_layer) {
     }
      map_main.addLayer(trajectory_layer);
     return;*/
+}
+
+function map_visualize_background(layer_filter, zipcode_data) {
+
+    //console.log(layer_filter);
+
+    let data = generate_data(zipcode_data, layer_filter);
+    let map_data = data[0];
+    let map_range = data[1];
+
+    //console.log(map_data);
+    //console.log(map_range);
+
+    let color_range = ['#1a9850', '#fee08b', '#d73027'];
+    let domain = [0, d3.mean(map_range), d3.max(map_range)];
+    let scale = d3.scaleLinear();
+
+    if (layer_filter.layers === 'Density') {
+
+        color_range = ['#1a9850', '#fee08b', '#d73027'];
+        domain = [0, d3.mean(map_range), d3.max(map_range)];
+        scale = d3.scaleLinear();
+    }
+    /*
+    else if (layer_filter.layers === 'entropy') {
+        color_range.reverse();
+    }*/
+
+    let color = scale.domain(domain).range(color_range);
+
+    let display_features = [];
+
+    for (let i = 0, len = map_data.length; i < len; i++) {
+        let zipcode = map_data[i];
+        zipcode.polygon.properties.color = color(zipcode['value']);
+        //zipcode.polygon.properties.opacity = color(zipcode['value']);
+        display_features.push(zipcode.polygon);
+    }
+
+    let feature_collection = turf.featureCollection(display_features);
+
+    // map_remove_layer('roads-highlight');
+
+    if (map_main.getSource('roads-highlight')) {
+        map_main.getSource('roads-highlight').setData(feature_collection);
+        map_minimap._miniMap.getSource('roads-highlight').setData(feature_collection);
+        return;
+    }
+
+    map_main.addSource('roads-highlight', {
+        type: 'geojson',
+        data: feature_collection
+    });
+    map_minimap._miniMap.addSource('roads-highlight', {
+        type: 'geojson',
+        data: feature_collection
+    });
+
+    let trajectory_layer = {
+        id: 'roads-highlight',
+        type: 'fill',
+        source: 'roads-highlight',
+        paint: {
+            'fill-color': ['get', 'color'],
+            'fill-opacity': 0.5
+        }
+
+        //map_minimap._miniMap.addLayer(trajectory_layer);
+    };map_main.addLayer(trajectory_layer);
+
+    function generate_data(data, filter) {
+        let map_data = [];
+        let value_ranges = [];
+        if (filter.layers === 'Density') {
+
+            //console.log(data.length);
+
+            for (let i = 0, len = data.length; i < len; i++) {
+
+                map_data.push({
+                    polygon: data[i],
+                    value: data[i].properties['trip_count']
+                });
+
+                value_ranges.push(data[i].properties['trip_count']);
+            }
+        } else {
+
+            //console.log(data.length);
+
+            for (let i = 0, len = data.length; i < len; i++) {
+
+                let values = [];
+                //console.log(Object.keys(data[i].properties['performance']));
+
+
+                if (Object.keys(data[i].properties['performance']).length > 0) {
+
+                    Object.keys(data[i].properties['performance']).forEach(function (model) {
+                        if (filter.models.indexOf(model) >= 0) {
+                            Object.keys(data[i].properties['performance'][model]).forEach(function (action) {
+                                if (filter.actions.indexOf(action) >= 0) {
+                                    let value = data[i].properties['performance'][model][action][filter.layers];
+                                    if (value) {
+                                        values.push(value);
+                                    }
+                                }
+                            });
+                        }
+                    });
+
+                    let avg = d3.mean(values);
+
+                    map_data.push({
+                        polygon: data[i],
+                        value: avg ? avg : 0
+                    });
+                    value_ranges.push(avg ? avg : 0);
+                } else {
+                    map_data.push({
+                        polygon: data[i],
+                        value: 0
+                    });
+                }
+            }
+        }
+
+        function get_value_category(value) {
+            let category = ['0 - 40', '40 - 70', '70 - 100'];
+            let range = [.5, .6, .8, .9];
+
+            for (let i = 0; i < range.length; ++i) {
+                if (i == range.length - 1) {
+                    if (value > range[i]) {
+                        return category[i];
+                    }
+                } else {
+                    if (value > range[i] && value <= range[i + 1]) {
+                        return category[i];
+                    }
+                }
+            }
+        }
+
+        return [map_data, value_ranges];
+    }
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! mapbox-gl */ "./node_modules/mapbox-gl/dist/mapbox-gl.js"), __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js")))
 
@@ -57811,9 +55221,13 @@ function map_query_rendered_features(feature_layer) {
             return d.dx;
           });
           // Parn edit this
-          category.merge(categoryEnter).select("text").text(function (d) {
+          category.merge(categoryEnter).select("text")
+          //.text(truncateText(function(d) { return d.name; }, function(d) { return d.dx; }));
+          .text(function (d) {
             return d.name + ': ' + d.count;
-          }); //truncateText(function(d) { return d.name; }, function(d) { return d.dx; }));
+          });
+
+          //truncateText(function(d) { return d.name; }, function(d) { return d.dx; });
         }
       });
     }
@@ -58128,7 +55542,7 @@ __webpack_require__.r(__webpack_exports__);
 	height: "150px",
 	style: "mapbox://styles/mapbox/light-v10",
 	center: [0, 0],
-	zoom: 6,
+	zoom: 10,
 
 	// should be a function; will be bound to Minimap
 	zoomAdjust: null,
@@ -58141,7 +55555,7 @@ __webpack_require__.r(__webpack_exports__);
 	lineOpacity: 1,
 
 	fillColor: "#9d9d9d",
-	fillOpacity: 0.25,
+	fillOpacity: 0,
 
 	dragPan: false,
 	scrollZoom: false,
@@ -58297,7 +55711,7 @@ class Minimap {
 
 			var offset = [this._previousPoint[0] - this._currentPoint[0], this._previousPoint[1] - this._currentPoint[1]];
 
-			var newBounds = this._moveTrackingRect(offset);
+			//var newBounds = this._moveTrackingRect(offset);
 
 			this._parentMap.fitBounds(newBounds, {
 				duration: 80,
@@ -58321,8 +55735,8 @@ class Minimap {
 		bounds._sw.lat -= offset[1];
 		bounds._sw.lng -= offset[0];
 
-		this._convertBoundsToPoints(bounds);
-		source.setData(data);
+		//this._convertBoundsToPoints(bounds);
+		//source.setData(data);
 
 		return bounds;
 	}
@@ -58354,13 +55768,13 @@ class Minimap {
 	}
 
 	_update() {
+
 		if (this._isDragging) {
 			return;
 		}
-
-		var parentBounds = this._parentMap.getBounds();
-
-		this._setTrackingRectBounds(parentBounds);
+		/*
+  var parentBounds = this._parentMap.getBounds();
+  	this._setTrackingRectBounds(parentBounds);*/
 
 		if (typeof this.options.zoomAdjust === "function") {
 			this.options.zoomAdjust();
@@ -58378,21 +55792,21 @@ class Minimap {
 		levels.forEach(function (zoom) {
 			if (!found && parentZoom >= zoom[0]) {
 				if (miniZoom >= zoom[1]) {
-					miniMap.setZoom(zoom[2]);
+					miniMap.setZoom(10);
 				}
 
 				miniMap.setCenter(parentMap.getCenter());
 				found = true;
 			}
 		});
-
-		if (!found && miniZoom !== this.options.zoom) {
-			if (typeof this.options.bounds === "object") {
-				miniMap.fitBounds(this.options.bounds, { duration: 50 });
-			}
-
-			miniMap.setZoom(this.options.zoom);
-		}
+		/*
+  if( ! found && miniZoom !== this.options.zoom )
+  {
+  	if( typeof this.options.bounds === "object" ) {
+  		miniMap.fitBounds(this.options.bounds, {duration: 50});
+  	}
+  		miniMap.setZoom(this.options.zoom)
+  }*/
 	}
 
 	_createContainer(parentMap) {
@@ -58401,7 +55815,7 @@ class Minimap {
 		container.id = 'mapboxgl-minimap';
 		container.className = "mapboxgl-ctrl-minimap mapboxgl-ctrl";
 
-		container.setAttribute('style', 'width: ' + opts.width + '; height: ' + opts.height + ';');
+		container.setAttribute('style', 'width: ' + opts.width + '; height: ' + opts.height + ';' + 'position: relative; opacity: 0;');
 		container.addEventListener("contextmenu", this._preventDefault);
 
 		parentMap.getContainer().appendChild(container);
@@ -58410,9 +55824,14 @@ class Minimap {
 			container.id = opts.id;
 		}
 
-		container.style.border = "5px solid #C9D2D3";
+		container.style.border = "2px solid #737373";
 		container.style.borderRadius = "5px";
+		// Add opacity here
 
+		var rectangle_container = document.createElement("div");
+		rectangle_container.setAttribute('style', 'position: absolute; top: 60px; left: 70px; width: 50px; height: 30px; border: 1px solid #d6604d; z-index: 9999');
+
+		container.appendChild(rectangle_container);
 		return container;
 	}
 
@@ -58430,20 +55849,23 @@ class Minimap {
 /*!*************************!*\
   !*** ./src/js/query.js ***!
   \*************************/
-/*! exports provided: query_all, query_all_streets, query_count, query_find_intersection, query_find_roadnetwork_intersection */
+/*! exports provided: query_all, query_bbox_trips, query_all_streets, query_street_by_tripids, query_all_roadnetworks, query_count, query_find_intersection */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_all", function() { return query_all; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_bbox_trips", function() { return query_bbox_trips; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_all_streets", function() { return query_all_streets; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_street_by_tripids", function() { return query_street_by_tripids; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_all_roadnetworks", function() { return query_all_roadnetworks; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_count", function() { return query_count; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_find_intersection", function() { return query_find_intersection; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query_find_roadnetwork_intersection", function() { return query_find_roadnetwork_intersection; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 
+// Query all trips
 function query_all(model) {
     return new Promise(function (resolve, reject) {
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryAll', {
@@ -58458,6 +55880,22 @@ function query_all(model) {
     });
 }
 
+// Query all trips inside bouningbox
+function query_bbox_trips(bounding_box) {
+    return new Promise(function (resolve, reject) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryBboxTrips', {
+            params: {
+                bbox: bounding_box.geometry
+            }
+        }).then(function (response) {
+            resolve(response.data);
+        }).catch(function (error) {
+            reject(error);
+        });
+    });
+}
+
+// Query all streets
 function query_all_streets() {
     return new Promise(function (resolve, reject) {
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryAllStreets', {}).then(function (response) {
@@ -58468,6 +55906,33 @@ function query_all_streets() {
     });
 }
 
+// Query all street by tripids
+function query_street_by_tripids(trip_ids) {
+    return new Promise(function (resolve, reject) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryStreetByTripIds', {
+            data: {
+                trip_ids: trip_ids
+            }
+        }).then(function (response) {
+            resolve(response.data);
+        }).catch(function (error) {
+            reject(error);
+        });
+    });
+}
+
+// Query all road networks
+function query_all_roadnetworks() {
+    return new Promise(function (resolve, reject) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryRoadnetwork', {}).then(function (response) {
+            resolve(response.data);
+        }).catch(function (error) {
+            reject(error);
+        });
+    });
+}
+
+// Query count
 function query_count(model, key, value) {
     return new Promise(function (resolve, reject) {
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryCount', {
@@ -58484,6 +55949,7 @@ function query_count(model, key, value) {
     });
 }
 
+// Query by intersection
 function query_find_intersection(bounding_box, model) {
     return new Promise(function (resolve, reject) {
 
@@ -58503,28 +55969,18 @@ function query_find_intersection(bounding_box, model) {
     });
 }
 
-function query_find_roadnetwork_intersection() {
-    return new Promise(function (resolve, reject) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/queryRoadnetwork', {}).then(function (response) {
-            resolve(response.data);
-        }).catch(function (error) {
-            reject(error);
-        });
-    });
-}
-
 /***/ }),
 
 /***/ "./src/js/utils.js":
 /*!*************************!*\
   !*** ./src/js/utils.js ***!
   \*************************/
-/*! exports provided: util_axios_interceptors, util_random_number_interval, util_preprocess_data, util_compute_cases, util_compute_entropy, util_normalize, util_compute_performance, util_compute_street_data */
+/*! exports provided: util_axios_interceptors, util_random_number_interval, util_preprocess_data, util_compute_cases, util_compute_entropy, util_normalize, util_compute_performance, util_compute_street_data, util_merge_street_roadnetwork, util_compute_roadnetwork, util_map_trip_in_zipcodes, util_download_txt_file, util_downloadObject_asJson */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(axios, d3) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_axios_interceptors", function() { return util_axios_interceptors; });
+/* WEBPACK VAR INJECTION */(function(axios, d3, turf) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_axios_interceptors", function() { return util_axios_interceptors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_random_number_interval", function() { return util_random_number_interval; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_preprocess_data", function() { return util_preprocess_data; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_cases", function() { return util_compute_cases; });
@@ -58532,6 +55988,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_normalize", function() { return util_normalize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_performance", function() { return util_compute_performance; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_street_data", function() { return util_compute_street_data; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_merge_street_roadnetwork", function() { return util_merge_street_roadnetwork; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_compute_roadnetwork", function() { return util_compute_roadnetwork; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_map_trip_in_zipcodes", function() { return util_map_trip_in_zipcodes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_download_txt_file", function() { return util_download_txt_file; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "util_downloadObject_asJson", function() { return util_downloadObject_asJson; });
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
 /* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view */ "./src/js/view.js");
 
@@ -58564,23 +56025,22 @@ function util_random_number_interval(min, max) {
 
 // Preprocess only training datasets
 function util_preprocess_data(data) {
-
     let result = [];
-
     return new Promise(function (resolve, reject) {
 
-        Object.keys(data).forEach(function (model_type) {
-            let model_data = data[model_type];
-            for (let i = 0; i < model_data.length; ++i) {
-                let trip = model_data[i];
-                // Check exist location
-                if (trip.locations) {
-                    trip.model_type = model_type;
-                    result.push(trip);
-                }
-            }
-        });
+        /*
+        let temp_arr = [];
+        for (let j = 0; j < 108; ++j) {
+            temp_arr.push([0,0,0,0,0,0]);
+        }*/
 
+        for (let i = 0; i < data.length; ++i) {
+
+            let trip = data[i];
+            if (trip.predict['tcnn1'].length > 0 && trip.predict['cnn_lstm'].length > 0 && trip.predict['fcn_lstm'].length > 0 && trip.actual.no_slight.length > 0 && trip.locations) {
+                result.push(trip);
+            }
+        }
         resolve(result);
     });
 }
@@ -58605,24 +56065,24 @@ function util_compute_cases(data) {
         for (let j = 0; j < trip.actual.no_slight.length; ++j) {
             let actual = trip.actual.no_slight[j]; // A
             let tcnn1 = trip.predict.tcnn1[j].indexOf(d3.max(trip.predict.tcnn1[j])); // B
-            let fcn_lstm = trip.predict.fcn_lstm[j].indexOf(d3.max(trip.predict.fcn_lstm[j])); // C
-            let cnn_lstm = trip.predict.cnn_lstm[j].indexOf(d3.max(trip.predict.cnn_lstm[j])); // D
+            let cnn_lstm = trip.predict.cnn_lstm[j].indexOf(d3.max(trip.predict.cnn_lstm[j])); // C
+            let fcn_lstm = trip.predict.fcn_lstm[j].indexOf(d3.max(trip.predict.fcn_lstm[j])); // D
 
             //console.log(actual + " " + tcnn1 + " " + fcn_lstm + " " + cnn_lstm);
             if (actual !== tcnn1 && actual !== fcn_lstm && actual !== cnn_lstm) {
                 trip.cases['1000'].push(j);
             } else if (actual !== tcnn1 && actual !== fcn_lstm && actual === cnn_lstm) {
-                trip.cases['1001'].push(j);
-            } else if (actual !== tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
                 trip.cases['1010'].push(j);
+            } else if (actual !== tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
+                trip.cases['1001'].push(j);
             } else if (actual !== tcnn1 && actual === fcn_lstm && actual === cnn_lstm) {
                 trip.cases['1011'].push(j);
             } else if (actual === tcnn1 && actual !== fcn_lstm && actual !== cnn_lstm) {
                 trip.cases['1100'].push(j);
             } else if (actual === tcnn1 && actual !== fcn_lstm && actual === cnn_lstm) {
-                trip.cases['1101'].push(j);
-            } else if (actual === tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
                 trip.cases['1110'].push(j);
+            } else if (actual === tcnn1 && actual === fcn_lstm && actual !== cnn_lstm) {
+                trip.cases['1101'].push(j);
             } else if (actual === tcnn1 && actual === fcn_lstm && actual === cnn_lstm) {
                 trip.cases['1111'].push(j);
             }
@@ -58635,7 +56095,7 @@ function util_compute_entropy(data) {
     for (let i = 0; i < data.length; ++i) {
         let trip = data[i];
 
-        let true_labels = trip.actual.slight;
+        let true_labels = trip.actual.no_slight;
         let tcnn1_probs = trip.predict.tcnn1;
         let cnn_lstm_probs = trip.predict.cnn_lstm;
         let fcn_lstm_probs = trip.predict.fcn_lstm;
@@ -58823,62 +56283,210 @@ function util_compute_performance(data) {
 }
 
 // Group street data into a datasets
-function util_compute_street_data(data) {
+function util_compute_street_data(data, trips) {
 
     let street_group = [];
     for (let i = 0; i < data.length; ++i) {
+
         let trip_id = data[i].trip_id;
         let matchings = data[i]['matchings'];
+
         for (let j = 0; j < matchings.length; ++j) {
             matchings[j]['street_names'].forEach(function (name) {
+
                 let pos = street_group.map(function (x) {
                     return x.name;
                 }).indexOf(name);
+
+                let trip_pos = trips.map(function (x) {
+                    return x.trip_id;
+                }).indexOf(trip_id);
+
                 if (pos >= 0) {
                     street_group[pos]['trip_ids'].push(trip_id);
+                    if (trip_pos >= 0) {
+                        street_group[pos]['predicted_trips'].push(trips[trip_pos]);
+                    }
                 } else {
-                    street_group.push({
+
+                    let street = {
                         name: name,
-                        trip_ids: [trip_id]
-                    });
+                        trip_ids: [trip_id], // For counting density
+                        predicted_trips: []
+                    };
+
+                    if (trip_pos >= 0) {
+                        street['predicted_trips'].push(trips[trip_pos]);
+                    }
+
+                    street_group.push(street);
                 }
             });
+        }
+    }
+
+    //  Compute performance for streets
+    for (let i = 0; i < street_group.length; ++i) {
+        let street = street_group[i];
+        if (['predicted_trips'].length > 0) {
+            street['performance'] = util_compute_performance(street['predicted_trips']);
+        } else {
+            street['performance'] = undefined;
         }
     }
 
     return street_group;
 }
 
-/*
-export function util_map_matching(trip)
-{
-    var profile = "driving";
-    var coords = trip.locations.coordinates;
-    var newCoords = coords.join(';')
-    var radius = [];
-    coords.forEach(element => {
-      radius.push(25);
-    });
-    getMatch(newCoords, radius, profile);
+// Merge mapmatching street to roadnetwork with trip ids
+function util_merge_street_roadnetwork(roadnetwork_data, street_data) {
+    let selected_streets = [];
+    //let trip_counts = [];
+    for (let i = 0; i < street_data.length; ++i) {
+        let name = street_data[i].name;
+        let pos = roadnetwork_data.map(function (x) {
+            return x.name;
+        }).indexOf(name);
 
-    function getMatch(coordinates, radius, profile) {
-
-        var radiuses = radius.join(';')
-        // Create the query
-        var query = 'https://api.mapbox.com/matching/v5/mapbox/' + profile + '/' + coordinates + '?geometries=geojson&radiuses=' + radiuses + '&steps=true&access_token=' + map_access_token;
-
-        $.ajax({
-            method: 'GET',
-            url: query
-        }).done(function(data) {
-            console.log(data);
-            // Get the coordinates from the response
-            //var coords = data.matchings[0].geometry;
-            //console.log(coords);
-        });
+        if (pos >= 0) {
+            //trip_counts.push(street_data[i]['trip_ids'].length);
+            roadnetwork_data[pos]['count'] = street_data[i]['trip_ids'].length;
+            roadnetwork_data[pos]['trips'] = street_data[i]['predicted_trips'];
+            roadnetwork_data[pos]['performance'] = street_data[i]['performance'];
+            /*
+            let multi_line_string = [];
+            roadnetwork_data[i].features.forEach(function(feature) {
+                multi_line_string.push(feature.geometry.coordinates);
+            });
+             roadnetwork_data[pos]['multiLineString'] = turf.multiLineString(multi_line_string);*/
+            if (street_data[i]['trip_ids'].length > 0) {
+                selected_streets.push(roadnetwork_data[pos]);
+            }
+        }
     }
-}*/
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! axios */ "./node_modules/axios/index.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js")))
+
+    return selected_streets;
+}
+
+function util_compute_roadnetwork(trips, roadnetworks) {
+
+    let selected_roads = [];
+
+    for (let i = 0; i < trips.length; ++i) {
+        let trip = trips[i];
+        let trip_id = trip.trip_id;
+        for (let j = 0; j < roadnetworks.length; ++j) {
+            let roadnetwork = roadnetworks[j];
+            if (roadnetwork['trip_ids'].indexOf(trip_id) >= 0) {
+
+                let pos = selected_roads.map(function (x) {
+                    return x.name;
+                }).indexOf(roadnetwork.name);
+
+                // Add selected roads
+                if (pos !== -1) {
+                    selected_roads[pos].trip_ids.push(trip_id);
+                    selected_roads[pos].trips.push(trip);
+                } else {
+                    selected_roads.push({
+                        name: roadnetwork.name,
+                        features: roadnetwork.features,
+                        trip_ids: [trip_id],
+                        trips: [trip]
+                    });
+                }
+            }
+        }
+    }
+
+    for (let i = 0; i < selected_roads.length; ++i) {
+        let road = selected_roads[i];
+        road['performance'] = util_compute_performance(road['trips']);
+        road['count'] = road['trip_ids'].length;
+
+        // Compute multi linestring
+        let multi_line_string = [];
+        road['features'].forEach(function (feature) {
+            multi_line_string.push(feature.geometry.coordinates);
+        });
+
+        road['multiLineString'] = turf.multiLineString(multi_line_string);
+    }
+
+    return selected_roads;
+}
+
+function util_map_trip_in_zipcodes(trips, zipcodes) {
+
+    let processed_zipcodes = [];
+
+    for (let i = 0, len = zipcodes.features.length; i < len; i++) {
+
+        let feature = zipcodes.features[i];
+        feature.properties['trips'] = [];
+
+        for (let j = 0, j_len = trips.length; j < j_len; j++) {
+
+            let location = trips[j].locations;
+            if (turf.booleanContains(feature, location)) {
+                feature.properties['trips'].push(trips[j]);
+            }
+        }
+    }
+
+    for (let i = 0, len = zipcodes.features.length; i < len; i++) {
+
+        let feature = zipcodes.features[i];
+
+        if (feature.properties['trips'].length > 0) {
+            feature.properties['performance'] = util_compute_performance(feature.properties['trips']);
+            feature.properties['trip_count'] = feature.properties['trips'].length;
+            delete feature.properties['trips'];
+            processed_zipcodes.push(feature);
+        }
+    }
+
+    return processed_zipcodes;
+}
+
+// Create downloadable text file with tripids
+function util_download_txt_file(trips, file_name) {
+    let json_file = "";
+    for (let i = 0; i < trips.length; ++i) {
+        let trip = trips[i];
+        json_file += trip.trip_id + " ";
+    }
+
+    // Start file download.
+    download(file_name + ".txt", json_file);
+
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
+
+    return;
+}
+
+// For downloading geojson files
+function util_downloadObject_asJson(exportObj, exportName) {
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! axios */ "./node_modules/axios/index.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js"), __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js")))
 
 /***/ }),
 
@@ -58886,30 +56494,31 @@ export function util_map_matching(trip)
 /*!************************!*\
   !*** ./src/js/view.js ***!
   \************************/
-/*! exports provided: view_show_loading, view_close_loading, view_create_filters, view_create_filter_dropdown */
+/*! exports provided: view_trip_filter_mode, view_show_loading, view_close_loading, view_zipcode_legend, view_trip_critical_location_legend, view_create_map_legends, view_init_trip_filter_tab */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_show_loading", function() { return view_show_loading; });
+/* WEBPACK VAR INJECTION */(function($, d3, turf) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_trip_filter_mode", function() { return view_trip_filter_mode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_show_loading", function() { return view_show_loading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_close_loading", function() { return view_close_loading; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_create_filters", function() { return view_create_filters; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_create_filter_dropdown", function() { return view_create_filter_dropdown; });
-/* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./query */ "./src/js/query.js");
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_zipcode_legend", function() { return view_zipcode_legend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_trip_critical_location_legend", function() { return view_trip_critical_location_legend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_create_map_legends", function() { return view_create_map_legends; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view_init_trip_filter_tab", function() { return view_init_trip_filter_tab; });
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! .. */ "./src/index.js");
+/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter */ "./src/js/filter.js");
 
 
+
+
+var view_trip_filter_mode = {
+    condition: true,
+    performance: false
+};
 
 let $loading_screen = $('#loading');
-
-let weathers = ['all', 'clear', 'partly cloudy', 'overcast', 'rainy', 'snowy', 'foggy'];
-let scenes = ['all', 'residential', 'highway', 'city street', 'parking lot', 'gas stations', 'tunnel'];
-let time_of_days = ['all', 'dawn/dusk', 'daytime', 'night'];
-let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
-let actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
-let accuracy = ['precision', 'recall', 'f1'];
-
-// Precision, Recall, F1 // for whole trips
 
 function view_show_loading() {
     return $loading_screen.css({ display: 'flex ' });
@@ -58919,48 +56528,514 @@ function view_close_loading() {
     return $loading_screen.hide();
 }
 
-// Create weather buttons
-function view_create_filters(container_id) {
-    view_create_filter_dropdown(container_id, 'weathers', weathers);
-    view_create_filter_dropdown(container_id, 'scenes', scenes);
-    view_create_filter_dropdown(container_id, 'time', time_of_days);
-    view_create_filter_dropdown(container_id, 'models', models);
-    view_create_filter_dropdown(container_id, 'actions', actions);
-    view_create_filter_dropdown(container_id, 'accuracy', accuracy);
-}
+// Zipcode region as map legend
+function view_zipcode_legend(map_container_id, zipcode_data) {
+    // Create main map legend container
+    let container = d3.select('#' + map_container_id).append('div').attr('id', 'zipcode-legend').style('position', 'absolute').style('font-family', 'Barlow, sans-serif').style('width', 'auto').style('height', 'auto').style('background', 'rgba(255, 255, 255, 0.8)').style('padding', '5px').style('top', '10px').style('left', '50px').style('border-radius', '5px').style('border', '2px solid #737373');
 
-function view_create_filter_dropdown(container_id, filter_type, filter_lists) {
-    let label = $('<label/>', {
-        for: filter_type
-    }).html(filter_type + ' : ');
+    // Add legend header
+    let legend = container.append('div').attr('class', 'active').style('width', '100%').style('height', '15px').style('line-height', '15px').style('font-size', '14px');
 
-    let select = $('<select/>', {
-        name: filter_type,
-        id: 'filter-' + filter_type
+    let icon = legend.append('i').style('cursor', 'pointer').style('color', '#737373').attr('class', 'fas fa-check-circle');
+
+    let label = legend.append('label').style('cursor', 'pointer').html('&nbsp;' + '<strong>Region Heatmap</strong>');
+
+    // Legend events
+    legend.on('click', function () {
+        if (legend.classed('active')) {
+            icon.classed('fas fa-check-circle', 'false');
+            icon.classed('fas fa-circle', 'true');
+            // Hide zipcode map layer
+            if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('roads-highlight')) {
+                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('roads-highlight', 'fill-opacity', 0);
+            }
+
+            $('#zipcode-control').hide();
+            legend.classed('active', false);
+        } else {
+            icon.classed('fas fa-circle', false);
+            icon.classed('fas fa-check-circle', true);
+            // Show zipcode map layer
+            if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('roads-highlight')) {
+                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('roads-highlight', 'fill-opacity', 0.5);
+            }
+
+            $('#zipcode-control').show();
+            legend.classed('active', true);
+        }
     });
 
-    for (let i = 0; i < filter_lists.length; ++i) {
-        let option = $('<option/>', {
-            value: filter_lists[i]
-        }).html(filter_lists[i]);
+    // Add legend controls
+    let legend_control = container.append('div').attr('id', 'zipcode-control').style('width', '100%').style('height', 'auto');
 
-        select.append(option);
+    // Model controls
+    let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+    let model_labels = ['TCNN1', 'CNN LSTM', 'FCN LSTM'];
+    let model_colors = ['#e41a1c', '#377eb8', '#4daf4a'];
+
+    let model_control = legend_control.append('div').style('width', '100%').style('height', '15px').style('padding-top', '10px').style('line-height', '15px').style('font-size', '14px');
+
+    // Model label
+    model_control.append('label').style('float', 'left').html('Models:&nbsp;');
+
+    // Create all model checkboxes
+    for (let i = 0, len = models.length; i < len; i++) {
+        let models_selection = model_control.append('div').attr('class', 'active').style('cursor', 'pointer').style('width', 'auto').style('height', '100%').style('float', 'left').style('padding-left', '2px').style('padding-right', '2px');
+        //.style('color', model_colors[i]);
+
+        let model_icon = models_selection.append('i').style('cursor', 'pointer').style('color', '#737373').attr('class', 'fas fa-check-square');
+
+        let model_label = models_selection.append('label').style('cursor', 'pointer').html('&nbsp;' + model_labels[i] + '&nbsp;');
+
+        models_selection.on('click', function () {
+            if (models_selection.classed('active')) {
+                model_icon.classed('fas fa-check-square', false);
+                model_icon.classed('fas fa-square', true);
+
+                // Filter and redraw map
+                let legends_filter = _map__WEBPACK_IMPORTED_MODULE_0__["map_legend_filter"];
+                legends_filter.models.splice(legends_filter.models.indexOf(models[i]), 1);
+                Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_visualize_background"])(legends_filter, zipcode_data);
+
+                models_selection.classed('active', false);
+            } else {
+                model_icon.classed('fas fa-square', false);
+                model_icon.classed('fas fa-check-square', true);
+
+                // Filter and redraw map
+                let legends_filter = _map__WEBPACK_IMPORTED_MODULE_0__["map_legend_filter"];
+                legends_filter.models.push(models[i]);
+                Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_visualize_background"])(legends_filter, zipcode_data);
+
+                models_selection.classed('active', true);
+            }
+        });
     }
 
-    select.on('change', function () {
-        let bbox = Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_get_bbox_polygon"])();
-        let weather = $('#filter-weathers').val();
-        let scene = $('#filter-scenes').val();
-        let time_of_day = $('#filter-time').val();
+    let layers = ['Density', 'Accuracy', 'Perplexity'];
+    let layer_values = ['Density', 'accuracy', 'entropy'];
 
-        Object(_query__WEBPACK_IMPORTED_MODULE_0__["query_find_intersection"])(bbox, 'train', weather, scene, time_of_day).then(function (result) {
-            Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_draw_trajectory"])(result);
+    let layer_radio = legend_control.append('div').style('width', '100%').style('height', '14px').style('line-height', '14px').style('padding-top', '5px').style('font-size', '14px').html('Attributes: ');
+
+    for (let i = 0; i < layer_values.length; ++i) {
+
+        let radio_input = layer_radio.append('input').attr('id', 'radio-' + layer_values[i]).attr('type', 'radio').attr('name', 'segment-layer').attr('value', layer_values[i]).style('cursor', 'pointer').property('checked', i == 0 ? true : false);
+
+        let radio_label = layer_radio.append('label').attr('for', 'radio-' + layer_values[i]).html(layers[i]);
+
+        let color_range = ['#1a9850', '#fee08b', '#d73027'];
+
+        radio_input.on('change', function () {
+
+            if (layer_values[i] === 'entropy') {
+                color_range = ['#1a9850', '#fee08b', '#d73027'];
+            } else if (layer_values[i] === 'accuracy') {
+                color_range = ['#1a9850', '#fee08b', '#d73027'];
+            }
+
+            let new_label = "";
+            for (let i = 0, len = color_range.length; i < len; i++) {
+                new_label += '<i style="color:' + color_range[i] + '" class="fas fa-square-full"></i>';
+            }
+
+            label.html('&nbsp;' + '<strong>Region Heatmap</strong> &nbsp;&nbsp;&nbsp;Low ' + new_label + ' High');
+
+            let legends_filter = _map__WEBPACK_IMPORTED_MODULE_0__["map_legend_filter"];
+            legends_filter.layers = layer_values[i];
+            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_visualize_background"])(legends_filter, zipcode_data);
         });
+
+        // Create default color ranges
+        let new_label = "";
+        for (let i = 0, len = color_range.length; i < len; i++) {
+            new_label += '<i style="color:' + color_range[i] + '" class="fas fa-square-full"></i>';
+        }
+
+        label.html('&nbsp;' + '<strong>Region Heatmap</strong> &nbsp;&nbsp;&nbsp;Low ' + new_label + ' High');
+    }
+
+    return;
+}
+
+// Trip and critical location as map legend
+function view_trip_critical_location_legend(map_container_id) {
+    // Create main map legend container
+    let container = d3.select('#' + map_container_id).append('div').attr('id', 'trip-critical-legend').style('position', 'absolute').style('width', 'auto').style('height', 'auto').style('font-family', 'Barlow, sans-serif').style('background', 'rgba(255, 255, 255, 0.8)').style('padding', '5px').style('top', '10px').style('right', '10px').style('border-radius', '5px').style('border', '2px solid #737373');
+
+    // Add Trip Heatmap
+    let trip_heatmap = container.append('div').attr('class', 'active').style('width', '100%').style('height', '15px').style('line-height', '15px').style('font-size', '14px');
+
+    let trip_heatmap_icon = trip_heatmap.append('i').style('cursor', 'pointer').style('color', '#737373').attr('class', 'fas fa-check-circle');
+
+    let trip_heatmap_label = trip_heatmap.append('label').style('cursor', 'pointer').html('&nbsp;' + '<strong>Video Trips</strong>');
+
+    trip_heatmap.on('click', function () {
+        if (trip_heatmap.classed('active')) {
+            trip_heatmap_icon.classed('fas fa-check-circle', 'false');
+            trip_heatmap_icon.classed('fas fa-circle', 'true');
+            if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-filtered-trajectory')) {
+                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0);
+            }
+            trip_heatmap.classed('active', false);
+        } else {
+            trip_heatmap_icon.classed('fas fa-circle', false);
+            trip_heatmap_icon.classed('fas fa-check-circle', true);
+            if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-filtered-trajectory')) {
+                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0.7);
+            }
+            trip_heatmap.classed('active', true);
+        }
     });
 
-    return $(container_id).append(label).append(select).append("  ");
+    // Add critical location
+    // TODO: need to add ocatagon ⬣
+    let action_labels = ['straight ▲', 'slow/stop ⬣', 'turn left ◀', 'turn right ▶'];
+    let actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+
+    let point_container = container.append('div').attr('class', 'active').style('width', '100%').style('height', 'auto').style('padding-top', '10px').style('line-height', '15px').style('font-size', '14px');
+
+    let point_icon = point_container.append('i').style('cursor', 'pointer').style('color', '#737373').attr('class', 'fas fa-check-circle');
+
+    let point_label = point_container.append('label').style('cursor', 'pointer').html('&nbsp;' + '<strong>Critical Locations</strong>');
+
+    let point_checkboxes = container.append('div').style('width', '100%').style('height', 'auto').style('padding-top', '10px').style('font-size', '14px').style('line-height', '14px');
+
+    for (let i = 0, len = actions.length; i < len; i++) {
+
+        let checkbox_input = point_checkboxes.append('input').attr('id', 'checkbox-' + actions[i]).attr('type', 'checkbox').attr('name', 'point-action-' + actions[i]).attr('value', actions[i]).property('checked', true);
+
+        let checkbox_label = point_checkboxes.append('label').attr('for', 'point-action-' + actions[i]).html(action_labels[i] + '<br/>');
+
+        checkbox_input.on('change', function () {
+
+            let legends_filter = _map__WEBPACK_IMPORTED_MODULE_0__["map_legend_filter"];
+
+            if ($(checkbox_input.node()).is(':checked')) {
+                legends_filter.actions.push(actions[i]);
+                update_map_points(legends_filter.actions);
+            } else {
+                legends_filter.actions.splice(legends_filter.actions.indexOf(actions[i]), 1);
+                update_map_points(legends_filter.actions);
+            }
+        });
+    }
+
+    point_container.on('click', function () {
+        if (point_container.classed('active')) {
+            point_icon.classed('fas fa-check-circle', 'false');
+            point_icon.classed('fas fa-circle', 'true');
+            // Show map layer
+
+            if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-points')) {
+                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-points', 'circle-opacity', 0);
+            }
+
+            //$(radios.node()).hide();
+            point_container.classed('active', false);
+        } else {
+            point_icon.classed('fas fa-circle', false);
+            point_icon.classed('fas fa-check-circle', true);
+
+            if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-points')) {
+                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-points', 'circle-opacity', 0.9);
+            }
+
+            // Hide map layer
+            //$(radios.node()).show();
+            point_container.classed('active', true);
+        }
+    });
+
+    function update_map_points(actions) {
+        //console.log(actions);
+        if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getSource('trip-points')) {
+            // Filter points
+            let filtered_points = [];
+            // Get all point the match that action
+            for (let j = 0; j < _map__WEBPACK_IMPORTED_MODULE_0__["map_all_points_data"].length; j++) {
+                actions.forEach(function (action) {
+                    if (action === _map__WEBPACK_IMPORTED_MODULE_0__["map_all_points_data"][j].properties.action) {
+                        filtered_points.push(_map__WEBPACK_IMPORTED_MODULE_0__["map_all_points_data"][j]);
+                    }
+                });
+            }
+            // Filter all points over map
+            let feature_collection = turf.featureCollection(filtered_points);
+            _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getSource('trip-points').setData(feature_collection);
+        }
+    }
+
+    return;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+function view_create_map_legends(map_container_id, zipcode_data) {
+    let legends_filter = {
+        models: ['tcnn1', 'cnn_lstm', 'fcn_lstm'],
+        actions: ['straight', 'slow_or_stop', 'turn_left', 'turn_right'],
+        layers: 'Density'
+    };
+
+    let container = create_container();
+    add_model_selection(container);
+    add_zipcode_regions(container);
+    add_trip_color(container);
+    add_points(container);
+
+    function create_container() {
+
+        // Create div conntainer
+        let container = d3.select('#' + map_container_id).append('div').style('position', 'absolute').style('width', 'auto').style('height', '165px').style('background', 'rgba(255, 255, 255, 0.8)').style('padding', '5px').style('top', '15px').style('border-radius', '5px').style('right', '10px');
+
+        // Add header container
+        container.append('div').style('width', 'auto').style('height', '18px').style('line-height', '18px').style('font-size', '16px').style('text-align', 'center').style('background-color', '#bababa').html('Attributes');
+
+        return container;
+    }
+
+    function add_model_selection(div) {
+
+        let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+        let model_colors = ['#e41a1c', '#377eb8', '#4daf4a'];
+
+        let container = div.append('div').style('width', '100%').style('height', '15px').style('padding-top', '10px').style('line-height', '15px').style('font-size', '14px');
+
+        container.append('label').style('float', 'left').html('Models:&nbsp;');
+
+        for (let i = 0; i < models.length; ++i) {
+            let models_selection = container.append('div').attr('class', 'active').style('cursor', 'pointer').style('width', 'auto').style('height', '100%').style('float', 'left').style('padding-left', '2px').style('padding-right', '2px').style('color', model_colors[i]);
+
+            let model_icon = models_selection.append('i').attr('class', 'fas fa-check-square');
+
+            let model_label = models_selection.append('label').style('cursor', 'pointer').html('&nbsp;' + models[i]);
+
+            models_selection.on('click', function () {
+                if (models_selection.classed('active')) {
+                    models_selection.classed('active', false);
+                    model_icon.classed('fas fa-check-square', false);
+                    model_icon.classed('fas fa-square', true);
+                    legends_filter.models.splice(legends_filter.models.indexOf(models[i]), 1);
+                    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_visualize_background"])(legends_filter, zipcode_data);
+                } else {
+                    models_selection.classed('active', true);
+                    model_icon.classed('fas fa-square', false);
+                    model_icon.classed('fas fa-check-square', true);
+                    legends_filter.models.push(models[i]);
+                    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_visualize_background"])(legends_filter, zipcode_data);
+                }
+            });
+        }
+    }
+
+    function add_zipcode_regions(div) {
+
+        let layers = ['Density', 'Accuracy', 'F1', 'Perplexity'];
+        let layer_values = ['Density', 'accuracy', 'f1', 'entropy'];
+
+        let container = div.append('div').attr('class', 'active').style('width', '100%').style('height', '15px').style('padding-top', '10px').style('line-height', '15px').style('font-size', '14px');
+
+        let icon = container.append('i').style('cursor', 'pointer').attr('class', 'fas fa-check-square');
+
+        let label = container.append('label').style('cursor', 'pointer').html('&nbsp;' + 'Zipcode Regions');
+
+        let radios = div.append('div').style('width', '100%').style('height', '14px').style('line-height', '14px').style('font-size', '14px');
+
+        for (let i = 0; i < layer_values.length; ++i) {
+            let radio_input = radios.append('input').attr('id', 'radio-' + layer_values[i]).attr('type', 'radio').attr('name', 'segment-layer').attr('value', layer_values[i]).property('checked', i == 0 ? true : false);
+
+            let radio_label = radios.append('label').attr('for', 'radio-' + layer_values[i]).html(layers[i]);
+
+            radio_input.on('change', function () {
+
+                legends_filter.layers = layer_values[i];
+                let color_range = ['#fc8d59', '#ffffbf', '#91cf60'];
+                if (layer_values[i] === 'Density' || layer_values[i] === 'entropy') {
+                    color_range.reverse();
+                }
+
+                let new_label = "";
+                for (let i = 0, len = color_range.length; i < len; i++) {
+                    new_label += '<i style="color:' + color_range[i] + '" class="fas fa-square-full"></i>';
+                }
+
+                label.html('&nbsp;' + 'Zipcode Regions:&nbsp;&nbsp;&nbsp;Low ' + new_label + ' High');
+
+                Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_visualize_background"])(legends_filter, zipcode_data);
+            });
+        }
+
+        container.on('click', function () {
+            if (container.classed('active')) {
+                icon.classed('fas fa-check-square', 'false');
+                icon.classed('fas fa-square', 'true');
+                // Show map layer
+
+                if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('roads-highlight')) {
+                    _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('roads-highlight', 'fill-opacity', 0);
+                }
+
+                //$(radios.node()).hide();
+                container.classed('active', false);
+            } else {
+                icon.classed('fas fa-square', false);
+                icon.classed('fas fa-check-square', true);
+
+                if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('roads-highlight')) {
+                    _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('roads-highlight', 'fill-opacity', 0.5);
+                }
+
+                // Hide map layer
+                //$(radios.node()).show();
+                container.classed('active', true);
+            }
+        });
+
+        // Draw background here
+        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_visualize_background"])(legends_filter, zipcode_data);
+    }
+
+    function add_trip_color(div) {
+        let container = div.append('div').attr('class', 'active').style('width', '100%').style('height', '15px').style('line-height', '15px').style('padding-top', '10px').style('font-size', '14px');
+
+        let icon = container.append('i').style('cursor', 'pointer').attr('class', 'fas fa-check-square');
+
+        let label = container.append('label').style('cursor', 'pointer').html('&nbsp;' + 'Trip Density Heatmap');
+
+        container.on('click', function () {
+            if (container.classed('active')) {
+                icon.classed('fas fa-check-square', 'false');
+                icon.classed('fas fa-square', 'true');
+                if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-filtered-trajectory')) {
+                    _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0);
+                }
+                container.classed('active', false);
+            } else {
+                icon.classed('fas fa-square', false);
+                icon.classed('fas fa-check-square', true);
+                if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-filtered-trajectory')) {
+                    _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0.7);
+                }
+                container.classed('active', true);
+            }
+        });
+    }
+
+    function add_points(div) {
+
+        let action_labels = ['straight(▲)', 'slow/stop(&#11203;)', 'turn left(◀)', 'turn right(▶)'];
+        let actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+
+        let container = div.append('div').attr('class', 'active').style('width', '100%').style('height', '15px').style('padding-top', '10px').style('line-height', '15px').style('font-size', '14px');
+
+        let icon = container.append('i').style('cursor', 'pointer').attr('class', 'fas fa-check-square');
+
+        let label = container.append('label').style('cursor', 'pointer').html('&nbsp;' + 'Critical Locations');
+
+        let radios = div.append('div').style('width', '100%').style('height', '14px').style('line-height', '14px').style('font-size', '14px');
+
+        for (let i = 0; i < actions.length; ++i) {
+            let radio_input = radios.append('input').attr('id', 'radio-' + actions[i]).attr('type', 'radio').attr('name', 'point-layer').attr('value', actions[i]).property('checked', true);
+
+            let radio_label = radios.append('label').attr('for', 'radio-' + actions[i]).html(action_labels[i]);
+
+            radio_input.on('change', function () {
+
+                let filtered_points = [];
+
+                for (let j = 0; j < _map__WEBPACK_IMPORTED_MODULE_0__["map_all_points_data"].length; ++j) {
+                    if (actions[i] === _map__WEBPACK_IMPORTED_MODULE_0__["map_all_points_data"][j].properties.action) {
+                        filtered_points.push(_map__WEBPACK_IMPORTED_MODULE_0__["map_all_points_data"][j]);
+                    }
+                }
+
+                let feature_collection = turf.featureCollection(filtered_points);
+                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getSource('trip-points').setData(feature_collection);
+            });
+            if (i == 1) {
+                radios.append('br');
+            };
+        }
+
+        container.on('click', function () {
+            if (container.classed('active')) {
+                icon.classed('fas fa-check-square', 'false');
+                icon.classed('fas fa-square', 'true');
+                // Show map layer
+
+                if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-points')) {
+                    _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-points', 'circle-opacity', 0);
+                }
+
+                //$(radios.node()).hide();
+                container.classed('active', false);
+            } else {
+                icon.classed('fas fa-square', false);
+                icon.classed('fas fa-check-square', true);
+
+                if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-points')) {
+                    _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-points', 'circle-opacity', 0.9);
+                }
+
+                // Hide map layer
+                //$(radios.node()).show();
+                container.classed('active', true);
+            }
+        });
+    }
+
+    return;
+}
+
+function view_init_trip_filter_tab() {
+    let condition_tab = $('#trip-filter-tab-condition');
+    let performance_tab = $('#trip-filter-tab-performance');
+    let condition_body = $('#trip-filter-body-condition');
+    let performance_body = $('#trip-filter-body-performance');
+
+    condition_tab.on('click', function () {
+        view_trip_filter_mode.condition = true;
+        view_trip_filter_mode.performance = false;
+        condition_tab.css({ 'background-color': '#C9D2D3' });
+        performance_tab.css({ 'background-color': 'transparent' });
+        performance_body.hide();
+        condition_body.show();
+        // draw
+        if (___WEBPACK_IMPORTED_MODULE_1__["main_region"]) {
+            let trips = Object(_filter__WEBPACK_IMPORTED_MODULE_2__["filter_by_polygon"])(___WEBPACK_IMPORTED_MODULE_1__["main_region"], ___WEBPACK_IMPORTED_MODULE_1__["main_processed_trips"]);
+            Object(___WEBPACK_IMPORTED_MODULE_1__["main_init_visualization"])(trips);
+            //vis_draw_trip_filter(trips);
+            //vis_draw_histogram(trips);
+        } else {
+            //let trips = filter_bbox_trips(main_processed_trips);
+            Object(___WEBPACK_IMPORTED_MODULE_1__["main_init_visualization"])(___WEBPACK_IMPORTED_MODULE_1__["main_processed_trips"]);
+            //vis_draw_trip_filter(trips);
+            //vis_draw_histogram(trips);
+        }
+    });
+
+    performance_tab.on('click', function () {
+        view_trip_filter_mode.performance = true;
+        view_trip_filter_mode.condition = false;
+        condition_tab.css({ 'background-color': 'transparent' });
+        performance_tab.css({ 'background-color': '#C9D2D3' });
+        condition_body.hide();
+        performance_body.show();
+        // draw
+        if (___WEBPACK_IMPORTED_MODULE_1__["main_region"]) {
+            let trips = Object(_filter__WEBPACK_IMPORTED_MODULE_2__["filter_by_polygon"])(___WEBPACK_IMPORTED_MODULE_1__["main_region"], ___WEBPACK_IMPORTED_MODULE_1__["main_processed_trips"]);
+            Object(___WEBPACK_IMPORTED_MODULE_1__["main_init_visualization"])(trips);
+            //vis_draw_trip_filter(trips);
+            //vis_draw_histogram(trips);
+        } else {
+            //let trips = filter_bbox_trips(main_processed_trips);
+            Object(___WEBPACK_IMPORTED_MODULE_1__["main_init_visualization"])(___WEBPACK_IMPORTED_MODULE_1__["main_processed_trips"]);
+            //vis_draw_trip_filter(trips);
+            //vis_draw_histogram(trips);
+        }
+    });
+
+    return;
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js"), __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js")))
 
 /***/ }),
 
@@ -58968,7 +57043,7 @@ function view_create_filter_dropdown(container_id, filter_type, filter_lists) {
 /*!***********************!*\
   !*** ./src/js/vis.js ***!
   \***********************/
-/*! exports provided: vis_is_parallelsets_filter, vis_selected_nodes, vis_marker, vis_global_view, vis_parallelsets, vis_model_performance, vis_model_relation, vis_summary, vis_filter, vis_parallelsets_filter, vis_model_cases, vis_representative_images, vis_streetview_cases, vis_show_streetview, vis_area_study, vis_trip_list, vis_trip_viewer, vis_trips_study, vis_draw_action, vis_create_trip_info */
+/*! exports provided: vis_is_parallelsets_filter, vis_selected_nodes, vis_marker, vis_global_view, vis_draw_trip_filter, vis_draw_histogram, vis_model_cases, vis_representative_images, vis_streetview_cases, vis_show_streetview, vis_area_study, vis_trip_list, vis_trip_viewer, vis_trips_study, vis_draw_action, vis_create_trip_info */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58977,12 +57052,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_selected_nodes", function() { return vis_selected_nodes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_marker", function() { return vis_marker; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_global_view", function() { return vis_global_view; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_parallelsets", function() { return vis_parallelsets; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_model_performance", function() { return vis_model_performance; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_model_relation", function() { return vis_model_relation; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_summary", function() { return vis_summary; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_filter", function() { return vis_filter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_parallelsets_filter", function() { return vis_parallelsets_filter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_draw_trip_filter", function() { return vis_draw_trip_filter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_draw_histogram", function() { return vis_draw_histogram; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_model_cases", function() { return vis_model_cases; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_representative_images", function() { return vis_representative_images; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_streetview_cases", function() { return vis_streetview_cases; });
@@ -58993,16 +57064,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_trips_study", function() { return vis_trips_study; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_draw_action", function() { return vis_draw_action; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_create_trip_info", function() { return vis_create_trip_info; });
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
-/* harmony import */ var _plugin_d3_parsets__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugin/d3-parsets */ "./src/js/plugin/d3-parsets.js");
-/* harmony import */ var _plugin_d3_parsets__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_plugin_d3_parsets__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var d3_sankey__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! d3-sankey */ "./node_modules/d3-sankey/src/index.js");
+/* harmony import */ var d3_symbol_extra__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3-symbol-extra */ "./node_modules/d3-symbol-extra/build/d3-symbol-extra.js");
+/* harmony import */ var d3_symbol_extra__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3_symbol_extra__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./map */ "./src/js/map.js");
+/* harmony import */ var _plugin_d3_parsets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugin/d3-parsets */ "./src/js/plugin/d3-parsets.js");
+/* harmony import */ var _plugin_d3_parsets__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_plugin_d3_parsets__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! .. */ "./src/index.js");
-/* harmony import */ var image_ssim__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! image-ssim */ "./node_modules/image-ssim/index.js");
-/* harmony import */ var image_ssim__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(image_ssim__WEBPACK_IMPORTED_MODULE_5__);
-
-
+/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view */ "./src/js/view.js");
 
 
 
@@ -59028,17 +57096,20 @@ function vis_global_view(trips, container_id) {
     $('#' + container_id).empty();
 
     let selection_div = create_selection_div(container_id);
-    let performance_colors = ['#fb6a4a', '#ef3b2c', '#cb181d', '#a50f15', '#67000d'];
+    let performance_colors = ['#6baed6', '#fb6a4a', '#cb181d', '#a50f15', '#d73027'];
+
     let width = 0;
     let height = 0;
     let margin = { top: 20, right: 40, bottom: 10, left: 20 };
     let selection = {
-        parameter: 'action',
-        performances: ['accuracy', 'precision', 'recall', 'f1', 'entropy']
+        parameter: 'time_of_day',
+        performances: ['accuracy', 'entropy']
+        //performances: ['accuracy', 'precision', 'recall', 'f1', 'entropy']
+
 
         // TODO: Need to have default one
-    };add_trip_number(selection_div, trips);
-    add_parameter_legend(selection_div);
+        //add_trip_number(selection_div, trips);
+    };add_parameter_legend(selection_div);
     add_performance_legend(selection_div);
     init_chart(container_id);
     update_chart(selection);
@@ -59056,7 +57127,7 @@ function vis_global_view(trips, container_id) {
     // Add select option to dropdown list
     function add_dropdown(div) {
 
-        let parameters_str = ['Time Of Day', 'Scene', 'Weather', 'Action'];
+        let parameters_str = ['Time Of Day', 'Street Type', 'Weather', 'Action'];
         let parameters_value = ['time_of_day', 'scene', 'weather', 'action'];
         let actions_str = ['Straight', 'Slow Or Stop', 'Turn Left', 'Turn Right'];
         let actions_value = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
@@ -59085,16 +57156,16 @@ function vis_global_view(trips, container_id) {
     // Add performance legends
     function add_parameter_legend(div) {
 
-        let parameters_str = ['Time Of Day', 'Scene', 'Weather', 'Action'];
+        let parameters_str = ['Time Of Day', 'Street Type', 'Weather', 'Action'];
         let parameters_value = ['time_of_day', 'scene', 'weather', 'action'];
 
-        let parameter_div = div.append('div').style('width', '100%').style('height', '20px').style('line-height', '20px').style('box-sizing', 'border-box').style('font-size', '14px').style('text-align', 'center');
+        let parameter_div = div.append('div').style('width', '100%').style('height', '20px').style('line-height', '20px').style('box-sizing', 'border-box').style('font-size', '14px').style('padding-left', '5px').style('text-align', 'center');
 
         for (let i = 0; i < parameters_value.length; ++i) {
 
             let legend_div = parameter_div.append('div').style('width', 'auto').style('height', '20px').style('line-height', '20px').style('cursor', 'pointer').style('float', 'left').style('font-size', '14px');
 
-            let legend_icon = legend_div.append('i').attr('id', 'parameter-checkbox-' + i).attr('class', 'fas fa-square').style('cursor', 'pointer').style('color', '#7f0000');
+            let legend_icon = legend_div.append('i').attr('id', 'parameter-checkbox-' + i).attr('class', 'fas fa-square').style('cursor', 'pointer').style('color', '#969696');
 
             let legend_text = legend_div.append('label').style('cursor', 'pointer').html('&nbsp;' + parameters_str[i] + '&nbsp;&nbsp;');
 
@@ -59111,8 +57182,8 @@ function vis_global_view(trips, container_id) {
             });
         }
 
-        // Select action as default
-        d3.select('#parameter-checkbox-' + parameters_value.indexOf('action')).attr('class', 'fas fa-check-square');
+        // Select time_of_day as default
+        d3.select('#parameter-checkbox-' + parameters_value.indexOf('time_of_day')).attr('class', 'fas fa-check-square');
 
         return;
     }
@@ -59120,10 +57191,12 @@ function vis_global_view(trips, container_id) {
     // Add performance legends
     function add_performance_legend(div) {
 
-        let performace_str = ['Accuracy', 'Precision', 'Recall', 'F1', 'Perplexity'];
-        let performance_value = ['accuracy', 'precision', 'recall', 'f1', 'entropy'];
+        //let performace_str = ['Accuracy', 'Precision', 'Recall', 'F1', 'Perplexity'];
+        //let performance_value = ['accuracy', 'precision', 'recall', 'f1', 'entropy'];
+        let performace_str = ['Accuracy', 'Perplexity'];
+        let performance_value = ['accuracy', 'entropy'];
 
-        let performance_div = div.append('div').style('width', '100%').style('height', '40px').style('line-height', '40px').style('box-sizing', 'border-box').style('font-size', '14px').style('text-align', 'center');
+        let performance_div = div.append('div').style('width', '100%').style('height', '40px').style('line-height', '40px').style('box-sizing', 'border-box').style('font-size', '14px').style('padding-left', '5px').style('text-align', 'center');
 
         for (let i = 0; i < performance_value.length; ++i) {
 
@@ -59136,8 +57209,10 @@ function vis_global_view(trips, container_id) {
             legend_div.on('click', function () {
 
                 if (legend_div.classed('active')) {
+
                     let pos = selection.performances.indexOf(performance_value[i]);
                     selection.performances.splice(pos, 1);
+
                     legend_icon.attr('class', 'fas fa-square');
                     legend_div.classed('active', false);
                 } else {
@@ -59185,8 +57260,8 @@ function vis_global_view(trips, container_id) {
         let y0_scale = d3.scaleBand().range([0, height]).paddingInner(0.2);
 
         let y1_scale = d3.scaleBand().padding(0.2);
-
-        let color_scale = d3.scaleOrdinal().domain(['accuracy', 'precision', 'recall', 'f1', 'entropy']).range(performance_colors);
+        // ['accuracy', 'precision', 'recall', 'f1', 'entropy']
+        let color_scale = d3.scaleOrdinal().domain(['accuracy', 'entropy']).range(performance_colors);
 
         x0_scale.domain(models);
         x1_scale.domain([0, 1]).range([0, x0_scale.bandwidth()]);
@@ -59194,12 +57269,12 @@ function vis_global_view(trips, container_id) {
         y1_scale.domain(filter.performances).range([0, y0_scale.bandwidth()]);
 
         // Draw Y axis
-        svg.append("g").attr("class", "axis").call(d3.axisLeft(y0_scale)).selectAll('text').attr("text-anchor", "middle").attr('transform', function (d) {
+        svg.append("g").attr("class", "axis").call(d3.axisLeft(y0_scale)).selectAll('text').style('font-size', '11px').attr("text-anchor", "middle").attr('transform', function (d) {
             return 'translate(-13, -8) rotate(270)';
         });
 
         // Draw X axis
-        svg.append("g").attr("class", "axis").call(d3.axisTop(x0_scale));
+        svg.append("g").attr("class", "axis").style('font-size', '12px').call(d3.axisTop(x0_scale));
 
         for (let i = 0; i < keys.length; ++i) {
             for (let j = 0; j < models.length; ++j) {
@@ -59210,11 +57285,19 @@ function vis_global_view(trips, container_id) {
 
                     let value = result[keys[i]][models[j]][[filter.performances[k]]];
 
-                    g.append('rect').attr('x', 0).attr('y', y1_scale(filter.performances[k])).attr('width', x1_scale(1)).attr('height', y1_scale.bandwidth()).attr('fill', '#C9D2D3').style("stroke", '#C9D2D3').style("stroke-width", "0.5px").attr('fill-opacity', '0.8').style("stroke-opacity", 1);
+                    g.append('rect').attr('x', 0).attr('y', y1_scale(filter.performances[k])).attr('width', x1_scale(1)).attr('height', y1_scale.bandwidth()).attr('fill', '#C9D2D3').style("stroke", '#252525').style("stroke-width", "0.5px").attr('fill-opacity', '0.8').style("stroke-opacity", 1);
 
-                    g.append('rect').attr('x', 0).attr('y', y1_scale(filter.performances[k])).attr('height', y1_scale.bandwidth()).transition().duration(500).attr('width', value ? x1_scale(value) : x1_scale(0)).attr('fill', color_scale(filter.performances[k])).style("stroke", color_scale(filter.performances[k])).style("stroke-width", "0.5px").attr('fill-opacity', '0.8').style("stroke-opacity", 1);
+                    let bar_scale = d3.scaleLinear().domain([0, 1]);
 
-                    g.append('text').attr("y", y1_scale(filter.performances[k]) + y1_scale.bandwidth() / 2).transition().duration(500).attr("x", x1_scale(value) - 2).attr("dy", "0.32em").attr("fill", '#fff').attr('font-size', '9px').attr("text-anchor", "end").text(value ? value.toFixed(2) : 0);
+                    if (filter.performances[k] === 'accuracy') {
+                        bar_scale.range(['#f7fbff', '#9ecae1']);
+                    } else {
+                        bar_scale.range(['#fff5f0', '#fc9272']);
+                    }
+
+                    g.append('rect').attr('x', 0).attr('y', y1_scale(filter.performances[k])).attr('height', y1_scale.bandwidth()).transition().duration(500).attr('width', value ? x1_scale(value) : x1_scale(0)).attr('fill', value ? bar_scale(value) : bar_scale(0)).style("stroke", '#252525').style("stroke-width", "0.5px").attr('fill-opacity', '0.8').style("stroke-opacity", 1);
+
+                    g.append('text').attr("y", y1_scale(filter.performances[k]) + y1_scale.bandwidth() / 2).transition().duration(500).attr("x", x1_scale(value) - 2).attr("dy", "0.32em").attr("fill", '#252525').attr('font-size', '12px').attr("text-anchor", "end").text(value ? (value * 100).toFixed(0) + '%' : 0 + '%');
                 }
             }
         }
@@ -59308,526 +57391,182 @@ function vis_global_view(trips, container_id) {
     }
 }
 
-/*
-export function vis_draw_model_table(trips, container_id) {
+function vis_draw_trip_filter(trips) {
+    let condition_keys = ['time_of_day', 'scene', 'weather'];
+    let performance_keys = ['accuracy', 'perplexity'];
+    let condition_keys_text = ['Time Of Day', 'Street Type', 'Weather'];
+    let performance_keys_text = ['Accuracy (%)', 'Perplexity (%)'];
 
+    let processed_trips = preprocess(trips);
 
-    let trip_count = 0;
-    let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
-    let action_symbols = ['GO', 'SS', 'TL', 'TR'];
-
-    // Create table data
-    let preprocessed_data = preprocess(trips);
-    let data = preprocessed_data[0];
-    let filtered_data = preprocessed_data[1];
-
-    if (vis_is_parallelsets_filter) {
-
-        let summary = preprocessed_data[0];
-
-        Object.keys(summary).forEach(function (model) {
-            Object.keys(summary[model]).forEach(function (action) {
-
-                let filter_total = summary[model][action];
-                let total = $('#column-' + model + '-' + action).html();
-                let html_str = "";
-
-                if (total) {
-                    if (total.indexOf('/') > -1) {
-                        total = total.split('/')[2];
-                        html_str = '<font color="#a50f15">' + filter_total + '</font>' + ' /' + total;
-                        d3.select('#column-' + model + '-' + action)
-                            .style('font-size', '12px')
-                            .html(html_str);
-                    } else {
-                        html_str = '<font color="#a50f15">' + filter_total + '</font>' + ' /' + total;
-                        d3.select('#column-' + model + '-' + action)
-                            .style('font-size', '12px')
-                            .html(html_str);
-                    }
-                }
-            });
-        });
-        return;
+    if (_view__WEBPACK_IMPORTED_MODULE_4__["view_trip_filter_mode"].condition) {
+        create_filter(processed_trips, condition_keys, condition_keys_text, 'trip-filter-body-condition');
+    } else if (_view__WEBPACK_IMPORTED_MODULE_4__["view_trip_filter_mode"].performance) {
+        create_filter(processed_trips, performance_keys, performance_keys_text, 'trip-filter-body-performance');
+    } else {
+        alert('error no mode selected');
     }
 
-    // Clear current container
-    $('#' + container_id).empty();
-    // Start drawing table here
-    let table = d3.select('#' + container_id)
-        .append('table')
-        .style('width', '100%')
-        .style('height', '100%');
+    function create_filter(data, keys, key_values, container_id) {
 
-    let header_row = table.append('tr');
-    header_row.append('th').html(trip_count + ' Trips');
-    header_row.append('th').html('actual')
-    header_row.append('th').html('tcnn1')
-    header_row.append('th').html('cnn_lstm')
-    header_row.append('th').html('fcn_lstm');
+        let graph = get_graph(keys, data);
+        // Container to empty
+        $('#' + container_id).empty();
 
-    for (let i = 0; i <  car_actions.length; ++i) {
-        let body_row = table.append('tr')
-            .attr('class', 'dataview-rows')
-            .style('cursor', 'pointer');
-        body_row.append('td').html(action_symbols[i]);
-        Object.keys(data).forEach(function (model) {
-            if (car_actions[i] in data[model]) {
-                body_row.append('td')
-                    .attr('id', 'column-' + model + '-' + car_actions[i])
-                    .html(data[model][car_actions[i]]);
-            } else {
-                body_row.append('td')
-                    .html(0);
-            }
-        });
+        let nodes = graph.nodes;
+        let width = $('#' + container_id).width();
+        let height = $('#' + container_id).height();
+        let color_range = d3.scaleLinear().domain([0, data.length]).range(['#efedf5', '#54278f']);
 
-        body_row.on('click', function() {
+        //console.log(width);
+        //console.log(height);
 
-            d3.selectAll('.dataview-rows').style('opacity', 0.1);
-
-            if (body_row.classed('active')) {
-
-                //body_row.style('opacity', 1);
-                d3.selectAll('.dataview-rows').style('opacity', 1);
-
-                d3.selectAll('.performance-bar').style('opacity', 1);
-                body_row.classed('active', false);
-            } else {
-
-                d3.selectAll('.dataview-rows').classed('active', false);
-                body_row.style('opacity', 1);
-
-                let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
-
-                d3.selectAll('.performance-bar').style('opacity', 0.2);
-
-                models.forEach(function (model) {
-                    d3.select('#' + model + '-' + car_actions[i]).style('opacity', 1);
-                });
-                body_row.classed('active', true);
-            }
-
-        });
-    }
-
-    function preprocess (data) {
-        let filtered_trips = [];
-        let result = {};
-        for (var i = 0; i < data.length; ++i) {
-            // Get prediction action
-            if (data[i].actual && data[i].predict && Object.keys(data[i].predict).length === 3 && data[i].actual.no_slight) {
-                if (!('actual' in result)) { result['actual'] = {}; }
-                // Get actual label actions
-                for (var j = 0; j < data[i].actual.no_slight.length; ++j) {
-                    let action = data[i].actual.no_slight[j];
-                    if (car_actions[action] in result['actual']) {
-                        result['actual'][car_actions[action]] += 1;
-                    } else {
-                        result['actual'][car_actions[action]] = 1;
-                    }
-                }
-                // Get other model actions
-                Object.keys(data[i].predict).forEach(function (model) {
-                    if (model in result) {
-                        for (var j = 0; j < data[i].predict[model].length; ++j) {
-                            let prediction = data[i].predict[model][j];
-                            let action = prediction.indexOf(d3.max(prediction));
-                            if (car_actions[action] in result[model]) {
-                                result[model][car_actions[action]] += 1;
-                            } else {
-                                result[model][car_actions[action]] = 1;
-                            }
-                        }
-                    } else {
-                        result[model] = {};
-                        for (var j = 0; j < data[i].predict[model].length; ++j) {
-                            let prediction = data[i].predict[model][j];
-                            let action = prediction.indexOf(d3.max(prediction));
-                            if (car_actions[action] in result[model]) {
-                                result[model][car_actions[action]] += 1;
-                            } else {
-                                result[model][car_actions[action]] = 1;
-                            }
-                        }
-                    }
-                });
-
-                trip_count += 1;
-                filtered_trips.push(data[i]);
-            }
-        }
-
-        return [result, filtered_trips];
-    }
-
-    return filtered_data;
-}*/
-
-function vis_parallelsets(trips, container_id) {
-
-    // need to preprocess this
-    let data = preprocess(trips);
-    vis_selected_nodes = [];
-
-    // 'accuracy', 'perplexity'
-
-    // Select keys
-    let provide_keys = ['time_of_day', 'scene', 'weather', 'accuracy', 'entropy'];
-    let keys = ['time_of_day', 'scene', 'weather'];
-
-    let color = d3.scaleOrdinal(d3.schemeCategory10).domain(['daytime', 'night', 'dawn/dusk']).unknown('#C9D2D3');
-
-    /*
-    let graph = get_graph(keys, data);
-    //console.log(graph);
-     let sankey = d3Sankey()
-        .nodeSort(null)
-        .linkSort(null)
-        .nodeWidth(4)
-        .nodePadding(20)
-        .nodeSort(null)
-        .extent([[0, 5], [width, height - 5]]);
-     const {nodes, links} = sankey({
-        nodes: graph.nodes.map(d => Object.assign({}, d)),
-        links: graph.links.map(d => Object.assign({}, d))
-    });*/
-
-    //console.log(nodes);
-    //console.log(links);
-
-    // Remove current svg;
-    d3.select('#' + container_id).empty();
-
-    // Add dimension selector
-    add_dimension_list(data, keys, container_id);
-    update_chart(data, keys);
-
-    function add_dimension_list(data, dimensions, container_id) {
-        let dimension_div = d3.select('#' + container_id).append('div').style('width', 'auto').style('height', 'auto').style('cursor', 'pointer').style('position', 'absolute').style('top', '-20px').style('left', '0px').style('background-color', '#C9D2D3').style('box-sizing', 'border-box').style('line-height', '14px').style('font-size', '14px').style('padding', '2px').html('Dimensions').on('click', function () {
-
-            if (dimension_div.classed('active')) {
-                console.log('removed');
-                d3.select('#dimension-selector').remove();
-                dimension_div.classed('active', false);
-                return;
-            }
-
-            let selector_div = d3.select('#' + container_id).append('div').attr('id', 'dimension-selector').style('width', 'auto').style('height', 'auto').style('cursor', 'pointer').style('position', 'absolute').style('top', '-20px').style('right', '0px').style('background-color', '#C9D2D3').style('box-sizing', 'border-box').style('line-height', '14px').style('font-size', '14px').style('padding', '2px');
-
-            for (let i = 0; i < provide_keys.length; ++i) {
-                let select_div = selector_div.append('div').attr('class', dimensions.indexOf(provide_keys[i]) >= 0 ? 'active' : '').style('width', 'auto').style('height', '14px').style('line-height', '14px').style('cursor', 'pointer').style('font-size', '14px');
-
-                let select_icon = select_div.append('i').attr('class', dimensions.indexOf(provide_keys[i]) >= 0 ? 'fas fa-check-square' : 'fas fa-square').style('cursor', 'pointer').style('color', '#000');
-
-                let select_text = select_div.append('label').style('cursor', 'pointer').html('&nbsp;' + provide_keys[i]);
-
-                select_div.on('click', function () {
-
-                    if (select_div.classed('active')) {
-                        keys.splice(keys.indexOf(provide_keys[i]), 1);
-                        select_icon.attr('class', 'fas fa-square');
-                        select_div.classed('active', false);
-                    } else {
-                        keys.push(provide_keys[i]);
-                        select_icon.attr('class', 'fas fa-check-square');
-                        select_div.classed('active', true);
-                    }
-
-                    update_chart(data, keys);
-                });
-
-                dimension_div.classed('active', true);
-            }
-        });
-    }
-
-    function update_chart(data, dimensions) {
-
-        vis_selected_nodes = [];
-
-        //console.log(dimensions);
-        let margin = { top: 0, right: -30, bottom: 50, left: 0 };
-        let width = $('#' + container_id).width() - margin.left - margin.right;
-        let height = $('#' + container_id).height() - margin.top - margin.bottom;
-
-        var chart = d3.parsets().width(height).height(width).dimensions(dimensions).tension(0.7);
-
-        d3.select('#' + container_id).select('svg').remove();
-
-        let svg = d3.select('#' + container_id).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(-40, ' + height + ')rotate(-90)');
-
-        svg.datum(data).call(chart);
-
-        chart.on('sortDimensions', function () {
-            change_dimensions();
-        });
-
-        chart.on('sortCategories', function () {
-            change_categories();
-        });
-
-        svg.selectAll(".category text").attr('font-size', '10px').attr("dy", "0.7em").attr("transform", "rotate(90)").attr("dx", function (d) {
-            return d.dimension.name === keys[keys.length - 1] ? -5 : 5;
-        }).attr('text-anchor', function (d) {
-            return d.dimension.name === keys[keys.length - 1] ? 'end' : 'start';
-        });
-
-        svg.selectAll(".category rect").attr("y", 0);
-        svg.selectAll("text.dimension").attr("dy", "2em").attr('font-size', '12px').attr("transform", "rotate(90)").attr('text-anchor', function (d) {
-            return d.name === keys[keys.length - 1] ? 'end' : 'start';
-        });
-
-        svg.selectAll("text.dimension .sort.alpha").attr("x", 0).attr("dx", 0).attr("dy", "1.5em").attr('opacity', '0');
-
-        svg.selectAll("text.dimension .sort.size").attr("dx", "1em").attr('opacity', 0);
-
-        svg.selectAll('text').on('click', function (d) {
-
-            if (d3.select(this).classed('selected-text')) {
-                d3.select(this).attr('fill', '#000').attr('font-size', '10px');
-                d3.select(this).classed('selected-text', false);
-            } else {
-                d3.select(this).attr('fill', 'rgb(202,0,42)').attr('font-size', '12px');
-                d3.select(this).classed('selected-text', true);
-            }
-
-            highlight(d, true);
-        });
-    }
-
-    function highlight(d, ancestors) {
-
-        // Check is a nodes
-        if (!d.nodes) {
-            return;
-        }
-
-        var highlight = [];
-        d.nodes.forEach(function (node) {
-            (function recurse(x) {
-                highlight.push(x);
-                for (var k in x.children) recurse(x.children[k]);
-            })(node);
-            //highlight.shift();
-            if (ancestors) while (node) highlight.push(node), node = node.parent;
-        });
-
-        let pos = vis_selected_nodes.map(function (x) {
-            return x.parent;
-        }).indexOf(d.name);
-
-        if (pos >= 0) {
-            vis_selected_nodes.splice(pos, 1);
-        } else {
-            vis_selected_nodes.push({
-                parent: d.name,
-                dimension: d.dimension.name,
-                highlight: highlight
-            });
-        }
-
-        update_selection();
-    }
-
-    function update_selection() {
-        // Reset all selection path
-        d3.select('.ribbon').selectAll('path').classed('selected', false);
-        // Highlight selection
-        d3.select('.ribbon').selectAll('path').classed('selected', function (d) {
-            const found = vis_selected_nodes.some(item => item.highlight.indexOf(d.node) >= 0);
-            return found ? true : false;
-        });
-
-        //
-        update_by_selection();
-    }
-
-    function change_categories() {
-        // Reset all selection path
-        vis_selected_nodes = [];
-        d3.selectAll('.selected-text').attr('fill', '#000').attr('font-size', '10px');
-        d3.selectAll('.selected-text').classed('selected-text', false);
-
-        // Reset filter
-        reset_filter();
-    }
-
-    function change_dimensions() {
-        // Reset all selection path
-        vis_selected_nodes = [];
-        d3.selectAll('.selected-text').attr('fill', '#000').attr('font-size', '10px');
-        d3.selectAll('.selected-text').classed('selected-text', false);
-
-        reset_filter();
-    }
-
-    function update_by_selection() {
-        //data, selected_nodes;
+        let sub_height = 70;
         let filter = {};
-        vis_selected_nodes.forEach(function (node) {
-            let key = node.dimension;
-            let value = node.parent;
-            if (!(key in filter)) {
-                filter[key] = [];
-            }
 
-            if (filter[key].indexOf(value) < 0) {
-                filter[key].push(value);
-            }
-        });
+        for (let i = 0, len = Object.keys(keys).length; i < len; i++) {
 
-        let filtered_trips = [];
-        for (let i = 0; i < trips.length; ++i) {
-
-            let trip = trips[i];
-
-            let meet = true;
-            Object.keys(filter).forEach(function (key) {
-                if (filter[key].indexOf(trip[key]) < 0) {
-                    meet = false;
-                }
+            let counts = {};
+            graph.key_list[keys[i]].forEach(function (x) {
+                counts[x] = (counts[x] || 0) + 1;
             });
 
-            if (meet) {
-                filtered_trips.push(trip);
+            filter[keys[i]] = [];
+
+            let key_container = d3.select('#' + container_id).append('div').style('width', width).style('height', sub_height + 'px').style('box-sizing', 'border-box');
+
+            // Key header
+            let key_header = key_container.append('div').style('width', '100%').style('height', '25px').style('box-sizing', 'border-box').style('font-size', '14px').style('line-height', '25px').style('text-align', 'center').html(key_values[i]);
+
+            let key_body = key_container.append('div').style('width', '100%').style('height', 'calc(100% - 25px)').style('box-sizing', 'border-box');
+
+            let key_items = [];
+            for (let j = 0, j_len = nodes.length; j < j_len; j++) {
+                if (nodes[j].key === keys[i]) {
+                    key_items.push(nodes[j].name);
+                }
+            }
+
+            key_items.sort();
+
+            let sub_width = width / key_items.length;
+            for (let k = 0, k_len = key_items.length; k < k_len; k++) {
+
+                let item_container = key_body.append('div').style('width', sub_width + 'px').style('height', '100%').style('box-sizing', 'border-box').style('float', 'left').style('display', 'inline-block');
+
+                let item_header = item_container.append('div').style('width', '100%').style('height', '20px').style('box-sizing', 'border-box').style('font-size', '12px').style('line-height', '20px').style('text-align', 'center').style('overflow-x', 'hidden').style('color', '#525252').html(key_items[k]);
+
+                let item_body = item_container.append('div').style('width', '100%').style('height', 'calc(100% - 20px)').style('padding-left', '3px').style('padding-right', '3px').style('box-sizing', 'border-box');
+
+                let item_rect = item_body.append('div').attr('class', 'active').style('width', '100%').style('height', '20px').style('cursor', 'pointer').style('text-align', 'center').style('background-color', color_range(counts[key_items[k]])).style('border', '1px solid #252525');
+
+                item_rect.on('click', function () {
+                    if (item_rect.classed('active')) {
+                        item_rect.style('border', '1px solid #d0d0d0');
+                        item_rect.classed('active', false);
+
+                        filter[keys[i]].splice(filter[keys[i]].indexOf(key_items[k]), 1);
+
+                        if (filter[keys[i]].length === 0) {
+                            delete filter[keys[i]];
+                        }
+                        update_filter(filter, trips);
+                    } else {
+                        item_rect.style('border', '1px solid #252525');
+                        item_rect.classed('active', true);
+
+                        if (!(keys[i] in filter)) {
+                            filter[keys[i]] = [];
+                            filter[keys[i]].push(key_items[k]);
+                        } else {
+                            filter[keys[i]].push(key_items[k]);
+                        }
+                        update_filter(filter, trips);
+                    }
+                });
+                // Adding all filter here
+                filter[keys[i]].push(key_items[k]);
             }
         }
-
-        // Need to set filtered_trips
-
-        //vis_area_study(filtered_trips, 'tripview-body');
-        vis_model_cases(filtered_trips, 'model-cases-body');
-        vis_representative_images(filtered_trips, undefined, 'streetview-body');
-
-        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_show_filtered_trips"])(filtered_trips);
-        Object(___WEBPACK_IMPORTED_MODULE_4__["main_set_maplayer_index"])();
     }
 
-    function reset_filter() {
-        //vis_area_study(trips, 'tripview-body');
-        vis_model_cases(trips, 'model-cases-body');
-        vis_representative_images(trips, undefined, 'streetview-body');
+    function preprocess(data) {
 
-        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_show_filtered_trips"])(trips);
-        Object(___WEBPACK_IMPORTED_MODULE_4__["main_set_maplayer_index"])();
-        return;
-    }
+        // Need to categorize entropy
+        for (let i = 0; i < data.length; ++i) {
+            let trip = data[i];
+            let accuracy = [],
+                entropy = [];
+            let performance = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["util_compute_performance"])([trip]);
 
-    /*
-    svg.append("g").selectAll("rect")
-        .data(nodes)
-        .join("rect")
-        .attr("x", d => d.x0)
-        .attr("y", d => d.y0)
-        .attr("height", d => d.y1 - d.y0)
-        .attr("width", d => d.x1 - d.x0)
-        .style('cursor', 'pointer')
-        .on('click', highlight_nodes)
-    .append("title")
-        .text(d => `${d.name}\n${d.value.toLocaleString()}`);
-      svg.append("g")
-        .attr("fill", "none")
-    .selectAll("g")
-        .data(links)
-        .join("path")
-        .attr("d", sankeyLinkHorizontal())
-        .attr('class', 'link')
-        .attr("id", function(d,i){
-            d.id = i;
-            return "link-"+i;
-        })
-        .attr("stroke", '#fb6a4a')
-        .attr("stroke-width", d => d.width)
-        .attr('stroke-opacity', 0.5)
-        .style("mix-blend-mode", "multiply")
-    .append("title")
-        .text(d => `${d.names.join(" → ")}\n${d.value.toLocaleString()}`);
-     svg.append("g")
-        .style('font-weight', 'bold')
-        .style("font-size", "12px")
-      .selectAll("text")
-      .data(nodes)
-      .join("text")
-        .attr("x", d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
-        .attr("y", d => (d.y1 + d.y0) / 2)
-        .attr("dy", "0.35em")
-        .attr("text-anchor", d => d.x0 < width / 2 ? "start" : "end")
-        .text(d => d.name)
-      .append("tspan")
-        .attr("fill-opacity", 0.7)
-        .text(d => `: ${d.value.toLocaleString()}`);
-     function highlight_nodes(node, i) {
-         d3.selectAll('.link').style('stroke', '#C9D2D3');
-        d3.selectAll('.link').style('stroke-opacity', 0.5);
-         var remainingNodes=[],
-            nextNodes=[];
-         var stroke_opacity = 0.5;
-         var traverse = [{
-            linkType : "sourceLinks",
-            nodeType : "target"
-        },{
-            linkType : "targetLinks",
-            nodeType : "source"
-        }];
-         // Create parallelset filter
-        var filter = [[], [], [], [], [], []];
-         traverse.forEach(function(step){
-             if (filter[node.layer].indexOf(node.name) === -1) {
-                filter[node.layer].push(node.name);
-            }
-             node[step.linkType].forEach(function(link) {
-                remainingNodes.push(link[step.nodeType]);
-                highlight_link(link.id, stroke_opacity);
-            });
-             while (remainingNodes.length) {
-                nextNodes = [];
-                remainingNodes.forEach(function(node) {
-                     if (filter[node.layer].indexOf(node.name) === -1) {
-                        filter[node.layer].push(node.name);
-                    }
-                     node[step.linkType].forEach(function(link) {
-                    nextNodes.push(link[step.nodeType]);
-                    highlight_link(link.id, stroke_opacity);
-                    });
+            Object.keys(performance).forEach(function (model) {
+                Object.keys(performance[model]).forEach(function (action) {
+                    accuracy.push(performance[model][action].accuracy);
+                    entropy.push(performance[model][action].entropy);
                 });
-                remainingNodes = nextNodes;
+            });
+
+            trip.performances = {
+                accuracy: d3.mean(accuracy),
+                perplexity: d3.mean(entropy)
+            };
+
+            trip.accuracy = get_value_category(d3.mean(accuracy));
+            trip.perplexity = get_value_category(d3.mean(entropy));
+        }
+
+        return data;
+    }
+
+    function get_value_category(value) {
+        let category = ['0 - 10', '20 - 30', '30 - 40', '30 - 40', '40 - 50', '50 - 60', '60 - 70', '70 - 80', '80 - 90', '90 - 100'];
+        let range = [0, .1, .2, .3, .4, .5, .6, .7, .8, .9];
+
+        for (let i = 0; i < range.length; ++i) {
+            if (value > range[i] && value <= range[i] + 0.10) {
+                return category[i];
             }
-        });
-         vis_parallelsets_filter(data, filter);
+        }
     }
-     function highlight_link (id, opacity){
-        d3.select("#link-"+id)
-            .style('stroke', '#fb6a4a')
-            .style("stroke-opacity", opacity);
-    }
-     function get_graph(keys, data) {
+
+    function get_graph(keys, data) {
         let index = -1;
         const nodes = [];
-        const nodeByKey = new Map;
-        const indexByKey = new Map;
+        const nodeByKey = new Map();
+        const indexByKey = new Map();
         const links = [];
-         for (const k of keys) {
+        const key_list = {};
+
+        for (const k of keys) {
+
+            if (!(k in key_list)) {
+                key_list[k] = [];
+            }
+
             for (const d of data) {
                 const key = JSON.stringify([k, d[k]]);
+                key_list[k].push(d[k]);
                 if (nodeByKey.has(key)) continue;
-                const node = {name: d[k]};
+                const node = { name: d[k], key: k };
                 nodes.push(node);
                 nodeByKey.set(key, node);
                 indexByKey.set(key, ++index);
             }
         }
-         for (let i = 1; i < keys.length; ++i) {
+
+        for (let i = 1; i < keys.length; ++i) {
             const a = keys[i - 1];
             const b = keys[i];
             const prefix = keys.slice(0, i + 1);
-            const linkByKey = new Map;
+            const linkByKey = new Map();
             for (const d of data) {
                 const names = prefix.map(k => d[k]);
                 const key = JSON.stringify(names);
                 const value = d.value || 1;
                 let link = linkByKey.get(key);
-                if (link) { link.value += value; continue; }
+                if (link) {
+                    link.value += value;continue;
+                }
                 link = {
                     source: indexByKey.get(JSON.stringify([a, d[a]])),
                     target: indexByKey.get(JSON.stringify([b, d[b]])),
@@ -59838,817 +57577,274 @@ function vis_parallelsets(trips, container_id) {
                 linkByKey.set(key, link);
             }
         }
-         return {nodes, links};
-    }*/
 
-    function preprocess(data) {
-
-        // Need to categorize entropy
-        for (let i = 0; i < data.length; ++i) {
-            let trip = data[i];
-            let performance = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["util_compute_performance"])([trip]);
-
-            let accuracy = [],
-                precision = [],
-                recall = [],
-                f1 = [],
-                entropy = [];
-
-            Object.keys(performance).forEach(function (model) {
-                Object.keys(performance[model]).forEach(function (action) {
-                    accuracy.push(performance[model][action].accuracy);
-                    precision.push(performance[model][action].precision);
-                    recall.push(performance[model][action].recall);
-                    f1.push(performance[model][action].f1);
-                    entropy.push(performance[model][action].entropy);
-                });
-            });
-
-            trip.performances = {
-                accuracy: d3.mean(accuracy),
-                precision: d3.mean(precision),
-                recall: d3.mean(recall),
-                f1: d3.mean(f1),
-                perplexity: d3.mean(entropy)
-            };
-
-            trip.accuracy = get_value_category(d3.mean(accuracy));
-            trip.precision = get_value_category(d3.mean(precision));
-            trip.recall = get_value_category(d3.mean(recall));
-            trip.f1 = get_value_category(d3.mean(f1));
-            trip.perplexity = get_value_category(d3.mean(entropy));
-        }
-
-        return data;
+        return { nodes, links, key_list };
     }
 
-    function get_value_category(value) {
-        let category = ['0,10', '20,30', '30,40', '30,40', '40,50', '50,60', '60,70', '70,80', '80,90', '90,100'];
-        let range = [0, .1, .2, .3, .4, .5, .6, .7, .8, .9];
-
-        for (let i = 0; i < range.length; ++i) {
-            if (value > range[i] && value <= range[i] + 0.10) {
-                return category[i];
+    // Update other views here
+    function update_filter(filter, trips) {
+        console.log(filter);
+        let filtered_trips = [];
+        for (let i = 0, len = trips.length; i < len; i++) {
+            let trip = trips[i];
+            let has = true;
+            Object.keys(filter).forEach(function (attribute) {
+                if (filter[attribute].indexOf(trip[attribute]) < 0) {
+                    has = false;
+                }
+            });
+            if (has) {
+                filtered_trips.push(trip);
             }
         }
+
+        //$('#dataview-summary').html(display_summary);
+
+        // Draw map here
+        vis_draw_histogram(filtered_trips);
+        Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_show_filtered_trips"])(filtered_trips);
+        vis_model_cases(filtered_trips, 'model-cases-body');
+
+        return;
     }
 
     return;
 }
 
-function vis_model_performance(data, container_id) {
+function vis_draw_histogram(trips) {
+    //let processed_trips = preprocess(trips);
+    $('#histogram-condition').remove();
+    $('#histogram-performance').remove();
 
-    let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
-    let performance = preprocess(data);
-
-    if (vis_is_parallelsets_filter) {
-
-        d3.selectAll('.performance-text').style('opacity', 0.2);
-        d3.selectAll('.filter-performance-bar').remove();
-
-        for (let i = 0; i < models.length; ++i) {
-
-            let model = models[i];
-            let filter_performance = performance[model];
-
-            let svg = d3.select('#performance-' + models[i]);
-            let margin = { top: 40, right: 20, bottom: 30, left: 40 };
-            let width = +svg.attr("width") - margin.left - margin.right;
-            let height = +svg.attr("height") - margin.top - margin.bottom;
-            let g = svg.append("g").attr('class', 'filter-performance-bar').attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-            let colors = ['#fee5d9', '#fcae91', '#fb6a4a', '#cb181d'];
-            let matrices = ['accuracy', 'precision', 'recall', 'f1'];
-            let x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
-
-            let x1 = d3.scaleBand().padding(0.05);
-
-            let y = d3.scaleLinear().rangeRound([height, 0]);
-
-            x0.domain(Object.keys(filter_performance));
-            x1.domain(matrices).rangeRound([0, x0.bandwidth()]);
-            y.domain([0, 1]).nice();
-
-            Object.keys(filter_performance).forEach(function (key, index) {
-
-                let bar = g.append("g").style('opacity', 1).attr('transform', "translate(" + x0(key) + ",0)");
-
-                for (let i = 0; i < matrices.length; ++i) {
-
-                    bar.append("rect").attr("x", x1(matrices[i])).attr("width", x1.bandwidth()).attr("y", y(0)).attr("height", 0).transition().duration(500).attr("y", y(filter_performance[key][matrices[i]])).attr('height', height - y(filter_performance[key][matrices[i]])).attr('fill', 'transparent').style("stroke", '#252525').style("stroke-width", "0.5px").style("stroke-opacity", 1);
-
-                    bar.append('text').attr("x", x1(matrices[i])).attr("y", y(filter_performance[key][matrices[i]]) - 5).attr("dy", "0.32em").attr("fill", '#000').attr('font-size', '9px').attr("text-anchor", "start").text(filter_performance[key][matrices[i]].toFixed(2));
-                }
-            });
-        }
-
-        return;
+    if (_view__WEBPACK_IMPORTED_MODULE_4__["view_trip_filter_mode"].condition) {
+        let keys = ['accuracy', 'perplexity'];
+        let key_values = ['Accuracy', 'Perplexity'];
+        let processed_data = preprocess(trips, keys);
+        add_histogram_container_1('trip-filter-body-condition', keys, key_values, processed_data, trips);
+    } else if (_view__WEBPACK_IMPORTED_MODULE_4__["view_trip_filter_mode"].performance) {
+        let keys = ['time_of_day', 'weather', 'scene'];
+        let key_values = ['Time Of Day', 'Weather', 'Street Type'];
+        let processed_data = preprocess(trips, keys);
+        add_histogram_container_2('trip-filter-body-performance', keys, key_values, processed_data, trips);
     }
 
-    d3.select('#' + container_id).selectAll('svg').remove();
-    for (let i = 0; i < models.length; ++i) {
-        let svg = create_svg(container_id, models[i]);
-        draw_group_barchart(svg, performance[models[i]], models[i]);
-    }
+    function add_histogram_container_1(container_id, keys, key_values, data, all_trips) {
 
-    function draw_group_barchart(svg, data, model_name) {
+        let body_height = 70 * 3;
 
-        let matrices = ['accuracy', 'precision', 'recall', 'f1'];
-        let colors = ['#fee5d9', '#fcae91', '#fb6a4a', '#cb181d'];
+        let histogram_body = d3.select('#' + container_id).append('div').attr('id', 'histogram-condition').style('width', '100%').style('height', 'calc(100% - ' + body_height + 'px)').style('border-top', '1px solid #BCCFD3');
 
-        let margin = { top: 40, right: 20, bottom: 30, left: 40 };
-        let width = +svg.attr("width") - margin.left - margin.right;
-        let height = +svg.attr("height") - margin.top - margin.bottom;
-        let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        let histogram_height = $('#histogram-condition').height() / keys.length;
+        let histogram_width = $('#histogram-condition').width();
 
-        let x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
+        for (let i = 0, len = keys.length; i < len; i++) {
 
-        let x1 = d3.scaleBand().padding(0.05);
+            let histogram_container = histogram_body.append('div').style('width', '100%').style('height', histogram_height + 'px').style('box-sizing', 'border-box');
 
-        let y = d3.scaleLinear().rangeRound([height, 0]);
+            var margin = { top: 40, right: 20, bottom: 20, left: 40 },
+                width = histogram_width - margin.left - margin.right,
+                height = histogram_height - margin.top - margin.bottom;
 
-        x0.domain(Object.keys(data));
-        x1.domain(matrices).rangeRound([0, x0.bandwidth()]);
-        y.domain([0, 1]).nice();
+            var x = d3.scaleBand().range([0, width]).padding(0.1);
+            var y = d3.scaleLinear().range([height, 0]);
 
-        // Adding circle color legend
-        if (model_name === 'tcnn1') {
-            for (let i = 0; i < matrices.length; ++i) {
-                svg.append("circle").attr("cx", i * (width / 4) + 50).attr("cy", 10).attr("r", 6).style("fill", colors[i]).attr('opacity', 1).style("stroke", '#252525').style("stroke-width", "0.5px").style("stroke-opacity", 1);
-                svg.append("text").attr("x", i * (width / 4) + 60).attr("y", 10).text(matrices[i]).style("font-size", "15px").attr("alignment-baseline", "middle");
-            }
-        }
+            let svg = histogram_container.append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        Object.keys(data).forEach(function (key, index) {
-
-            let bar = g.append("g").attr('class', 'performance-bar').attr('id', model_name + '-' + key).attr('transform', "translate(" + x0(key) + ",0)");
-
-            for (let i = 0; i < matrices.length; ++i) {
-
-                bar.append("rect").attr("x", x1(matrices[i])).attr("y", y(data[key][matrices[i]])).attr("width", x1.bandwidth()).attr('height', height - y(data[key][matrices[i]])).attr('opacity', 1).attr('fill', colors[i]).style("stroke", '#252525').style("stroke-width", "0.5px").style("stroke-opacity", 1);
-
-                bar.append('text').attr('class', 'performance-text').attr("x", x1(matrices[i])).attr("y", y(data[key][matrices[i]]) - 5).attr("dy", "0.32em").attr("fill", "#000").attr('font-size', '9px').attr("text-anchor", "start").text(data[key][matrices[i]].toFixed(2));
-            }
-        });
-
-        g.append("g").attr("class", "axis").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x0));
-
-        g.append("g").attr("class", "y axis").call(d3.axisLeft(y).ticks(2, 's'));
-
-        /*
-        g.append("text")
-            .attr("x", width / 2)
-            .attr("y", -3)
-            .attr("dy", "0.32em")
-            .attr("fill", "#000")
-            .attr("font-weight", "bold")
-            .attr('font-size', '14px')
-            .attr("text-anchor", "middle")
-            .text(model_name);*/
-
-        return;
-    }
-
-    function create_svg(container_id, model) {
-
-        let container_width = $('#' + container_id).width();
-        let container_height = $('#' + container_id).height() / 3;
-
-        let container = d3.select('#' + container_id).append('div').style('width', container_width).style('height', container_height);
-
-        let svg = container.append('svg').attr('id', 'performance-' + model).attr('width', container_width).attr('height', container_height);
-
-        return svg;
-    }
-
-    // Calculate confuse matrix
-    function preprocess(data) {
-
-        let car_actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
-        let model_performance = {};
-        let confusion_matrix = {};
-
-        for (let i = 0; i < data.length; ++i) {
-
-            let true_label = data[i].actual.no_slight;
-            let predicts = data[i].predict;
-
-            Object.keys(predicts).forEach(function (key) {
-                let predict_label = predicts[key];
-
-                if (!(key in confusion_matrix)) {
-                    confusion_matrix[key] = {};
-                }
-
-                for (let j = 0; j < predict_label.length; ++j) {
-
-                    let true_action = car_actions[true_label[j]];
-                    let predict_action = car_actions[predict_label[j].indexOf(d3.max(predict_label[j]))];
-
-                    if (!(true_action in confusion_matrix[key])) {
-                        confusion_matrix[key][true_action] = {
-                            'straight': 0,
-                            'slow_or_stop': 0,
-                            'turn_left': 0,
-                            'turn_right': 0
-                        };
-                    }
-
-                    confusion_matrix[key][true_action][predict_action] += 1;
-                    /*
-                    if (predict_action in confusion_matrix[key][true_action]) {
-                        confusion_matrix[key][true_action][predict_action] += 1;
-                    } else {
-                        confusion_matrix[key][true_action][predict_action] = 1;
-                    }*/
-                }
-            });
-        }
-
-        Object.keys(confusion_matrix).forEach(function (model) {
-
-            model_performance[model] = {};
-            delete confusion_matrix[model][undefined];
-
-            Object.keys(confusion_matrix[model]).forEach(function (main_class) {
-
-                let tp = 0;let tn = 0;let fp = 0;let fn = 0;
-
-                Object.keys(confusion_matrix[model][main_class]).forEach(function (predict_class) {
-                    if (predict_class !== main_class) {
-                        fn += confusion_matrix[model][main_class][predict_class];
-                    } else {
-                        tp = confusion_matrix[model][main_class][predict_class];
-                    }
-                });
-
-                Object.keys(confusion_matrix[model]).forEach(function (sub_class) {
-                    if (main_class !== sub_class) {
-                        Object.keys(confusion_matrix[model][sub_class]).forEach(function (predict_class) {
-                            if (predict_class === main_class) {
-                                fp += confusion_matrix[model][sub_class][predict_class];
-                            } else {
-                                tn += confusion_matrix[model][sub_class][predict_class];
-                            }
-                        });
-                    }
-                });
-                /*
-                console.log('tp: ' + tp);
-                console.log('tn: ' + tn);
-                console.log('fp: ' + fp);
-                console.log('fn: ' + fn);*/
-
-                model_performance[model][main_class] = {};
-
-                let accuracy = (tp + tn) / (tp + tn + fp + fn);
-                let precision = tp / (tp + fp);
-                let recall = tp / (tp + fn);
-                let f1 = 2 * tp / (2 * tp + fp + fn);
-
-                model_performance[model][main_class]['accuracy'] = isNaN(accuracy) ? 0 : accuracy;
-                model_performance[model][main_class]['precision'] = isNaN(precision) ? 0 : precision;
-                model_performance[model][main_class]['recall'] = isNaN(recall) ? 0 : recall;
-                model_performance[model][main_class]['f1'] = isNaN(f1) ? 0 : f1;
-            });
-        });
-
-        return model_performance;
-    }
-}
-
-function vis_model_relation(data, container_id) {
-
-    let relation = preprocess(data);
-    console.log(relation);
-
-    d3.select('#' + container_id).selectAll('svg').remove();
-
-    Object.keys(relation).forEach(function (model) {
-        let svg = create_svg(container_id);
-        draw_pieglyph(svg, relation[model], model);
-    });
-
-    function draw_pieglyph(svg, data, model) {
-
-        let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-
-        let margin = { top: 50, right: 20, bottom: 50, left: 20 };
-        let width = +svg.attr("width") - margin.left - margin.right;
-        let height = +svg.attr("height") - margin.top - margin.bottom;
-        let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        var color = ["#C9D2D3", "rgb(202,0,42)"];
-
-        let x = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
-
-        x.domain(models);
-
-        if (model === 'actual') {
-            g.append("g").attr("class", "axis").attr("transform", "translate(0," + -35 + ")").call(d3.axisTop(x));
-        }
-
-        g.append("text").attr("x", 20).attr("y", height / 2).text(model).style("font-size", "12px").attr("transform", "translate(0, 40)rotate(270)");
-
-        for (let i = 0; i < models.length; ++i) {
-
-            let pie_group = g.append("g").attr('class', 'pie').attr('transform', "translate(" + (x(models[i]) + 40) + "," + (height / 2 + 2) + ")");
-
-            if (data[models[i]]) {
-                var pie = d3.pie().value(function (d) {
-                    return d.value;
-                });
-
-                var data_ready = pie(d3.entries(data[models[i]]));
-                pie_group.selectAll('glyph').data(data_ready).enter().append('path').attr('d', d3.arc().innerRadius(0).outerRadius(25)).attr('fill', function (d, i) {
-                    return color[i];
-                }).attr("stroke", function (d, i) {
-                    return color[i];
-                }).style("stroke-width", "2px").style("stroke-opacity", 1).style("opacity", .5);
-
-                pie_group.selectAll('glyph-text').data(data_ready).enter().append('text').attr('transform', function (d) {
-                    d.innerRadius = 0;
-                    d.outerRadius = 25;
-
-                    let pos = d3.arc().innerRadius(0).outerRadius(25).centroid(d);
-
-                    return 'translate(' + pos + ')';
-                }).attr("text-anchor", "middle").attr('font-size', '9px').text(function (d) {
-                    return d.value;
-                });
-            }
-        }
-    }
-
-    function create_svg(container_id) {
-
-        let container_width = $('#' + container_id).width();
-        let container_height = $('#' + container_id).height() / 4;
-
-        let container = d3.select('#' + container_id).append('div').style('width', container_width).style('height', container_height);
-
-        let svg = container.append('svg').attr('width', container_width).attr('height', container_height);
-
-        return svg;
-    }
-
-    function preprocess(data) {
-
-        let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-
-        let relation = {};
-        for (let i = 0; i < models.length; ++i) {
-            relation[models[i]] = {};
-            for (let j = 0; j < models.length; ++j) {
-                if (models[i] !== models[j]) {
-                    relation[models[i]][models[j]] = {
-                        same: 0,
-                        different: 0
-                    };
-                }
-            }
-        }
-
-        for (let i = 0; i < data.length; ++i) {
-            let predicts = data[i].predict;
-            let actual = data[i].actual.no_slight;
-
-            Object.keys(predicts).forEach(function (model) {
-                for (let i = 0; i < predicts[model].length; ++i) {
-                    if (predicts[model][i].indexOf(d3.max(predicts[model][i])) !== actual[i]) {
-                        relation['actual'][model].different += 1;
-                    } else {
-                        relation['actual'][model].same += 1;
-                    }
-                }
+            let values = [];
+            let items = [];
+            Object.keys(data[keys[i]]).forEach(function (item) {
+                items.push(item);
+                values.push(data[keys[i]][item]);
             });
 
-            Object.keys(predicts).forEach(function (main_model) {
+            x.domain(items);
+            y.domain([0, d3.max(values)]);
 
-                for (let i = 0; i < predicts[main_model].length; ++i) {
-                    if (predicts[main_model][i].indexOf(d3.max(predicts[main_model][i])) !== actual[i]) {
-                        relation[main_model]['actual'].different += 1;
-                    } else {
-                        relation[main_model]['actual'].same += 1;
-                    }
-                }
+            Object.keys(data[keys[i]]).forEach(function (item, index) {
+                svg.append("rect").attr('id', 'histogram-' + keys[i] + '-' + index).attr("class", "histogram-bar").attr("x", x(item)).attr("width", x.bandwidth()).attr('fill', '#fdb863').attr('stroke', '#BCCFD3').attr('cursor', 'pointer').attr('y', function (d) {
+                    return y(0);
+                }).attr('height', function (d) {
+                    return height - y(0);
+                }).on('click', function () {
+                    clicked_on_bar(data[keys[i] + '_trips'][item], index, keys[i], all_trips);
+                }).transition().delay(function (d) {
+                    return Math.random() * 500;
+                }).duration(500).attr("y", y(data[keys[i]][item])).attr("height", height - y(data[keys[i]][item]));
 
-                Object.keys(predicts).forEach(function (sub_model) {
-                    if (sub_model !== main_model) {
-                        for (let i = 0; i < predicts[sub_model].length; ++i) {
-                            if (predicts[main_model][i].indexOf(d3.max(predicts[main_model][i])) !== predicts[sub_model][i].indexOf(d3.max(predicts[sub_model][i]))) {
-                                relation[main_model][sub_model].different += 1;
-                            } else {
-                                relation[main_model][sub_model].same += 1;
-                            }
-                        }
-                    }
+                svg.append('text').attr('class', 'histogram-text').attr('x', x(item) + x.bandwidth() / 2).attr('y', y(data[keys[i]][item]) - 2).style('fill', '#252525').style('text-anchor', 'middle').style('cursor', 'pointer').style('font-size', '12px').text(data[keys[i]][item]).on('click', function () {
+                    clicked_on_bar(data[keys[i] + '_trips'][item], index, keys[i], all_trips);
                 });
             });
-        }
 
-        return relation;
-    }
-}
+            // add the x Axis
+            svg.append("g").attr('class', 'x axis').attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
 
-/*s
-export function vis_streetview (data, container_id) {
+            // add the y Axis
+            svg.append("g").attr('class', 'y axis').call(d3.axisLeft(y).ticks(7));
 
-    $('#' + container_id).empty();
-    let width = $('#' + container_id).width();
-    let height = $('#' + container_id).height();
+            // Y title
+            svg.append('text').attr('x', 4).attr('y', -10).attr('dy', '.35em').style('font-size', '12px').style('text-anchor', 'end').style('fill', '#252525').text('Trips');
 
-    // Create trip containers
-    for (let i = 0; i < data.length; ++i) {
-        let div = d3.select('#' + container_id)
-            .append('div')
-            .style('width', width)
-            .style('height', '100')
-            .style('border', '1px solid #C9D2D3')
-            .style('overflow-x', 'auto')
-            .style('overflow-y', 'hidden')
-            .style('white-space', 'nowrap');
-
-        // Random and put images
-        let random_count = 0;
-
-        while (random_count < 15) {
-            let random_index = Math.floor(Math.random() * data[i].actual.no_slight.length);
-            div.append('img')
-                .attr('alt', '')
-                .attr('src', '/frames/' + data[i].trip_id + '/' + random_index + '.png')
-                .style('width', '150px')
-                .style('height', '100px')
-                .style('border', '1px solid #C9D2D3')
-                .style('display', 'inline-block');
-            random_count += 1;
+            // Chart title
+            svg.append('text').attr('x', width / 2).attr('y', -20).attr('dy', '.35em').style('font-size', '14px').style('text-anchor', 'middle').style('fill', '#252525').text(key_values[i] + ' Distribution');
         }
     }
-}*/
 
-function vis_summary(data, container_id) {
-    let trips = data;
-    let processed_trips = preprocess(trips);
+    function add_histogram_container_2(container_id, keys, key_values, data, all_trips) {
 
-    draw_model(processed_trips.model, container_id, processed_trips);
+        let body_height = 70 * 2;
 
-    var svg_time_of_day = create_svg(container_id);
-    var svg_scene = create_svg(container_id);
-    var svg_weather = create_svg(container_id);
+        let histogram_body = d3.select('#' + container_id).append('div').attr('id', 'histogram-performance').style('width', '100%').style('height', 'calc(100% - ' + body_height + 'px)').style('border-top', '1px solid #BCCFD3');
 
-    var time_of_day_xy = draw_group_barchart(svg_time_of_day, processed_trips.time_of_day, 'time_of_day');
-    var scene_xy = draw_group_barchart(svg_scene, processed_trips.scene, 'scene');
-    var weather_xy = draw_group_barchart(svg_weather, processed_trips.weather, 'weather');
+        let histogram_height = $('#histogram-performance').height() / keys.length;
+        let histogram_width = $('#histogram-performance').width();
 
-    function draw_group_barchart(svg, data, data_type) {
+        for (let i = 0, len = keys.length; i < len; i++) {
 
-        let margin = { top: 10, right: 20, bottom: 30, left: 40 };
-        let width = +svg.attr("width") - margin.left - margin.right;
-        let height = +svg.attr("height") - margin.top - margin.bottom;
-        let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            let histogram_container = histogram_body.append('div').style('width', '100%').style('height', histogram_height + 'px').style('box-sizing', 'border-box');
 
-        let x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
+            var margin = { top: 40, right: 20, bottom: 20, left: 40 },
+                width = histogram_width - margin.left - margin.right,
+                height = histogram_height - margin.top - margin.bottom;
 
-        let x1 = d3.scaleBand().padding(0.05);
+            var x = d3.scaleBand().range([0, width]).padding(0.1);
+            var y = d3.scaleLinear().range([height, 0]);
 
-        let y = d3.scaleLinear().rangeRound([height, 0]);
+            let svg = histogram_container.append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        let values = [];
-        Object.keys(data).forEach(function (key) {
-            values.push(data[key].train);
-            values.push(data[key].val);
-        });
-
-        x0.domain(Object.keys(data));
-        x1.domain(['train', 'val']).rangeRound([0, x0.bandwidth()]);
-        y.domain([0, d3.max(values)]).nice();
-
-        Object.keys(data).forEach(function (key) {
-
-            let key_str = key == 'dawn/dusk' ? 'dawn_dusk' : key.replaceAll(' ', '_');
-
-            let bar = g.append("g").attr('class', 'bar').attr('transform', "translate(" + x0(key) + ",0)");
-
-            bar.append("rect").attr('id', 'bar-train-' + data_type + '-' + key_str).attr("x", x1('train')).attr("y", y(data[key].train)).attr("width", x1.bandwidth()).attr('height', height - y(data[key].train)).attr('fill', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"].train);
-
-            bar.append("rect").attr('id', 'bar-val-' + data_type + '-' + key_str).attr("x", x1('val')).attr("y", y(data[key].val)).attr("width", x1.bandwidth()).attr('height', height - y(data[key].val)).attr('fill', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"].val);
-        });
-
-        g.append("g").attr("class", "axis").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x0));
-
-        g.append("g").attr("class", "y axis").call(d3.axisLeft(y).ticks(2, 's'));
-
-        g.append("text").attr("x", width / 2).attr("y", 0).attr("dy", "0.32em").attr("fill", "#000").attr("font-weight", "bold").attr('font-size', '14px').attr("text-anchor", "middle").text(data_type.replaceAll('_', ' '));
-
-        return [x0, x1, y, height];
-    }
-
-    function update_group_barchart(xy, model_filter, attribute_filter, data, svg, data_type) {
-
-        console.log(data);
-
-        // x1 , y
-        let x0 = xy[0],
-            x1 = xy[1],
-            y = xy[2],
-            height = xy[3];
-        x1.domain(model_filter).rangeRound([0, x0.bandwidth()]);
-
-        let values = [];
-        Object.keys(data).forEach(function (key) {
-            for (let i = 0; i < model_filter.length; ++i) {
-                let pos = attribute_filter.indexOf(key);
-                if (pos !== -1) values.push(data[key][model_filter[i]]);
-            }
-        });
-
-        y.domain([0, d3.max(values)]).nice();
-
-        svg.select(".y").transition().call(d3.axisLeft(y).ticks(2, "s")).duration(500);
-
-        Object.keys(data).forEach(function (key) {
-
-            let key_str = key == 'dawn/dusk' ? 'dawn_dusk' : key.replaceAll(' ', '_');
-
-            if (model_filter.indexOf('train') !== -1) {
-                svg.select('#bar-train-' + data_type + '-' + key_str).transition().attr("x", x1('train')).attr("y", y(data[key].train)).attr("width", x1.bandwidth()).attr('height', height - y(data[key].train)).attr('fill', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"].train).duration(500);
-            } else {
-                svg.select('#bar-train-' + data_type + '-' + key_str).transition().attr("x", function () {
-                    return +d3.select(this).attr("x") + +d3.select(this).attr("width") / 2;
-                }).attr("y", function () {
-                    return height;
-                }).attr("width", 0).attr('height', 0).attr('fill', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"].train).duration(500);
-            }
-
-            if (model_filter.indexOf('val') !== -1) {
-                svg.select('#bar-val-' + data_type + '-' + key_str).transition().attr("x", x1('val')).attr("y", y(data[key].val)).attr("width", x1.bandwidth()).attr('height', height - y(data[key].val)).attr('fill', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"].val).duration(500);
-            } else {
-                svg.select('#bar-val-' + data_type + '-' + key_str).transition().attr("x", function () {
-                    return +d3.select(this).attr("x") + +d3.select(this).attr("width") / 2;
-                }).attr("y", function () {
-                    return height;
-                }).attr("width", 0).attr('height', 0).attr('fill', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"].val).duration(500);
-            }
-        });
-    }
-
-    function create_svg(container_id) {
-
-        let container_width = $('#' + container_id).width();
-        let container_height = ($('#' + container_id).height() - 30) / 3;
-
-        let container = d3.select('#' + container_id).append('div').style('width', container_width).style('height', container_height);
-
-        let svg = container.append('svg').attr('width', container_width).attr('height', container_height);
-
-        return svg;
-    }
-
-    function draw_model(data, div_id, full_data) {
-        let container = d3.select('#' + div_id).append('div').style('width', '100%').style('height', '30px').style('line-height', '30px').style('text-align', 'center');
-
-        Object.keys(data).forEach(function (key) {
-            let square = container.append('i').attr('class', 'fas fa-square-full').style('cursor', 'pointer').style('color', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"][key]);
-
-            let label = container.append('label').attr('class', 'label-' + key + ' active').style('color', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"][key]).style('cursor', 'pointer').html('&nbsp;&nbsp;' + key + ': ' + data[key] + '&nbsp;&nbsp;');
-
-            label.on('click', function () {
-
-                let model_filter = ['train', 'val'];
-
-                if (label.classed('active')) {
-                    label.classed('active', false).style('color', '#d9d9d9');
-                    square.style('color', '#d9d9d9');
-
-                    // Filter
-                    model_filter.splice(model_filter.indexOf(key), 1);
-                    update_group_barchart(scene_xy, model_filter, Object.keys(full_data.scene), full_data.scene, svg_scene, 'scene');
-                    update_group_barchart(time_of_day_xy, model_filter, Object.keys(full_data.time_of_day), full_data.time_of_day, svg_time_of_day, 'time_of_day');
-                    update_group_barchart(weather_xy, model_filter, Object.keys(full_data.weather), full_data.weather, svg_weather, 'weather');
-
-                    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_filter_all_trips"])(model_filter);
-                } else {
-                    label.classed('active', true).style('color', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"][key]);
-                    square.style('color', _map__WEBPACK_IMPORTED_MODULE_0__["map_model_colors"][key]);
-
-                    // Filter
-                    update_group_barchart(scene_xy, model_filter, Object.keys(full_data.scene), full_data.scene, svg_scene, 'scene');
-                    update_group_barchart(time_of_day_xy, model_filter, Object.keys(full_data.time_of_day), full_data.time_of_day, svg_time_of_day, 'time_of_day');
-                    update_group_barchart(weather_xy, model_filter, Object.keys(full_data.weather), full_data.weather, svg_weather, 'weather');
-
-                    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_filter_all_trips"])(model_filter);
-                }
+            let values = [];
+            let items = [];
+            Object.keys(data[keys[i]]).forEach(function (item) {
+                items.push(item);
+                values.push(data[keys[i]][item]);
             });
-        });
 
-        container.append('label').html('&nbsp;' + '/ ' + (data.train + data.val) + '&nbsp; Total trips');
+            x.domain(items);
+            y.domain([0, d3.max(values)]);
+
+            Object.keys(data[keys[i]]).forEach(function (item, index) {
+                svg.append("rect").attr('id', 'histogram-' + keys[i] + '-' + index).attr("class", "histogram-bar").attr("x", x(item)).attr("width", x.bandwidth()).attr('fill', '#fdb863').attr('stroke', '#BCCFD3').attr('cursor', 'pointer').attr('y', function (d) {
+                    return y(0);
+                }).attr('height', function (d) {
+                    return height - y(0);
+                }).on('click', function () {
+                    // highlight trips
+                    clicked_on_bar(data[keys[i] + '_trips'][item], index, keys[i], all_trips);
+                }).transition().delay(function (d) {
+                    return Math.random() * 500;
+                }).duration(500).attr("y", y(data[keys[i]][item])).attr("height", height - y(data[keys[i]][item]));
+
+                svg.append('text').attr("class", "histogram-text").attr('x', x(item) + x.bandwidth() / 2).attr('y', y(data[keys[i]][item]) - 2).style('fill', '#252525').style('text-anchor', 'middle').style('cursor', 'pointer').style('font-size', '12px').text(data[keys[i]][item]).on('click', function () {
+                    clicked_on_bar(data[keys[i] + '_trips'][item], index, keys[i], all_trips);
+                });
+            });
+
+            // add the x Axis
+            svg.append("g").attr('class', 'x axis').attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
+
+            // add the y Axis
+            svg.append("g").attr('class', 'y axis').call(d3.axisLeft(y).ticks(7));
+
+            // Y title
+            svg.append('text').attr('x', 4).attr('y', -10).attr('dy', '.35em').style('font-size', '12px').style('text-anchor', 'end').style('fill', '#252525').text('Trips');
+
+            // Chart title
+            svg.append('text').attr('x', width / 2).attr('y', -20).attr('dy', '.35em').style('font-size', '14px').style('text-anchor', 'middle').style('fill', '#252525').text(key_values[i] + ' Distribution');
+        }
     }
 
-    function preprocess(data) {
-        let result = {
-            model: {},
-            weather: {},
-            scene: {},
-            time_of_day: {}
-        };
+    function preprocess(trips, keys) {
 
-        for (let i = 0; i < data.length; ++i) {
-            let trip = data[i];
-            Object.keys(result).forEach(function (key) {
+        // compute accuracy and perplexity
+        if (keys.length == 2) {
 
-                if (key === 'model') {
-                    if (!(trip.model_type in result[key])) {
-                        result[key][trip.model_type] = 1;
+            let value_category = ['0 - 10', '20 - 30', '30 - 40', '30 - 40', '40 - 50', '50 - 60', '60 - 70', '70 - 80', '80 - 90', '90 - 100'];
+
+            let category_data = {
+                accuracy: {},
+                perplexity: {},
+                accuracy_trips: {},
+                perplexity_trips: {}
+            };
+
+            for (let i = 0, len = value_category.length; i < len; i++) {
+                category_data.accuracy[value_category[i]] = 0;
+                category_data.perplexity[value_category[i]] = 0;
+                category_data.accuracy_trips[value_category[i]] = [];
+                category_data.perplexity_trips[value_category[i]] = [];
+            }
+
+            for (let i = 0, len = trips.length; i < len; i++) {
+                category_data.accuracy[trips[i].accuracy] += 1;
+                category_data.perplexity[trips[i].perplexity] += 1;
+                category_data.accuracy_trips[trips[i].accuracy].push(trips[i]);
+                category_data.perplexity_trips[trips[i].perplexity].push(trips[i]);
+            }
+
+            return category_data;
+        } else {
+
+            let category_data = {};
+            for (let i = 0, len = trips.length; i < len; i++) {
+                let trip = trips[i];
+                for (let j = 0, j_len = keys.length; j < j_len; j++) {
+                    let key = keys[j];
+
+                    if (!(key in category_data)) {
+                        category_data[key] = {};
+                        category_data[key + '_trips'] = {};
+                    }
+
+                    if (!(trip[key] in category_data[key])) {
+
+                        category_data[key][trip[key]] = 1;
+                        category_data[key + '_trips'][trip[key]] = [];
+                        category_data[key + '_trips'][trip[key]].push(trips[i]);
+                        //category_data[key][trip[key]]['accuracy'].push(trip['performances']['accuracy']);
+                        //category_data[key][trip[key]]['perplexity'].push(trip['performances']['perplexity']);
                     } else {
-                        result[key][trip.model_type] += 1;
-                    }
-                } else {
-                    if (trip[key] != null && trip[key] != 'undefined') {
-                        if (!(trip[key] in result[key])) {
-                            result[key][trip[key]] = {};
-                            result[key][trip[key]][trip.model_type] = 1;
-                        } else {
-                            if (result[key][trip[key]][trip.model_type]) {
-                                result[key][trip[key]][trip.model_type] += 1;
-                            } else {
-                                result[key][trip[key]][trip.model_type] = 1;
-                            }
-                        }
+                        category_data[key][trip[key]] += 1;
+                        category_data[key + '_trips'][trip[key]].push(trips[i]);
+                        //ategory_data[key][trip[key]]['accuracy'].push(trip['performances']['accuracy']);
+                        //category_data[key][trip[key]]['perplexity'].push(trip['performances']['perplexity']);
                     }
                 }
-            });
-        }
-
-        return result;
-    }
-}
-
-function vis_filter(result, container_id) {
-
-    // Clear filter
-    $('#' + container_id).empty();
-
-    let trips = preprocess(result);
-    console.log(trips);
-
-    let margin = { top: 30, right: 40, bottom: 10, left: 40 };
-    let width = $('#' + container_id).width() - margin.left - margin.right;
-    let height = $('#' + container_id).height() - margin.top - margin.bottom;
-
-    let svg = d3.select('#' + container_id).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    // Preprocess and filter data
-
-    let dimensions = [];
-    let brushHeight = 25;
-    const brush = d3.brushX().extent([[0, -(brushHeight / 2)], [width, brushHeight / 2]]).on("start brush end", brushed).on("end.snap", brushended);
-
-    Object.keys(trips[0]).forEach(function (key) {
-
-        if (key === 'AVG_Speed') {
-            dimensions.push({
-                name: key,
-                scale: d3.scaleLinear().domain([0, 50]).range([0, width]).nice(),
-                type: 'number'
-            });
-        }
-
-        if (key === 'scene' || key === 'weather' || key === 'time_of_day') {
-            dimensions.push({
-                name: key,
-                scale: d3.scalePoint().range([0, width]),
-                type: 'string'
-            });
-        }
-        /*
-        if (key === 'start_time' || key === 'end_time') {
-            dimensions.push({
-                name: key,
-                scale: d3.scaleTime()
-                    .range([0, width])
-                    .domain([new Date(2016, 0, 1, 0, 0, 0), new Date(2016, 0, 1, 23, 59, 59)])
-                    .nice(),
-                type: 'time'
-            });
-        }*/
-    });
-
-    var y = d3.scalePoint().domain(dimensions.map(function (d) {
-        return d.name;
-    })).range([0, height]).padding(1);
-
-    var dragging = {};
-
-    var line = d3.line().defined(function (d) {
-        return !isNaN(d[1]);
-    }),
-        axis = d3.axisBottom(),
-        background,
-        foreground;
-
-    Object.keys(dimensions).forEach(function (key) {
-
-        if (dimensions[key].type === "number") {
-            dimensions[key].scale.domain(d3.extent(trips, function (d) {
-                return +d[dimensions[key].name];
-            }));
-        }
-
-        if (dimensions[key].type === "string") {
-            dimensions[key].scale.domain(trips.map(function (d) {
-                return d[dimensions[key].name];
-            }).sort());
-        }
-    });
-
-    // Add grey background lines for context.
-
-    background = svg.append("g").attr("class", "background").selectAll("path").data(trips).enter().append("path").attr("d", draw);
-
-    // Add blue foreground lines for focus.
-    foreground = svg.append("g").attr("class", "foreground").selectAll("path").data(trips).enter().append("path").attr('stroke', '#D99200').attr("d", draw);
-
-    svg.selectAll(".dimension").data(dimensions).enter().append("g").each(function (d) {
-        d3.select(this).attr("transform", 'translate(0,' + y(d.name) + ')').call(axis.scale(d.scale));
-    }).call(brush).call(g => g.selectAll("text").clone(true).lower().attr("fill", "none").attr("stroke-width", 5).attr("stroke-linejoin", "round").attr("stroke", "white"));
-
-    function brushed(d) {
-        let selection = d3.brushSelection(this);
-        const range = d.scale.domain().map(d.scale);
-        const i0 = d3.bisectRight(range, selection[0]);
-        const i1 = d3.bisectRight(range, selection[1]);
-        console.log([i0, i1]);
-    }
-
-    function brushended(d) {
-        let selection = d3.brushSelection(this);
-        const range = d.scale.domain().map(d.scale),
-              dx = d.scale.step() / 2;
-        const x0 = range[d3.bisectRight(range, selection[0])] - dx;
-        const x1 = range[d3.bisectRight(range, selection[1]) - 1] + dx;
-        console.log([x0, x1]);
-        d3.select(this).transition().call(brush.move, x1 > x0 ? [x0, x1] : null);
-    }
-
-    function draw(d) {
-        return line(dimensions.map(function (dimension) {
-            return [dimension.scale(d[dimension.name]), y(dimension.name)];
-        }));
-    }
-
-    function preprocess(data) {
-
-        let filter_data = [];
-
-        for (let i = 0; i < data.length; ++i) {
-            let trip = data[i];
-            if (trip['weather'] != null && trip['weather'] != 'undefined' && trip['scene'] != null && trip['scene'] != 'undefined' && trip['time_of_day'] != null && trip['time_of_day'] != 'undefined') {
-                let avg_speed = d3.mean(trip['speeds']);
-                if (avg_speed) {
-                    trip['AVG_Speed'] = avg_speed;
-                    filter_data.push(trip);
-                }
             }
+            return category_data;
         }
-
-        return filter_data;
     }
-}
 
-function vis_parallelsets_filter(data, filter) {
+    function clicked_on_bar(filtered_trips, index, key, all_trips) {
 
-    // Set boolean filter
-    vis_is_parallelsets_filter = true;
+        if (d3.select('#histogram-' + key + '-' + index).classed('active')) {
 
-    let trips = preprocess(data, filter);
+            d3.selectAll('.histogram-bar').style('stroke', '#BCCFD3');
+            d3.selectAll('.histogram-bar').classed('active', false);
+            d3.select('#histogram-' + key + '-' + index).classed('active', false);
 
-    // filter table
-    vis_draw_model_table(trips, 'dataview-table');
-    vis_model_performance(trips, 'model_performance-body');
+            Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_show_filtered_trips"])(all_trips);
+            vis_model_cases(all_trips, 'model-cases-body');
+        } else {
+            d3.selectAll('.histogram-bar').style('stroke', '#BCCFD3');
+            d3.selectAll('.histogram-bar').classed('active', false);
+            d3.select('#histogram-' + key + '-' + index).style('stroke', '#252525');
+            d3.select('#histogram-' + key + '-' + index).classed('active', true);
 
-    // Set boolean back to default
-    vis_is_parallelsets_filter = false;
-
-    function preprocess(data, filter) {
-
-        let trips = [];
-        for (let i = 0; i < data.length; ++i) {
-
-            let time_of_day = data[i].time_of_day;
-            let scene = data[i].scene;
-            let weather = data[i].weather;
-
-            if (filter[0].indexOf(time_of_day) !== -1 && filter[1].indexOf(scene) !== -1 && filter[2].indexOf(weather) !== -1) {
-                trips.push(data[i]);
-            }
+            Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_show_filtered_trips"])(filtered_trips);
+            vis_model_cases(filtered_trips, 'model-cases-body');
         }
-
-        return trips;
     }
 }
 
 // TODO: need to add d3 here
 function vis_model_cases(trips, container_id) {
+    // Need to remove thumbnails and markers
+    d3.selectAll('.thumbnail-container').classed('active', false);
+    d3.selectAll('.thumbnail-viewer').remove();
+    if (vis_marker) {
+        vis_marker.remove();
+    }
+
     // Summarize all cases
     let cases = preprocess(trips);
 
@@ -60661,51 +57857,60 @@ function vis_model_cases(trips, container_id) {
 
     let table = d3.select('.trip-cases').append('table').attr('width', '100%').attr('height', '100%');
 
-    let table_headers = ['actual', 'tcnn1', 'fcn_lstm', 'cnn_lstm', 'count'];
+    let table_colors = ['#252525', '#e41a1c', '#377eb8', '#4daf4a', '#252525'];
+    let table_headers = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm', 'count'];
 
-    table.append('tr');
+    let table_header_row = table.append('tr');
     for (let i = 0; i < table_headers.length; ++i) {
-        table.append('th').style('color', '#000').html(table_headers[i]);
+        table_header_row.append('th').style('color', table_colors[i]).html(table_headers[i]);
     }
 
     Object.keys(cases).forEach(function (item, index) {
 
-        let row = table.append('tr').attr('class', 'row-cases').style('cursor', 'pointer').style('text-align', 'center');
+        if (item !== '0000') {
+            let row = table.append('tr').attr('class', 'row-cases').style('cursor', 'pointer').style('text-align', 'center');
 
-        let boolean_expression = item.split('');
+            let boolean_expression = item.split('');
 
-        for (let i = 0; i < boolean_expression.length; ++i) {
-            row.append('td').style('color', boolean_expression[i] === '1' ? '#D482A6' : '#C9D2D3').style('font-size', '24px').style('text-align', 'center').append('div').style('height', '20px').style('width', '20px').style('margin', 'auto').style('border-radius', '50%').style('box-shadow', boolean_expression[i] === '1' ? 'none' : 'inset 0px 0px 5px #737373').style('background-color', boolean_expression[i] === '1' ? '#D482A6' : '#C9D2D3');
-        }
+            for (let i = 0; i < boolean_expression.length; ++i) {
+                row.append('td').style('color', boolean_expression[i] === '1' ? table_colors[i] : '#C9D2D3').style('font-size', '24px').style('text-align', 'center').append('div').style('height', '20px').style('width', '20px').style('margin', 'auto').style('border', '1px solid #C9D2D3').style('border-radius', '50%').style('box-shadow', boolean_expression[i] === '1' ? 'none' : 'inset 0px 0px 5px #737373').style('background-color', boolean_expression[i] === '1' ? table_colors[i] : '#C9D2D3');
+            }
 
-        // Show count
-        row.append('td').html(cases[item]);
+            // Show count
+            row.append('td').html(cases[item]);
 
-        row.on('click', function () {
-            if (row.classed('active')) {
-                d3.selectAll('.row-cases').classed('active', false);
-                d3.selectAll('.row-cases').style('background-color', 'transparent');
-                //vis_streetview(trips, 'streetview-body');
-            } else {
-                // Set class
-                d3.selectAll('.row-cases').classed('active', false);
-                row.classed('active', true);
-                // Bg
+            row.on('click', function () {
+                d3.selectAll('.thumbnail-container').classed('active', false);
+                d3.selectAll('.thumbnail-viewer').remove();
+                // For performance issues
+                if (row.classed('active')) {
+                    return;
+                } else {
+                    d3.selectAll('.row-cases').classed('active', false);
+                    row.classed('active', true);
+                    // Bg
+                    d3.selectAll('.row-cases').style('background-color', 'transparent');
+                    row.style('background-color', '#bababa');
+                    // Draw new gallery
+                    let coords = get_all_points(trips, item);
+                    Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_draw_all_points"])(coords);
+                    vis_representative_images(trips, item, 'streetview-body');
+                }
+                //vis_representative_images(trips, item, 'streetview-body');
+            });
+
+            // Set first default representative images as default
+            if (index === 0) {
                 d3.selectAll('.row-cases').style('background-color', 'transparent');
                 row.style('background-color', '#bababa');
-                // Draw new gallery
+                // Set style without highlight
+                row.classed('active', true);
+                // Show representative images
+                let coords = get_all_points(trips, item);
+                Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_draw_all_points"])(coords);
                 vis_representative_images(trips, item, 'streetview-body');
+                //vis_representative_images(trips, item, 'streetview-body');
             }
-        });
-
-        // Set first default representative images
-        if (index === 0) {
-            d3.selectAll('.row-cases').style('background-color', 'transparent');
-            row.style('background-color', '#bababa');
-            // Set style without highlight
-            row.classed('active', true);
-            // Show representative images
-            vis_representative_images(trips, item, 'streetview-body');
         }
     });
 
@@ -60722,107 +57927,122 @@ function vis_model_cases(trips, container_id) {
         }
         return cases;
     }
-}
 
-function vis_representative_images(trips, expression, container_id) {
+    function get_all_points(trips, expression) {
+        let coords = [];
+        if (expression && expression !== '0000') {
+            let actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+            for (let i = 0; i < trips.length; ++i) {
 
-    $('#' + container_id).empty();
-
-    let coords = [];
-
-    if (expression && expression !== '0000') {
-        coords = [];
-        let prev_context = undefined;
-        for (let i = 0; i < trips.length; ++i) {
-            let trip = trips[i];
-            if (trip.cases[expression]) {
-                let indexes = trip.cases[expression];
-                for (let j = 0; j < indexes.length; ++j) {
-                    if (Math.random() < 0.3) {
-                        coords.push(trip.locations.coordinates[Math.floor(indexes[j] / 3)]);
-
-                        d3.select('#' + container_id).append('img').attr('id', 'image-' + trip.trip_id + '-' + indexes[j]).attr('class', 'case-images').attr('alt', '').attr('src', '/frames/' + trip.trip_id + '/' + indexes[j] + '.png').style('width', '140px').style('height', '90px').style('cursor', 'pointer').style('border', '1px solid #C9D2D3').style('float', 'left').on('click', function () {
-                            clicked(trip, indexes[j]);
+                let trip = trips[i];
+                let actual = trips[i].actual.no_slight;
+                if (trip.cases[expression]) {
+                    let indexes = trip.cases[expression];
+                    for (let j = 0; j < indexes.length; ++j) {
+                        coords.push({
+                            action: actual[indexes[j]] != -1 ? actions[actual[indexes[j]]] : 'not_sure',
+                            coordinates: trip.locations.coordinates[Math.floor(indexes[j] / 3)]
                         });
                     }
                 }
             }
         }
-        /*
-        if ($('#image-' + trip.trip_id + '-' + indexes[j]).length >= 1) {
-            let current_img = get_image_data('image-' + trip.trip_id + '-' + indexes[j]);
-            let prev_img = get_image_data('image-' + trip.trip_id + '-' + indexes[j - 1]);
-             let res = compare(current_img, prev_img, 8, 0.01, 0.03, true);
-            let ssim = Math.round(res.ssim * 1000) / 1000;
-            //console.log(ssim);
-        }*/
+        return coords;
+    }
+}
 
-        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_all_points"])(coords);
-    } else {
+function vis_representative_images(trips, expression, container_id) {
+    //console.log(expression);
+    $('#' + container_id).empty();
 
-        coords = [];
+    let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+    let model_colors = ['#e41a1c', '#377eb8', '#4daf4a'];
+    let car_action = ['▲', '⬣', '◀', '▶'];
+    let actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
 
+    let prev_image_data = undefined;
+    let prev_trip_id = undefined;
+
+    let all_images = [];
+    //let count = 0;
+    if (expression) {
         for (let i = 0; i < trips.length; ++i) {
             let trip = trips[i];
-            let actual_label = trip.actual.no_slight;
-            let temp_action = "";
-            for (let j = 0; j < actual_label.length; ++j) {
+            let prev_action = undefined;
+            if (trip.cases[expression]) {
+                let indexes = trip.cases[expression];
+                // TODO: hack this
+                if (indexes.length > 0) {
+                    for (let j = 0, j_len = indexes.length; j < j_len; j++) {
 
-                let action = actual_label[j];
-                // Math.random() < 0.1; --> 10% to getting true
-                if (action && temp_action !== action && Math.random() < 0.3) {
-                    coords.push(trip.locations.coordinates[Math.floor(j / 3)]);
-                    d3.select('#' + container_id).append('img').attr('id', 'image-' + trip.trip_id + '-' + j).attr('class', 'case-images').attr('alt', '').attr('src', '/frames/' + trip.trip_id + '/' + j + '.png').style('width', '140px').style('height', '90px').style('cursor', 'pointer').style('border', '1px solid #C9D2D3').style('float', 'left').on('click', function () {
-                        clicked(trip, j);
-                    });
-                    temp_action = action;
+                        let action = trip.actual.no_slight[indexes[j]];
+                        let tcnn1 = trip.predict[models[0]][indexes[j]];
+                        let cnn_lstm = trip.predict[models[1]][indexes[j]];
+                        let fcn_lstm = trip.predict[models[2]][indexes[j]];
+
+                        let actual_action = car_action[action];
+                        let tcnn1_action = car_action[tcnn1.indexOf(d3.max(tcnn1))];
+                        let cnn_lstm_action = car_action[cnn_lstm.indexOf(d3.max(cnn_lstm))];
+                        let fcn_lstm_action = car_action[fcn_lstm.indexOf(d3.max(fcn_lstm))];
+
+                        let image = {
+                            trip_id: trip.trip_id,
+                            index: indexes[j],
+                            actual: actual_action,
+                            tcnn1: tcnn1_action,
+                            cnn_lstm: cnn_lstm_action,
+                            fcn_lstm: fcn_lstm_action,
+                            location: trip.locations.coordinates[Math.floor(indexes[j] / 3)],
+                            path: '/frames/' + trip.trip_id + '/' + indexes[j] + '.png'
+                        };
+
+                        if (trip.actual.no_slight[indexes[j]] !== prev_action) {
+                            all_images.unshift(image);
+                            prev_action = trip.actual.no_slight[indexes[j]];
+                        } else {
+                            all_images.push(image);
+                        }
+                    }
                 }
             }
         }
-
-        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_all_points"])(coords);
     }
 
-    function clicked(trip, index) {
-        d3.selectAll('.case-images').style('opacity', 0.2);
-        d3.selectAll('.case-images').style('width', '140px').style('height', '90px');
+    // Display images
+    for (let i = 0, len = all_images.length > 500 ? 1000 : all_images.length; i < len; i++) {
+        let image = all_images[i];
+        let action_summary = image.actual + '&nbsp;&nbsp;<font color="#e41a1c">' + image.tcnn1 + '</font>&nbsp;&nbsp;<font color="#377eb8">' + image.cnn_lstm + '</font>&nbsp;&nbsp;<font color="#4daf4a">' + image.fcn_lstm + '</font>';
+        // Adding new div
+        let image_path = image.path;
+        let image_container = d3.select('#' + container_id).append('div').attr('id', 'image-container-' + image.trip_id + '-' + image.index).attr('class', 'thumbnail-container').style('position', 'relative').style('width', '147px').style('height', '100px').style('border', '1px solid #737373').style('cursor', 'pointer').style('float', 'left').on('click', function () {
 
-        $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
+            if (d3.select(this).classed('active')) {
+                d3.selectAll('.thumbnail-container').classed('active', false);
+                d3.selectAll('.thumbnail-viewer').remove();
+                if (vis_marker) {
+                    vis_marker.remove();
+                }
+                d3.select(this).classed('active', false);
+            } else {
+                d3.selectAll('.thumbnail-container').classed('active', false);
+                d3.selectAll('.thumbnail-viewer').remove();
+                let thumbnail_viewer = d3.select('#map').append('div').attr('class', 'thumbnail-viewer').style('width', '350px').style('height', '250px').style('position', 'absolute').style('z-index', '9999').style('top', '90px').style('left', '10px');
 
-        if (d3.select('#image-' + trip.trip_id + '-' + index).classed('active')) {
-            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_remove_layer"])('point-layer');
-            d3.selectAll('.case-images').style('opacity', 1);
-            d3.selectAll('.case-images').style('width', '140').style('height', '90px');
-            d3.select('#image-' + trip.trip_id + '-' + index).classed('active', false);
+                thumbnail_viewer.append('img').attr('alt', '').attr('src', image_path).style('width', '100%').style('height', '100%').style('background', '#737373').style('border-radius', '5px').style('border', '1px solid #737373').style('opacity', 0).transition().duration(1000).style('opacity', 1);
 
-            $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
-        } else {
-            let coord = trip.locations.coordinates[Math.floor(index / 3)];
-            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_point"])(coord, trip.trip_id + '-' + index);
-            d3.selectAll('.case-images').classed('active', false);
-            d3.select('#image-' + trip.trip_id + '-' + index).style('opacity', 1);
-            d3.select('#image-' + trip.trip_id + '-' + index).style('width', '140px').style('height', '90px');
-            d3.select('#image-' + trip.trip_id + '-' + index).classed('active', true);
+                // Show location
+                if (vis_marker) {
+                    vis_marker.remove();
+                }
+                vis_marker = new mapboxgl.Marker().setLngLat(image.location).addTo(_map__WEBPACK_IMPORTED_MODULE_1__["map_main"]);
 
-            vis_show_streetview(coord, '/frames/' + trip.trip_id + '/' + index + '.png');
-        }
-    }
+                d3.select(this).classed('active', true);
+            }
+        });
 
-    function get_image_data(image_id) {
+        image_container.append('img').attr('id', 'image-' + image.trip_id + '-' + image.index).attr('class', 'case-images').attr('alt', '').attr('src', image_path).style('width', '100%').style('height', '100%');
 
-        var canvas = document.createElement('canvas');
-        var context = canvas.getContext('2d');
-        let img = document.getElementById(image_id);
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        var new_img = new Image();
-        new_img.onload = function () {
-            context.drawImage(new_img, 0, 0);
-            var id = context.getImageData(0, 0, img.width, img.height);
-            let img_obj = { width: canvas.width, height: canvas.height, data: id.data, channels: 4, canvas: canvas };
-            console.log(img_obj);
-        };
+        image_container.append('div').style('position', 'absolute').style('width', '100%').style('height', '16px').style('line-height', '16px').style('font-size', '14px').style('bottom', '0px').style('background', 'rgba(255,255,255,0.9)').style('left', '0px').style('text-align', 'center').html(action_summary);
     }
 
     return;
@@ -60853,7 +58073,7 @@ function vis_streetview_cases(trips, expression, container_id) {
                         $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
 
                         if (d3.select(this).classed('active')) {
-                            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_remove_layer"])('point-layer');
+                            Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_remove_layer"])('point-layer');
                             d3.selectAll('.case-images').style('opacity', 1);
                             d3.selectAll('.case-images').style('width', '140').style('height', '90px');
                             d3.select(this).classed('active', false);
@@ -60861,7 +58081,7 @@ function vis_streetview_cases(trips, expression, container_id) {
                             $("#streetview-drawer-content").animate({ "margin-right": -500 }, "fast");
                         } else {
                             let coord = trip.locations.coordinates[Math.floor(indexes[j] / 3)];
-                            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_point"])(coord, trip.trip_id + '-' + indexes[j]);
+                            Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_draw_point"])(coord, trip.trip_id + '-' + indexes[j]);
                             d3.selectAll('.case-images').classed('active', false);
                             d3.select(this).style('opacity', 1);
                             d3.select(this).style('width', '140px').style('height', '90px');
@@ -60874,7 +58094,7 @@ function vis_streetview_cases(trips, expression, container_id) {
             }
         }
 
-        Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_all_points"])(coordinates);
+        Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_draw_all_points"])(coordinates);
     }
 }
 
@@ -61009,596 +58229,20 @@ function vis_area_study(trips, container_id) {
     }
 }
 
-/*
-export function vis_trips_study(trips) {
-
-    if (trips.length <= 0) return;
-
-    let container_height = 190; // 150
-    let max_height = 420;
-    let total_height = trips.length * container_height;
-
-    if (total_height < max_height) {
-        max_height = total_height + 20;
-    }
-
-    // Move map and set senter
-    d3.select('#map').style('height','calc(100% - ' + max_height + 'px)');
-    d3.select('#tripview').style('max-height', max_height + 'px');
-    $('#tripview-body').height('calc(' + max_height + 'px - 20px)');
-    d3.select('#tripview').style('transition','max-height 0.25s ease-in');
-
-    $('#tripview-body').empty();
-    let trip_container = d3.select('#tripview-body').append('div')
-        .style('width', '100%')
-        .style('height', total_height + 'px')
-        .style('box-sizing', 'border-box');
-
-    vis_trip_detail(trips, trip_container);
-
-
-    $('#tripview').on('transitionend', function () {
-        vis_trip_detail(trips, trip_container);
-    });
-
-    $('#tripview-dropdown').off().on('change', function() {
-        $('#tripview-body').empty();
-        let trip_container = d3.select('#tripview-body').append('div')
-            .style('width', '100%')
-            .style('height', total_height + 'px')
-            .style('box-sizing', 'border-box');
-
-        vis_trip_detail(trips, trip_container);
-    });
-}*/
-
-/*
-export function vis_trip_detail (trips, div) {
-
-    //console.log($('#tripview-dropdown').val());
-    // get mode
-    switch ($('#tripview-dropdown').val()) {
-        case 'action': draw_action(trips, div); break;
-        case 'perplexity': draw_perplexity(trips, div); break;
-        case 'combine': vis_draw_action(trips, div); break;
-        default: draw_action(trips, div); break;
-    }
-
-    function draw_action(trips, div) {
-
-        for (let i = 0; i < trips.length; ++i) {
-
-            vis_create_trip_info(trips[i], div, i);
-            let trip = trips[i];
-            let models = ['actual', 'tcnn1', 'fcn_lstm', 'cnn_lstm'];
-            let car_actions = ['straight2', 'slow_or_stop2', 'turn_left2', 'turn_right2', 'turn_left_slight2', 'turn_right_slight2'];
-
-            let width = $('#tripview-body').width();
-            let height = 150;
-
-            let container = div.append('div')
-                .style('width', '100%')
-                .style('box-sizing', 'border-box')
-                .style('border-bottom', '1px solid #d9d9d9')
-                .style('height', height + 'px');
-
-            let row_height = height / models.length;
-
-            let x = d3.scaleLinear()
-                .range([0, width - 100])
-                .domain([0, trip.actual.slight.length]);
-
-            let svg = container.append('svg')
-                .attr('class', 'trip-svg-' + i)
-                .style('width', width)
-                .style('height', height);
-
-            let img_width = x(1) - x(0);
-
-            var brushFn = d3.brushX()
-                .extent([[-16, 0], [width, height]]);
-
-            for (let i = 0; i < car_actions.length; ++i) {
-                svg.append("defs")
-                    .append("pattern")
-                    .attr("id", 'rect-bg-' + car_actions[i])
-                    .attr('patternUnits', 'objectBoundingBox')
-                    .attr('width', img_width)
-                    .attr('height', row_height)
-                    .append("image")
-                    .attr("xlink:href", 'signs/' + car_actions[i] + '.png')
-                    .attr('width', img_width)
-                    .attr('height', row_height);
-            }
-
-            for (let i = 0; i < models.length; ++i) {
-
-                let model_g = svg.append('g')
-                .attr("transform", "translate(0," + i * row_height + ")");
-
-                model_g.append('text')
-                    .attr("x", 10)
-                    .attr("y", row_height / 2)
-                    .attr("dy", ".35em")
-                    .style('stroke', model_colors[models[i]])
-                    .text(models[i]);
-
-                let model_bg = model_g.append('g')
-                    .attr("transform", "translate(100,0)");
-
-                //console.log(trip);
-
-                for (let j = 0; j < trip.actual.no_slight.length; ++j) {
-
-                    let action = (models[i] === 'actual') ? trip.actual.no_slight[j] : trip.predict[models[i]][j].indexOf(d3.max(trip.predict[models[i]][j]));
-
-                    model_bg.append('rect')
-                        .attr('x', x(j))
-                        .attr('class', 'sign-rect sign-rect-' + j)
-                        .attr('y', 10)
-                        .style('fill', model_colors[models[i]])
-                        .style('opacity', 1)
-                        .attr('width', img_width)
-                        .attr('height', row_height - 20);
-
-                    let sign = model_bg.append('rect')
-                        .attr('x', x(j))
-                        .style('fill', 'url(#rect-bg-' + car_actions[action] + ')')
-                        .style('cursor', 'pointer')
-                        .attr('width', img_width)
-                        .attr('height', row_height)
-                        .on('click', function() {
-                        })
-                        .on('mouseover', function() {
-                        })
-                        .on('mouseout', function() {
-                        });
-                }
-            }
-
-            svg.append('g').call(brushFn);
-
-            let legend_models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-            let legend_model_colors = ['#9d9d9d', '#e41a1c', '#377eb8', '#4daf4a'];
-
-            $('#tripview-legends').empty();
-
-            for (let i = 0; i < legend_models.length; ++i) {
-
-                let legend_icon = d3.select('#tripview-legends').append('i')
-                    .attr('class', 'fas fa-square')
-                    .style('cursor', 'pointer')
-                    .style('color', legend_model_colors[i]);
-
-                let legend_text = d3.select('#tripview-legends').append('label')
-                    .style('cursor', 'pointer')
-                    .html('&nbsp;' + legend_models[i] + '&nbsp;&nbsp;');
-            }
-        }
-    }
-
-    function draw_perplexity(trip, svg) {
-        // Draw perplexity
-        for (let i = 0; i < trips.length; ++i) {
-
-            vis_create_trip_info(trips[i], div);
-            let trip = trips[i];
-
-            let width = $('#tripview-body').width();
-            let height = 150;
-
-            let container = div.append('div')
-                .style('width', '100%')
-                .style('height', height + 'px');
-
-            let margin = {top: 20, right: 0, bottom: 20, left: 40};
-            width = width - margin.left - margin.right;
-            height = 150 - margin.top - margin.bottom;
-
-            var x = d3.scaleLinear().range([0, width]);
-            var y = d3.scaleLinear().range([height, 0]);
-            let value_scale = d3.scaleLinear().range([0, 100]).domain([0, 1]);
-
-            var brushFn = d3.brushX()
-                .extent([[-16, 0], [width, height]]);
-
-            var area = d3.area()
-                .x(function(d) { return x(d.index); })
-                .y0(y(0))
-                .y1(function(d) { return y(d.value); })
-
-            var line = d3.line()
-                .x(function(d) { return x(d.index); })
-                .y(function(d) { return y(d.value); })
-                .curve(d3.curveBasis);
-
-            let g = container.append('svg')
-                .attr('class', 'trip-svg-' + i)
-                .attr('width', width + margin.left + margin.right)
-                .attr('height', height + margin.top + margin.bottom)
-                    .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-            y.domain([0, 100]);
-            x.domain([0, 108]);
-
-            g.append('g').call(brushFn);
-            g.append("g")
-                .attr("class", "axis axis--y")
-                .call(d3.axisLeft(y).tickFormat(d3.format('.0f')));
-
-            Object.keys(trip.entropy).forEach(function (model) {
-                let line_data = [];
-                for (let i = 0; i < trip.entropy[model].length; ++i) {
-                    line_data.push({
-                        index: i,
-                        value: value_scale(trip.entropy[model][i])
-                    });
-                }
-                // Draw line
-                g.append("path")
-                    .datum(line_data)
-                    .attr("class", "line-" + model)
-                    .attr("d", area);
-            });
-
-            g.append('rect')
-                .attr('x', 0)
-                .attr('y', y(50))
-                .attr('width', width)
-                .attr('height', height - y(50))
-                .attr('fill', '#C9D2D3')
-                .attr('fill-opacity', 0.6);
-
-            g.append('circle')
-                .attr('cx', 0)
-                .attr('cy', y(50))
-                .attr('r', 3)
-                .attr('fill', '#252525');
-
-            let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
-            let model_colors = ['#e41a1c', '#377eb8', '#4daf4a'];
-
-            $('#tripview-legends').empty();
-
-            for (let i = 0; i < models.length; ++i) {
-
-                let legend_icon = d3.select('#tripview-legends').append('i')
-                    .attr('class', 'fas fa-square')
-                    .style('cursor', 'pointer')
-                    .style('color', model_colors[i]);
-
-                let legend_text = d3.select('#tripview-legends').append('label')
-                    .style('cursor', 'pointer')
-                    .html('&nbsp;' + models[i] + '&nbsp;&nbsp;');
-            }
-
-        }
-    }
-}*/
-
-/*
-export function vis_draw_action(trips, div) {
-    // Show nearest point on other trips
-
-    let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-    let model_colors = ['#9d9d9d', '#e41a1c', '#377eb8', '#4daf4a'];
-
-    $('#tripview-legends').empty();
-
-    for (let i = 0; i < models.length; ++i) {
-
-        let legend_icon = d3.select('#tripview-legends').append('i')
-            .attr('class', 'fas fa-square')
-            .style('cursor', 'pointer')
-            .style('color', model_colors[i]);
-
-        let legend_text = d3.select('#tripview-legends').append('label')
-            .style('cursor', 'pointer')
-            .html('&nbsp;' + models[i] + '&nbsp;&nbsp;');
-    }
-
-    let car_action = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
-
-    let width = $('#tripview-body').width();
-    let height = 150;
-
-    for (let i = 0; i < trips.length; ++i) {
-
-        vis_create_trip_info(trips[i], div, i);
-        let keys = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-
-        let container = div.append('div')
-            .style('width', '100%')
-            .style('height', height + 'px');
-
-        let margin = {top: 20, right: 10, bottom: 20, left: 50}
-        let svg_width = width - margin.left - margin.right;
-        let svg_height = height - margin.top - margin.bottom;
-
-        let svg = container.append('svg')
-            .attr('class', 'trip-svg-' + i)
-            .attr('width', svg_width + margin.left + margin.right)
-            .attr('height', svg_height + margin.left + margin.right)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        let actual_action = trips[i].actual.no_slight;
-
-        let x = d3.scaleLinear()
-            .range([0, svg_width]);
-        let y = d3.scaleBand()
-            .range([0, svg_height])
-            .paddingInner(0.2);
-
-        let y1_scale = d3.scaleLinear();
-
-        x.domain([0, actual_action.length])
-        y.domain(keys);
-        y1_scale.domain([0, 1]).range([y.bandwidth(), 0]);
-
-        //console.log(trips[i]);
-
-        let data = {
-            actual: trips[i].actual.no_slight,
-            tcnn1: trips[i].predict.tcnn1,
-            cnn_lstm: trips[i].predict.cnn_lstm,
-            fcn_lstm: trips[i].predict.fcn_lstm
-        }
-
-        var brushFn = d3.brushX()
-            .extent([[0, 0], [svg_width, svg_height]]);
-
-        svg.append('g').call(brushFn);
-        svg.append("g")
-            .attr("class", "axis")
-            .call(d3.axisLeft(y));
-
-        for (let k = 0; k < keys.length; ++k) {
-
-            let g = svg.append("g")
-                .style('opacity', 1)
-                .attr('transform', "translate(" + 0 + "," + y(keys[k]) + ")");
-
-            g.append('line')
-                .style("stroke", model_colors[k])
-                .style("stroke-width", 1.5)
-                .style("stroke-dasharray", ("3, 3"))
-                .attr("x1", x(0))
-                .attr("y1", y.bandwidth() / 2)
-                .attr("x2", x(data[keys[k]].length - 1))
-                .attr("y2", y.bandwidth() / 2);
-
-            let temp_action = undefined;
-            let count = 0;
-            let pos = 0;
-
-            let predict_action = data[keys[k]];
-            let entropy = undefined;
-            if (keys[k] !== 'actual') entropy = trips[i].entropy[keys[k]]
-
-            let entropy_data = [];
-
-            // find median
-            for (let j = 0; j < predict_action.length; ++j) {
-
-                let action = (keys[k] === 'actual') ? car_action[predict_action[j]] : car_action[predict_action[j].indexOf(d3.max(predict_action[j]))];
-
-                entropy_data.push({
-                    index: j,
-                    value: (entropy) ? entropy[j] : undefined
-                });
-
-                if (action !== temp_action) {
-
-                    // Draw last line
-                    if (j == 0) {
-                        g.append('line')
-                            .style("stroke", model_colors[k])
-                            .style("stroke-width", 2)
-                            .attr("x1", x(j))
-                            .attr("y1", 4)
-                            .attr("x2", x(j))
-                            .attr("y2", y.bandwidth() - 4);
-                    } else {
-                        if (count >= 3) {
-                            g.append('line')
-                                .style("stroke", model_colors[k])
-                                .style("stroke-width", 2)
-                                .attr("x1", x(j))
-                                .attr("y1", 4)
-                                .attr("x2", x(j))
-                                .attr("y2", y.bandwidth() - 4);
-                            // Draw symbol
-                            let symbol_index = (j + pos) / 2;
-                            draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
-                        } else {
-                            draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
-
-                            //g.append('line')
-                              //  .style("stroke", model_colors[k])
-                                //.style("stroke-width", 2)
-                                //.attr("x1", x(j+1))
-                                //.attr("y1", 4)
-                                //.attr("x2", x(j+1))
-                                //.attr("y2", y.bandwidth() - 4);
-                        }
-                    }
-
-                    temp_action = action;
-                    count = 0;
-                    pos = j;
-                }
-
-                if (j == actual_action.length - 1) {
-                    if (count >= 3) {
-                        g.append('line')
-                            .style("stroke", model_colors[k])
-                            .style("stroke-width", 2)
-                            .attr("x1", x(j))
-                            .attr("y1", 4)
-                            .attr("x2", x(j))
-                            .attr("y2", y.bandwidth() - 4);
-                        // Draw symbol
-                        let symbol_index = (j + pos) / 2;
-                        draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
-                    } else {
-                        draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
-
-                        //g.append('line')
-                          //  .style("stroke", model_colors[k])
-                            //.style("stroke-width", 1)
-                            //.attr("x1", x(j+1))
-                            //.attr("y1", 4)
-                            //.attr("x2", x(j+1))
-                            //.attr("y2", y.bandwidth() - 4);
-                    }
-                }
-
-                count += 1;
-            }
-
-            var area = d3.area()
-                .x(function(d) { return x(d.index); })
-                .y0(y1_scale(0))
-                .y1(function(d) { return y1_scale(d.value); });
-
-            if (keys[k] !== 'actual') {
-                // Draw line
-                g.append("path")
-                    .datum(entropy_data)
-                    .attr("class", "line-" + keys[k] + "-1")
-                    .attr("d", area);
-            }
-        }
-    }
-
-    function draw_symbol(g, action, x, y, color) {
-
-        let symbol = undefined;
-        let rotate = 0;
-
-        if (action === 'slow_or_stop') {
-            symbol = d3.symbolCircle;
-            //color = '#fbb4ae';
-        } else {
-            symbol = d3.symbolTriangle;
-            //color = '#ccebc5';
-            if (action === 'turn_left') {
-                rotate = 270;
-                //color = '#b3cde3'
-            }
-            if (action === 'turn_right') {
-                rotate = 90;
-                //color = '#b3cde3'
-            }
-        }
-
-        g.append('path')
-            .attr('d', d3.symbol().size(40).type(symbol))
-            .attr('fill', color)
-            .attr('stroke', color)
-            .attr('stroke-width', 1)
-            .attr('transform', function(d) {
-                return "translate(" + x + "," + y + ") rotate(" + rotate + ")";
-            });
-    }
-}*/
-
-/*
-export function vis_create_trip_info(trip, div, index) {
-
-    let trip_info = div.append('div')
-        .style('width', '100%')
-        .style('height', '20px')
-        .style('font-size', '14px')
-        .style('padding-left', '5px')
-        .style('line-height', '20px');
-
-    let trip_icon = trip_info.append('i')
-        .attr('class', (index === 0) ? 'fas fa-check-square trip-checkbox' : 'fas fa-square trip-checkbox')
-        .style('cursor', 'pointer')
-        .style('color', '#000')
-        .on('click', function() {
-            d3.selectAll('.trip-checkbox').classed('fas fa-check-square', false);
-            d3.selectAll('.trip-checkbox').classed('fas fa-square', true);
-
-            d3.select(this).attr('class', 'fas fa-check-square trip-checkbox');
-            vis_trip_viewer(trip, div, index);
-        });
-
-    let trip_text = trip_info.append('label')
-        .style('cursor', 'pointer')
-        .html('&nbsp;Trip ID: ' + trip.trip_id + '&nbsp;&nbsp;');
-
-    let performances = ['accuracy', 'perplexity', 'f1'];
-    let performance_labels = ['Accuracy', 'Perplexity', 'F1'];
-    let performance_colors = ['#fb6a4a','#67000d','#a50f15'];
-
-    for (let i = 0; i < performances.length; ++i) {
-        let performance = trip[performances[i]].split(',')[0];
-        trip_info.append('label')
-            .style('margin-left', '2px')
-            .style('border-radius', '2px')
-            .style('background-color', performance_colors[i])
-            .style('color', '#fff')
-            .html('&nbsp;' + performance_labels[i] + ': ' + performance + "&nbsp;");
-    }
-
-    let others = ['time_of_day', 'scene', 'weather'];
-    let other_labels = ['Time', 'Scene', 'Weather'];
-
-    for (let i = 0; i < others.length; ++i) {
-        trip_info.append('label')
-            .style('margin-right', '2px')
-            .style('border-radius', '2px')
-            .style('float', 'right')
-            .style('background-color', '#C9D2D3')
-            .style('color', '#252525')
-            .html('&nbsp;' + other_labels[i] + ': ' + trip[others[i]] + "&nbsp;");
-    }
-
-    let trip_slider_container = div.append('div')
-        .style('width', '100%')
-        .style('height', '20px')
-        .style('font-size', '14px')
-        .style('line-height', '20px')
-
-    let trip_slider = trip_slider_container.append('input')
-        .attr('id', 'trip-slider-' + index)
-        .attr('class', 'custom-slider')
-        .attr('type', 'range')
-        .attr('min', 0)
-        .attr('max', '107')
-        .attr('step', '1')
-        .attr('val', 0)
-        .style('float', 'left')
-        .style('width', 'calc(100% - 60px)')
-        .style('height', '1px')
-        .style('margin-top', '20px')
-        .style('margin-left', '50px')
-        .style('margin-right', '10px')
-        .style('background', '#252525');
-
-    if (index == 0) {
-        vis_trip_viewer(trip, div, index);
-    }
-}*/
-
 function vis_trip_list(trips) {
     //console.log(trips);
 
     $('#trip-list').remove();
     // create trip list
-    let div = d3.select('body').append('div').attr('id', 'trip-list').style('width', '400px').style('height', 'calc(100% - 30px)').style('position', 'absolute').style('top', '30px').style('left', '0px').style('z-index', '9999').style('background-color', '#f0f0f0').style('box-sizing', 'border-box');
+    let div = d3.select('body').append('div').attr('id', 'trip-list').style('width', '400px').style('height', 'calc(100% - 30px)').style('position', 'absolute').style('top', '30px').style('left', '0px').style('z-index', '5000').style('background-color', '#f0f0f0').style('box-sizing', 'border-box');
 
     let trip_header = div.append('div').style('width', '100%').style('height', '20px').style('font-size', '14px').style('line-height', '20px').html('TRIP LIST: ');
 
     let trip_container = div.append('div').style('width', '100%').style('height', 'calc(100% - 20px)').style('font-size', '12px').style('overflow-x', 'hidden').style('overflow-y', 'auto');
 
-    let performances = ['accuracy', 'perplexity', 'f1'];
-    let performance_labels = ['Accuracy', 'Perplexity', 'F1'];
-    let performance_colors = ['#fb6a4a', '#67000d', '#a50f15'];
+    let performances = ['accuracy', 'perplexity'];
+    let performance_labels = ['Accuracy', 'Perplexity'];
+    let performance_colors = ['#6baed6', '#fb6a4a'];
 
     for (let i = performances.length - 1; i >= 0; --i) {
 
@@ -61623,11 +58267,11 @@ function vis_trip_list(trips) {
 
             vis_trips_study(trip, i);
             vis_trip_viewer(trip, i);
-            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_trip_in_radius"])(trips, i);
-            Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_selected_trips"])(trip);
+            Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_draw_trip_in_radius"])(trips, i);
+            Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_draw_selected_trips"])(trip);
         });
 
-        let trip_selector = trip_info.append('div').style('width', 'calc(100% - 180px)').style('height', '20px').style('font-size', '14px').style('float', 'left').style('line-height', '20px');
+        let trip_selector = trip_info.append('div').style('width', 'calc(100% - 180px)').style('height', '20px').style('font-size', '14px').style('float', 'left').style('line-height', '20px').style('background', '#fff');
 
         let trip_icon = trip_selector.append('i').attr('id', 'trip-checkbox-' + i).attr('class', i === 0 ? 'fas fa-check-square trip-checkbox' : 'fas fa-square trip-checkbox').style('cursor', 'pointer').style('color', '#000');
 
@@ -61635,40 +58279,38 @@ function vis_trip_list(trips) {
 
         let value_scale = d3.scaleLinear().domain([0, 1]).range([0, 100]);
 
-        let width_scale = d3.scaleLinear().domain([0, 100]).range([0, 60]);
+        let width_scale = d3.scaleLinear().domain([0, 100]).range([0, 90]);
 
         for (let i = 0; i < performances.length; ++i) {
 
             let value = value_scale(trip.performances[performances[i]]);
 
-            let trip_performance = trip_info.append('div').style('width', '60px').style('height', '20px').style('float', 'left').style('font-size', '12px').style('line-height', '20px');
+            let trip_performance = trip_info.append('div').style('width', '90px').style('height', '20px').style('float', 'left').style('font-size', '12px').style('line-height', '20px').style('background-color', '#fff');
 
-            let svg = trip_performance.append('svg').attr('width', '60').attr('height', '20');
+            let svg = trip_performance.append('svg').attr('width', '90').attr('height', '20');
 
-            svg.append('defs').append('pattern').attr('id', 'diagonalHatch').attr('patternUnits', 'userSpaceOnUse').attr('width', 4).attr('height', 4).append('path').attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2').attr('stroke', '#f0f0f0').attr('stroke-width', 1);
+            svg.append('rect').attr('x', 0).attr('y', 0).attr('height', '20').attr('fill', '#d9d9d9').attr('stroke', '#fff').attr('stroke-width', .5).attr('width', width_scale(100));
 
-            svg.append('rect').attr('x', 0).attr('y', 0).attr('height', '20').attr('fill', performance_colors[i]).attr('stroke', '#f0f0f0').attr('stroke-width', .5).transition().duration(500).attr('width', width_scale(value));
+            svg.append('rect').attr('x', 0).attr('y', 0).attr('height', '20').attr('fill', performance_colors[i]).attr('stroke', '#fff').attr('stroke-width', .5).transition().duration(500).attr('width', width_scale(value));
 
-            svg.append("rect").attr("x", 0).attr("width", width_scale(value)).attr("height", 20).attr('fill', 'url(#diagonalHatch)').attr('stroke', '#f0f0f0').attr('stroke-width', .5);
+            svg.append('text').attr('x', 2).attr('y', 10).attr('font-size', '12px').attr("text-anchor", "start").attr('dy', '0.32em').attr('fill', '#252525').text(value.toFixed(2) + '%');
         }
     }
 
     vis_trips_study(trips[0], 0);
     vis_trip_viewer(trips[0], 0);
-    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_trip_in_radius"])(trips, 0);
-    Object(_map__WEBPACK_IMPORTED_MODULE_0__["map_draw_selected_trips"])(trips[0]);
+    Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_draw_trip_in_radius"])(trips, 0);
+    Object(_map__WEBPACK_IMPORTED_MODULE_1__["map_draw_selected_trips"])(trips[0]);
 }
 
 function vis_trip_viewer(trip, index) {
 
     d3.select('#trip-slider-' + index).property("value", 0);
-    //d3.selectAll('.custom-slider').property("disabled", true);
-    //d3.select('#trip-slider-' + index).property("disabled", false);
 
     if (vis_marker) {
         vis_marker.remove();
     }
-    vis_marker = new mapboxgl.Marker().setLngLat(trip.locations.coordinates[0]).addTo(_map__WEBPACK_IMPORTED_MODULE_0__["map_main"]);
+    vis_marker = new mapboxgl.Marker().setLngLat(trip.locations.coordinates[0]).addTo(_map__WEBPACK_IMPORTED_MODULE_1__["map_main"]);
 
     d3.selectAll('.trip-viewer').remove();
 
@@ -61678,7 +58320,8 @@ function vis_trip_viewer(trip, index) {
         width: '400px',
         height: '250px',
         'box-sizing': 'border-box',
-        'border': '10px solid #C9D2D3'
+        'border': '1px solid #f0f0f0',
+        'position': 'relative'
     });
 
     let img = $('<img/>', {
@@ -61692,25 +58335,143 @@ function vis_trip_viewer(trip, index) {
 
     viewer.append(img);
     viewer.insertAfter('#trip-info-' + index);
+    add_trip_action(trip, index);
 
-    //map_main.flyTo({center: trip.locations.coordinates[0], essential: true, zoom:15 });
+    let width = $('#tripview-body').width();
+    let margin = { top: 20, right: 10, bottom: 20, left: 70 };
+    let svg_width = width - margin.left - margin.right;
 
-    let x = d3.scaleLinear().domain([0, 108]).range([50, $('#tripview-body').width()]);
+    let x = d3.scaleLinear().domain([0, 108]).range([0, svg_width]);
 
     d3.select('#trip-slider-' + index).on("input", function () {
 
         d3.select('#trip-viwer-image').attr('src', '/frames/' + trip.trip_id + '/' + this.value + '.png');
 
-        d3.selectAll('.trip-video-line').remove();
-        d3.selectAll('.trip-svg-' + index).append('line').attr('class', 'trip-video-line').style("stroke", '#9d9d9d').style("stroke-opacity", 0.8).style("stroke-width", 1).attr("x1", x(this.value)).attr("y1", 10).attr("x2", x(this.value)).attr("y2", 300);
+        d3.selectAll('.trip-video-line').attr("x1", x(this.value)).attr("y1", -15).attr("x2", x(this.value)).attr("y2", 300);
+
+        let slider_index = this.value;
+
+        let keys = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+        for (let i = 0, len = keys.length; i < len; i++) {
+            d3.select('#trip-text-' + keys[i]).attr('x', slider_index > 70 ? x(slider_index) - 2 : x(slider_index) + 2).attr("text-anchor", slider_index > 70 ? 'end' : 'start').text(function () {
+                if (keys[i] === 'actual') {
+                    return 'Speed: ' + trip.speeds[Math.floor(slider_index / 3)].toFixed(2) + ' mph';
+                } else {
+                    return 'Perplexity: ' + trip.entropy[keys[i]][slider_index].toFixed(2);
+                }
+            });
+        }
 
         if (vis_marker) {
             vis_marker.remove();
         }
-        vis_marker = new mapboxgl.Marker().setLngLat(trip.locations.coordinates[Math.floor(this.value / 3)]).addTo(_map__WEBPACK_IMPORTED_MODULE_0__["map_main"]);
+        vis_marker = new mapboxgl.Marker().setLngLat(trip.locations.coordinates[Math.floor(this.value / 3)]).addTo(_map__WEBPACK_IMPORTED_MODULE_1__["map_main"]);
 
-        //map_main.flyTo({center: trip.locations.coordinates[Math.floor(this.value / 3)], essential: true, zoom: 15 });
+        add_trip_action(trip, this.value, index);
     });
+
+    function add_trip_action(trip, index, row_index) {
+
+        $('#trip-action-summary').remove();
+
+        let car_action = ['▲', '⬣', '◀', '▶'];
+        let models = ['tcnn1', 'cnn_lstm', 'fcn_lstm'];
+
+        let action = trip.actual.no_slight[index];
+        let tcnn1 = trip.predict[models[0]][index];
+        let cnn_lstm = trip.predict[models[1]][index];
+        let fcn_lstm = trip.predict[models[2]][index];
+
+        let tcnn1_value = trip.entropy[models[0]][index].toFixed(2);
+        let cnn_lstm_value = trip.entropy[models[1]][index].toFixed(2);
+        let fcn_lstm_value = trip.entropy[models[2]][index].toFixed(2);
+        let speed = trip.speeds[Math.floor(index / 3)].toFixed(2);
+
+        let actual_action = car_action[action];
+        let tcnn1_action = car_action[tcnn1.indexOf(d3.max(tcnn1))];
+        let cnn_lstm_action = car_action[cnn_lstm.indexOf(d3.max(cnn_lstm))];
+        let fcn_lstm_action = car_action[fcn_lstm.indexOf(d3.max(fcn_lstm))];
+
+        let action_summary = '&nbsp;Speed:&nbsp;' + speed + '&nbsp;' + actual_action + '&nbsp;<font color="#e41a1c">' + tcnn1_action + '&nbsp' + tcnn1_value + '&nbsp</font>&nbsp;&nbsp;<font color="#377eb8">' + cnn_lstm_action + '&nbsp' + cnn_lstm_value + '&nbsp;</font>&nbsp;&nbsp;<font color="#4daf4a">' + fcn_lstm_action + '&nbsp' + fcn_lstm_value + '&nbsp;</font>';
+
+        // Create table
+        let action_div = $('<div/>', {
+            id: 'trip-action-summary'
+        }).css({
+            width: '400px',
+            height: '70px',
+            'font-size': '14px',
+            'box-sizing': 'border-box',
+            'background': 'rgba(255,255,255,0.9)',
+            'text-align': 'center'
+        });
+
+        let action_table = $('<table/>', {
+            width: '400px',
+            height: '100%',
+            'font-size': '12px'
+        });
+
+        let action_header = $('<tr/>');
+        let data_row = $('<tr/>');
+        let headers = ['Actual Speed', 'TCNN1 Prediction', 'CNN_LSTM Prediction', 'FCN_LSTM Prediction'];
+        let header_values = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+        let data_attr = [actual_action + ' ' + speed + ' mph', '<font color="#e41a1c">' + tcnn1_action + '&nbsp' + d3.max(tcnn1).toFixed(2) + '</font>', '<font color="#377eb8">' + cnn_lstm_action + '&nbsp' + d3.max(cnn_lstm).toFixed(2) + '</font.', '<font color="#4daf4a">' + fcn_lstm_action + '&nbsp' + d3.max(fcn_lstm).toFixed(2) + '</font.'];
+        for (let i = 0, len = headers.length; i < len; i++) {
+            let action_head = $('<th/>').css({
+                width: '100px',
+                border: '1px solid #C9D2D3'
+            }).html(headers[i]);
+            let action_value = $('<td/>').css({
+                width: '100px',
+                border: '1px solid #C9D2D3',
+                cursor: 'pointer'
+            }).html(data_attr[i]);
+            action_header.append(action_head);
+            data_row.append(action_value);
+            action_value.on('mouseover', function () {
+
+                if (i !== 0) {
+                    let action_color = ['#252525', '#252525', '#252525', '#252525'];
+                    let max_index = trip.predict[header_values[i]][index].indexOf(d3.max(trip.predict[header_values[i]][index]));
+
+                    action_color[max_index] = 'red';
+
+                    // only 4 action
+                    let straight = '<font color="' + action_color[0] + '">&nbsp;▲&nbsp;' + trip.predict[header_values[i]][index][0].toFixed(2) + '</font>';
+                    let slow_or_stop = '<font color="' + action_color[1] + '">&nbsp;⬣&nbsp;' + trip.predict[header_values[i]][index][1].toFixed(2) + '</font>';
+                    let turn_left = '<font color="' + action_color[2] + '">&nbsp;◀&nbsp;' + trip.predict[header_values[i]][index][2].toFixed(2) + '</font>';
+                    let turn_right = '<font color="' + action_color[3] + '">&nbsp;▶&nbsp;' + trip.predict[header_values[i]][index][3].toFixed(2) + '</font>';
+
+                    let prediction_div = $('<div/>', {
+                        id: 'prediction-summary'
+                    }).css({
+                        width: '100%',
+                        height: 'auto',
+                        'font-size': '14px',
+                        'box-sizing': 'border-box',
+                        'text-align': 'center',
+                        'background': 'rgba(255, 255, 255, 0.8)',
+                        'position': 'absolute',
+                        'color': '#252525',
+                        'bottom': '0px',
+                        'left': '0px'
+                    });
+                    prediction_div.html(header_values[i] + ' predictions: ' + straight + " " + slow_or_stop + " " + turn_left + " " + turn_right);
+                    $('.trip-viewer').append(prediction_div);
+                }
+            });
+            action_value.on('mouseout', function () {
+                $('#prediction-summary').remove();
+            });
+        }
+
+        action_table.append(action_header);
+        action_table.append(data_row);
+        action_div.append(action_table);
+        action_div.insertAfter('.trip-viewer');
+    }
+
     return;
 }
 
@@ -61718,7 +58479,6 @@ function vis_trips_study(trip, index) {
 
     let container_height = 300; // 150
     let max_height = 320;
-
     // Move map and set senter
     d3.select('#map').style('height', 'calc(100% - ' + 250 + 'px)');
     d3.select('#tripview').style('max-height', 250 + 'px');
@@ -61729,49 +58489,29 @@ function vis_trips_study(trip, index) {
     let trip_container = d3.select('#tripview-body').append('div').style('width', '100%').style('height', 230 + 'px').style('box-sizing', 'border-box');
 
     vis_draw_action(trip, trip_container, index);
-
-    $('#tripview').off('mouseenter').on('mouseover', function () {});
-
-    $('#tripview').off('mouseout').on('mouseout', function () {
-        /*
-        var coordinates = map_circle_polygon.geometry.coordinates[0];
-        var bounds = coordinates.reduce(function (bounds, coord) {
-            return bounds.extend(coord);
-        }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
-         map_main.fitBounds(bounds, {
-            zoom: 11
-        });*/
-    });
-
-    /*
-    $('#tripview').on('transitionend', function () {
-        vis_trip_detail(trips, trip_container);
-    });*/
-
-    /*
-    $('#tripview-dropdown').off().on('change', function() {
-        $('#tripview-body').empty();
-        let trip_container = d3.select('#tripview-body').append('div')
-            .style('width', '100%')
-            .style('height', total_height + 'px')
-            .style('box-sizing', 'border-box');
-         //vis_trip_detail(trips, trip_container);
-    });*/
 }
 
 function vis_draw_action(trip, div, index) {
     // Show nearest point on other trips
 
     let models = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-    let model_colors = ['#9d9d9d', '#e41a1c', '#377eb8', '#4daf4a'];
+    let model_colors = ['#252525', '#e41a1c', '#377eb8', '#4daf4a'];
+
+    let actions = ['▲ Straight', '⬣ Slow/Stop', '<font size="3px">◀</font> Turn Left', '<font size="3px">▶</font> Turn Right'];
 
     $('#tripview-legends').empty();
 
-    for (let i = 0; i < models.length; ++i) {
-
-        let legend_icon = d3.select('#tripview-legends').append('i').attr('class', 'fas fa-square').style('cursor', 'pointer').style('color', model_colors[i]);
-
-        let legend_text = d3.select('#tripview-legends').append('label').style('cursor', 'pointer').html('&nbsp;' + models[i] + '&nbsp;&nbsp;');
+    for (let i = 0; i < actions.length; ++i) {
+        /*
+        let legend_icon = d3.select('#tripview-legends').append('i')
+            .attr('class', 'fas fa-square')
+            .style('cursor', 'pointer')
+            .style('color', model_colors[i]);*/
+        /*
+        let legend_text = d3.select('#tripview-legends').append('label')
+            .style('cursor', 'pointer')
+            .html('&nbsp;' + models[i] + '&nbsp;&nbsp;');*/
+        let legend_text = d3.select('#tripview-legends').append('label').style('cursor', 'pointer').html('&nbsp;' + actions[i] + '&nbsp;');
     }
 
     let car_action = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
@@ -61784,7 +58524,7 @@ function vis_draw_action(trip, div, index) {
 
     let container = div.append('div').style('width', '100%').style('height', height + 'px');
 
-    let margin = { top: 20, right: 10, bottom: 20, left: 50 };
+    let margin = { top: 20, right: 10, bottom: 20, left: 70 };
     let svg_width = width - margin.left - margin.right;
     let svg_height = height - margin.top - margin.bottom;
 
@@ -61808,17 +58548,23 @@ function vis_draw_action(trip, div, index) {
         tcnn1: trip.predict.tcnn1,
         cnn_lstm: trip.predict.cnn_lstm,
         fcn_lstm: trip.predict.fcn_lstm
+    };
 
-        /*
-        var brushFn = d3.brushX()
-            .extent([[0, 0], [svg_width, svg_height]]);*/
-        /*
-        svg.append('g').call(brushFn);*/
-    };svg.append("g").attr("class", "axis").call(d3.axisLeft(y));
+    svg.append("g").attr("class", "axis").style('font-size', '14px').call(d3.axisLeft(y));
+
+    svg.append('line').attr('class', 'trip-video-line').style("stroke", '#252525').style("stroke-opacity", 0.8).style("stroke-width", 1).attr("x1", x(0)).attr("y1", -15).attr("x2", x(0)).attr("y2", 300);
 
     for (let k = 0; k < keys.length; ++k) {
 
         let g = svg.append("g").style('opacity', 1).attr('transform', "translate(" + 0 + "," + y(keys[k]) + ")");
+
+        g.append('text').attr('id', 'trip-text-' + keys[k]).attr("x", x(0) + 2).attr('y', -3).attr("dy", "0.32em").attr("fill", model_colors[k]).attr('font-size', '12px').attr("text-anchor", "start").text(function () {
+            if (keys[k] === 'actual') {
+                return 'Speed: ' + trip.speeds[0].toFixed(2) + ' mph';
+            } else {
+                return 'Perplexity: ' + trip.entropy[keys[k]][0].toFixed(2);
+            }
+        });
 
         g.append('line').style("stroke", model_colors[k]).style("stroke-width", 1.5).style("stroke-dasharray", "3, 3").attr("x1", x(0)).attr("y1", y.bandwidth() / 2).attr("x2", x(data[keys[k]].length - 1)).attr("y2", y.bandwidth() / 2);
 
@@ -61855,14 +58601,6 @@ function vis_draw_action(trip, div, index) {
                         draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
                     } else {
                         draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
-                        /*
-                        g.append('line')
-                            .style("stroke", model_colors[k])
-                            .style("stroke-width", 2)
-                            .attr("x1", x(j+1))
-                            .attr("y1", 4)
-                            .attr("x2", x(j+1))
-                            .attr("y2", y.bandwidth() - 4);*/
                     }
                 }
 
@@ -61879,14 +58617,6 @@ function vis_draw_action(trip, div, index) {
                     draw_symbol(g, temp_action, x(symbol_index), y.bandwidth() / 2, model_colors[k]);
                 } else {
                     draw_symbol(g, temp_action, x(j), y.bandwidth() / 2, model_colors[k]);
-                    /*
-                    g.append('line')
-                        .style("stroke", model_colors[k])
-                        .style("stroke-width", 1)
-                        .attr("x1", x(j+1))
-                        .attr("y1", 4)
-                        .attr("x2", x(j+1))
-                        .attr("y2", y.bandwidth() - 4);*/
                 }
             }
 
@@ -61909,9 +58639,11 @@ function vis_draw_action(trip, div, index) {
 
         let symbol = undefined;
         let rotate = 0;
+        let size = 60;
 
         if (action === 'slow_or_stop') {
-            symbol = d3.symbolCircle;
+            symbol = d3_symbol_extra__WEBPACK_IMPORTED_MODULE_0__["symbolOctagonAlt"];
+            size = 100;
             //color = '#fbb4ae';
         } else {
             symbol = d3.symbolTriangle;
@@ -61926,7 +58658,7 @@ function vis_draw_action(trip, div, index) {
             }
         }
 
-        g.append('path').attr('d', d3.symbol().size(60).type(symbol)).attr('fill', color).attr('stroke', color).attr('stroke-width', 1).attr('transform', function (d) {
+        g.append('path').attr('d', d3.symbol().size(size).type(symbol)).attr('fill', color).attr('stroke', color).attr('stroke-width', 1).attr('transform', function (d) {
             return "translate(" + x + "," + y + ") rotate(" + rotate + ")";
         });
     }
@@ -61935,7 +58667,7 @@ function vis_draw_action(trip, div, index) {
 function vis_create_trip_info(trip, div, index) {
 
     let others = ['time_of_day', 'scene', 'weather'];
-    let other_labels = ['Time', 'Scene', 'Weather'];
+    let other_labels = ['Time', 'Street Type', 'Weather'];
 
     for (let i = 0; i < others.length; ++i) {
         d3.select('#tripview-legends').append('label').style('margin-right', '5px').style('border-radius', '2px').style('float', 'left').style('background-color', '#C9D2D3').style('color', '#252525').html('&nbsp;' + other_labels[i] + ': ' + trip[others[i]] + "&nbsp;");
@@ -61943,7 +58675,7 @@ function vis_create_trip_info(trip, div, index) {
 
     let trip_slider_container = div.append('div').style('width', '100%').style('height', '20px').style('font-size', '14px').style('line-height', '20px');
 
-    let trip_slider = trip_slider_container.append('input').attr('id', 'trip-slider-' + index).attr('class', 'custom-slider').attr('type', 'range').attr('min', 0).attr('max', '107').attr('step', '1').attr('val', 0).style('float', 'left').style('width', 'calc(100% - 60px)').style('height', '1px').style('margin-top', '19px').style('margin-left', '50px').style('margin-right', '10px').style('background', '#252525');
+    let trip_slider = trip_slider_container.append('input').attr('id', 'trip-slider-' + index).attr('class', 'custom-slider').attr('type', 'range').attr('min', 0).attr('max', '107').attr('step', '1').attr('val', 0).style('float', 'left').style('width', 'calc(100% - 81px)').style('height', '1px').style('margin-top', '19px').style('margin-left', '63px').style('margin-right', '18px').style('background', '#252525');
 
     return;
 }

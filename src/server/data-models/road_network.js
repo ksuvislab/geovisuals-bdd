@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 var schema = new mongoose.Schema({
     name: String,
     features: mongoose.Schema.Types.Array,
+    trip_ids: mongoose.Schema.Types.Array
 }, { collection: 'road_network' });
 
 export default mongoose.model('RoadNetwork', schema);

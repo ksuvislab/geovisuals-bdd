@@ -31,7 +31,7 @@ import multiprocessing
 #from MKZ.nodes.json_to_speed import get_interpolated_speed
 
 tf.app.flags.DEFINE_string('video_index', '../data/video_filtered_38_60.txt', 'filtered video indexing')
-tf.app.flags.DEFINE_string('output_directory', '../data/tfrecord_release2/', 'Training data directory')
+tf.app.flags.DEFINE_string('output_directory', '../data/tfrecord_release3/', 'Training data directory')
 
 #tf.app.flags.DEFINE_integer('train_shards', 1024, 'Number of shards in training TFRecord files.')
 #tf.app.flags.DEFINE_integer('validation_shards', 128, 'Number of shards in validation TFRecord files.')
@@ -41,7 +41,7 @@ tf.app.flags.DEFINE_integer('num_threads', 16, 'Number of threads to preprocess 
 tf.app.flags.DEFINE_integer('truncate_frames', 36*15, 'Number of frames to leave in the saved tfrecords')
 tf.app.flags.DEFINE_string('temp_dir_root', '/tmp/', 'the temp dir to hold ffmpeg outputs')
 
-tf.app.flags.DEFINE_boolean('low_res', True, 'the data we want to use is low res')
+tf.app.flags.DEFINE_boolean('low_res', False, 'the data we want to use is low res')
 # constant for the low res resolution
 pixelh = 216
 pixelw = 384

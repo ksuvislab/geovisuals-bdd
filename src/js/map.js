@@ -3,20 +3,23 @@ import { main_trip_study_init } from "..";
 import MiniMap from './plugin/mapboxgl-minimap';
 import {util_random_number_interval} from './utils';
 
-import {
-    query_find_intersection
-} from "./query";
-//import { util_generate_accuracy } from "./utils";
-
 // Public variables
 export let map_main = undefined;
 export let map_draw = undefined;
 export let map_minimap = undefined;
 export let map_circle_polygon = undefined;
 export let map_selected_line = undefined;
+export let map_all_points_data = undefined;
+
+
+export var map_legend_filter = {
+    models: ['tcnn1', 'cnn_lstm', 'fcn_lstm'],
+    actions: ['straight', 'slow_or_stop', 'turn_left', 'turn_right'],
+    layers: 'Density'
+}
 
 // Private Variables
-export var map_access_token = 'pk.eyJ1IjoiZGlnaXRhbGtpIiwiYSI6ImNqNXh1MDdibTA4bTMycnAweDBxYXBpYncifQ.daSatfva2eG-95QHWC9Mig';
+export var map_access_token = 'pk.eyJ1IjoicGFybmRlcHUiLCJhIjoiY2ttZzNkbzMzMHdnajJwcHF5dWwwaTh0cCJ9.3yOfWlhXiUwXN2tjqJ6mmg';
 export var map_model_colors = {
     //train: 'rgb(255, 89, 143)',
     //val: 'rgb(21, 178, 211)'
@@ -33,7 +36,7 @@ export function map_initialize(container_id)
     map_main = new mapboxgl.Map({
         container: container_id,
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-122.2730, 37.8715],
+        center: [-73.87485070755145, 40.78978271228149],
         zoom: 10,
         minZoom:  10,
         maxZoom: 15,
@@ -41,6 +44,7 @@ export function map_initialize(container_id)
 }
 
 //-74.0060, 40.7128 NY
+// Good newyork center: -73.87485070755145, 40.78978271228149
 // -122.2730, 37.8715 CA
 
 
@@ -61,30 +65,23 @@ export function map_add_draw_controls()
 
 export function map_add_minimap() {
     map_minimap = new MiniMap();
-    map_main.addControl(map_minimap, 'top-right');
+    map_main.addControl(map_minimap, 'bottom-left');
     return;
 }
 
 export function map_draw_outter_trips (id, data) {
-    let color = ['#ffffcc','#c2e699','#78c679','#31a354','#006837'];
+
     let trajectory = [];
     // Set all feature property
     for (var i = 0; i < data.length; ++i) {
-        let feature = turf.feature(data[i].locations, {
-            color: '#252525',
-            opacity: 1,
-            //model: data[i].model_type,
-            time_of_day: data[i].time_of_day,
-            scene: data[i].scene,
-            weather: data[i].weather
-        });
+        let feature = turf.feature(data[i].locations);
         trajectory.push(feature);
     }
     // Remove outter trips
-    map_remove_layer(id);
+    //map_remove_layer(id);
     // Create feature collection and add to source
     let feature_collection = turf.featureCollection(trajectory);
-    map_main.addSource(id, {
+    map_minimap._miniMap.addSource(id, {
         type: 'geojson',
         data: feature_collection
     });
@@ -99,13 +96,13 @@ export function map_draw_outter_trips (id, data) {
             'line-cap': 'round'
         },
         paint: {
-            'line-color': ['get', 'color'],
+            'line-color': '#252525',
             'line-width': 1,
-            'line-opacity': ['get', 'opacity']
+            'line-opacity': 0.3,
         }
     }
     // Add new layer
-    map_main.addLayer(trajectory_layer);
+    map_minimap._miniMap.addLayer(trajectory_layer);
     return;
 }
 
@@ -114,7 +111,7 @@ export function map_draw_inner_trips (id, data) {
     // Set all feature property
     for (var i = 0; i < data.length; ++i) {
         let feature = turf.feature(data[i].locations, {
-            color: '#252525',
+            color: 'blue',
             opacity: 0.2,
             model: data[i].model_type,
             time_of_day: data[i].time_of_day,
@@ -198,65 +195,104 @@ export function map_show_all_trips (id, data) {
 export function map_show_filtered_trips(data) {
 
     // Draw filtered trajectory
-    let trajectory = [];
+    let points = [];
 
-    for (var i = 0; i < data.length; ++i) {
-        let feature = turf.feature(data[i].locations, {
-            time_of_day: data[i].time_of_day,
-            scene: data[i].scene,
-            weather: data[i].weather
-        });
-        trajectory.push(feature);
+    for (var i = 0, len = data.length; i < len; i++) {
+        let coordinates = data[i].locations.coordinates;
+        for (let j = 0, j_len = coordinates.length; j < j_len; j++) {
+            points.push(turf.point(coordinates[j], {
+                mag: util_random_number_interval(0, 6)
+            }));
+        }
     }
 
-    let feature_collection = turf.featureCollection(trajectory);
 
-    map_remove_layer('trip-filtered-trajectory');
+
+
+    let feature_collection = turf.featureCollection(points);
+
+    if (map_main.getSource('trip-filtered-trajectory')) {
+        map_main.getSource('trip-filtered-trajectory').setData(feature_collection);
+        return;
+    }
+
     map_main.addSource('trip-filtered-trajectory', {
         type: 'geojson',
         data: feature_collection
     });
 
     let trajectory_layer = {
-        id: 'trip-filtered-trajectory',
-        type: 'line',
-        source: 'trip-filtered-trajectory',
-        layout: {
-            'line-join': 'round',
-            'line-cap': 'round'
-        },
-        paint: {
-            'line-color': '#252525',
-            'line-width': 2.5,
-            'line-opacity': 1
+        'id': 'trip-filtered-trajectory',
+        'type': 'heatmap',
+        'source': 'trip-filtered-trajectory',
+        'maxzoom': 15,
+        'paint': {
+            // Increase the heatmap weight based on frequency and property magnitude
+            'heatmap-weight': [
+                'interpolate',
+                ['linear'],
+                ['get', 'mag'],
+                0,
+                0,
+                6,
+                1
+            ],
+            // Increase the heatmap color weight weight by zoom level
+            // heatmap-intensity is a multiplier on top of heatmap-weight
+            'heatmap-intensity': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                10,
+                1,
+                15,
+                3
+            ],
+            // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+            // Begin color ramp at 0-stop with a 0-transparancy color
+            // to create a blur-like effect.
+            'heatmap-color': [
+                'interpolate',
+                ['linear'],
+                ['heatmap-density'],
+                0,
+                'rgba(33,102,172,0)',
+                0.2,
+                '#91cf60',
+                0.4,
+                '#d9ef8b',
+                0.6,
+                '#fee08b',
+                0.8,
+                '#fc8d59',
+                1,
+                '#d73027'
+            ],
+            // Adjust the heatmap radius by zoom level
+            'heatmap-radius': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                10,
+                4,
+                15,
+                10
+            ],
+            // Transition from heatmap to circle layer by zoom level
+            'heatmap-opacity': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                10,
+                0.5,
+                15,
+                0.5
+            ]
         }
     }
 
     return map_main.addLayer(trajectory_layer);
 
-}
-
-export function map_filter_all_trips(models)
-{
-    var features = map_main.queryRenderedFeatures({ layers: ['trip-trajectory'] });
-    /*
-    if (features) {
-        var uniqueFeatures = getUniqueFeatures(features, models);
-    }
-
-    function getUniqueFeatures(array, comparatorProperty) {
-
-        var uniqueFeatures = array.filter(function (el) {
-        if (existingFeatureKeys[el.properties[comparatorProperty]]) {
-            return false;
-        } else {
-            existingFeatureKeys[el.properties[comparatorProperty]] = true;
-            return true;
-        }
-        });
-
-        return uniqueFeatures;
-    }*/
 }
 
 // Remove map layer by ids
@@ -282,64 +318,6 @@ export function map_get_bbox_polygon()
     var bbox_polygon = turf.bboxPolygon(bbox);
     return bbox_polygon;
 }
-
-/*
-export function map_draw_trajectory(data)
-{
-    let model = $('#filter-models').val();
-    let action = $('#filter-actions').val();
-    let accuracy = $('#filter-accuracy').val();
-
-    util_generate_accuracy(data, model, action, accuracy);
-
-    let trajectories = []; let all_accuracy = [];
-
-    for (var i = 0; i < data.length; ++i) {
-        if ('accuracy' in data[i]) {
-            all_accuracy.push(data[i].accuracy);
-        }
-    }
-
-    let line_color = d3.scaleSequential()
-        .interpolator(d3.interpolateRdYlGn)
-        .domain([0, 1]);
-
-    for (var i = 0; i < data.length; ++i) {
-        if ('accuracy' in data[i]) {
-            let trip_feature = turf.feature(data[i].locations, {
-                color: line_color(data[i].accuracy)
-            });
-            trajectories.push(trip_feature);
-        }
-    }
-
-    console.log(trajectories);
-
-    let feature_collection = turf.featureCollection(trajectories);
-
-    map_remove_layer('trip-trajectory');
-    map_main.addSource('trip-trajectory', {
-        type: 'geojson',
-        data: feature_collection
-    });
-
-    let trajectory_layer = {
-        id: 'trip-trajectory',
-        type: 'line',
-        source: 'trip-trajectory',
-        layout: {
-            'line-join': 'round',
-            'line-cap': 'round'
-        },
-        paint: {
-            'line-color': ['get', 'color'],
-            'line-width': 8,
-            'line-opacity': 1
-        }
-    }
-
-    map_main.addLayer(trajectory_layer);
-}*/
 
 export function map_draw_point(coord) {
 
@@ -369,40 +347,27 @@ export function map_draw_point(coord) {
 
 export function map_draw_all_points(coords) {
 
-    let point = turf.multiPoint(coords);
+    let point = [];
+    for (let i = 0; i < coords.length; ++i) {
+        let geometry = turf.point(coords[i].coordinates, {
+            action: coords[i].action,
+            loc: coords[i].coordinates
+        });
+        point.push(geometry);
+    }
 
-    map_remove_layer('trip-points');
-    map_remove_layer('trip-points-border');
+    let feature_collection = turf.featureCollection(point);
+    //console.log(feature_collection);
+
+    if (map_main.getSource('trip-points')) {
+        map_main.getSource('trip-points').setData(feature_collection);
+        return;
+    }
 
     map_main.addSource('trip-points', {
         type: 'geojson',
-        data: point
+        data: feature_collection
     });
-
-    map_main.addSource('trip-points-border', {
-        type: 'geojson',
-        data: point
-    });
-
-    // Create point
-    let point_border_layer = {
-        id: 'trip-points-border',
-        type: 'circle',
-        source: 'trip-points-border',
-        paint: {
-            'circle-color': '#252525',
-            'circle-opacity': 0.5,
-            'circle-radius': [
-                'interpolate',
-                ['linear'],
-                ['zoom'],
-                10,
-                5,
-                15,
-                9
-            ]
-        }
-    }
 
     // Create point
     let point_layer = {
@@ -410,8 +375,8 @@ export function map_draw_all_points(coords) {
         type: 'circle',
         source: 'trip-points',
         paint: {
-            'circle-color': '#FF0000',
-            'circle-opacity': 1,
+            'circle-color': '#525252',
+            'circle-opacity': 0.1,
             'circle-radius': [
                 'interpolate',
                 ['linear'],
@@ -424,9 +389,9 @@ export function map_draw_all_points(coords) {
         }
     }
 
-    map_main.addLayer(point_border_layer);
     map_main.addLayer(point_layer);
-    return
+    map_all_points_data = point;
+    return;
 }
 
 export function map_create_circle_radius(selected_trip)
@@ -582,8 +547,8 @@ export function map_draw_selected_trips(trip)
     map_main.addLayer(trajectory_layer);
     map_main.addLayer(arrow_layer);
 
-    map_main.moveLayer('trip-selected-arrow', 'trip-points-border');
-    map_main.moveLayer('trip-selected-line', 'trip-points-border');
+    //map_main.moveLayer('trip-selected-arrow', 'trip-points-border');
+    //map_main.moveLayer('trip-selected-line', 'trip-points-border');
 
     map_selected_line = feature_collection;
     var coordinates = map_selected_line.geometry.coordinates;
@@ -594,6 +559,7 @@ export function map_draw_selected_trips(trip)
     map_main.fitBounds(bounds, {
         zoom: 20,
     });
+
     return;
 }
 
@@ -695,9 +661,9 @@ export function map_draw_trip_in_radius(trips, index)
     map_main.addLayer(end_layer);
 
 
-    map_main.moveLayer('trip-unselected-start', 'trip-points-border');
-    map_main.moveLayer('trip-unselected-end', 'trip-points-border');
-    map_main.moveLayer('trip-unselected-line', 'trip-unselected-end');
+    //map_main.moveLayer('trip-unselected-start', 'trip-points-border');
+    //map_main.moveLayer('trip-unselected-end', 'trip-points-border');
+    //map_main.moveLayer('trip-unselected-line', 'trip-unselected-end');
     return;
 }
 
@@ -846,34 +812,44 @@ export function map_query_rendered_features(feature_layer)
     return;*/
 }
 
-export function map_visualize_background(layer_filter, street_data)
+export function map_visualize_background(layer_filter, zipcode_data)
 {
 
     //console.log(layer_filter);
 
-    let data = generate_data(street_data, layer_filter);
+    let data = generate_data(zipcode_data, layer_filter);
     let map_data = data[0];
     let map_range = data[1];
 
     //console.log(map_data);
     //console.log(map_range);
 
-    let color_range = (layer_filter.layers === 'Density'  || layer_filter.layers === 'entropy') ? ['#14717F','#F5C677','#C13224'] : ['#C13224','#F5C677','#14717F'];
+    let color_range = ['#1a9850','#fee08b','#d73027'];
+    let domain = [0, d3.mean(map_range), d3.max(map_range)];
+    let scale = d3.scaleLinear();
 
-    let color = d3.scaleLinear()
-        .domain([0, d3.mean(map_range), d3.max(map_range)])
-        .range(color_range);
+    if (layer_filter.layers === 'Density') {
 
-    let opacity = d3.scaleLinear()
-        .domain([0, d3.mean(map_range), d3.max(map_range)])
-        .range([0.4,0.5,1]);
+        color_range = ['#1a9850','#fee08b','#d73027'];
+        domain = [0, d3.mean(map_range), d3.max(map_range)];
+        scale = d3.scaleLinear();
+
+    }
+    /*
+    else if (layer_filter.layers === 'entropy') {
+        color_range.reverse();
+    }*/
+
+    let color = scale.domain(domain).range(color_range);
 
     let display_features = [];
-    map_data.forEach(function(street) {
-        street.multiLineString.properties.color = color(street['value']);
-        street.multiLineString.properties.opacity = opacity(street['value']);
-        display_features.push(street.multiLineString);
-    });
+
+    for (let i = 0, len = map_data.length; i < len; i++) {
+        let zipcode = map_data[i];
+        zipcode.polygon.properties.color = color(zipcode['value']);
+        //zipcode.polygon.properties.opacity = color(zipcode['value']);
+        display_features.push(zipcode.polygon);
+    }
 
     let feature_collection = turf.featureCollection(display_features);
 
@@ -897,28 +873,15 @@ export function map_visualize_background(layer_filter, street_data)
 
     let trajectory_layer = {
         id: 'roads-highlight',
-        type: 'line',
+        type: 'fill',
         source: 'roads-highlight',
-        layout: {
-            'line-join': 'round',
-            'line-cap': 'butt'
-        },
         paint: {
-            'line-color': ['get', 'color'],
-            'line-width': [
-                'interpolate',
-                ['linear'],
-                ['zoom'],
-                10,
-                1,
-                15,
-                4
-            ],
-            'line-opacity': ['get', 'opacity']
+            'fill-color': ['get', 'color'],
+            'fill-opacity': 0.5
         }
     }
 
-    map_minimap._miniMap.addLayer(trajectory_layer);
+    //map_minimap._miniMap.addLayer(trajectory_layer);
     map_main.addLayer(trajectory_layer);
 
 
@@ -926,23 +889,37 @@ export function map_visualize_background(layer_filter, street_data)
         let map_data = [];
         let value_ranges = [];
         if (filter.layers === 'Density') {
-            for (let i = 0; i < data.length; ++i) {
+
+            //console.log(data.length);
+
+            for (let i = 0, len = data.length; i < len; i++) {
+
                 map_data.push({
-                    name: data[i].name,
-                    multiLineString: data[i].multiLineString,
-                    value: data[i].count
+                    polygon: data[i],
+                    value: data[i].properties['trip_count']
                 });
-                value_ranges.push(data[i].count);
+
+                value_ranges.push(data[i].properties['trip_count']);
             }
+
         } else {
-            for (let i = 0; i < data.length; ++i) {
+
+            //console.log(data.length);
+
+            for (let i = 0, len = data.length; i < len; i++) {
+
                 let values = [];
-                if (Object.keys(data[i]['performance']).length > 0) {
-                    Object.keys(data[i]['performance']).forEach(function(model) {
+                //console.log(Object.keys(data[i].properties['performance']));
+
+
+
+                if (Object.keys(data[i].properties['performance']).length > 0) {
+
+                    Object.keys(data[i].properties['performance']).forEach(function(model) {
                         if (filter.models.indexOf(model) >= 0) {
-                            Object.keys(data[i]['performance'][model]).forEach(function(action) {
+                            Object.keys(data[i].properties['performance'][model]).forEach(function(action) {
                                 if (filter.actions.indexOf(action) >= 0) {
-                                    let value = data[i]['performance'][model][action][filter.layers];
+                                    let value = data[i].properties['performance'][model][action][filter.layers];
                                     if (value) {
                                         values.push(value);
                                     }
@@ -950,22 +927,41 @@ export function map_visualize_background(layer_filter, street_data)
                             });
                         }
                     });
+
                     let avg = d3.mean(values);
+
                     map_data.push({
-                        name: data[i].name,
-                        multiLineString: data[i].multiLineString,
+                        polygon: data[i],
                         value: (avg) ? avg : 0
                     });
                     value_ranges.push((avg) ? avg : 0);
+
                 } else {
                     map_data.push({
-                        name: data[i].name,
-                        multiLineString: data[i].multiLineString,
+                        polygon: data[i],
                         value: 0
                     });
                 }
             }
         }
+
+        function get_value_category(value) {
+            let category = ['0 - 40','40 - 70','70 - 100']
+            let range = [.5,.6,.8,.9];
+
+            for (let i = 0; i < range.length; ++i) {
+                if (i == range.length - 1) {
+                    if (value > range[i]) {
+                        return category[i];
+                    }
+                } else {
+                    if (value > range[i] && value <= range[i + 1]) {
+                        return category[i];
+                    }
+                }
+            }
+        }
+
         return [map_data, value_ranges]
     }
 }
