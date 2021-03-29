@@ -1047,6 +1047,7 @@ export function vis_model_cases(trips, container_id)
     // Need to remove thumbnails and markers
     d3.selectAll('.thumbnail-container').classed('active', false);
     d3.selectAll('.thumbnail-viewer').remove();
+    d3.selectAll('.thumbnail-action').remove();
     if (vis_marker) { vis_marker.remove(); }
 
     // Summarize all cases
@@ -1109,6 +1110,7 @@ export function vis_model_cases(trips, container_id)
             row.on('click', function() {
                 d3.selectAll('.thumbnail-container').classed('active', false);
                 d3.selectAll('.thumbnail-viewer').remove();
+                d3.selectAll('.thumbnail-action').remove();
                 // For performance issues
                 if (row.classed('active')) {
                     return;
@@ -1257,11 +1259,13 @@ export function vis_representative_images(trips, expression, container_id) {
                 if (d3.select(this).classed('active')) {
                     d3.selectAll('.thumbnail-container').classed('active', false);
                     d3.selectAll('.thumbnail-viewer').remove();
+                    d3.selectAll('.thumbnail-action').remove();
                     if (vis_marker) { vis_marker.remove(); }
                     d3.select(this).classed('active', false);
                 } else {
                     d3.selectAll('.thumbnail-container').classed('active', false);
                     d3.selectAll('.thumbnail-viewer').remove();
+                    d3.selectAll('.thumbnail-action').remove();
                     let thumbnail_viewer = d3.select('#map').append('div')
                         .attr('class', 'thumbnail-viewer')
                         .style('width', '350px')
@@ -1270,6 +1274,19 @@ export function vis_representative_images(trips, expression, container_id) {
                         .style('z-index', '9999')
                         .style('top', '90px')
                         .style('left', '10px');
+                    let thumbnail_action = d3.select('#map').append('div')
+                    .attr('class', 'thumbnail-action')
+                    .style('width', '350px')
+                    .style('height', '20px')
+                    .style('line-height', '20px')
+                    .style('position', 'absolute')
+                    .style('background', 'rgba(255,255,255,1)')
+                    .style('text-align', 'center')
+                    .style('font-size', '16px')
+                    .style('z-index', '9999')
+                    .style('top', '345px')
+                    .style('left', '10px')
+                    .html(action_summary);
 
                     thumbnail_viewer.append('img')
                         .attr('alt', '')
@@ -1832,7 +1849,7 @@ export function vis_trip_viewer(trip, index) {
 
         let action_header = $('<tr/>');
         let data_row = $('<tr/>');
-        let headers = ['Actual Speed', 'TCNN1 Prediction', 'CNN_LSTM Prediction', 'FCN_LSTM Prediction'];
+        let headers = ['Actual Action/Speed', 'TCNN1 Prediction', 'CNN_LSTM Prediction', 'FCN_LSTM Prediction'];
         let header_values = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
         let data_attr = [actual_action + ' ' + speed + ' mph', '<font color="#e41a1c">' + tcnn1_action + '&nbsp' + d3.max(tcnn1).toFixed(2) + '</font>', '<font color="#377eb8">' + cnn_lstm_action + '&nbsp' + d3.max(cnn_lstm).toFixed(2) + '</font.', '<font color="#4daf4a">' + fcn_lstm_action + '&nbsp' + d3.max(fcn_lstm).toFixed(2) + '</font.']
         for (let i = 0, len = headers.length; i < len; i++) {
@@ -1849,35 +1866,61 @@ export function vis_trip_viewer(trip, index) {
             data_row.append(action_value);
             action_value.on('mouseover', function() {
 
-                if (i !== 0) {
-                    let action_color = ['#252525', '#252525', '#252525', '#252525']
-                    let max_index = trip.predict[header_values[i]][index].indexOf(d3.max(trip.predict[header_values[i]][index]));
+                // Show all prediction
+                let prediction_div = $('<div/>', {
+                    id: 'prediction-summary'
+                }).css({
+                    width: 'auto',
+                    height: 'auto',
+                    'font-size': '14px',
+                    'box-sizing': 'border-box',
+                    'text-align': 'center',
+                    'background': 'rgba(255, 255, 255, 0.8)',
+                    'position': 'absolute',
+                    'color': '#252525',
+                    'top': '80px',
+                    'left': '5px',
+                    'z-index': '9999',
+                });
 
-                    action_color[max_index] = 'red';
-
-                    // only 4 action
-                    let straight =  '<font color="' + action_color[0] + '">&nbsp;▲&nbsp;' + trip.predict[header_values[i]][index][0].toFixed(2) + '</font>';
-                    let slow_or_stop = '<font color="' + action_color[1] + '">&nbsp;⬣&nbsp;' + trip.predict[header_values[i]][index][1].toFixed(2) + '</font>';
-                    let turn_left = '<font color="' + action_color[2] + '">&nbsp;◀&nbsp;' + trip.predict[header_values[i]][index][2].toFixed(2) + '</font>';
-                    let turn_right = '<font color="' + action_color[3] + '">&nbsp;▶&nbsp;' + trip.predict[header_values[i]][index][3].toFixed(2) + '</font>';
-
-                    let prediction_div = $('<div/>', {
-                        id: 'prediction-summary'
-                    }).css({
-                        width: '100%',
-                        height: 'auto',
-                        'font-size': '14px',
-                        'box-sizing': 'border-box',
-                        'text-align': 'center',
-                        'background': 'rgba(255, 255, 255, 0.8)',
-                        'position': 'absolute',
-                        'color': '#252525',
-                        'bottom': '0px',
-                        'left': '0px'
-                    });
-                    prediction_div.html( header_values[i] + ' predictions: ' + straight + " " + slow_or_stop + " " + turn_left + " " + turn_right);
-                    $('.trip-viewer').append(prediction_div);
+                let prediction_table = $('<table/>').css({
+                    width: '300px',
+                    height: '200px',
+                });
+                // headers
+                let prediction_headers = $('<tr/>');
+                let model_colors = ['#000', '#e41a1c', '#377eb8', '#4daf4a'];
+                let ths = ['Action', 'TCNN1', 'CNN-LSTM', 'FCN-LSTM'];
+                for (let i = 0, len = ths.length; i < len; i++) {
+                    prediction_headers.append($('<th/>').css({
+                        'color': model_colors[i],
+                        border: '1px solid #C9D2D3'
+                    }).html(ths[i]));
                 }
+
+                prediction_table.append(prediction_headers);
+                let actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+                let action_symbols = ['▲', '⬣', '◀', '▶'];
+                for (let j = 0, j_len = actions.length; j < j_len; j++) {
+                    let action_row = $('<tr/>');
+                    let action_td = $('<td/>').css({
+                        border: '1px solid #C9D2D3'
+                    }).html(action_symbols[j]);
+                    action_row.append(action_td);
+                    for (let k = 1, k_len = 4; k < k_len; k++) {
+                        let max_index = trip.predict[header_values[k]][index].indexOf(d3.max(trip.predict[header_values[k]][index]));
+                        let action_val = trip.predict[header_values[k]][index][j].toFixed(2);
+                        let action_sub_td = $('<td/>').css({
+                            background: (j === (max_index)) ? '#fee391': 'transparent',
+                            border: '1px solid #C9D2D3',
+                        }).html(action_val);
+                        action_row.append(action_sub_td);
+                    }
+                    prediction_table.append(action_row);
+                }
+
+                prediction_div.append(prediction_table);
+                $('#map').append(prediction_div);
             });
             action_value.on('mouseout', function () {
                 $('#prediction-summary').remove();

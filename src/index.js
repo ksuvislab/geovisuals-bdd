@@ -78,7 +78,6 @@ map_main.on('load', function() {
     main_init();
 });
 
-
 export function main_init() {
 
     // Initialize all map components
