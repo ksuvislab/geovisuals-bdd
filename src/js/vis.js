@@ -1733,9 +1733,11 @@ export function vis_trip_viewer(trip, index) {
     d3.select('#trip-slider-' + index).property("value", 0);
 
     if (vis_marker) { vis_marker.remove(); }
-    vis_marker = new mapboxgl.Marker()
-        .setLngLat(trip.locations.coordinates[0])
-        .addTo(map_main);
+    vis_marker = new mapboxgl.Marker({
+        draggable: true
+    })
+    .setLngLat(trip.locations.coordinates[0])
+    .addTo(map_main);
 
     d3.selectAll('.trip-viewer').remove();
 
@@ -1797,10 +1799,9 @@ export function vis_trip_viewer(trip, index) {
                 });
         }
 
-        if (vis_marker) { vis_marker.remove(); }
-        vis_marker = new mapboxgl.Marker()
-            .setLngLat(trip.locations.coordinates[Math.floor(this.value / 3)])
-            .addTo(map_main);
+        if (vis_marker) {
+            vis_marker.setLngLat(trip.locations.coordinates[Math.floor(this.value / 3)]);
+        }
 
         add_trip_action(trip, this.value, index);
     });
@@ -1851,8 +1852,10 @@ export function vis_trip_viewer(trip, index) {
         let data_row = $('<tr/>');
         let headers = ['Actual Action/Speed', 'TCNN1 Prediction', 'CNN_LSTM Prediction', 'FCN_LSTM Prediction'];
         let header_values = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
-        let data_attr = [actual_action + ' ' + speed + ' mph', '<font color="#e41a1c">' + tcnn1_action + '&nbsp' + d3.max(tcnn1).toFixed(2) + '</font>', '<font color="#377eb8">' + cnn_lstm_action + '&nbsp' + d3.max(cnn_lstm).toFixed(2) + '</font.', '<font color="#4daf4a">' + fcn_lstm_action + '&nbsp' + d3.max(fcn_lstm).toFixed(2) + '</font.']
+        let data_attr = [actual_action + ' ' + speed + ' mph', '<font color="#e41a1c">' + tcnn1_action + '&nbsp' + d3.max(tcnn1).toFixed(2) + '</font>', '<font color="#377eb8">' + cnn_lstm_action + '&nbsp' + d3.max(cnn_lstm).toFixed(2) + '</font.', '<font color="#4daf4a">' + fcn_lstm_action + '&nbsp' + d3.max(fcn_lstm).toFixed(2) + '</font.'];
+
         for (let i = 0, len = headers.length; i < len; i++) {
+
             let action_head = $('<th/>').css({
                 width: '100px',
                 border: '1px solid #C9D2D3'
@@ -1933,6 +1936,44 @@ export function vis_trip_viewer(trip, index) {
         action_div.insertAfter('.trip-viewer');
     }
 
+
+    vis_marker.on('drag', function() {
+        let coord = vis_marker.getLngLat();
+        let line = turf.lineString(trip.locations.coordinates);
+        let point = turf.point([coord.lng, coord.lat]);
+        let snapped = turf.nearestPointOnLine(line, point, { units: 'miles' });
+        vis_marker.setLngLat(snapped.geometry.coordinates);
+
+        let snapped_index = snapped.properties.index * 3;
+        //console.log(snapped_index);
+        $('#trip-slider-' + index).val(snapped_index);
+
+        d3.select('#trip-viwer-image')
+            .attr('src', '/frames/' + trip.trip_id + '/' + snapped_index + '.png');
+
+        d3.selectAll('.trip-video-line')
+            .attr("x1", x(snapped_index))
+            .attr("y1", -15)
+            .attr("x2", x(snapped_index))
+            .attr("y2", 300);
+
+        let keys = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+        for (let i = 0, len = keys.length; i < len; i++) {
+            d3.select('#trip-text-' + keys[i])
+                .attr('x', (snapped_index > 70) ? x(snapped_index) - 2 : x(snapped_index) + 2)
+                .attr("text-anchor", (snapped_index > 70) ? 'end' : 'start')
+                .text(function() {
+                    if (keys[i] === 'actual') {
+                        return 'Speed: ' + trip.speeds[Math.floor(snapped_index/3)].toFixed(2) +  ' mph';
+                    } else {
+                        return 'Perplexity: ' + trip.entropy[keys[i]][snapped_index].toFixed(2);
+                    }
+                });
+        }
+
+        add_trip_action(trip, snapped_index, index);
+    });
+
     return;
 }
 
@@ -1953,6 +1994,7 @@ export function vis_trips_study(trip, index) {
         .style('box-sizing', 'border-box');
 
     vis_draw_action(trip, trip_container, index);
+    return;
 }
 
 export function vis_draw_action(trip, div, index) {
@@ -2192,6 +2234,8 @@ export function vis_draw_action(trip, div, index) {
             .attr('transform', function(d) {
                 return "translate(" + x + "," + y + ") rotate(" + rotate + ")";
             });
+
+        return;
     }
 }
 
@@ -2210,8 +2254,6 @@ export function vis_create_trip_info(trip, div, index)
             .style('color', '#252525')
             .html('&nbsp;' + other_labels[i] + ': ' + trip[others[i]] + "&nbsp;");
     }
-
-
 
     let trip_slider_container = div.append('div')
         .style('width', '100%')

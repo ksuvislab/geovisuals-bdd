@@ -375,16 +375,16 @@ export function map_draw_all_points(coords) {
         type: 'circle',
         source: 'trip-points',
         paint: {
-            'circle-color': '#525252',
+            'circle-color': '#0570b0',
             'circle-opacity': 0.1,
             'circle-radius': [
                 'interpolate',
                 ['linear'],
                 ['zoom'],
                 10,
-                4,
+                3,
                 15,
-                8
+                6
             ]
         }
     }

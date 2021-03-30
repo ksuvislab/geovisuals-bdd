@@ -254,7 +254,7 @@ export function view_trip_critical_location_legend(map_container_id)
             trip_heatmap_icon.classed('fas fa-circle', false);
             trip_heatmap_icon.classed('fas fa-check-circle', true);
             if (map_main.getLayer('trip-filtered-trajectory')) {
-                map_main.setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0.7);
+                map_main.setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0.5);
             }
             trip_heatmap.classed('active', true);
         }
@@ -333,7 +333,7 @@ export function view_trip_critical_location_legend(map_container_id)
             point_icon.classed('fas fa-check-circle', true);
 
             if (map_main.getLayer('trip-points')) {
-                map_main.setPaintProperty('trip-points', 'circle-opacity', 0.9);
+                map_main.setPaintProperty('trip-points', 'circle-opacity', 0.1);
             }
 
             // Hide map layer
