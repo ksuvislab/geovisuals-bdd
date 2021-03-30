@@ -54314,9 +54314,9 @@ function map_draw_all_points(coords) {
         type: 'circle',
         source: 'trip-points',
         paint: {
-            'circle-color': '#525252',
+            'circle-color': '#0570b0',
             'circle-opacity': 0.1,
-            'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 4, 15, 8]
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 3, 15, 6]
         }
     };
 
@@ -56681,7 +56681,7 @@ function view_trip_critical_location_legend(map_container_id) {
             trip_heatmap_icon.classed('fas fa-circle', false);
             trip_heatmap_icon.classed('fas fa-check-circle', true);
             if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-filtered-trajectory')) {
-                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0.7);
+                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-filtered-trajectory', 'heatmap-opacity', 0.5);
             }
             trip_heatmap.classed('active', true);
         }
@@ -56737,7 +56737,7 @@ function view_trip_critical_location_legend(map_container_id) {
             point_icon.classed('fas fa-check-circle', true);
 
             if (_map__WEBPACK_IMPORTED_MODULE_0__["map_main"].getLayer('trip-points')) {
-                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-points', 'circle-opacity', 0.9);
+                _map__WEBPACK_IMPORTED_MODULE_0__["map_main"].setPaintProperty('trip-points', 'circle-opacity', 0.1);
             }
 
             // Hide map layer
@@ -57048,7 +57048,7 @@ function view_init_trip_filter_tab() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($, d3, mapboxgl) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_is_parallelsets_filter", function() { return vis_is_parallelsets_filter; });
+/* WEBPACK VAR INJECTION */(function($, d3, mapboxgl, turf) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_is_parallelsets_filter", function() { return vis_is_parallelsets_filter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_selected_nodes", function() { return vis_selected_nodes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_marker", function() { return vis_marker; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vis_global_view", function() { return vis_global_view; });
@@ -57841,6 +57841,7 @@ function vis_model_cases(trips, container_id) {
     // Need to remove thumbnails and markers
     d3.selectAll('.thumbnail-container').classed('active', false);
     d3.selectAll('.thumbnail-viewer').remove();
+    d3.selectAll('.thumbnail-action').remove();
     if (vis_marker) {
         vis_marker.remove();
     }
@@ -57882,6 +57883,7 @@ function vis_model_cases(trips, container_id) {
             row.on('click', function () {
                 d3.selectAll('.thumbnail-container').classed('active', false);
                 d3.selectAll('.thumbnail-viewer').remove();
+                d3.selectAll('.thumbnail-action').remove();
                 // For performance issues
                 if (row.classed('active')) {
                     return;
@@ -58019,6 +58021,7 @@ function vis_representative_images(trips, expression, container_id) {
             if (d3.select(this).classed('active')) {
                 d3.selectAll('.thumbnail-container').classed('active', false);
                 d3.selectAll('.thumbnail-viewer').remove();
+                d3.selectAll('.thumbnail-action').remove();
                 if (vis_marker) {
                     vis_marker.remove();
                 }
@@ -58026,7 +58029,9 @@ function vis_representative_images(trips, expression, container_id) {
             } else {
                 d3.selectAll('.thumbnail-container').classed('active', false);
                 d3.selectAll('.thumbnail-viewer').remove();
+                d3.selectAll('.thumbnail-action').remove();
                 let thumbnail_viewer = d3.select('#map').append('div').attr('class', 'thumbnail-viewer').style('width', '350px').style('height', '250px').style('position', 'absolute').style('z-index', '9999').style('top', '90px').style('left', '10px');
+                let thumbnail_action = d3.select('#map').append('div').attr('class', 'thumbnail-action').style('width', '350px').style('height', '20px').style('line-height', '20px').style('position', 'absolute').style('background', 'rgba(255,255,255,1)').style('text-align', 'center').style('font-size', '16px').style('z-index', '9999').style('top', '345px').style('left', '10px').html(action_summary);
 
                 thumbnail_viewer.append('img').attr('alt', '').attr('src', image_path).style('width', '100%').style('height', '100%').style('background', '#737373').style('border-radius', '5px').style('border', '1px solid #737373').style('opacity', 0).transition().duration(1000).style('opacity', 1);
 
@@ -58310,7 +58315,9 @@ function vis_trip_viewer(trip, index) {
     if (vis_marker) {
         vis_marker.remove();
     }
-    vis_marker = new mapboxgl.Marker().setLngLat(trip.locations.coordinates[0]).addTo(_map__WEBPACK_IMPORTED_MODULE_1__["map_main"]);
+    vis_marker = new mapboxgl.Marker({
+        draggable: true
+    }).setLngLat(trip.locations.coordinates[0]).addTo(_map__WEBPACK_IMPORTED_MODULE_1__["map_main"]);
 
     d3.selectAll('.trip-viewer').remove();
 
@@ -58363,9 +58370,8 @@ function vis_trip_viewer(trip, index) {
         }
 
         if (vis_marker) {
-            vis_marker.remove();
+            vis_marker.setLngLat(trip.locations.coordinates[Math.floor(this.value / 3)]);
         }
-        vis_marker = new mapboxgl.Marker().setLngLat(trip.locations.coordinates[Math.floor(this.value / 3)]).addTo(_map__WEBPACK_IMPORTED_MODULE_1__["map_main"]);
 
         add_trip_action(trip, this.value, index);
     });
@@ -58414,10 +58420,12 @@ function vis_trip_viewer(trip, index) {
 
         let action_header = $('<tr/>');
         let data_row = $('<tr/>');
-        let headers = ['Actual Speed', 'TCNN1 Prediction', 'CNN_LSTM Prediction', 'FCN_LSTM Prediction'];
+        let headers = ['Actual Action/Speed', 'TCNN1 Prediction', 'CNN_LSTM Prediction', 'FCN_LSTM Prediction'];
         let header_values = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
         let data_attr = [actual_action + ' ' + speed + ' mph', '<font color="#e41a1c">' + tcnn1_action + '&nbsp' + d3.max(tcnn1).toFixed(2) + '</font>', '<font color="#377eb8">' + cnn_lstm_action + '&nbsp' + d3.max(cnn_lstm).toFixed(2) + '</font.', '<font color="#4daf4a">' + fcn_lstm_action + '&nbsp' + d3.max(fcn_lstm).toFixed(2) + '</font.'];
+
         for (let i = 0, len = headers.length; i < len; i++) {
+
             let action_head = $('<th/>').css({
                 width: '100px',
                 border: '1px solid #C9D2D3'
@@ -58431,35 +58439,61 @@ function vis_trip_viewer(trip, index) {
             data_row.append(action_value);
             action_value.on('mouseover', function () {
 
-                if (i !== 0) {
-                    let action_color = ['#252525', '#252525', '#252525', '#252525'];
-                    let max_index = trip.predict[header_values[i]][index].indexOf(d3.max(trip.predict[header_values[i]][index]));
+                // Show all prediction
+                let prediction_div = $('<div/>', {
+                    id: 'prediction-summary'
+                }).css({
+                    width: 'auto',
+                    height: 'auto',
+                    'font-size': '14px',
+                    'box-sizing': 'border-box',
+                    'text-align': 'center',
+                    'background': 'rgba(255, 255, 255, 0.8)',
+                    'position': 'absolute',
+                    'color': '#252525',
+                    'top': '80px',
+                    'left': '5px',
+                    'z-index': '9999'
+                });
 
-                    action_color[max_index] = 'red';
-
-                    // only 4 action
-                    let straight = '<font color="' + action_color[0] + '">&nbsp;▲&nbsp;' + trip.predict[header_values[i]][index][0].toFixed(2) + '</font>';
-                    let slow_or_stop = '<font color="' + action_color[1] + '">&nbsp;⬣&nbsp;' + trip.predict[header_values[i]][index][1].toFixed(2) + '</font>';
-                    let turn_left = '<font color="' + action_color[2] + '">&nbsp;◀&nbsp;' + trip.predict[header_values[i]][index][2].toFixed(2) + '</font>';
-                    let turn_right = '<font color="' + action_color[3] + '">&nbsp;▶&nbsp;' + trip.predict[header_values[i]][index][3].toFixed(2) + '</font>';
-
-                    let prediction_div = $('<div/>', {
-                        id: 'prediction-summary'
-                    }).css({
-                        width: '100%',
-                        height: 'auto',
-                        'font-size': '14px',
-                        'box-sizing': 'border-box',
-                        'text-align': 'center',
-                        'background': 'rgba(255, 255, 255, 0.8)',
-                        'position': 'absolute',
-                        'color': '#252525',
-                        'bottom': '0px',
-                        'left': '0px'
-                    });
-                    prediction_div.html(header_values[i] + ' predictions: ' + straight + " " + slow_or_stop + " " + turn_left + " " + turn_right);
-                    $('.trip-viewer').append(prediction_div);
+                let prediction_table = $('<table/>').css({
+                    width: '300px',
+                    height: '200px'
+                });
+                // headers
+                let prediction_headers = $('<tr/>');
+                let model_colors = ['#000', '#e41a1c', '#377eb8', '#4daf4a'];
+                let ths = ['Action', 'TCNN1', 'CNN-LSTM', 'FCN-LSTM'];
+                for (let i = 0, len = ths.length; i < len; i++) {
+                    prediction_headers.append($('<th/>').css({
+                        'color': model_colors[i],
+                        border: '1px solid #C9D2D3'
+                    }).html(ths[i]));
                 }
+
+                prediction_table.append(prediction_headers);
+                let actions = ['straight', 'slow_or_stop', 'turn_left', 'turn_right'];
+                let action_symbols = ['▲', '⬣', '◀', '▶'];
+                for (let j = 0, j_len = actions.length; j < j_len; j++) {
+                    let action_row = $('<tr/>');
+                    let action_td = $('<td/>').css({
+                        border: '1px solid #C9D2D3'
+                    }).html(action_symbols[j]);
+                    action_row.append(action_td);
+                    for (let k = 1, k_len = 4; k < k_len; k++) {
+                        let max_index = trip.predict[header_values[k]][index].indexOf(d3.max(trip.predict[header_values[k]][index]));
+                        let action_val = trip.predict[header_values[k]][index][j].toFixed(2);
+                        let action_sub_td = $('<td/>').css({
+                            background: j === max_index ? '#fee391' : 'transparent',
+                            border: '1px solid #C9D2D3'
+                        }).html(action_val);
+                        action_row.append(action_sub_td);
+                    }
+                    prediction_table.append(action_row);
+                }
+
+                prediction_div.append(prediction_table);
+                $('#map').append(prediction_div);
             });
             action_value.on('mouseout', function () {
                 $('#prediction-summary').remove();
@@ -58471,6 +58505,35 @@ function vis_trip_viewer(trip, index) {
         action_div.append(action_table);
         action_div.insertAfter('.trip-viewer');
     }
+
+    vis_marker.on('drag', function () {
+        let coord = vis_marker.getLngLat();
+        let line = turf.lineString(trip.locations.coordinates);
+        let point = turf.point([coord.lng, coord.lat]);
+        let snapped = turf.nearestPointOnLine(line, point, { units: 'miles' });
+        vis_marker.setLngLat(snapped.geometry.coordinates);
+
+        let snapped_index = snapped.properties.index * 3;
+        //console.log(snapped_index);
+        $('#trip-slider-' + index).val(snapped_index);
+
+        d3.select('#trip-viwer-image').attr('src', '/frames/' + trip.trip_id + '/' + snapped_index + '.png');
+
+        d3.selectAll('.trip-video-line').attr("x1", x(snapped_index)).attr("y1", -15).attr("x2", x(snapped_index)).attr("y2", 300);
+
+        let keys = ['actual', 'tcnn1', 'cnn_lstm', 'fcn_lstm'];
+        for (let i = 0, len = keys.length; i < len; i++) {
+            d3.select('#trip-text-' + keys[i]).attr('x', snapped_index > 70 ? x(snapped_index) - 2 : x(snapped_index) + 2).attr("text-anchor", snapped_index > 70 ? 'end' : 'start').text(function () {
+                if (keys[i] === 'actual') {
+                    return 'Speed: ' + trip.speeds[Math.floor(snapped_index / 3)].toFixed(2) + ' mph';
+                } else {
+                    return 'Perplexity: ' + trip.entropy[keys[i]][snapped_index].toFixed(2);
+                }
+            });
+        }
+
+        add_trip_action(trip, snapped_index, index);
+    });
 
     return;
 }
@@ -58489,6 +58552,7 @@ function vis_trips_study(trip, index) {
     let trip_container = d3.select('#tripview-body').append('div').style('width', '100%').style('height', 230 + 'px').style('box-sizing', 'border-box');
 
     vis_draw_action(trip, trip_container, index);
+    return;
 }
 
 function vis_draw_action(trip, div, index) {
@@ -58661,6 +58725,8 @@ function vis_draw_action(trip, div, index) {
         g.append('path').attr('d', d3.symbol().size(size).type(symbol)).attr('fill', color).attr('stroke', color).attr('stroke-width', 1).attr('transform', function (d) {
             return "translate(" + x + "," + y + ") rotate(" + rotate + ")";
         });
+
+        return;
     }
 }
 
@@ -58679,7 +58745,7 @@ function vis_create_trip_info(trip, div, index) {
 
     return;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js"), __webpack_require__(/*! mapbox-gl */ "./node_modules/mapbox-gl/dist/mapbox-gl.js")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! d3 */ "./node_modules/d3/index.js"), __webpack_require__(/*! mapbox-gl */ "./node_modules/mapbox-gl/dist/mapbox-gl.js"), __webpack_require__(/*! @turf/turf */ "./node_modules/@turf/turf/turf.min.js")))
 
 /***/ })
 

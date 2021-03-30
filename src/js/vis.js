@@ -1242,94 +1242,96 @@ export function vis_representative_images(trips, expression, container_id) {
     // Display images
     for (let i = 0, len = (all_images.length > 500) ? 1000 : all_images.length; i < len; i++) {
         let image = all_images[i];
-        let action_summary = image.actual + '&nbsp;&nbsp;<font color="#e41a1c">' + image.tcnn1 + '</font>&nbsp;&nbsp;<font color="#377eb8">' +  image.cnn_lstm + '</font>&nbsp;&nbsp;<font color="#4daf4a">' + image.fcn_lstm + '</font>';
-        // Adding new div
-        let image_path = image.path;
-        let image_container = d3.select('#' + container_id).append('div')
-            .attr('id', 'image-container-' + image.trip_id + '-' + image.index)
-            .attr('class', 'thumbnail-container')
-            .style('position', 'relative')
-            .style('width', '147px')
-            .style('height', '100px')
-            .style('border', '1px solid #737373')
-            .style('cursor', 'pointer')
-            .style('float', 'left')
-            .on('click', function () {
+        if (image) {
+            let action_summary = image.actual + '&nbsp;&nbsp;<font color="#e41a1c">' + image.tcnn1 + '</font>&nbsp;&nbsp;<font color="#377eb8">' +  image.cnn_lstm + '</font>&nbsp;&nbsp;<font color="#4daf4a">' + image.fcn_lstm + '</font>';
+            // Adding new div
+            let image_path = image.path;
+            let image_container = d3.select('#' + container_id).append('div')
+                .attr('id', 'image-container-' + image.trip_id + '-' + image.index)
+                .attr('class', 'thumbnail-container')
+                .style('position', 'relative')
+                .style('width', '147px')
+                .style('height', '100px')
+                .style('border', '1px solid #737373')
+                .style('cursor', 'pointer')
+                .style('float', 'left')
+                .on('click', function () {
 
-                if (d3.select(this).classed('active')) {
-                    d3.selectAll('.thumbnail-container').classed('active', false);
-                    d3.selectAll('.thumbnail-viewer').remove();
-                    d3.selectAll('.thumbnail-action').remove();
-                    if (vis_marker) { vis_marker.remove(); }
-                    d3.select(this).classed('active', false);
-                } else {
-                    d3.selectAll('.thumbnail-container').classed('active', false);
-                    d3.selectAll('.thumbnail-viewer').remove();
-                    d3.selectAll('.thumbnail-action').remove();
-                    let thumbnail_viewer = d3.select('#map').append('div')
-                        .attr('class', 'thumbnail-viewer')
+                    if (d3.select(this).classed('active')) {
+                        d3.selectAll('.thumbnail-container').classed('active', false);
+                        d3.selectAll('.thumbnail-viewer').remove();
+                        d3.selectAll('.thumbnail-action').remove();
+                        if (vis_marker) { vis_marker.remove(); }
+                        d3.select(this).classed('active', false);
+                    } else {
+                        d3.selectAll('.thumbnail-container').classed('active', false);
+                        d3.selectAll('.thumbnail-viewer').remove();
+                        d3.selectAll('.thumbnail-action').remove();
+                        let thumbnail_viewer = d3.select('#map').append('div')
+                            .attr('class', 'thumbnail-viewer')
+                            .style('width', '350px')
+                            .style('height', '250px')
+                            .style('position', 'absolute')
+                            .style('z-index', '9999')
+                            .style('top', '90px')
+                            .style('left', '10px');
+                        let thumbnail_action = d3.select('#map').append('div')
+                        .attr('class', 'thumbnail-action')
                         .style('width', '350px')
-                        .style('height', '250px')
+                        .style('height', '20px')
+                        .style('line-height', '20px')
                         .style('position', 'absolute')
+                        .style('background', 'rgba(255,255,255,1)')
+                        .style('text-align', 'center')
+                        .style('font-size', '16px')
                         .style('z-index', '9999')
-                        .style('top', '90px')
-                        .style('left', '10px');
-                    let thumbnail_action = d3.select('#map').append('div')
-                    .attr('class', 'thumbnail-action')
-                    .style('width', '350px')
-                    .style('height', '20px')
-                    .style('line-height', '20px')
-                    .style('position', 'absolute')
-                    .style('background', 'rgba(255,255,255,1)')
-                    .style('text-align', 'center')
-                    .style('font-size', '16px')
-                    .style('z-index', '9999')
-                    .style('top', '345px')
-                    .style('left', '10px')
-                    .html(action_summary);
+                        .style('top', '345px')
+                        .style('left', '10px')
+                        .html(action_summary);
 
-                    thumbnail_viewer.append('img')
-                        .attr('alt', '')
-                        .attr('src', image_path)
-                        .style('width', '100%')
-                        .style('height', '100%')
-                        .style('background', '#737373')
-                        .style('border-radius', '5px')
-                        .style('border', '1px solid #737373')
-                        .style('opacity', 0)
-                        .transition()
-                        .duration(1000)
-                        .style('opacity', 1);
+                        thumbnail_viewer.append('img')
+                            .attr('alt', '')
+                            .attr('src', image_path)
+                            .style('width', '100%')
+                            .style('height', '100%')
+                            .style('background', '#737373')
+                            .style('border-radius', '5px')
+                            .style('border', '1px solid #737373')
+                            .style('opacity', 0)
+                            .transition()
+                            .duration(1000)
+                            .style('opacity', 1);
 
-                    // Show location
-                    if (vis_marker) { vis_marker.remove(); }
-                    vis_marker = new mapboxgl.Marker()
-                        .setLngLat(image.location)
-                        .addTo(map_main);
+                        // Show location
+                        if (vis_marker) { vis_marker.remove(); }
+                        vis_marker = new mapboxgl.Marker()
+                            .setLngLat(image.location)
+                            .addTo(map_main);
 
-                    d3.select(this).classed('active', true);
-                }
-            });
+                        d3.select(this).classed('active', true);
+                    }
+                });
 
-        image_container.append('img')
-            .attr('id', 'image-' + image.trip_id + '-' + image.index)
-            .attr('class', 'case-images')
-            .attr('alt', '')
-            .attr('src', image_path)
-            .style('width', '100%')
-            .style('height', '100%');
+            image_container.append('img')
+                .attr('id', 'image-' + image.trip_id + '-' + image.index)
+                .attr('class', 'case-images')
+                .attr('alt', '')
+                .attr('src', image_path)
+                .style('width', '100%')
+                .style('height', '100%');
 
-        image_container.append('div')
-            .style('position', 'absolute')
-            .style('width', '100%')
-            .style('height', '16px')
-            .style('line-height', '16px')
-            .style('font-size', '14px')
-            .style('bottom', '0px')
-            .style('background', 'rgba(255,255,255,0.9)')
-            .style('left', '0px')
-            .style('text-align', 'center')
-            .html(action_summary);
+            image_container.append('div')
+                .style('position', 'absolute')
+                .style('width', '100%')
+                .style('height', '16px')
+                .style('line-height', '16px')
+                .style('font-size', '14px')
+                .style('bottom', '0px')
+                .style('background', 'rgba(255,255,255,0.9)')
+                .style('left', '0px')
+                .style('text-align', 'center')
+                .html(action_summary);
+        }
     }
 
     return;
