@@ -15,6 +15,7 @@ import {
 } from './utils';
 
 import { view_trip_filter_mode } from './view';
+import * as GIF from './plugin/gif';
 
 export var vis_is_parallelsets_filter = false;
 let CAR_ACTIONS = ['straight', 'slow_or_stop', 'turn_left', 'turn_right', 'turn_left_slight', 'turn_right_slight'];
@@ -1762,6 +1763,8 @@ export function vis_trip_viewer(trip, index) {
         height: '100%'
     });
 
+    add_to_video('/frames/' + trip.trip_id + '/');
+
     viewer.append(img);
     viewer.insertAfter('#trip-info-' + index);
     add_trip_action(trip, index);
@@ -1975,6 +1978,76 @@ export function vis_trip_viewer(trip, index) {
 
         add_trip_action(trip, snapped_index, index);
     });
+
+    function add_to_video(image_src) {
+
+        var gif = new GIF({
+            workers: 2,
+            quality: 10,
+            delay: 0,
+            repeat: 'none'
+        });
+
+        for (let i = 0; i < 108; i++) {
+            let img = document.createElement('img');
+            img.src = image_src + i + '.png';
+            img.alt = '';
+            img.width = '640';
+            img.height = '360';
+            gif.addFrame(img);
+        }
+
+        gif.on('finished', function(blob) {
+
+            // add play button
+            let play_button = $('<button/>').css({
+                    position: 'absolute',
+                    top: '5px',
+                    right: '5px',
+                    width: '60px',
+                    height: '60px',
+                    border: 'none',
+                    outline: 'none',
+                    background: 'transparent',
+                    cursor: 'pointer',
+                    color: '#fff',
+                    'font-size': '50px',
+                    'z-index': '9999'
+                }).html('<i class="far fa-play-circle"></i>');
+
+            $('.trip-viewer').append(play_button);
+
+            play_button.on('click', function() {
+                play_button.toggleClass('active');
+                if (play_button.hasClass('active')) {
+                    play_button.html('<i class="far fa-pause-circle"></i>');
+                    $('#trip-viwer-image').remove();
+                    let img_video  = $('<img/>', {
+                        id: 'trip-viwer-image',
+                        alt: '',
+                        src: URL.createObjectURL(blob)
+                    }).css({
+                        width: '100%',
+                        height: '100%'
+                    });
+                    $('.trip-viewer').append(img_video);
+                } else {
+                    play_button.html('<i class="far fa-play-circle"></i>');
+                    $('#trip-viwer-image').remove();
+                    let img_element  = $('<img/>', {
+                        id: 'trip-viwer-image',
+                        alt: '',
+                        src: '/frames/' + trip.trip_id + '/' + 0 + '.png'
+                    }).css({
+                        width: '100%',
+                        height: '100%'
+                    });
+                    $('.trip-viewer').append(img_element);
+                }
+            });
+        });
+        gif.render();
+    }
 
     return;
 }

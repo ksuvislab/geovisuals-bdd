@@ -76,6 +76,7 @@ map_initialize('map');
 // Fire when map finished loading
 map_main.on('load', function() {
     main_init();
+    var worker = new Worker('gif.worker.js');
 });
 
 export function main_init() {
